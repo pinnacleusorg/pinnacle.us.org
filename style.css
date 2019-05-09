@@ -9,7 +9,8 @@ html, body {
 
 body {
   position: relative;
-  background-color: black; }
+  background-color: black;
+  font-family: 'Work Sans', sans-serif; }
   body a {
     color: inherit;
     text-decoration: none; }
@@ -31,8 +32,7 @@ body {
   #main .header, #main .footer {
     position: absolute;
     width: 100%;
-    color: white;
-    font-family: 'Work Sans', sans-serif; }
+    color: white; }
   #main .header {
     top: 0;
     left: 0;
@@ -59,21 +59,28 @@ body {
     overflow: visible; }
     #main .content .logo {
       text-align: center;
-      border-radius: 5px;
-      padding: 1vw;
-      font-family: "CircularStd-Book", sans-serif; }
+      padding-bottom: 0.5vw;
+      font-family: 'Six Caps', sans-serif;
+      letter-spacing: 1.5em;
+      overflow: visible;
+      background-image: linear-gradient(to right, black, black 30%, #FFC46F 30%, #FFC46F 70%, black 70%, black); }
       #main .content .logo .text {
         padding: 2vw 5vw;
         display: block;
         background-color: black;
-        border-radius: 5px;
         color: white;
         font-size: 15vw;
-        overflow: visible; }
+        overflow: visible;
+        color: #FFC46F; }
         #main .content .logo .text .SF {
           color: white;
           transition: color 0.2s; }
           #main .content .logo .text .SF:hover {
             color: #c0362c; }
+    #main .content .subtext {
+      text-align: center;
+      color: white;
+      margin-top: 2.5em;
+      font-size: 1.75vw; }
 
 /*# sourceMappingURL=style.css.map */
