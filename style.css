@@ -60,8 +60,6 @@ body {
     #main .content .logo {
       text-align: center;
       padding-bottom: 0.5vw;
-      font-family: 'Six Caps', sans-serif;
-      letter-spacing: 1.5em;
       overflow: visible;
       background-image: linear-gradient(to right, black, black 30%, #FFC46F 30%, #FFC46F 70%, black 70%, black); }
       #main .content .logo .text {
@@ -71,16 +69,20 @@ body {
         color: white;
         font-size: 15vw;
         overflow: visible;
-        color: #FFC46F; }
-        #main .content .logo .text .SF {
-          color: white;
-          transition: color 0.2s; }
-          #main .content .logo .text .SF:hover {
-            color: #c0362c; }
+        color: #FFC46F;
+        font-family: 'Six Caps', sans-serif;
+        letter-spacing: 20px; }
+        @media (max-width: 900px) {
+          #main .content .logo .text {
+            font-size: 25vw;
+            letter-spacing: 3.5vw; } }
     #main .content .subtext {
       text-align: center;
       color: white;
       margin-top: 2.5em;
       font-size: 1.75vw; }
+      @media (max-width: 900px) {
+        #main .content .subtext {
+          font-size: 3.5vw; } }
 
 /*# sourceMappingURL=style.css.map */

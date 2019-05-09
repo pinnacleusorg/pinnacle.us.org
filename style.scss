@@ -74,8 +74,6 @@ body {
       // border-radius: 5px;
       // padding: 1vw;
       padding-bottom: 0.5vw;
-      font-family: 'Six Caps', sans-serif;
-      letter-spacing: 1.5em;
       overflow: visible;
       background-image: linear-gradient(to right, black, black 30%, #FFC46F 30%, #FFC46F 70%, black 70%, black);
       .text {
@@ -90,12 +88,11 @@ body {
         color: #FFC46F;
         // -webkit-background-clip: text;
         // -webkit-text-fill-color: transparent;
-        .SF {
-          color: white;
-          transition: color 0.2s;
-          &:hover {
-             color: #c0362c;
-          }
+        font-family: 'Six Caps', sans-serif;
+        letter-spacing: 20px;
+        @media(max-width: 900px) {
+          font-size: 25vw;
+          letter-spacing: 3.5vw;
         }
       }
     }
@@ -104,6 +101,9 @@ body {
       color: white;
       margin-top: 2.5em;
       font-size: 1.75vw;
+      @media(max-width: 900px) {
+        font-size: 3.5vw;
+      }
     }
   }
 }
