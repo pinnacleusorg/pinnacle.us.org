@@ -74,7 +74,7 @@ body {
         letter-spacing: 20px; }
         @media (max-width: 900px) {
           #main .content .logo .text {
-            font-size: 25vw;
+            font-size: 30vw;
             letter-spacing: 3.5vw; } }
     #main .content .subtext {
       text-align: center;
@@ -83,6 +83,6 @@ body {
       font-size: 1.75vw; }
       @media (max-width: 900px) {
         #main .content .subtext {
-          font-size: 3.5vw; } }
+          font-size: 5vw; } }
 
 /*# sourceMappingURL=style.css.map */
