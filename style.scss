@@ -71,8 +71,6 @@ body {
     overflow: visible;
     .logo {
       text-align: center;
-      // border-radius: 5px;
-      // padding: 1vw;
       padding-bottom: 0.5vw;
       overflow: visible;
       background-image: linear-gradient(to right, black, black 30%, #FFC46F 30%, #FFC46F 70%, black 70%, black);
@@ -80,14 +78,10 @@ body {
         padding: 2vw 5vw;
         display: block;
         background-color: black;
-        // border-radius: 5px;
         color: white;
         font-size: 15vw;
         overflow: visible;
-        // background-image: linear-gradient(to right, #2d2111, #FFC46F, #FFC46F, #2d2111);
         color: #FFC46F;
-        // -webkit-background-clip: text;
-        // -webkit-text-fill-color: transparent;
         font-family: 'Six Caps', sans-serif;
         letter-spacing: 20px;
         @media(max-width: 900px) {
