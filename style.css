@@ -1,88 +1,104 @@
 * {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 
 html, body {
   width: 100%;
   height: 100%;
   padding: 0;
-  margin: 0; }
+  margin: 0;
+}
 
 body {
   position: relative;
   background-color: black;
-  font-family: 'Work Sans', sans-serif; }
-  body a {
-    color: inherit;
-    text-decoration: none; }
-    body a:focus, body a:hover, body a:visited {
-      color: inherit;
-      text-decoration: none; }
-    body a:hover {
-      text-decoration: underline; }
+  font-family: "Work Sans", sans-serif;
+}
+body a {
+  color: inherit;
+  text-decoration: none;
+}
+body a:focus, body a:hover, body a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+body a:hover {
+  text-decoration: underline;
+}
 
 #particles {
   position: absolute;
   width: 100%;
-  height: 100%; }
+  height: 100%;
+}
 
 #main {
   width: 100%;
   height: 100%;
-  position: relative; }
-  #main .header, #main .footer {
-    position: absolute;
-    width: 100%;
-    color: white; }
-  #main .header {
-    top: 0;
-    left: 0;
-    padding: 20px; }
-  #main .footer {
-    bottom: 0;
-    left: 0;
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    padding: 10px; }
-    #main .footer .link {
-      padding: 15px;
-      background-color: rgba(35, 35, 35, 0.3);
-      transition: background-color 0.25s; }
-      #main .footer .link:hover {
-        background-color: rgba(35, 35, 35, 0.8); }
-  #main .content {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: visible; }
-    #main .content .logo {
-      text-align: center;
-      padding-bottom: 0.5vw;
-      overflow: visible;
-      background-image: linear-gradient(to right, black, black 30%, #FFC46F 30%, #FFC46F 70%, black 70%, black); }
-      #main .content .logo .text {
-        padding: 2vw 5vw;
-        display: block;
-        background-color: black;
-        color: white;
-        font-size: 15vw;
-        overflow: visible;
-        color: #FFC46F;
-        font-family: 'Six Caps', sans-serif;
-        letter-spacing: 20px; }
-        @media (max-width: 900px) {
-          #main .content .logo .text {
-            font-size: 30vw;
-            letter-spacing: 3.5vw; } }
-    #main .content .subtext {
-      text-align: center;
-      color: white;
-      margin-top: 2.5em;
-      font-size: 1.75vw; }
-      @media (max-width: 900px) {
-        #main .content .subtext {
-          font-size: 5vw; } }
+  position: relative;
+}
+#main .header, #main .footer {
+  position: absolute;
+  width: 100%;
+  color: white;
+}
+#main .header {
+  top: 0;
+  left: 0;
+  padding: 20px;
+}
+#main .footer {
+  bottom: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 10px;
+}
+#main .footer .links .link {
+  display: inline-block;
+  padding: 15px;
+  background-color: rgba(35, 35, 35, 0.3);
+  transition: background-color 0.25s;
+}
+#main .footer .links .link:hover {
+  background-color: rgba(35, 35, 35, 0.8);
+}
+#main .content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+}
+#main .content .logo {
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+#main .content .logo .icon, #main .content .logo .textLogo {
+  flex: 100%;
+  margin: 20px;
+}
+#main .content .logo .icon img {
+  width: 13vw;
+}
+#main .content .logo .textLogo img {
+  width: 40vw;
+}
+#main .content .subtext {
+  text-align: center;
+  color: white;
+  margin-top: 2.5em;
+  font-size: 1.75vw;
+}
+@media (max-width: 900px) {
+  #main .content .subtext {
+    font-size: 5vw;
+  }
+}
 
 /*# sourceMappingURL=style.css.map */

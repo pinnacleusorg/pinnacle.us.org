@@ -53,12 +53,15 @@ body {
     width: 100%;
     justify-content: space-between;
     padding: 10px;
-    .link {
-      padding: 15px;
-      background-color: rgba(35,35,35,0.3);
-      transition: background-color 0.25s;
-      &:hover {
-        background-color: rgba(35,35,35,0.8);
+    .links {
+      .link {
+        display: inline-block;
+        padding: 15px;
+        background-color: rgba(35,35,35,0.3);
+        transition: background-color 0.25s;
+        &:hover {
+          background-color: rgba(35,35,35,0.8);
+        }
       }
     }
   }
@@ -71,23 +74,19 @@ body {
     overflow: visible;
     .logo {
       text-align: center;
-      padding-bottom: 0.5vw;
-      overflow: visible;
-      background-image: linear-gradient(to right, black, black 30%, #FFC46F 30%, #FFC46F 70%, black 70%, black);
-      .text {
-        padding: 2vw 5vw;
-        display: block;
-        background-color: black;
-        color: white;
-        font-size: 15vw;
-        overflow: visible;
-        color: #FFC46F;
-        font-family: 'Six Caps', sans-serif;
-        letter-spacing: 20px;
-        @media(max-width: 900px) {
-          font-size: 30vw;
-          letter-spacing: 3.5vw;
-        }
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      .icon, .textLogo {
+        flex: 100%;
+        margin: 20px;
+      }
+      .icon img {
+        width: 13vw;
+      }
+      .textLogo img {
+        width: 40vw;
       }
     }
     .subtext {
