@@ -95,19 +95,35 @@ html, body {
     background-color: var(--pinnacle-gold);
     color: rgb(30, 29, 29);
 }
-#description {
+#description, #schedule {
     min-height: 100vh;
     position: relative;
 }
-#description .right-body {
-    font-size: 33px;
+#schedule {
+    min-height: 110vh;
+}
+#description .right-body, #schedule .right-body {
+    font-size: 28px;
     font-weight: lighter;
     display: block;
     margin-left: auto;
-    width: 75%;
+    width: 65%;
+}
+#description h2, #schedule h2 {
+    font-size: 3.5rem;
 }
 #description h2 {
-    font-size: 3.5rem;
+    margin-left: 6rem;
+}
+#schedule h2 {
+    margin-left: -8rem;
+}
+#schedule .inner {
+    min-height: 40rem;
+}
+#schedule .right-body {
+    margin-top: 8rem;
+    font-size: 34px;
 }
 .calendar-obj {
     font-weight: bold;
@@ -148,7 +164,7 @@ html, body {
     text-align: center;
 }
 #sponsors .inner {
-    padding: 8rem 0;
+    padding: 18rem 0;
 }
 #sponsors h2 {
     font-size: 3rem;
@@ -176,4 +192,13 @@ footer {
 footer .inner {
     padding-top: 4rem !important;
     padding-bottom: 1rem !important;
+}
+
+canvas {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    clip-path: polygon(0 0, 100% 0, 100% 0%, 0 0%);
+    transition: clip-path 0.2s ease-out;
 }
