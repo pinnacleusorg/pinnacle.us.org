@@ -1,3 +1,4 @@
+/* Global + Utility */
 :root {
     --pinnacle-gold: rgb(198, 158, 96);
     --pinnacle-bg: rgb(30, 29, 29);
@@ -32,6 +33,19 @@ html, body {
         max-width: 900px;
     }
 }
+.light-bg {
+    background-color: rgb(248, 246, 237);
+    color: rgb(30, 29, 29);
+}
+.dark-bg {
+    background-color: var(--pinnacle-bg);
+    color: rgb(248, 246, 237);
+}
+.gold-bg {
+    background-color: var(--pinnacle-gold);
+    color: rgb(30, 29, 29);
+}
+/* Hero Section */
 #hero {
     background-color: var(--pinnacle-bg);
     color: var(--pinnacle-gold);
@@ -40,6 +54,8 @@ html, body {
     top:0;
     left:0;
     z-index: -2;
+    display: flex;
+    align-items: center;
 }
 #hero .brandImg {
     width: 30rem;
@@ -63,18 +79,22 @@ html, body {
     padding: 0;
 }
 #hero .inner {
-    padding-top: 4rem;
+    margin-top: -8rem;
+    transition: margin-top 0.2s ease-out;
 }
+
+/* Mouse overlay */
 #scrollDown-container {
     width: 5vw;
     height: 5vw;
-    /* height: 0; */
     position: fixed;
     bottom: 40px;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: -1;
-    /* background-color: black; */
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    /* bad performance issues with blending this appropriately */
     /* mix-blend-mode: difference; */
 }
 #scrollDown-container svg {
@@ -82,27 +102,13 @@ html, body {
     height: 100%;
 }
 
-.light-bg {
-    background-color: rgb(248, 246, 237);
-    color: rgb(30, 29, 29);
-}
-.dark-bg {
-    background-color: var(--pinnacle-bg);
-    color: rgb(248, 246, 237);
-}
-.gold-bg {
-    background-color: var(--pinnacle-gold);
-    color: rgb(30, 29, 29);
-}
+/* Description Section */
 #description {
     margin-top: 160vh;
 }
 #description, #schedule {
     min-height: 100vh;
     position: relative;
-}
-#schedule {
-    min-height: 110vh;
 }
 #description .overflowTriangle {
     position: absolute;
@@ -127,6 +133,11 @@ html, body {
 #description h2 {
     margin-left: 6rem;
 }
+
+/* Schedule Section */
+#schedule {
+    min-height: 110vh;
+}
 #schedule h2 {
     margin-left: -8rem;
 }
@@ -148,6 +159,8 @@ html, body {
     float: right;
     display: inline-block;
 }
+
+/* Animated Skyline */
 .skyline {
     width: 100%;
     position: absolute;
@@ -155,6 +168,7 @@ html, body {
     right: 0;
     bottom: -1px;
     height: 400px;
+    overflow-x: hidden;
 }
 .skyline-component {
     width: 100%;
@@ -172,6 +186,19 @@ html, body {
 #skyline_dark {
     background-image: url('skyline_dark.svg');
 }
+.skyline-component.animated {
+    transition: margin 2s ease-in-out;
+    margin-left: 0;
+    margin-right: 0;
+}
+.skyline-component.off-right {
+    margin-left: 100vw;
+}
+.skyline-component.off-left {
+    margin-left: -100vw;
+}
+
+/* Sponsors Section */
 #sponsors {
     text-align: center;
     z-index: 1;
@@ -197,6 +224,8 @@ html, body {
 .sponsor-logos .sponsor#aviato img {
     filter: invert();
 }
+
+/* Footer */
 footer {
     font-size: 1.2rem;
     font-weight: bolder;
@@ -207,6 +236,7 @@ footer .inner {
     padding-bottom: 1rem !important;
 }
 
+/* Overlay Lines */
 canvas {
     position: absolute;
     width: 100%;

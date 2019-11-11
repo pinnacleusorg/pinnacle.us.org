@@ -15,27 +15,39 @@ $(function() {
         if(!initialScroll) {
             //start animation ...
         }
+        initialScroll = true;
         //get scroll percentage
         var scrollTop = $(window).scrollTop();
-        var pageHeight = $('body').height();
+        var pageHeight = $('html').height();
         var screenHeight = $(window).height();
 
         var scrollPercent = (scrollTop / (pageHeight - screenHeight)) * 100;
+        //at the top of the canvas, move up the logo a tiny bit with scroll
+        if(scrollPercent < 20) {
+            var adj = 300 * scrollPercent / 20;
+            $('#hero .inner').css('margin-top', 'calc(-8rem - '+adj+'px)');
+        }
         if(animationFinished)
             return;
         if(highestScroll > scrollPercent)
             return; //don't backtrack animation
+        if(highestScroll > 60 && $('#skyline_brdg').hasClass('off-left'))
+            $('.skyline-component').removeClass('off-left').removeClass('off-right');
         highestScroll = scrollPercent;
+        console.log("Highest scroll:" + highestScroll);
         scrollPercent = scrollPercent.toFixed(0);
-        console.log("new highest scroll: "+highestScroll);
         $('canvas').css('clip-path', 'polygon(0 0, 100% 0, 100% '+scrollPercent+'%, 0 '+scrollPercent+'%)');
-
     });
+    setTimeout(function() {
+        if(!initialScroll) {
+            $('#scrollDown-container').css('opacity', 1);
+        }
+    }, 3000)
 });
 function updateLines() {
     var screenHeight = $(window).height();
     var screenWidth = $(window).width();
-    var scaleRatio = (screenWidth / 1440) * 1;
+    var scaleRatio = 1;
     var content_leftEdge = ($('.right-body').first().offset().left) * 0.9;
     var content_rightEdge = ($('.right-body').first().offset().left + $('.right-body').first().width()) * 1.1;
     //i'll clean this once the line positioning is finalized
@@ -90,11 +102,11 @@ function updateLines() {
     //canvas setup
     var canvas = $('canvas')[0];
 
-    canvas.width = $('body').width();
-    canvas.height = $('body').height();
+    canvas.width = $('html').width();
+    canvas.height = $('html').height();
 
-    $(canvas).width($('body').width());
-    $(canvas).height($('body').height());
+    $(canvas).width($('html').width());
+    $(canvas).height($('html').height());
     var ctx = canvas.getContext("2d");
     ctx.lineWidth = 3;
     ctx.strokeStyle = 'rgb(198, 158, 96)';
@@ -102,7 +114,6 @@ function updateLines() {
         //line-level
         var hasFirstPoint = false;
         ctx.beginPath();
-        console.log ("Line #"+(i+1));
         for(var j = 0; j < lines[i].length; j++) {
             //point-level
             var x = lines[i][j][0],
