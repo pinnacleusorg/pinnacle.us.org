@@ -187,15 +187,13 @@ html, body {
     background-image: url('skyline_dark.svg');
 }
 .skyline-component.animated {
-    transition: margin 2s ease-in-out;
-    margin-left: 0;
-    margin-right: 0;
+    transition: transform 2s ease-in-out;
 }
 .skyline-component.off-right {
-    margin-left: 100vw;
+    transform: translate(100%);
 }
 .skyline-component.off-left {
-    margin-left: -100vw;
+    transform: translate(-100%);
 }
 
 /* Sponsors Section */
