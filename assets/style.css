@@ -252,6 +252,7 @@ canvas {
 #mobileView .container.inner .right-body {
     width: 100%;
     margin: 0;
+    padding-left: 10vw;
 }
 #mobileView #schedule .skyline {
     height: 300px;
@@ -293,9 +294,96 @@ canvas {
     height: 30vh;
     z-index: -1;
 }
+#mobileView #schedule h2 {
+    margin-bottom: 3rem !important;
+}
+#mobileView #schedule .calendar-obj .time,
+#mobileView #schedule .calendar-obj .description {
+    display: block;
+    font-weight: normal;
+}
+#mobileView #schedule .calendar-obj .time {
+    float: none;
+}
+
 #reduced #schedule h2 {
     margin-left: 0;
 }
 #reduced .container.inner .right-body {
     margin-right: 10%;
+}
+
+.mobileOnly {
+    display: none;
+}
+#mobileView .mobileOnly {
+    display: block;
+}
+.mobileOnly.titleDivider {
+    width: 100vw;
+    height: 50vw;
+    margin-bottom: -20vh;
+    margin-top: -3rem;
+    position: absolute;
+    left: 0;
+    overflow: hidden;
+}
+.mobileOnly.titleDivider .divider-top {
+    position: absolute;
+    top: 0;
+    left: 20%;
+    right: 10%;
+    height: 5px;
+    background-color: rgb(198, 158, 96);
+}
+.mobileOnly.titleDivider.divider-right .divider-edge {
+    position: absolute;
+    top: 0;
+    left: 60%;
+    right: -20%;
+    height: 5px;
+    background-color: rgb(198, 158, 96);
+    transform: rotate(45deg);
+}
+.mobileOnly.titleDivider.divider-left .divider-top {
+    right: 30%;
+    left: 10%;
+}
+.mobileOnly.titleDivider.divider-left .divider-edge {
+    position: absolute;
+    top: 0;
+    right: 60%;
+    left: -20%;
+    height: 5px;
+    background-color: rgb(198, 158, 96);
+    transform: rotate(-45deg);
+}
+.mobileOnly.sideLines {
+    position: absolute;
+    top: 70vh;
+    width: 10vw;
+    height: 100vh;
+    overflow: hidden;
+}
+.mobileOnly.sideLines div {
+    width: 5px;
+    background-color: rgb(198, 158, 96);;
+    position: absolute;
+    z-index: 2;
+    right: 0;
+}
+.mobileOnly.sideLines .line-in {
+    top: -80%;
+    bottom: 0%;
+    transform: rotate(135deg);
+}
+.mobileOnly.sideLines .line-out {
+    top: 0%;
+    bottom: -80%;
+    transform: rotate(45deg);
+}
+
+.mobileOnly.sideLines .line-side {
+    top: 10%;
+    bottom: 10%;
 }
