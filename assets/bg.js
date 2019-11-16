@@ -1,4 +1,3 @@
-var lines = [];
 window.onbeforeunload = function () {
   window.scrollTo(0, 0); //for dev
 }
@@ -61,12 +60,42 @@ function updateLines() {
             $('html').prop('id', '');
         }
     }
+    var lines;
     if(mobile)
-        return;
+        lines = mobileLines(); //special reduced lines
+    else
+        lines = getLines();
+    //canvas setup
+    var canvas = $('canvas')[0];
+
+    canvas.width = $('html').width();
+    canvas.height = $('html').height();
+
+    $(canvas).width($('html').width());
+    $(canvas).height($('html').height());
+    var ctx = canvas.getContext("2d");
+    ctx.lineWidth = 3;
+    ctx.strokeStyle = 'rgb(198, 158, 96)'; //TODO: dynamic coloring
+    for(var i = 0; i < lines.length; i++) { //per line
+        ctx.beginPath();
+        for(var j = 0; j < lines[i].length; j++) { //per point
+            var x = lines[i][j][0],
+                y = lines[i][j][1];
+            if(j == 0)
+                ctx.moveTo(x, y);
+            else
+                ctx.lineTo(x, y);
+        }
+        ctx.stroke();
+    }
+}
+function getLines() {
+    var screenHeight = $(window).height();
+    var screenWidth = $(window).width();
     var content_leftEdge = ($('.right-body').first().offset().left) * 0.9;
     var content_rightEdge = ($('.right-body').first().offset().left + $('.right-body').first().width()) * 1.1;
     //i'll clean this once the line positioning is finalized
-    lines = [
+    var lines = [
         [
             [0, screenHeight * 0.8],
             [$('#description .inner').offset().left*0.8, screenHeight * 0.8 + ($('#description .inner').offset().left*0.8)],
@@ -120,29 +149,10 @@ function updateLines() {
         lines[6] = [];
         lines[1][2][0] = content_leftEdge * 1.4;
         lines[1][3][1] = $('#schedule h2').offset().top + $('#schedule h2').height() + (content_leftEdge * 1.4);
-
     }
-    //canvas setup
-    var canvas = $('canvas')[0];
+    return lines;
+}
 
-    canvas.width = $('html').width();
-    canvas.height = $('html').height();
-
-    $(canvas).width($('html').width());
-    $(canvas).height($('html').height());
-    var ctx = canvas.getContext("2d");
-    ctx.lineWidth = 3;
-    ctx.strokeStyle = 'rgb(198, 158, 96)'; //TODO: dynamic coloring
-    for(var i = 0; i < lines.length; i++) { //per line
-        ctx.beginPath();
-        for(var j = 0; j < lines[i].length; j++) { //per point
-            var x = lines[i][j][0],
-                y = lines[i][j][1];
-            if(j == 0)
-                ctx.moveTo(x, y);
-            else
-                ctx.lineTo(x, y);
-        }
-        ctx.stroke();
-    }
+function mobileLines() {
+    return [];
 }
