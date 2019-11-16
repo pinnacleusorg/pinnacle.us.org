@@ -279,7 +279,7 @@ canvas {
 }
 #mobileView #hero .inner {
     padding: 4rem;
-    margin-top: 0;
+    margin-top: 0 !important;
 
 }
 #mobileView #hero #keyLabel, #mobileView #hero #keyByline {
@@ -295,4 +295,7 @@ canvas {
 }
 #reduced #schedule h2 {
     margin-left: 0;
+}
+#reduced .container.inner .right-body {
+    margin-right: 10%;
 }

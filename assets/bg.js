@@ -118,6 +118,9 @@ function updateLines() {
         lines[3] = [];
         lines[5] = [];
         lines[6] = [];
+        lines[1][2][0] = content_leftEdge * 1.4;
+        lines[1][3][1] = $('#schedule h2').offset().top + $('#schedule h2').height() + (content_leftEdge * 1.4);
+
     }
     //canvas setup
     var canvas = $('canvas')[0];
