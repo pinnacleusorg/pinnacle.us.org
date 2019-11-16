@@ -243,3 +243,56 @@ canvas {
     clip-path: polygon(0 0, 100% 0, 100% 0%, 0 0%);
     transition: clip-path 0.2s ease-out;
 }
+
+/* Mobile Optimization */
+#mobileView .container.inner h2 {
+    margin-left: 0;
+    text-align: center;
+}
+#mobileView .container.inner .right-body {
+    width: 100%;
+    margin: 0;
+}
+#mobileView #schedule .skyline {
+    height: 300px;
+}
+#mobileView #schedule .inner {
+    min-height: 0;
+}
+#mobileView #description, #mobileView #schedule {
+    min-height: 80vh;
+}
+#mobileView canvas {
+    display: none;
+}
+#mobileView .skyline-component.animated {
+    transition: none;
+    transform: none;
+}
+#mobileView #scrollDown-container {
+    display: none;
+}
+#mobileView #hero {
+    height: 90vh;
+    position: relative;
+    display: block;
+}
+#mobileView #hero .inner {
+    padding: 4rem;
+    margin-top: 0;
+
+}
+#mobileView #hero #keyLabel, #mobileView #hero #keyByline {
+    max-width: 100%;
+}
+#mobileView #description {
+    margin-top: 0;
+}
+#mobileView #description .overflowTriangle {
+    top: calc(-30vh + 1px);
+    height: 30vh;
+    z-index: -1;
+}
+#reduced #schedule h2 {
+    margin-left: 0;
+}
