@@ -60,11 +60,66 @@ function updateLines() {
             $('html').prop('id', '');
         }
     }
-    var lines;
-    if(mobile)
-        lines = mobileLines(); //special reduced lines
-    else
-        lines = getLines();
+    var content_leftEdge = ($('.right-body').first().offset().left) * 0.9;
+    var content_rightEdge = ($('.right-body').first().offset().left + $('.right-body').first().width()) * 1.1;
+    //i'll clean this once the line positioning is finalized
+    var lines = [];
+    lines[0] = [];
+    lines[0][0] = [0, screenHeight * 0.8];
+    lines[0][1] = [$('#description .inner').offset().left*0.8, lines[0][0][1] + ($('#description .inner').offset().left*0.8)];
+    lines[0][2] = [lines[0][1][0], $('#description .inner').offset().top + $('#description .inner').height()*1.1];
+
+    lines[1] = [];
+    lines[1][0] = [screenWidth * 0.05, screenHeight * 0.7];
+    lines[1][1] = [lines[1][0][0], $('#description .inner').offset().top + $('#description .inner').height() * 0.7];
+    lines[1][2] = [lines[1][0][0] + ($('#schedule h2').offset().top + $('#schedule h2').height()) - (lines[1][1][1]), $('#schedule h2').offset().top + $('#schedule h2').height()];
+    lines[1][3] = [0, $('#schedule h2').offset().top + $('#schedule h2').height() + (screenWidth * 0.05 + ($('#schedule h2').offset().top + $('#schedule h2').height()) - ($('#description .inner').offset().top + $('#description .inner').height() * 0.7))];
+
+    lines[2] = [];
+    lines[2][0] = [screenWidth, screenHeight * 0.8];
+    lines[2][1] = [content_rightEdge, (screenHeight * 0.8 + (screenWidth - content_rightEdge))];
+    lines[2][2] = [content_rightEdge, $('#description h2').offset().top + $('#description h2').height() - content_rightEdge*0.15];
+    lines[2][3] = [content_rightEdge * 0.85, $('#description h2').offset().top + $('#description h2').height()];
+    lines[2][4] = [content_rightEdge * 0.7, $('#description h2').offset().top + $('#description h2').height()];
+
+    lines[3] = [];
+    lines[3][0] = [screenWidth * 0.95, screenHeight * 0.75];
+    lines[3][1] = [screenWidth * 0.95, $('#schedule h2').offset().top];
+    lines[3][2] = [screenWidth, ($('#schedule h2').offset().top + (screenWidth * 0.05))];
+
+    lines[4] = [];
+    lines[4][0] = [content_rightEdge * 0.7, $('#description h2').offset().top];
+    lines[4][1] = [content_rightEdge, $('#description h2').offset().top];
+    lines[4][2] = [content_rightEdge, $('#description .inner').offset().top + $('#description .inner').height()/2];
+    lines[4][3] = [screenWidth, ($('#description .inner').offset().top + $('#description .inner').height()/2 + (screenWidth - content_rightEdge))];
+
+    lines[5] = [];
+    lines[5][0] = [content_leftEdge * 0.75, lines[1][2][1]+30];
+    lines[5][1] = [screenWidth * 0.05, (lines[5][0][0] - screenWidth * 0.05) + lines[5][0][1]];
+    lines[5][2] = [screenWidth * 0.05, $('.skyline').offset().top+50];
+
+    lines[6] = [];
+    lines[6][0] = [content_rightEdge * 0.9, $('#schedule').offset().top];
+    lines[6][1] = [screenWidth * 0.95, ($('#schedule').offset().top + (screenWidth * 0.95 - content_rightEdge * 0.9))];
+    lines[6][2] = [screenWidth * 0.95, $('.skyline').offset().top];
+
+    lines[7] = [];
+    lines[7][0] = [screenWidth, $('#sponsors').offset().top + 100];
+    lines[7][1] = [content_rightEdge, ($('#sponsors').offset().top + 100 + (screenWidth-content_rightEdge))];
+    lines[7][2] = [content_rightEdge, $('#sponsors').offset().top + $('#sponsors').height()*0.9];
+    lines[7][3] = [screenWidth, $('#sponsors').offset().top + $('#sponsors').height()*0.9];
+    if(reduced) {
+        lines[0] = [];
+        lines[3] = [];
+        lines[5] = [];
+        lines[6] = [];
+
+        var g = $('#schedule h2').offset().left + $('#schedule h2').width()*1.3;
+        lines[1][1] = [lines[1][0][0], $('#schedule h2').offset().top + $('#schedule h2').height()/2 - (g - lines[1][1][0])];
+        lines[1][2] = [g, (g - lines[1][1][0]) + lines[1][1][1]];
+        lines[1][3] = [0, lines[1][2][0] + lines[1][2][1]];
+    }
+
     //canvas setup
     var canvas = $('canvas')[0];
 
@@ -88,71 +143,4 @@ function updateLines() {
         }
         ctx.stroke();
     }
-}
-function getLines() {
-    var screenHeight = $(window).height();
-    var screenWidth = $(window).width();
-    var content_leftEdge = ($('.right-body').first().offset().left) * 0.9;
-    var content_rightEdge = ($('.right-body').first().offset().left + $('.right-body').first().width()) * 1.1;
-    //i'll clean this once the line positioning is finalized
-    var lines = [
-        [
-            [0, screenHeight * 0.8],
-            [$('#description .inner').offset().left*0.8, screenHeight * 0.8 + ($('#description .inner').offset().left*0.8)],
-            [$('#description .inner').offset().left*0.8, $('#description .inner').offset().top + $('#description .inner').height()*1.1]
-        ],
-        [
-            [screenWidth * 0.05, screenHeight * 0.7],
-            [screenWidth * 0.05, $('#description .inner').offset().top + $('#description .inner').height() * 0.7],
-            [content_leftEdge * 1.1, $('#schedule h2').offset().top + $('#schedule h2').height()],
-            [0, $('#schedule h2').offset().top + $('#schedule h2').height() + (content_leftEdge * 1.1)]
-        ],
-        [
-            [screenWidth, screenHeight * 0.8],
-            [content_rightEdge, (screenHeight * 0.8 + (screenWidth - content_rightEdge))],
-            [content_rightEdge, $('#description h2').offset().top + $('#description h2').height() - content_rightEdge*0.15],
-            [content_rightEdge * 0.85, $('#description h2').offset().top + $('#description h2').height()],
-            [content_rightEdge * 0.7, $('#description h2').offset().top + $('#description h2').height()]
-        ],
-        [
-            [screenWidth * 0.95, screenHeight * 0.75],
-            [screenWidth * 0.95, $('#schedule h2').offset().top],
-            [screenWidth, ($('#schedule h2').offset().top + (screenWidth * 0.05))]
-        ],
-        [
-            [content_rightEdge * 0.7, $('#description h2').offset().top],
-            [content_rightEdge, $('#description h2').offset().top],
-            [content_rightEdge, $('#description .inner').offset().top + $('#description .inner').height()/2],
-            [screenWidth, ($('#description .inner').offset().top + $('#description .inner').height()/2 + (screenWidth - content_rightEdge))]
-        ],
-        [
-            [content_leftEdge * 0.75, ($('#schedule').offset().top + (screenWidth * 0.9 - content_rightEdge * 0.9))],
-            [screenWidth * 0.05, ((($('#schedule').offset().top + (screenWidth * 0.9 - content_rightEdge * 0.9))) + (content_leftEdge * 0.75 - screenWidth * 0.05))],
-            [screenWidth * 0.05, $('.skyline').offset().top+50]
-        ],
-        [
-            [content_rightEdge * 0.9, $('#schedule').offset().top],
-            [screenWidth * 0.95, ($('#schedule').offset().top + (screenWidth * 0.95 - content_rightEdge * 0.9))],
-            [screenWidth * 0.95, $('.skyline').offset().top]
-        ],
-        [
-            [screenWidth, $('#sponsors').offset().top + 100],
-            [content_rightEdge, ($('#sponsors').offset().top + 100 + (screenWidth-content_rightEdge))],
-            [content_rightEdge, $('#sponsors').offset().top + $('#sponsors').height()*0.9],
-            [screenWidth, $('#sponsors').offset().top + $('#sponsors').height()*0.9]
-        ]
-    ];
-    if(reduced) {
-        lines[0] = [];
-        lines[3] = [];
-        lines[5] = [];
-        lines[6] = [];
-        lines[1][2][0] = content_leftEdge * 1.4;
-        lines[1][3][1] = $('#schedule h2').offset().top + $('#schedule h2').height() + (content_leftEdge * 1.4);
-    }
-    return lines;
-}
-
-function mobileLines() {
-    return [];
 }
