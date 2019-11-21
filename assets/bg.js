@@ -142,18 +142,33 @@ function updateLines() {
     lines[1][3] = [0, lines[1][2][0] + lines[1][2][1]];
 
     //canvas setup
-    var canvas = $('canvas')[0];
+    var canvasContainer = $('.linesCanvas-outside');
+    var canvas = $('canvas', canvasContainer);
 
-    canvas.width = screenWidth;
-    canvas.height = $('html').height();
+    canvas[1].width = screenWidth;
+    canvas[1].height = $('html').height();
+    canvas[0].width = screenWidth;
+    canvas[0].height = $('html').height();
 
     $(canvas).width(screenWidth);
     $(canvas).height($('html').height());
-    var ctx = canvas.getContext("2d");
+    $(canvasContainer).height($('html').height());
+    var ctx = canvas[1].getContext("2d");
+    var ctx_initial = canvas[0].getContext("2d");
+    ctx_initial.lineWidth = 3;
+    ctx_initial.strokeStyle = 'rgb(198, 158, 96)';
     ctx.lineWidth = 3;
-    ctx.strokeStyle = 'rgb(198, 158, 96)'; //TODO: dynamic coloring
+    ctx.strokeStyle = 'rgb(30, 29, 29)';
+    drawPoints(ctx_initial, lines);
+    drawPoints(ctx, lines);
+}
+function drawPoints(ctx, lines) {
     for(var i = 0; i < lines.length; i++) { //per line
         ctx.beginPath();
+        if(i == 7) {
+            //last line is gold
+            ctx.strokeStyle = 'rgb(198, 158, 96)';
+        }
         for(var j = 0; j < lines[i].length; j++) { //per point
             var x = lines[i][j][0],
                 y = lines[i][j][1];

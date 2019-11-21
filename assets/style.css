@@ -53,7 +53,7 @@ html, body {
     position: fixed;
     top:0;
     left:0;
-    z-index: -2;
+    z-index: -3;
     display: flex;
     align-items: center;
 }
@@ -91,7 +91,7 @@ html, body {
     bottom: 40px;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: -1;
+    z-index: -2;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
     /* bad performance issues with blending this appropriately */
@@ -237,15 +237,23 @@ footer .inner {
 }
 
 /* Overlay Lines */
-canvas {
+.linesCanvas-outside, .linesCanvas-outside canvas {
     position: absolute;
     width: 100%;
     height: 100%;
     z-index: 999;
+    top:0;
+}
+.linesCanvas-outside canvas {
     clip-path: polygon(0 0, 100% 0, 100% 0%, 0 0%);
     transition: clip-path 0.2s ease-out;
 }
-
+.linesCanvas-outside#mainCanvas {
+    clip-path: polygon(50% 100vh, 0% 160vh, 0% 100%, 100% 100%, 100% 160vh)
+}
+.linesCanvas-outside#initialCanvas {
+    z-index: -1;
+}
 /* Mobile Optimization */
 #mobileView .container.inner h2 {
     margin-left: 0;
