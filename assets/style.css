@@ -107,18 +107,18 @@ html, body {
     margin-top: 160vh;
 }
 #description, #schedule {
-    min-height: 100vh;
+    min-height: 800px;
     position: relative;
 }
 #description .overflowTriangle {
     position: absolute;
     left: 0;
     right: 0;
-    top:-60vh;
+    top: calc(-60vh + 1px);
     height: 60vh;
     background-color: rgb(248, 246, 237);
     color: rgb(30, 29, 29);
-    clip-path: polygon(50% 0, 0 100%, 100% 100%);
+    clip-path: polygon(50% 100vh, 0% 160vh, 0% 99.99%, 99.99% 99.99%, 100% 160vh);
 }
 #description .right-body, #schedule .right-body {
     font-size: 28px;
@@ -136,7 +136,7 @@ html, body {
 
 /* Schedule Section */
 #schedule {
-    min-height: 110vh;
+    min-height: 1000px;
 }
 #schedule h2 {
     margin-left: -8rem;
@@ -255,6 +255,7 @@ canvas {
     width: 100%;
     margin: 0;
     padding-left: 10vw;
+    font-size: 1.5rem;
 }
 #mobileView #schedule .skyline {
     height: 300px;
@@ -299,15 +300,25 @@ canvas {
 #mobileView #schedule h2 {
     margin-bottom: 3rem !important;
 }
+#mobileView h2 {
+    font-size: 2.5rem;
+    width: 100%;
+}
+#mobileView #schedule {
+    min-height: 100vh;
+}
 #mobileView #schedule .calendar-obj .time,
 #mobileView #schedule .calendar-obj .description {
     display: block;
     font-weight: normal;
+    font-size:
 }
 #mobileView #schedule .calendar-obj .time {
     float: none;
 }
-
+#mobileView #sponsors .inner {
+    padding: 8rem 0;
+}
 #reduced #schedule h2 {
     margin-left: 0;
 }

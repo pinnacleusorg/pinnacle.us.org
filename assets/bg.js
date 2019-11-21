@@ -24,6 +24,8 @@ var reduced = false;
     }
 })();
 $(function() {
+    //polyfill for ios / safari - https://github.com/AlfonsoFilho/ClipPath
+    $('.overflowTriangle').ClipPath('50% 0, 0 100%, 100% 100%');
     updateLines();
     $(window).resize(function() {
         updateLines();
@@ -114,7 +116,7 @@ function updateLines() {
     lines[4][3] = [screenWidth, ($('#description .inner').offset().top + $('#description .inner').height()/2 + (screenWidth - content_rightEdge))];
 
     lines[5] = [];
-    lines[5][0] = [content_leftEdge * 0.75, lines[1][2][1]+30];
+    lines[5][0] = [content_leftEdge * 0.5, lines[1][2][1]+30];
     lines[5][1] = [screenWidth * 0.05, (lines[5][0][0] - screenWidth * 0.05) + lines[5][0][1]];
     lines[5][2] = [screenWidth * 0.05, $('.skyline').offset().top+50];
 
@@ -133,12 +135,11 @@ function updateLines() {
         lines[3] = [];
         lines[5] = [];
         lines[6] = [];
-
-        var g = $('#schedule h2').offset().left + $('#schedule h2').width()*1.3;
-        lines[1][1] = [lines[1][0][0], $('#schedule h2').offset().top + $('#schedule h2').height()/2 - (g - lines[1][1][0])];
-        lines[1][2] = [g, (g - lines[1][1][0]) + lines[1][1][1]];
-        lines[1][3] = [0, lines[1][2][0] + lines[1][2][1]];
     }
+    var g = $('#schedule h2').offset().left + $('#schedule h2').width()*1.3;
+    lines[1][1] = [lines[1][0][0], $('#schedule h2').offset().top + $('#schedule h2').height()/2 - (g - lines[1][1][0])];
+    lines[1][2] = [g, (g - lines[1][1][0]) + lines[1][1][1]];
+    lines[1][3] = [0, lines[1][2][0] + lines[1][2][1]];
 
     //canvas setup
     var canvas = $('canvas')[0];
