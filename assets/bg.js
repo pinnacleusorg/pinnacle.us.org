@@ -3,6 +3,26 @@ window.onbeforeunload = function () {
 }
 var mobile = true;
 var reduced = false;
+
+(function(){
+    var offsetMethod = jQuery.fn.offset;
+    // Define overriding method.
+    jQuery.fn.offset = function(){
+        console.log("New offset");
+        console.log(this);
+        var offset = offsetMethod.apply( this, arguments );
+        console.log(offset);
+        //Adjust given our ultrawide fix box ...
+        var UWFix = offsetMethod.apply($('.ultrawide-capture'), arguments);
+        var newOffset = {
+            top: offset.top,
+            left: offset.left - UWFix.left
+        };
+        console.log("Original offset" +offset);
+        console.log("Adjusted offset" +newOffset);
+        return newOffset;
+    }
+})();
 $(function() {
     updateLines();
     $(window).resize(function() {
@@ -44,8 +64,8 @@ $(function() {
     }, 3000)
 });
 function updateLines() {
-    var screenHeight = $(window).height();
-    var screenWidth = $(window).width();
+    var screenHeight = Math.min($(window).height(), $('.ultrawide-capture').height());
+    var screenWidth = Math.min($(window).width(), $('.ultrawide-capture').width());
     if(screenWidth < 767) {
         mobile = true;
         $('html').prop('id', 'mobileView');
@@ -123,10 +143,10 @@ function updateLines() {
     //canvas setup
     var canvas = $('canvas')[0];
 
-    canvas.width = $('html').width();
+    canvas.width = screenWidth;
     canvas.height = $('html').height();
 
-    $(canvas).width($('html').width());
+    $(canvas).width(screenWidth);
     $(canvas).height($('html').height());
     var ctx = canvas.getContext("2d");
     ctx.lineWidth = 3;

@@ -213,7 +213,8 @@ html, body {
 }
 .sponsor-logos .sponsor {
     margin: 3rem auto;
-    width: 30vw;
+    /* This width argument will need to be regulated to ensure transparent logos are appropriately normalized to be equal sized  */
+    width: 100%;
     display: block;
 }
 .sponsor-logos .sponsor img {
@@ -387,4 +388,10 @@ canvas {
 .mobileOnly.sideLines .line-side {
     top: 10%;
     bottom: 10%;
+}
+.ultrawide-capture {
+    max-width: 1680px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0px 0px 10px 2px black;
 }
