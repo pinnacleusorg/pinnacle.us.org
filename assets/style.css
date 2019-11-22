@@ -87,6 +87,7 @@ html, body {
 #scrollDown-container {
     width: 5vw;
     height: 5vw;
+    max-width: 40px;
     position: fixed;
     bottom: 40px;
     left: 50%;
