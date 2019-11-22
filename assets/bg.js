@@ -153,13 +153,14 @@ function updateLines() {
     $(canvas).width(screenWidth);
     $(canvas).height($('html').height());
     $(canvasContainer).height($('html').height());
+    $(canvasContainer).width(screenWidth);
     var ctx = canvas[1].getContext("2d");
     var ctx_initial = canvas[0].getContext("2d");
     ctx_initial.lineWidth = 3;
     ctx_initial.strokeStyle = 'rgb(198, 158, 96)';
     ctx.lineWidth = 3;
     ctx.strokeStyle = 'rgb(30, 29, 29)';
-    drawPoints(ctx_initial, lines);
+    drawPoints(ctx_initial, [lines[0], lines[1], lines[2], lines[3]]);
     drawPoints(ctx, lines);
 }
 function drawPoints(ctx, lines) {
