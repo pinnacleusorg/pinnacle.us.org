@@ -80,7 +80,7 @@ html, body {
 }
 #hero .inner {
     margin-top: -8rem;
-    transition: margin-top 0.2s ease-out;
+    transition: margin-top 0.2s linear;
 }
 
 /* Mouse overlay */
@@ -246,7 +246,7 @@ footer .inner {
 }
 .linesCanvas-outside canvas {
     clip-path: polygon(0 0, 100% 0, 100% 0%, 0 0%);
-    transition: clip-path 0.2s ease-out;
+    transition: clip-path 0.5s linear;
 }
 .linesCanvas-outside#mainCanvas {
     clip-path: polygon(50% 100vh, 0% 160vh, 0% 100%, 100% 100%, 100% 160vh)

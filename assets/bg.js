@@ -61,7 +61,8 @@ $(function() {
     });
     setTimeout(function() {
         if(!initialScroll) {
-            $('#scrollDown-container').css('opacity', 1);
+            if($(window.height() > 650))
+                $('#scrollDown-container').css('opacity', 1);
         }
     }, 3000)
 });
