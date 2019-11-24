@@ -87,7 +87,7 @@ html, body {
 #scrollDown-container {
     width: 5vw;
     height: 5vw;
-    max-width: 40px;
+    max-width: 25px;
     position: fixed;
     bottom: 40px;
     left: 50%;
@@ -98,9 +98,8 @@ html, body {
     /* bad performance issues with blending this appropriately */
     /* mix-blend-mode: difference; */
 }
-#scrollDown-container svg {
+#scrollDown-container img {
     width: 100%;
-    height: 100%;
 }
 
 /* Description Section */
@@ -180,13 +179,13 @@ html, body {
     position: absolute;
 }
 #skyline_brdg {
-    background-image: url('skyline_bridge.svg');
+    background-image: url('skyline_bridge.png');
 }
 #skyline_gold {
-    background-image: url('skyline_gold.svg');
+    background-image: url('skyline_gold.png');
 }
 #skyline_dark {
-    background-image: url('skyline_dark.svg');
+    background-image: url('skyline_dark.png');
 }
 .skyline-component.animated {
     transition: transform 2s ease-in-out;
