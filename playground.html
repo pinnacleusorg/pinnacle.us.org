@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en" id="mobileView">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="Pinnacle is a 36-hour competitive collegiate hackathon where 200 participants come together to build innovative and creative hacks in the San Francisco Bay Area." />
+        <meta property="og:title" content="Pinnacle - The Olympics of Hackathons" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://pinnacle.us.org/" />
+        <!-- TODO: 1200 x 630 -->
+        <meta property="og:image" content="https://pinnacle.us.org/banner.jpg" />
+        <meta property="og:description" content="Pinnacle is a 36-hour competitive collegiate hackathon where 200 participants come together to build innovative and creative hacks in the San Francisco Bay Area." />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="assets/style.css">
+        <title>Pinnacle - The Olympics of Hackathons</title>
+        <style>
+        img, svg, p, h1, h2, h3, h4, span, .skyline, .calendar-obj, #footer, canvas {
+            /* visibility: hidden !important; */
+        }
+        .generatedLine-container {
+            position: absolute;
+        }
+        .generatedLine-line {
+            height: 3px;
+            background-color: var(--pinnacle-bg);
+            transform-origin: center left;
+        }
+        #initialCanvas .generatedLine-line {
+            background-color: var(--pinnacle-gold);
+        }
+        </style>
+    </head>
+    <body>
+        <div class="ultrawide-capture">
+            <div class="linesCanvas-outside" id="initialCanvas">
+                <div class="linesCanvas-inside"></div>
+            </div>
+            <div class="linesCanvas-outside" id="mainCanvas">
+                <div class="linesCanvas-inside"></div>
+            </div>
+            <div class="mobileOnly sideLines">
+                <div class="line-in"></div>
+                <div class="line-side"></div>
+                <div class="line-out"></div>
+            </div>
+            <div id="scrollDown-container">
+                <img src="assets/mouse.png">
+            </div>
+            <div class="container-fluid fh fw" id="hero">
+                <div class="container inner">
+                    <img src="assets/icon.png" alt="Pinnacle Logo" class="brandImg mb-3" id="keyLogo">
+                    <!-- TODO: Investigate weird artifacts when animating this as an IMG instead of SVG. -->
+                    <img src="assets/textLogo.png" alt="Pinnacle" class="brandImg" id="keyLabel">
+                    <span class="byline brandImg mt-4" id="keyByline">The Olympics of Hackathons</span>
+                </div>
+            </div>
+            <div class="container-fluid light-bg py-5" id="description">
+                <div class="overflowTriangle">
+                </div>
+                <div class="container inner">
+                    <h2 class="mb-5">What is Pinnacle?</h2>
+                    <div class="mobileOnly titleDivider divider-right">
+                        <div class="divider-top"></div>
+                        <div class="divider-edge"></div>
+                    </div>
+                    <div class="right-body">
+                        <p>
+                            Pinnacle is a 36-hour competitive collegiate
+                            hackathon where 200 participants come together to
+                            build innovative and creative hacks in the San
+                            Francisco Bay Area.
+                        </p>
+                        <p>
+                            Our individually selected partcipants represent the
+                            brightest developers, designers, and creators in the
+                            nation.
+                        </p>
+                        <p>
+                            Attendees come from around the world, and
+                            students from prestigious engineering schools like
+                            Stanford, Carnegie Mellon, and UC Berkeley will be
+                            participating.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid light-bg" id="schedule">
+                <div class="container inner">
+                    <h2>Schedule</h2>
+                    <div class="mobileOnly titleDivider divider-left">
+                        <div class="divider-top"></div>
+                        <div class="divider-edge"></div>
+                    </div>
+                    <div class="right-body">
+                        <div class="calendar-obj">
+                            <div class="time">Friday, 12 pm</div>
+                            <div class="description">Elon Musk Keynote</div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="calendar-obj">
+                            <div class="time">Saturday, 2 am</div>
+                            <div class="description">Soylent Mixer</div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skyline">
+                    <div class="skyline-component animated off-left" id="skyline_brdg"></div>
+                    <div class="skyline-component animated off-right" id="skyline_gold"></div>
+                    <div class="skyline-component animated off-right" id="skyline_dark"></div>
+                </div>
+            </div>
+            <!-- SF Skyline -->
+            <div class="container-fluid dark-bg" id="sponsors">
+                <div class="container inner">
+                    <h2 class="text-center">Sponsors</h2>
+                    <div class="sponsor-logos">
+                        <div class="sponsor" id="piedpiper">
+                            <img src="https://vignette.wikia.nocookie.net/silicon-valley/images/a/a7/Piedpiperoldlogo.png/revision/latest?cb=20140703205023">
+                        </div>
+                        <div class="sponsor" id="aviato">
+                            <img src="https://www.perfectfitcomputers.ca/wp-content/uploads/2014/08/aviato-logo-transparent-background.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="gold-bg">
+                <div class="container-fluid inner text-center p-5" id="footer">
+                    &copy; 2019 Pinnacle
+                </div>
+            </footer>
+
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+            <script src="assets/clippath.min.js"></script>
+            <script>
+            window.onbeforeunload = function () {
+              window.scrollTo(0, 0); //for dev
+            }
+            var mobile = true;
+            var reduced = false;
+
+            (function(){
+                var offsetMethod = jQuery.fn.offset;
+                // Define overriding method.
+                jQuery.fn.offset = function(){
+                    console.log("New offset");
+                    console.log(this);
+                    var offset = offsetMethod.apply( this, arguments );
+                    console.log(offset);
+                    //Adjust given our ultrawide fix box ...
+                    var UWFix = offsetMethod.apply($('.ultrawide-capture'), arguments);
+                    var newOffset = {
+                        top: offset.top,
+                        left: offset.left - UWFix.left
+                    };
+                    console.log("Original offset" +offset);
+                    console.log("Adjusted offset" +newOffset);
+                    return newOffset;
+                }
+            })();
+            $(function() {
+                //polyfill for ios / safari - https://github.com/AlfonsoFilho/ClipPath
+                $('.overflowTriangle').ClipPath('50% 0, 0 100%, 100% 100%');
+                updateLines();
+                $(window).resize(function() {
+                    updateLines();
+                });
+                var initialScroll = false;
+                var animationFinished = false;
+                var highestScroll = 0;
+                var debounce = Date.now();
+                $(window).scroll(function() {
+                    if(mobile)
+                        return; //don't scrollspy on mobile!!
+                    if(Date.now() - debounce < 100)
+                        return;
+                    debounce = Date.now();
+                    initialScroll = true;
+                    //get scroll percentage
+                    var scrollTop = $(window).scrollTop();
+                    var pageHeight = $('html').height();
+                    var screenHeight = $(window).height();
+
+                    var scrollPercent = (scrollTop / (pageHeight - screenHeight)) * 100;
+                    //at the top of the canvas, move up the logo a tiny bit with scroll
+                    if(scrollPercent < 20) {
+                        var adj = 300 * scrollPercent / 20;
+                        $('#hero .inner').css('margin-top', 'calc(-8rem - '+adj+'px)');
+                    }
+                    if(animationFinished)
+                        return;
+                    if(highestScroll > scrollPercent)
+                        return; //don't backtrack animation
+                    if(scrollTop + screenHeight/3 - $('.skyline').offset().top > 0 && $('#skyline_brdg').hasClass('off-left'))
+                        $('.skyline-component').removeClass('off-left').removeClass('off-right');
+                    highestScroll = scrollPercent;
+                    console.log("Highest scroll:" + highestScroll);
+                    scrollPercent = scrollPercent.toFixed(0);
+                    $('.linesCanvas-inside').css('max-height', scrollPercent * pageHeight+'px');
+                });
+                setTimeout(function() {
+                    if(!initialScroll) {
+                        if($(window.height() > 650))
+                            $('#scrollDown-container').css('opacity', 1);
+                    }
+                }, 3000)
+            });
+            function updateLines() {
+                var screenHeight = Math.min($(window).height(), $('.ultrawide-capture').height());
+                var screenWidth = Math.min($(window).width(), $('.ultrawide-capture').width());
+                if(screenWidth < 767) {
+                    mobile = true;
+                    $('html').prop('id', 'mobileView');
+                } else {
+                    if(screenWidth < 1200) {
+                        mobile = false;
+                        reduced = true;
+                        $('html').prop('id', 'reduced');
+                    } else {
+                        mobile = false;
+                        reduced = false;
+                        $('html').prop('id', '');
+                    }
+                }
+                var content_leftEdge = ($('.right-body').first().offset().left) * 0.9;
+                var content_rightEdge = ($('.right-body').first().offset().left + $('.right-body').first().width()) * 1.1;
+                //i'll clean this once the line positioning is finalized
+                var lines = [];
+                lines[0] = [];
+                lines[0][0] = [0, screenHeight * 0.8];
+                lines[0][1] = [$('#description .inner').offset().left*0.8, lines[0][0][1] + ($('#description .inner').offset().left*0.8)];
+                lines[0][2] = [lines[0][1][0], $('#description .inner').offset().top + $('#description .inner').height()*1.1];
+
+                lines[1] = [];
+                lines[1][0] = [screenWidth * 0.05, screenHeight * 0.7];
+                lines[1][1] = [lines[1][0][0], $('#description .inner').offset().top + $('#description .inner').height() * 0.7];
+                lines[1][2] = [lines[1][0][0] + ($('#schedule h2').offset().top + $('#schedule h2').height()) - (lines[1][1][1]), $('#schedule h2').offset().top + $('#schedule h2').height()];
+                lines[1][3] = [0, $('#schedule h2').offset().top + $('#schedule h2').height() + (screenWidth * 0.05 + ($('#schedule h2').offset().top + $('#schedule h2').height()) - ($('#description .inner').offset().top + $('#description .inner').height() * 0.7))];
+
+                lines[2] = [];
+                lines[2][0] = [screenWidth, screenHeight * 0.8];
+                lines[2][1] = [content_rightEdge, (screenHeight * 0.8 + (screenWidth - content_rightEdge))];
+                lines[2][2] = [content_rightEdge, $('#description h2').offset().top + $('#description h2').height() - content_rightEdge*0.15];
+                lines[2][3] = [content_rightEdge * 0.85, $('#description h2').offset().top + $('#description h2').height()];
+                lines[2][4] = [content_rightEdge * 0.7, $('#description h2').offset().top + $('#description h2').height()];
+
+                lines[3] = [];
+                lines[3][0] = [screenWidth * 0.95, screenHeight * 0.75];
+                lines[3][1] = [screenWidth * 0.95, $('#schedule h2').offset().top];
+                lines[3][2] = [screenWidth, ($('#schedule h2').offset().top + (screenWidth * 0.05))];
+
+                lines[4] = [];
+                lines[4][0] = [content_rightEdge * 0.7, $('#description h2').offset().top];
+                lines[4][1] = [content_rightEdge, $('#description h2').offset().top];
+                lines[4][2] = [content_rightEdge, $('#description .inner').offset().top + $('#description .inner').height()/2];
+                lines[4][3] = [screenWidth, ($('#description .inner').offset().top + $('#description .inner').height()/2 + (screenWidth - content_rightEdge))];
+
+                lines[5] = [];
+                lines[5][0] = [content_leftEdge * 0.5, lines[1][2][1]+30];
+                lines[5][1] = [screenWidth * 0.05, (lines[5][0][0] - screenWidth * 0.05) + lines[5][0][1]];
+                lines[5][2] = [screenWidth * 0.05, $('.skyline').offset().top+50];
+
+                lines[6] = [];
+                lines[6][0] = [content_rightEdge * 0.9, $('#schedule').offset().top];
+                lines[6][1] = [screenWidth * 0.95, ($('#schedule').offset().top + (screenWidth * 0.95 - content_rightEdge * 0.9))];
+                lines[6][2] = [screenWidth * 0.95, $('.skyline').offset().top];
+
+                lines[7] = [];
+                lines[7][0] = [screenWidth, $('#sponsors').offset().top + 100];
+                lines[7][1] = [content_rightEdge, ($('#sponsors').offset().top + 100 + (screenWidth-content_rightEdge))];
+                lines[7][2] = [content_rightEdge, $('#sponsors').offset().top + $('#sponsors').height()*0.9];
+                lines[7][3] = [screenWidth, $('#sponsors').offset().top + $('#sponsors').height()*0.9];
+                if(reduced) {
+                    lines[0] = [];
+                    lines[3] = [];
+                    lines[5] = [];
+                    lines[6] = [];
+                }
+                var g = $('#schedule h2').offset().left + $('#schedule h2').width()*1.3;
+                lines[1][1] = [lines[1][0][0], $('#schedule h2').offset().top + $('#schedule h2').height()/2 - (g - lines[1][1][0])];
+                lines[1][2] = [g, (g - lines[1][1][0]) + lines[1][1][1]];
+                lines[1][3] = [0, lines[1][2][0] + lines[1][2][1]];
+
+                //canvas setup
+                var canvasContainer = $('.linesCanvas-outside');
+                var canvas1 = $('.linesCanvas-inside', canvasContainer[0]);
+                var canvas2 = $('.linesCanvas-inside', canvasContainer[1]);
+
+                canvas1.width(screenWidth);
+                canvas1.height($('html').height());
+                canvas2.width(screenWidth);
+                canvas2.height($('html').height());
+
+                $(canvasContainer).height($('html').height());
+                $(canvasContainer).width(screenWidth);
+
+                renderLine(canvas2, lines); //all lines
+                renderLine(canvas1, [lines[0], lines[1], lines[2], lines[3]]); //top lines
+            }
+            function renderLine(parent, lines) {
+                $(parent).empty();
+                for(var i = 0; i < lines.length; i++) {
+                    var thisLine = lines[i];
+                    var goldColor = false;
+                    if(i == 7)
+                        goldColor = true;
+                    for(var j = 0; j < thisLine.length - 1; j++) {
+                        var firstPoint = thisLine[j];
+                        var secondPoint = thisLine[j+1];
+                        console.log("Line from ("+firstPoint[0]+", "+firstPoint[1]+") to ("+secondPoint[0]+", "+secondPoint[1]+")")
+                        var line = $('<div class="generatedLine-container"><div class="generatedLine-line"></div></div>');
+                        //Generate a new line object from our first point -> second point
+                        var x_min = Math.min(firstPoint[0], secondPoint[0]),
+                            x_max = Math.max(firstPoint[0], secondPoint[0]),
+                            x_diff = x_max - x_min,
+                            x_delta = secondPoint[0] - firstPoint[0];
+                        var y_min = Math.min(firstPoint[1], secondPoint[1]),
+                            y_max = Math.max(firstPoint[1], secondPoint[1]),
+                            y_diff = y_max - y_min,
+                            y_delta = secondPoint[1] - firstPoint[1];
+                        line.css('top', y_min+'px')
+                            .css('left', x_min+'px')
+                            .css('height', Math.max(y_diff, 3)+'px')
+                            .css('width', Math.max(x_diff, 3)+'px')
+                            .attr('from', "("+firstPoint[0]+", "+firstPoint[1]+")")
+                            .attr('to', "("+secondPoint[0]+", "+secondPoint[1]+")");
+
+                        var inner = $('.generatedLine-line', line);
+                        if(goldColor)
+                            inner.css('background-color', 'var(--pinnacle-gold)');
+                        var desiredAngle = Math.atan2(y_delta, x_delta);
+                        var lineWidth = (((x_diff) ** 2 + (y_diff) ** 2)**(1/2));
+                        var translate = "";
+                        if(Math.abs(desiredAngle - 2.35619) <= 0.1)
+                            translate = "translate("+x_diff+"px, 0px) ";
+                        if(Math.abs(desiredAngle - Math.PI) <= 0.1)
+                            desiredAngle=0;
+                        inner.width(lineWidth+'px').css('transform', translate+'rotate('+desiredAngle+'rad)');
+                        $(parent).append(line);
+                    }
+                }
+            }
+            </script>
+        </div>
+    </body>
+</html>
