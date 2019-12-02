@@ -218,16 +218,13 @@ html, body {
 }
 .sponsor-logos .sponsor {
     margin: 3rem auto;
-    /* This width argument will need to be regulated to ensure transparent logos are appropriately normalized to be equal sized  */
     width: 100%;
     display: block;
+    max-width: 300px;
 }
 .sponsor-logos .sponsor img {
-    max-width: 100%;
+    width: 100%;
     max-height: 30vh
-}
-.sponsor-logos .sponsor#aviato img {
-    filter: invert();
 }
 
 /* Footer */
@@ -260,6 +257,17 @@ footer .inner {
 }
 .linesCanvas-outside#initialCanvas {
     z-index: -1;
+}
+.generatedLine-container {
+    position: absolute;
+}
+.generatedLine-line {
+    height: 3px;
+    background-color: var(--pinnacle-bg);
+    transform-origin: 0px 1.5px;
+}
+#initialCanvas .generatedLine-line {
+    background-color: var(--pinnacle-gold);
 }
 /* Mobile Optimization */
 #mobileView .container.inner h2 {
@@ -362,7 +370,7 @@ footer .inner {
     left: 20%;
     right: 10%;
     height: 5px;
-    background-color: rgb(198, 158, 96);
+    background-color: var(--pinnacle-bg);
 }
 .mobileOnly.titleDivider.divider-right .divider-edge {
     position: absolute;
@@ -370,7 +378,7 @@ footer .inner {
     left: 60%;
     right: -20%;
     height: 5px;
-    background-color: rgb(198, 158, 96);
+    background-color: var(--pinnacle-bg);
     transform: rotate(45deg);
 }
 .mobileOnly.titleDivider.divider-left .divider-top {
@@ -383,7 +391,7 @@ footer .inner {
     right: 60%;
     left: -20%;
     height: 5px;
-    background-color: rgb(198, 158, 96);
+    background-color: var(--pinnacle-bg);
     transform: rotate(-45deg);
 }
 .mobileOnly.sideLines {
@@ -392,14 +400,22 @@ footer .inner {
     width: 10vw;
     height: 100vh;
     overflow: hidden;
+    left: -20px;
 }
 .mobileOnly.sideLines div {
     width: 5px;
-    background-color: rgb(198, 158, 96);;
+    background-color: var(--pinnacle-bg);
     position: absolute;
     z-index: 2;
     right: 0;
 }
+.mobileOnly.sideLines.sideLinesTop {
+    z-index: -2;
+}
+.mobileOnly.sideLines.sideLinesTop div {
+    background-color: var(--pinnacle-gold);
+}
+
 .mobileOnly.sideLines .line-in {
     top: -80%;
     bottom: 0%;

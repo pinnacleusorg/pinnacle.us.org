@@ -17,13 +17,10 @@
     </head>
     <body>
         <div class="ultrawide-capture">
-            <div class="linesCanvas-outside" id="initialCanvas">
-                <div class="linesCanvas-inside"></div>
-            </div>
-            <div class="linesCanvas-outside" id="mainCanvas">
-                <div class="linesCanvas-inside"></div>
-            </div>
-            <div class="mobileOnly sideLines sideLinesTop">
+            <div class="linesCanvas-outside" id="initialCanvas"><canvas style="top:0"></div>
+            <div class="linesCanvas-outside" id="mainCanvas"><canvas  style="top:0"></div>
+            </canvas>
+            <div class="mobileOnly sideLines">
                 <div class="line-in"></div>
                 <div class="line-side"></div>
                 <div class="line-out"></div>
@@ -34,19 +31,13 @@
             <div class="container-fluid fh fw" id="hero">
                 <div class="container inner">
                     <img src="assets/icon.png" alt="Pinnacle Logo" class="brandImg mb-3" id="keyLogo">
+                    <!-- TODO: Investigate weird artifacts when animating this as an IMG instead of SVG. -->
                     <img src="assets/textLogo.png" alt="Pinnacle" class="brandImg" id="keyLabel">
                     <span class="byline brandImg mt-4" id="keyByline">The Olympics of Hackathons</span>
                 </div>
             </div>
             <div class="container-fluid light-bg py-5" id="description">
                 <div class="overflowTriangle">
-                    <div class="mobileOnly sideLines" style="top:-20vh;">
-                        <div class="line-side"></div>
-                    </div>
-                </div>
-                <div class="mobileOnly sideLines" style="top:-10vh;">
-                    <div class="line-side"></div>
-                    <div class="line-out"></div>
                 </div>
                 <div class="container inner">
                     <h2 class="mb-5">What is Pinnacle?</h2>
@@ -106,8 +97,11 @@
                 <div class="container inner">
                     <h2 class="text-center">Sponsors</h2>
                     <div class="sponsor-logos">
-                        <div class="sponsor" id="hack+">
-                            <img src="https://hackplus.io/assets/img/logo.svg">
+                        <div class="sponsor" id="piedpiper">
+                            <img src="https://vignette.wikia.nocookie.net/silicon-valley/images/a/a7/Piedpiperoldlogo.png/revision/latest?cb=20140703205023">
+                        </div>
+                        <div class="sponsor" id="aviato">
+                            <img src="https://www.perfectfitcomputers.ca/wp-content/uploads/2014/08/aviato-logo-transparent-background.png">
                         </div>
                     </div>
                 </div>
@@ -117,6 +111,7 @@
                     &copy; 2019 Pinnacle
                 </div>
             </footer>
+
             <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
             <script src="assets/clippath.min.js"></script>
             <script src="assets/bg.js"></script>

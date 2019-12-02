@@ -33,35 +33,35 @@ $(function() {
     var initialScroll = false;
     var animationFinished = false;
     var highestScroll = 0;
+    var debounce = Date.now();
     $(window).scroll(function() {
         if(mobile)
-            return; //don't scrollspy on mobile!!
+            return;
+        if(Date.now() - debounce < 100)
+            return;
+        debounce = Date.now();
         initialScroll = true;
-        //get scroll percentage
         var scrollTop = $(window).scrollTop();
         var pageHeight = $('html').height();
         var screenHeight = $(window).height();
 
         var scrollPercent = (scrollTop / (pageHeight - screenHeight)) * 100;
-        //at the top of the canvas, move up the logo a tiny bit with scroll
         if(scrollPercent < 20) {
             var adj = 300 * scrollPercent / 20;
             $('#hero .inner').css('margin-top', 'calc(-8rem - '+adj+'px)');
         }
-        if(animationFinished)
+        if(animationFinished || highestScroll > scrollPercent)
             return;
-        if(highestScroll > scrollPercent)
-            return; //don't backtrack animation
-        if(highestScroll > 60 && $('#skyline_brdg').hasClass('off-left'))
+
+        if(scrollTop + screenHeight/3 - $('.skyline').offset().top > 0 && $('#skyline_brdg').hasClass('off-left'))
             $('.skyline-component').removeClass('off-left').removeClass('off-right');
         highestScroll = scrollPercent;
-        console.log("Highest scroll:" + highestScroll);
         scrollPercent = scrollPercent.toFixed(0);
-        $('canvas').css('clip-path', 'polygon(0 0, 100% 0, 100% '+scrollPercent+'%, 0 '+scrollPercent+'%)');
+        $('.linesCanvas-inside').css('max-height', (scrollPercent * pageHeight)/100+'px');
     });
     setTimeout(function() {
         if(!initialScroll) {
-            if($(window.height() > 650))
+            if($(window).height() > 650)
                 $('#scrollDown-container').css('opacity', 1);
         }
     }, 3000)
@@ -72,6 +72,8 @@ function updateLines() {
     if(screenWidth < 767) {
         mobile = true;
         $('html').prop('id', 'mobileView');
+        $('#initialCanvas, #mainCanvas').children().empty();
+        return;
     } else {
         if(screenWidth < 1200) {
             mobile = false;
@@ -144,41 +146,63 @@ function updateLines() {
 
     //canvas setup
     var canvasContainer = $('.linesCanvas-outside');
-    var canvas = $('canvas', canvasContainer);
+    var canvas1 = $('.linesCanvas-inside', canvasContainer[0]);
+    var canvas2 = $('.linesCanvas-inside', canvasContainer[1]);
 
-    canvas[1].width = screenWidth;
-    canvas[1].height = $('html').height();
-    canvas[0].width = screenWidth;
-    canvas[0].height = $('html').height();
+    canvas1.width(screenWidth);
+    canvas1.height($('html').height());
+    canvas2.width(screenWidth);
+    canvas2.height($('html').height());
 
-    $(canvas).width(screenWidth);
-    $(canvas).height($('html').height());
     $(canvasContainer).height($('html').height());
     $(canvasContainer).width(screenWidth);
-    var ctx = canvas[1].getContext("2d");
-    var ctx_initial = canvas[0].getContext("2d");
-    ctx_initial.lineWidth = 3;
-    ctx_initial.strokeStyle = 'rgb(198, 158, 96)';
-    ctx.lineWidth = 3;
-    ctx.strokeStyle = 'rgb(30, 29, 29)';
-    drawPoints(ctx_initial, [lines[0], lines[1], lines[2], lines[3]]);
-    drawPoints(ctx, lines);
+
+    renderLine(canvas2, lines); //all lines
+    renderLine(canvas1, [lines[0], lines[1], lines[2], lines[3]]); //top lines
 }
-function drawPoints(ctx, lines) {
-    for(var i = 0; i < lines.length; i++) { //per line
-        ctx.beginPath();
-        if(i == 7) {
-            //last line is gold
-            ctx.strokeStyle = 'rgb(198, 158, 96)';
+function renderLine(parent, lines) {
+    $(parent).empty();
+    for(var i = 0; i < lines.length; i++) {
+        var thisLine = lines[i];
+        var goldColor = false;
+        if(i == 7)
+            goldColor = true;
+        for(var j = 0; j < thisLine.length - 1; j++) {
+            var firstPoint = thisLine[j];
+            var secondPoint = thisLine[j+1];
+            console.log("Line from ("+firstPoint[0]+", "+firstPoint[1]+") to ("+secondPoint[0]+", "+secondPoint[1]+")")
+            var line = $('<div class="generatedLine-container"><div class="generatedLine-line"></div></div>');
+            //Generate a new line object from our first point -> second point
+            var x_min = Math.min(firstPoint[0], secondPoint[0]),
+                x_max = Math.max(firstPoint[0], secondPoint[0]),
+                x_diff = x_max - x_min,
+                x_delta = secondPoint[0] - firstPoint[0];
+            var y_min = Math.min(firstPoint[1], secondPoint[1]),
+                y_max = Math.max(firstPoint[1], secondPoint[1]),
+                y_diff = y_max - y_min,
+                y_delta = secondPoint[1] - firstPoint[1];
+            line.css('top', (y_min+0)+'px')
+                .css('left', (x_min+0)+'px')
+                .css('height', Math.max(y_diff, 3)+'px')
+                .css('width', Math.max(x_diff, 3)+'px');
+
+            var inner = $('.generatedLine-line', line);
+            if(goldColor)
+                inner.css('background-color', 'var(--pinnacle-gold)');
+            var desiredAngle = Math.atan2(y_delta, x_delta);
+            var lineWidth = (((x_diff) ** 2 + (y_diff) ** 2)**(1/2));
+            var translate = "";
+            if(Math.abs(desiredAngle - 2.35619) <= 0.1)
+                translate = "translate("+(x_diff)+"px, 0px) ";
+            // else if(Math.abs(desiredAngle - 1.57079) <= 0.1)
+            //     translate = "translate(0px, 0px) ";
+            // else if(Math.abs(desiredAngle - 0.78539) <= 0.1)
+            //     translate = "translate(0px, 0px) ";
+
+            if(Math.abs(desiredAngle - Math.PI) <= 0.1)
+                desiredAngle=0;
+            inner.width(lineWidth+'px').css('transform', translate+'rotate('+desiredAngle+'rad)');
+            $(parent).append(line);
         }
-        for(var j = 0; j < lines[i].length; j++) { //per point
-            var x = lines[i][j][0],
-                y = lines[i][j][1];
-            if(j == 0)
-                ctx.moveTo(x, y);
-            else
-                ctx.lineTo(x, y);
-        }
-        ctx.stroke();
     }
 }
