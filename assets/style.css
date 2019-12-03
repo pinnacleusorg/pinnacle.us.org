@@ -248,9 +248,9 @@ footer .inner {
     overflow: hidden;
 }
 .linesCanvas-inside {
-    max-height: 0px;
+    /* max-height: 0px;
     will-change: max-height;
-    transition: max-height 0.5s ease-out;
+    transition: max-height 0.5s ease-out; */
 }
 .linesCanvas-outside#mainCanvas {
     clip-path: polygon(50% 100vh, 0% 160vh, 0% 100%, 100% 100%, 100% 160vh)
@@ -265,6 +265,10 @@ footer .inner {
     height: 3px;
     background-color: var(--pinnacle-bg);
     transform-origin: 0px 1.5px;
+    max-width: 0px;
+    will-change: max-width;
+    transition: max-width 0.5s ease-out;
+
 }
 #initialCanvas .generatedLine-line {
     background-color: var(--pinnacle-gold);

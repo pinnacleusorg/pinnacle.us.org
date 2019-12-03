@@ -8,18 +8,13 @@ var reduced = false;
     var offsetMethod = jQuery.fn.offset;
     // Define overriding method.
     jQuery.fn.offset = function(){
-        console.log("New offset");
-        console.log(this);
         var offset = offsetMethod.apply( this, arguments );
-        console.log(offset);
         //Adjust given our ultrawide fix box ...
         var UWFix = offsetMethod.apply($('.ultrawide-capture'), arguments);
         var newOffset = {
             top: offset.top,
             left: offset.left - UWFix.left
         };
-        console.log("Original offset" +offset);
-        console.log("Adjusted offset" +newOffset);
         return newOffset;
     }
 })();
@@ -50,14 +45,53 @@ $(function() {
             var adj = 300 * scrollPercent / 20;
             $('#hero .inner').css('margin-top', 'calc(-8rem - '+adj+'px)');
         }
-        if(animationFinished || highestScroll > scrollPercent)
+        if(animationFinished || highestScroll > scrollTop)
             return;
 
         if(scrollTop + screenHeight - $('.skyline').offset().top > 0 && $('#skyline_brdg').hasClass('off-left'))
             $('.skyline-component').removeClass('off-left').removeClass('off-right');
-        highestScroll = scrollPercent;
-        scrollPercent = scrollPercent.toFixed(0);
-        $('.linesCanvas-inside').css('max-height', (scrollPercent * pageHeight)/100+'px');
+        highestScroll = scrollTop;
+        //TODO: perhaps tackle this in a more elegant fashion
+        if(scrollPercent > 80) {
+            $('.generatedLine-line').css('max-width', '2000px');
+            return;
+        }
+        $('.generatedLine-line').each(function() {
+            var $e = $(this);
+            if($e.data('rendered'))
+                return true; //line is already fully rendered. skip
+
+            var scrollDiff = scrollTop + 2*screenHeight/3 - $e.offset().top;
+            var previousLineRendered = false
+            var thisLineSet = parseInt($e.parent().data('line-set'));
+            var thisLineNumber = parseInt($e.parent().data('line-number'));
+
+            if(thisLineNumber > 0 && $('.generatedLine-container[data-line-set=\"'+thisLineSet+'\"][data-line-number=\"'+(thisLineNumber-1)+'\"] > div').data('rendered'))
+                previousLineRendered = true;
+
+            if(thisLineNumber == 0)
+                previousLineRendered = true;
+
+            if(scrollDiff < 0 || !previousLineRendered)
+                return true;
+
+            var startPosition;
+            if($e.data('startPos'))
+                startPosition = $e.data('startPos');
+            else {
+                startPosition = scrollTop;
+                $e.data('startPos', startPosition);
+            }
+
+            var realWidth = $e.clone().css('max-width', 'none').width();
+            var currentWidth = $e.width();
+            if(Math.abs(currentWidth - realWidth) <= 0.5)
+                $e.data('rendered', true).css('max-width', 'none');
+            var newWidth = (scrollTop-startPosition)*1.3;
+            $e.css('max-width', newWidth+'px');
+        });
+
+        //$('.linesCanvas-inside').css('max-height', (scrollPercent * pageHeight)/100+'px');
     });
     setTimeout(function() {
         if(!initialScroll) {
@@ -171,7 +205,6 @@ function renderLine(parent, lines) {
         for(var j = 0; j < thisLine.length - 1; j++) {
             var firstPoint = thisLine[j];
             var secondPoint = thisLine[j+1];
-            console.log("Line from ("+firstPoint[0]+", "+firstPoint[1]+") to ("+secondPoint[0]+", "+secondPoint[1]+")")
             var line = $('<div class="generatedLine-container"><div class="generatedLine-line"></div></div>');
             //Generate a new line object from our first point -> second point
             var x_min = Math.min(firstPoint[0], secondPoint[0]),
@@ -185,7 +218,9 @@ function renderLine(parent, lines) {
             line.css('top', (y_min+0)+'px')
                 .css('left', (x_min+0)+'px')
                 .css('height', Math.max(y_diff, 3)+'px')
-                .css('width', Math.max(x_diff, 3)+'px');
+                .css('width', Math.max(x_diff, 3)+'px')
+                .attr('data-line-set', i)
+                .attr('data-line-number', j);
 
             var inner = $('.generatedLine-line', line);
             if(goldColor)
@@ -193,15 +228,8 @@ function renderLine(parent, lines) {
             var desiredAngle = Math.atan2(y_delta, x_delta);
             var lineWidth = (((x_diff) ** 2 + (y_diff) ** 2)**(1/2));
             var translate = "";
-            if(Math.abs(desiredAngle - 2.35619) <= 0.1)
+            if(Math.abs(desiredAngle - 2.35619) <= 0.1 || Math.abs(desiredAngle - Math.PI) <= 0.1)
                 translate = "translate("+(x_diff)+"px, 0px) ";
-            // else if(Math.abs(desiredAngle - 1.57079) <= 0.1)
-            //     translate = "translate(0px, 0px) ";
-            // else if(Math.abs(desiredAngle - 0.78539) <= 0.1)
-            //     translate = "translate(0px, 0px) ";
-
-            if(Math.abs(desiredAngle - Math.PI) <= 0.1)
-                desiredAngle=0;
             inner.width(lineWidth+'px').css('transform', translate+'rotate('+desiredAngle+'rad)');
             $(parent).append(line);
         }
