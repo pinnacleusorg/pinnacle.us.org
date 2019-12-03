@@ -53,7 +53,7 @@ $(function() {
         if(animationFinished || highestScroll > scrollPercent)
             return;
 
-        if(scrollTop + screenHeight/3 - $('.skyline').offset().top > 0 && $('#skyline_brdg').hasClass('off-left'))
+        if(scrollTop + screenHeight - $('.skyline').offset().top > 0 && $('#skyline_brdg').hasClass('off-left'))
             $('.skyline-component').removeClass('off-left').removeClass('off-right');
         highestScroll = scrollPercent;
         scrollPercent = scrollPercent.toFixed(0);
@@ -73,7 +73,6 @@ function updateLines() {
         mobile = true;
         $('html').prop('id', 'mobileView');
         $('#initialCanvas, #mainCanvas').children().empty();
-        return;
     } else {
         if(screenWidth < 1200) {
             mobile = false;
@@ -121,12 +120,14 @@ function updateLines() {
     lines[5] = [];
     lines[5][0] = [content_leftEdge * 0.5, lines[1][2][1]+30];
     lines[5][1] = [screenWidth * 0.05, (lines[5][0][0] - screenWidth * 0.05) + lines[5][0][1]];
-    lines[5][2] = [screenWidth * 0.05, $('.skyline').offset().top+50];
+    lines[5][2] = [screenWidth * 0.05, $('.tl-ele').last().offset().top+50];
+    lines[5][3] = [0, lines[5][2][1]+lines[5][2][0]];
 
     lines[6] = [];
     lines[6][0] = [content_rightEdge * 0.9, $('#schedule').offset().top];
     lines[6][1] = [screenWidth * 0.95, ($('#schedule').offset().top + (screenWidth * 0.95 - content_rightEdge * 0.9))];
-    lines[6][2] = [screenWidth * 0.95, $('.skyline').offset().top];
+    lines[6][2] = [screenWidth * 0.95, $('.tl-ele').last().offset().top-50];
+    lines[6][3] = [screenWidth, lines[6][2][1]+(screenWidth - lines[6][2][0])];
 
     lines[7] = [];
     lines[7][0] = [screenWidth, $('#sponsors').offset().top + 100];
