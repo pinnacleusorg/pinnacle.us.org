@@ -22,18 +22,15 @@ var highestScroll = 0;
 $(function() {
     //polyfill for ios / safari - https://github.com/AlfonsoFilho/ClipPath
     $('.overflowTriangle').ClipPath('50% 0, 0 100%, 100% 100%');
+    $('.linesCanvas-outside#mainCanvas').ClipPath('50% 100vh, 0% 160vh, 0% 100%, 100% 100%, 100% 160vh');
     updateLines();
     $(window).resize(function() {
         updateLines();
     });
     var initialScroll = false;
-    // var debounce = Date.now();
     $(window).scroll(function() {
         if(mobile)
             return;
-        // if(Date.now() - debounce < 100)
-        //     return;
-        debounce = Date.now();
         initialScroll = true;
         var scrollTop = $(window).scrollTop();
         var pageHeight = $('html').height();
@@ -50,9 +47,8 @@ $(function() {
         if(scrollTop + screenHeight - $('.skyline').offset().top > 0 && $('#skyline_brdg').hasClass('off-left'))
             $('.skyline-component').removeClass('off-left').removeClass('off-right');
         highestScroll = scrollTop;
-        //TODO: perhaps tackle this in a more elegant fashion
-        if(scrollPercent > 95) {
-            $('.generatedLine-container[data-line-set="7"] > div').css('max-width', '500px');
+        if(scrollPercent >= 98) {
+            $('.generatedLine-container[data-line-set="7"] > div').css('max-width', '1000px');
             return;
         }
         $('.generatedLine-line').each(function() {
@@ -61,7 +57,7 @@ $(function() {
             if($e.data('rendered'))
                 return true;
 
-            var scrollDiff = scrollTop + 2*screenHeight/3 - $e.offset().top;
+            var scrollDiff = scrollTop + 3*screenHeight/4 - $e.offset().top;
             var previousLineRendered = false
             var thisLineSet = parseInt($parent.data('line-set'));
             var thisLineNumber = parseInt($parent.data('line-number'));
@@ -133,60 +129,72 @@ function updateLines() {
     var content_rightEdge = ($('.right-body').first().offset().left + $('.right-body').first().width()) * 1.1;
     //i'll clean this once the line positioning is finalized
     var lines = [];
+    //useful offsets:
+    var OF_description_inner = $('#description .inner').offset(),
+        OF_schedule_h2 = $('#schedule h2').offset(),
+        OF_description_h2 = $('#description h2').offset(),
+        OF_last_tl = $('.tl-ele').last().offset(),
+        OF_scheduleSection = $('#schedule').offset(),
+        OF_sponsors = $('#sponsors').offset();
+    var H_description_inner = $('#description .inner').height(),
+        H_schedule_h2 = $('#schedule h2').height(),
+        H_description_h2 = $('#description h2').height(),
+        H_sponsors = $('#sponsors').height();
+
     lines[0] = [];
     lines[0][0] = [0, screenHeight * 0.8];
-    lines[0][1] = [$('#description .inner').offset().left*0.8, lines[0][0][1] + ($('#description .inner').offset().left*0.8)];
-    lines[0][2] = [lines[0][1][0], $('#description .inner').offset().top + $('#description .inner').height()*1.1];
+    lines[0][1] = [OF_description_inner.left*0.8, lines[0][0][1] + (OF_description_inner.left*0.8)];
+    lines[0][2] = [lines[0][1][0], OF_description_inner.top + H_description_inner*1.1];
 
     lines[1] = [];
     lines[1][0] = [screenWidth * 0.05, screenHeight * 0.7];
-    lines[1][1] = [lines[1][0][0], $('#description .inner').offset().top + $('#description .inner').height() * 0.7];
-    lines[1][2] = [lines[1][0][0] + ($('#schedule h2').offset().top + $('#schedule h2').height()) - (lines[1][1][1]), $('#schedule h2').offset().top + $('#schedule h2').height()];
-    lines[1][3] = [0, lines[1][2][1] + (lines[1][0][0] + (lines[1][2][1]) - ($('#description .inner').offset().top + $('#description .inner').height() * 0.7))];
+    lines[1][1] = [lines[1][0][0], OF_description_inner.top + H_description_inner * 0.7];
+    lines[1][2] = [lines[1][0][0] + (OF_schedule_h2.top + H_schedule_h2) - (lines[1][1][1]), OF_schedule_h2.top + H_schedule_h2];
+    lines[1][3] = [0, lines[1][2][1] + lines[1][2][0]];
 
     lines[2] = [];
     lines[2][0] = [screenWidth, screenHeight * 0.8];
-    lines[2][1] = [content_rightEdge, (screenHeight * 0.8 + (screenWidth - content_rightEdge))];
-    lines[2][2] = [content_rightEdge, $('#description h2').offset().top + $('#description h2').height() - content_rightEdge*0.15];
-    lines[2][3] = [content_rightEdge * 0.85, $('#description h2').offset().top + $('#description h2').height()];
-    lines[2][4] = [content_rightEdge * 0.7, $('#description h2').offset().top + $('#description h2').height()];
+    lines[2][1] = [content_rightEdge, (lines[2][0][1] + (lines[2][0][0] - content_rightEdge))];
+    lines[2][2] = [content_rightEdge, OF_description_h2.top + H_description_h2 - content_rightEdge*0.15];
+    lines[2][3] = [content_rightEdge * 0.85, lines[2][2][1] + content_rightEdge*0.15];
+    lines[2][4] = [content_rightEdge * 0.7, lines[2][3][1]];
 
     lines[3] = [];
     lines[3][0] = [screenWidth * 0.95, screenHeight * 0.75];
-    lines[3][1] = [screenWidth * 0.95, $('#schedule h2').offset().top];
-    lines[3][2] = [screenWidth, ($('#schedule h2').offset().top + (screenWidth * 0.05))];
+    lines[3][1] = [lines[3][0][0], OF_schedule_h2.top];
+    lines[3][2] = [screenWidth, (lines[3][1][1] + (screenWidth * 0.05))];
 
     lines[4] = [];
-    lines[4][0] = [content_rightEdge * 0.7, $('#description h2').offset().top];
-    lines[4][1] = [content_rightEdge, $('#description h2').offset().top];
-    lines[4][2] = [content_rightEdge, $('#description .inner').offset().top + $('#description .inner').height()/2];
-    lines[4][3] = [screenWidth, ($('#description .inner').offset().top + $('#description .inner').height()/2 + (screenWidth - content_rightEdge))];
+    lines[4][0] = [content_rightEdge * 0.7, OF_description_h2.top];
+    lines[4][1] = [content_rightEdge, lines[4][0][1]];
+    lines[4][2] = [content_rightEdge, OF_description_inner.top + H_description_inner/2];
+    lines[4][3] = [screenWidth, lines[4][2][1] + screenWidth - lines[4][2][0]];
 
     lines[5] = [];
     lines[5][0] = [content_leftEdge * 0.5, lines[1][2][1]+30];
     lines[5][1] = [screenWidth * 0.05, (lines[5][0][0] - screenWidth * 0.05) + lines[5][0][1]];
-    lines[5][2] = [screenWidth * 0.05, $('.tl-ele').last().offset().top+50];
+    lines[5][2] = [screenWidth * 0.05, OF_last_tl.top+50];
     lines[5][3] = [0, lines[5][2][1]+lines[5][2][0]];
 
     lines[6] = [];
-    lines[6][0] = [content_rightEdge * 0.9, $('#schedule').offset().top];
-    lines[6][1] = [screenWidth * 0.95, ($('#schedule').offset().top + (screenWidth * 0.95 - content_rightEdge * 0.9))];
-    lines[6][2] = [screenWidth * 0.95, $('.tl-ele').last().offset().top-50];
+    lines[6][0] = [content_rightEdge * 0.9, OF_scheduleSection.top];
+    lines[6][1] = [screenWidth * 0.95, (OF_scheduleSection.top + (screenWidth * 0.95 - content_rightEdge * 0.9))];
+    lines[6][2] = [screenWidth * 0.95, OF_last_tl.top-50];
     lines[6][3] = [screenWidth, lines[6][2][1]+(screenWidth - lines[6][2][0])];
 
     lines[7] = [];
-    lines[7][0] = [screenWidth, $('#sponsors').offset().top + 100];
-    lines[7][1] = [content_rightEdge, ($('#sponsors').offset().top + 100 + (screenWidth-content_rightEdge))];
-    lines[7][2] = [content_rightEdge, $('#sponsors').offset().top + $('#sponsors').height()*0.9];
-    lines[7][3] = [screenWidth, $('#sponsors').offset().top + $('#sponsors').height()*0.9];
+    lines[7][0] = [screenWidth, OF_sponsors.top + 100];
+    lines[7][1] = [content_rightEdge, (OF_sponsors.top + 100 + (screenWidth-content_rightEdge))];
+    lines[7][2] = [content_rightEdge, OF_sponsors.top + H_sponsors*0.9];
+    lines[7][3] = [screenWidth, OF_sponsors.top + H_sponsors*0.9];
     if(reduced) {
         lines[0] = [];
         lines[3] = [];
         lines[5] = [];
         lines[6] = [];
     }
-    var g = $('#schedule h2').offset().left + $('#schedule h2').width()*1.3;
-    lines[1][1] = [lines[1][0][0], $('#schedule h2').offset().top + $('#schedule h2').height()/2 - (g - lines[1][1][0])];
+    var g = OF_schedule_h2.left + $('#schedule h2').width()*1.3;
+    lines[1][1] = [lines[1][0][0], OF_schedule_h2.top + H_schedule_h2/2 - (g - lines[1][1][0])];
     lines[1][2] = [g, (g - lines[1][1][0]) + lines[1][1][1]];
     lines[1][3] = [0, lines[1][2][0] + lines[1][2][1]];
 
@@ -201,8 +209,6 @@ function updateLines() {
     $(canvasContainer).width(screenWidth);
     renderLine(canvas2, lines); //all lines
     renderLine(canvas1, [lines[0], lines[1], lines[2], lines[3]]); //top lines
-    window.scrollTo(0, 0);
-    highestScroll = 0;
 }
 function renderLine(parent, lines) {
     $(parent).empty();

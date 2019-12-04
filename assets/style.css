@@ -460,7 +460,7 @@ footer .inner {
 .tl-ele {
     display: flex;
     width: 100%;
-    margin: 5rem 0;
+    margin: 8rem 0;
 }
 .tl-ele.timeline-right {
     justify-content: flex-end;
