@@ -18,6 +18,7 @@ var reduced = false;
         return newOffset;
     }
 })();
+var highestScroll = 0;
 $(function() {
     //polyfill for ios / safari - https://github.com/AlfonsoFilho/ClipPath
     $('.overflowTriangle').ClipPath('50% 0, 0 100%, 100% 100%');
@@ -26,8 +27,6 @@ $(function() {
         updateLines();
     });
     var initialScroll = false;
-    var animationFinished = false;
-    var highestScroll = 0;
     var debounce = Date.now();
     $(window).scroll(function() {
         if(mobile)
@@ -39,13 +38,13 @@ $(function() {
         var scrollTop = $(window).scrollTop();
         var pageHeight = $('html').height();
         var screenHeight = $(window).height();
-
         var scrollPercent = (scrollTop / (pageHeight - screenHeight)) * 100;
         if(scrollPercent < 20) {
             var adj = 300 * scrollPercent / 20;
             $('#hero .inner').css('margin-top', 'calc(-8rem - '+adj+'px)');
         }
-        if(animationFinished || highestScroll > scrollTop)
+        console.log("Highest scroll:"+highestScroll+" current:"+scrollTop);
+        if(highestScroll > scrollTop)
             return;
 
         if(scrollTop + screenHeight - $('.skyline').offset().top > 0 && $('#skyline_brdg').hasClass('off-left'))
@@ -131,7 +130,7 @@ function updateLines() {
     lines[1][0] = [screenWidth * 0.05, screenHeight * 0.7];
     lines[1][1] = [lines[1][0][0], $('#description .inner').offset().top + $('#description .inner').height() * 0.7];
     lines[1][2] = [lines[1][0][0] + ($('#schedule h2').offset().top + $('#schedule h2').height()) - (lines[1][1][1]), $('#schedule h2').offset().top + $('#schedule h2').height()];
-    lines[1][3] = [0, $('#schedule h2').offset().top + $('#schedule h2').height() + (screenWidth * 0.05 + ($('#schedule h2').offset().top + $('#schedule h2').height()) - ($('#description .inner').offset().top + $('#description .inner').height() * 0.7))];
+    lines[1][3] = [0, lines[1][2][1] + (lines[1][0][0] + (lines[1][2][1]) - ($('#description .inner').offset().top + $('#description .inner').height() * 0.7))];
 
     lines[2] = [];
     lines[2][0] = [screenWidth, screenHeight * 0.8];
@@ -191,9 +190,10 @@ function updateLines() {
 
     $(canvasContainer).height($('html').height());
     $(canvasContainer).width(screenWidth);
-
     renderLine(canvas2, lines); //all lines
     renderLine(canvas1, [lines[0], lines[1], lines[2], lines[3]]); //top lines
+    window.scrollTo(0, 0);
+    highestScroll = 0;
 }
 function renderLine(parent, lines) {
     $(parent).empty();

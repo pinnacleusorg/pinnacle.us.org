@@ -141,6 +141,7 @@ html, body {
 #schedule h2 {
     margin-left: -8rem;
     display: inline-block;
+    padding-right: 50px;
 }
 #schedule .inner {
     min-height: 40rem;
