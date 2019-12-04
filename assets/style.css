@@ -247,6 +247,7 @@ footer .inner {
     z-index: 999;
     top:0;
     overflow: hidden;
+    pointer-events:none;
 }
 .linesCanvas-inside {
     /* max-height: 0px;
@@ -308,6 +309,7 @@ footer .inner {
     height: 90vh;
     position: relative;
     display: block;
+    padding-bottom: 120vh;
 }
 #mobileView #hero .inner {
     padding: 4rem;
@@ -368,6 +370,7 @@ footer .inner {
     position: absolute;
     left: 0;
     overflow: hidden;
+    pointer-events:none;
 }
 .mobileOnly.titleDivider .divider-top {
     position: absolute;
@@ -406,6 +409,7 @@ footer .inner {
     height: 100vh;
     overflow: hidden;
     left: -20px;
+    pointer-events:none;
 }
 .mobileOnly.sideLines div {
     width: 5px;
