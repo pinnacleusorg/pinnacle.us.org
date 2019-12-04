@@ -1,15 +1,13 @@
-window.onbeforeunload = function () {
-  window.scrollTo(0, 0); //for dev
-}
-var mobile = true;
-var reduced = false;
+var mobile = true,
+    reduced = false,
+    highestScroll = 0,
+    initialScroll = false;
 
 (function(){
+    // could this break stuff in the future? probably. Adjust offset to be relative to ultrawide-capture instead of global.
     var offsetMethod = jQuery.fn.offset;
-    // Define overriding method.
     jQuery.fn.offset = function(){
         var offset = offsetMethod.apply( this, arguments );
-        //Adjust given our ultrawide fix box ...
         var UWFix = offsetMethod.apply($('.ultrawide-capture'), arguments);
         var newOffset = {
             top: offset.top,
@@ -18,81 +16,25 @@ var reduced = false;
         return newOffset;
     }
 })();
-var highestScroll = 0;
 $(function() {
-    //polyfill for ios / safari - https://github.com/AlfonsoFilho/ClipPath
+// Polyfill for ios / safari - https://github.com/AlfonsoFilho/ClipPath
     $('.overflowTriangle').ClipPath('50% 0, 0 100%, 100% 100%');
     $('.linesCanvas-outside#mainCanvas').ClipPath('50% 100vh, 0% 160vh, 0% 100%, 100% 100%, 100% 160vh');
+
+// Update/Generate Lines
     updateLines();
     $(window).resize(function() {
         updateLines();
     });
-    var initialScroll = false;
+
+// Handle Scrolling Animation
     $(window).scroll(function() {
         if(mobile)
             return;
-        initialScroll = true;
-        var scrollTop = $(window).scrollTop();
-        var pageHeight = $('html').height();
-        var screenHeight = $(window).height();
-        var scrollPercent = (scrollTop / (pageHeight - screenHeight)) * 100;
-        if(scrollPercent < 20) {
-            var adj = 300 * scrollPercent / 20;
-            $('#hero .inner').css('margin-top', 'calc(-8rem - '+adj+'px)');
-        }
-        console.log("Highest scroll:"+highestScroll+" current:"+scrollTop);
-        if(highestScroll > scrollTop)
-            return;
-
-        if(scrollTop + screenHeight - $('.skyline').offset().top > 0 && $('#skyline_brdg').hasClass('off-left'))
-            $('.skyline-component').removeClass('off-left').removeClass('off-right');
-        highestScroll = scrollTop;
-        if(scrollPercent >= 98) {
-            $('.generatedLine-container[data-line-set="7"] > div').css('max-width', '1000px');
-            return;
-        }
-        $('.generatedLine-line').each(function() {
-            var $e = $(this);
-            var $parent = $e.parent();
-            if($e.data('rendered'))
-                return true;
-
-            var scrollDiff = scrollTop + 3*screenHeight/4 - $e.offset().top;
-            var previousLineRendered = false
-            var thisLineSet = parseInt($parent.data('line-set'));
-            var thisLineNumber = parseInt($parent.data('line-number'));
-
-            if(thisLineNumber > 0 && $('.generatedLine-container[data-line-set=\"'+thisLineSet+'\"][data-line-number=\"'+(thisLineNumber-1)+'\"] > div').data('rendered'))
-                previousLineRendered = true;
-
-            if(thisLineNumber == 0)
-                previousLineRendered = true;
-
-            if(scrollDiff < 0 || !previousLineRendered)
-                return true;
-
-            var startPosition;
-            if($e.data('startPos'))
-                startPosition = $e.data('startPos');
-            else {
-                startPosition = scrollTop;
-                $e.data('startPos', startPosition);
-            }
-
-            var realWidth = $e.clone().css('max-width', 'none').width();
-            var realBottomOffset = $parent.offset().top + $parent.height();
-            var currentWidth = $e.width();
-            console.log(realBottomOffset);
-            if(Math.abs(currentWidth - realWidth) <= 0.5 || realBottomOffset - scrollTop < screenHeight*0.2) {
-                $e.data('rendered', true).css('max-width', realWidth+'px');
-                return;
-            }
-            var newWidth = (scrollTop-startPosition)*1.3;
-            $e.css('max-width', newWidth+'px');
-        });
-
-        //$('.linesCanvas-inside').css('max-height', (scrollPercent * pageHeight)/100+'px');
+        processScroll();
     });
+
+// Prompt user to scroll if they idle at top.
     setTimeout(function() {
         if(!initialScroll) {
             if($(window).height() > 650)
@@ -100,19 +42,84 @@ $(function() {
         }
     }, 3000)
 });
+function processScroll() {
+    initialScroll = true;
+    //CONS:
+    var scrollTop = $(window).scrollTop();
+    var pageHeight = $('html').height();
+    var screenHeight = $(window).height();
+    var scrollPercent = (scrollTop / (pageHeight - screenHeight)) * 100;
+
+    //Parallax logo at top of scroll
+    if(scrollPercent < 20) {
+        var adj = 150 * scrollPercent / 20;
+        $('#hero .inner').css('margin-top', 'calc(-8rem - '+adj+'px)');
+    }
+    if(highestScroll > scrollTop)
+        return;
+    //If we've reached skyline portion, slide it in
+    if(scrollTop + screenHeight - $('.skyline').offset().top > 0 && $('#skyline_brdg').hasClass('off-left'))
+        $('.skyline-component').removeClass('off-left').removeClass('off-right');
+    highestScroll = scrollTop;
+    //If we've reached the bottom, animate the last lines
+    if(scrollPercent >= 98) {
+        $('.generatedLine-container[data-line-set="7"] > div').css('max-width', '1000px');
+        return;
+    }
+    $('.generatedLine-line').each(function() {
+        var $e = $(this);
+        if($e.data('rendered'))
+            return true;
+        //CONS:
+        var $parent = $e.parent();
+        var scrollDiff = scrollTop + 3*screenHeight/4 - $e.offset().top;
+        var previousLineRendered = false
+        var thisLineSet = parseInt($parent.data('line-set'));
+        var thisLineNumber = parseInt($parent.data('line-number'));
+        var previousLine = $('.generatedLine-container[data-line-set=\"'+thisLineSet+'\"][data-line-number=\"'+(thisLineNumber-1)+'\"] > div');
+        var startPosition;
+
+        if(thisLineNumber == 0 || (thisLineNumber > 0 && previousLine.data('rendered')))
+            previousLineRendered = true;
+        //Skip this line if the previous line in the set isn't done yet, or if we haven't scrolled to it
+        if(scrollDiff < 0 || !previousLineRendered)
+            return true;
+        //Mark where on scrollTop we start this line at, so the animation jumps a consistent amount as we scroll forward
+        if($e.data('startPos'))
+            startPosition = $e.data('startPos');
+        else {
+            startPosition = scrollTop;
+            $e.data('startPos', startPosition);
+        }
+        //Clone to find the real line width if it were not limited
+        var realWidth = $e.clone().css('max-width', 'none').width();
+        var realBottomOffset = $parent.offset().top + $parent.height();
+        var currentWidth = $e.width();
+        //If we're close to the real width, finish the line and mark it complete
+        //OR: if the line is falling off the screen, just mark it complete so we can keep the animation on-screen.
+        if(Math.abs(currentWidth - realWidth) <= 0.5 || realBottomOffset - scrollTop < screenHeight*0.2) {
+            $e.data('rendered', true).css('max-width', realWidth+'px');
+            return;
+        }
+        var newWidth = (scrollTop-startPosition)*1.3;
+        $e.css('max-width', newWidth+'px');
+    });
+}
 function updateLines() {
+    //CONS:
     var screenHeight = Math.min($(window).height(), $('.ultrawide-capture').height());
     var screenWidth = Math.min($(window).width(), $('.ultrawide-capture').width());
     var canvasContainer = $('.linesCanvas-outside');
     var canvas1 = $('.linesCanvas-inside', canvasContainer[0]);
     var canvas2 = $('.linesCanvas-inside', canvasContainer[1]);
-    canvasContainer.width(0);
+    //Detect mobile form factor (no lines), or reduced lines form factor (reduced=true)
     if(screenWidth < 767) {
         mobile = true;
         $('html').prop('id', 'mobileView');
         $('#initialCanvas, #mainCanvas').children().empty();
         $(canvas1).empty();
         $(canvas2).empty();
+        canvasContainer.width(0); //no canvas on mobile
         return;
     } else {
         if(screenWidth < 1200) {
@@ -125,32 +132,35 @@ function updateLines() {
             $('html').prop('id', '');
         }
     }
-    var content_leftEdge = ($('.right-body').first().offset().left) * 0.9;
-    var content_rightEdge = ($('.right-body').first().offset().left + $('.right-body').first().width()) * 1.1;
-    //i'll clean this once the line positioning is finalized
-    var lines = [];
+
     //useful offsets:
+    var content_leftEdge = ($('.right-body').first().offset().left) * 0.9,
+        content_rightEdge = ($('.right-body').first().offset().left + $('.right-body').first().width()) * 1.1;
+
     var OF_description_inner = $('#description .inner').offset(),
         OF_schedule_h2 = $('#schedule h2').offset(),
         OF_description_h2 = $('#description h2').offset(),
         OF_last_tl = $('.tl-ele').last().offset(),
         OF_scheduleSection = $('#schedule').offset(),
         OF_sponsors = $('#sponsors').offset();
+
     var H_description_inner = $('#description .inner').height(),
         H_schedule_h2 = $('#schedule h2').height(),
         H_description_h2 = $('#description h2').height(),
         H_sponsors = $('#sponsors').height();
 
+    var lines = [];
     lines[0] = [];
     lines[0][0] = [0, screenHeight * 0.8];
     lines[0][1] = [OF_description_inner.left*0.8, lines[0][0][1] + (OF_description_inner.left*0.8)];
     lines[0][2] = [lines[0][1][0], OF_description_inner.top + H_description_inner*1.1];
 
+    var g = OF_schedule_h2.left + $('#schedule h2').width()*1.5;
     lines[1] = [];
     lines[1][0] = [screenWidth * 0.05, screenHeight * 0.7];
-    lines[1][1] = [lines[1][0][0], OF_description_inner.top + H_description_inner * 0.7];
-    lines[1][2] = [lines[1][0][0] + (OF_schedule_h2.top + H_schedule_h2) - (lines[1][1][1]), OF_schedule_h2.top + H_schedule_h2];
-    lines[1][3] = [0, lines[1][2][1] + lines[1][2][0]];
+    lines[1][1] = [lines[1][0][0], OF_schedule_h2.top + H_schedule_h2/2 - (g - lines[1][0][0])];
+    lines[1][2] = [g, (g - lines[1][1][0]) + lines[1][1][1]];
+    lines[1][3] = [0, lines[1][2][0] + lines[1][2][1]];
 
     lines[2] = [];
     lines[2][0] = [screenWidth, screenHeight * 0.8];
@@ -171,7 +181,7 @@ function updateLines() {
     lines[4][3] = [screenWidth, lines[4][2][1] + screenWidth - lines[4][2][0]];
 
     lines[5] = [];
-    lines[5][0] = [content_leftEdge * 0.5, lines[1][2][1]+30];
+    lines[5][0] = [content_leftEdge * 0.5, lines[1][2][1]+50];
     lines[5][1] = [screenWidth * 0.05, (lines[5][0][0] - screenWidth * 0.05) + lines[5][0][1]];
     lines[5][2] = [screenWidth * 0.05, OF_last_tl.top+50];
     lines[5][3] = [0, lines[5][2][1]+lines[5][2][0]];
@@ -188,15 +198,12 @@ function updateLines() {
     lines[7][2] = [content_rightEdge, OF_sponsors.top + H_sponsors*0.9];
     lines[7][3] = [screenWidth, OF_sponsors.top + H_sponsors*0.9];
     if(reduced) {
+        //remove some lines to draw when on reduced screen size
         lines[0] = [];
         lines[3] = [];
         lines[5] = [];
         lines[6] = [];
     }
-    var g = OF_schedule_h2.left + $('#schedule h2').width()*1.3;
-    lines[1][1] = [lines[1][0][0], OF_schedule_h2.top + H_schedule_h2/2 - (g - lines[1][1][0])];
-    lines[1][2] = [g, (g - lines[1][1][0]) + lines[1][1][1]];
-    lines[1][3] = [0, lines[1][2][0] + lines[1][2][1]];
 
     //canvas setup
 
@@ -207,6 +214,7 @@ function updateLines() {
 
     $(canvasContainer).height($('html').height());
     $(canvasContainer).width(screenWidth);
+    highestScroll = 0;
     renderLine(canvas2, lines); //all lines
     renderLine(canvas1, [lines[0], lines[1], lines[2], lines[3]]); //top lines
 }
