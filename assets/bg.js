@@ -27,12 +27,12 @@ $(function() {
         updateLines();
     });
     var initialScroll = false;
-    var debounce = Date.now();
+    // var debounce = Date.now();
     $(window).scroll(function() {
         if(mobile)
             return;
-        if(Date.now() - debounce < 100)
-            return;
+        // if(Date.now() - debounce < 100)
+        //     return;
         debounce = Date.now();
         initialScroll = true;
         var scrollTop = $(window).scrollTop();
@@ -102,10 +102,17 @@ $(function() {
 function updateLines() {
     var screenHeight = Math.min($(window).height(), $('.ultrawide-capture').height());
     var screenWidth = Math.min($(window).width(), $('.ultrawide-capture').width());
+    var canvasContainer = $('.linesCanvas-outside');
+    var canvas1 = $('.linesCanvas-inside', canvasContainer[0]);
+    var canvas2 = $('.linesCanvas-inside', canvasContainer[1]);
+    canvasContainer.width(0);
     if(screenWidth < 767) {
         mobile = true;
         $('html').prop('id', 'mobileView');
         $('#initialCanvas, #mainCanvas').children().empty();
+        $(canvas1).empty();
+        $(canvas2).empty();
+        return;
     } else {
         if(screenWidth < 1200) {
             mobile = false;
@@ -179,9 +186,6 @@ function updateLines() {
     lines[1][3] = [0, lines[1][2][0] + lines[1][2][1]];
 
     //canvas setup
-    var canvasContainer = $('.linesCanvas-outside');
-    var canvas1 = $('.linesCanvas-inside', canvasContainer[0]);
-    var canvas2 = $('.linesCanvas-inside', canvasContainer[1]);
 
     canvas1.width(screenWidth);
     canvas1.height($('html').height());
