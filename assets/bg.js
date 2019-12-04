@@ -17,6 +17,17 @@ var mobile = true,
     }
 })();
 $(function() {
+// Console banner (just for kicks)
+    var consoleBanner = "";
+    consoleBanner += ("  _______ _                  _                       _                   __   _                _         _   _                     \n");
+    consoleBanner += (" |__   __| |                | |                     (_)                 / _| | |              | |       | | | |                    \n");
+    consoleBanner += ("    | |  | |__   ___    ___ | |_   _ _ __ ___  _ __  _  ___ ___    ___ | |_  | |__   __ _  ___| | ____ _| |_| |__   ___  _ __  ___ \n");
+    consoleBanner += ("    | |  | '_ \\ / _ \\  / _ \\| | | | | '_ ` _ \\| '_ \\| |/ __/ __|  / _ \\|  _| | '_ \\ / _` |/ __| |/ / _` | __| '_ \\ / _ \\| '_ \\/ __|\n");
+    consoleBanner += ("    | |  | | | |  __/ | (_) | | |_| | | | | | | |_) | | (__\\__ \\ | (_) | |   | | | | (_| | (__|   | (_| | |_| | | | (_) | | | \\__ \\\n");
+    consoleBanner += ("    |_|  |_| |_|\\___|  \\___/|_|\\__, |_| |_| |_| .__/|_|\\___|___/  \\___/|_|   |_| |_|\\__,_|\\___|_|\\_\\__,_|\\__|_| |_|\\___/|_| |_|___/\n");
+    consoleBanner += ("                                __/ |         | |                                                                                  \n");
+    consoleBanner += ("                               |___/          |_|                                                                                  ");
+    console.log(consoleBanner);
 // Polyfill for ios / safari - https://github.com/AlfonsoFilho/ClipPath
     $('.overflowTriangle').ClipPath('50% 0, 0 100%, 100% 100%');
     $('.linesCanvas-outside#mainCanvas').ClipPath('50% 100vh, 0% 160vh, 0% 100%, 100% 100%, 100% 160vh');
@@ -205,25 +216,28 @@ function updateLines() {
         lines[6] = [];
     }
 
-    //canvas setup
-
+    //"canvas" setup
+    //NB: I continually refer to this as a "canvas" despite it no longer being a canvas, so pardon the term use.
+    //Ensure our sizes are identical on the two clones to allow for lining up multi-colored lines
     canvas1.width(screenWidth);
     canvas1.height($('html').height());
+
     canvas2.width(screenWidth);
     canvas2.height($('html').height());
 
     $(canvasContainer).height($('html').height());
     $(canvasContainer).width(screenWidth);
+
     highestScroll = 0;
     renderLine(canvas2, lines); //all lines
     renderLine(canvas1, [lines[0], lines[1], lines[2], lines[3]]); //top lines
 }
 function renderLine(parent, lines) {
-    $(parent).empty();
+    $(parent).empty(); //clear out all lines (vs modifying existing ones for simplicity)
     for(var i = 0; i < lines.length; i++) {
         var thisLine = lines[i];
         var goldColor = false;
-        if(i == 7)
+        if(i == 7) //sponsor section line is gold.
             goldColor = true;
         for(var j = 0; j < thisLine.length - 1; j++) {
             var firstPoint = thisLine[j];
@@ -251,6 +265,7 @@ function renderLine(parent, lines) {
             var desiredAngle = Math.atan2(y_delta, x_delta);
             var lineWidth = (((x_diff) ** 2 + (y_diff) ** 2)**(1/2));
             var translate = "";
+            //translate if needed to allow max-width to appropriately control the line's size in the direction of motion
             if(Math.abs(desiredAngle - 2.35619) <= 0.1 || Math.abs(desiredAngle - Math.PI) <= 0.1)
                 translate = "translate("+(x_diff)+"px, 0px) ";
             inner.width(lineWidth+'px').css('transform', translate+'rotate('+desiredAngle+'rad)');
