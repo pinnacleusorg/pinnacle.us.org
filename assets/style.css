@@ -329,6 +329,7 @@ footer .inner {
 }
 #mobileView #schedule h2 {
     margin-bottom: 3rem !important;
+    padding: 0;
 }
 #mobileView h2 {
     font-size: 2.5rem;
@@ -459,7 +460,7 @@ footer .inner {
 .tl-ele {
     display: flex;
     width: 100%;
-    margin: 10rem 0;
+    margin: 5rem 0;
 }
 .tl-ele.timeline-right {
     justify-content: flex-end;
@@ -479,5 +480,5 @@ footer .inner {
     text-align: center;
     font-size: 3rem;
     font-weight: bold;
-    padding: 5rem;
+    padding: 3rem;
 }

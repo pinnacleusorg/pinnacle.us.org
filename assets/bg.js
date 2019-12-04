@@ -51,19 +51,20 @@ $(function() {
             $('.skyline-component').removeClass('off-left').removeClass('off-right');
         highestScroll = scrollTop;
         //TODO: perhaps tackle this in a more elegant fashion
-        if(scrollPercent > 80) {
-            $('.generatedLine-line').css('max-width', '2000px');
+        if(scrollPercent > 95) {
+            $('.generatedLine-container[data-line-set="7"] > div').css('max-width', '500px');
             return;
         }
         $('.generatedLine-line').each(function() {
             var $e = $(this);
+            var $parent = $e.parent();
             if($e.data('rendered'))
-                return true; //line is already fully rendered. skip
+                return true;
 
             var scrollDiff = scrollTop + 2*screenHeight/3 - $e.offset().top;
             var previousLineRendered = false
-            var thisLineSet = parseInt($e.parent().data('line-set'));
-            var thisLineNumber = parseInt($e.parent().data('line-number'));
+            var thisLineSet = parseInt($parent.data('line-set'));
+            var thisLineNumber = parseInt($parent.data('line-number'));
 
             if(thisLineNumber > 0 && $('.generatedLine-container[data-line-set=\"'+thisLineSet+'\"][data-line-number=\"'+(thisLineNumber-1)+'\"] > div').data('rendered'))
                 previousLineRendered = true;
@@ -83,9 +84,13 @@ $(function() {
             }
 
             var realWidth = $e.clone().css('max-width', 'none').width();
+            var realBottomOffset = $parent.offset().top + $parent.height();
             var currentWidth = $e.width();
-            if(Math.abs(currentWidth - realWidth) <= 0.5)
-                $e.data('rendered', true).css('max-width', 'none');
+            console.log(realBottomOffset);
+            if(Math.abs(currentWidth - realWidth) <= 0.5 || realBottomOffset - scrollTop < screenHeight*0.2) {
+                $e.data('rendered', true).css('max-width', realWidth+'px');
+                return;
+            }
             var newWidth = (scrollTop-startPosition)*1.3;
             $e.css('max-width', newWidth+'px');
         });
