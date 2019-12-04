@@ -35,7 +35,7 @@ html, body {
 }
 .light-bg {
     background-color: rgb(248, 246, 237);
-    color: rgb(30, 29, 29);
+    color: var(--pinnacle-bg);
 }
 .dark-bg {
     background-color: var(--pinnacle-bg);
@@ -43,7 +43,7 @@ html, body {
 }
 .gold-bg {
     background-color: var(--pinnacle-gold);
-    color: rgb(30, 29, 29);
+    color: var(--pinnacle-bg);
 }
 /* Hero Section */
 #hero {
@@ -117,7 +117,7 @@ html, body {
     top: calc(-60vh + 1px);
     height: 60vh;
     background-color: rgb(248, 246, 237);
-    color: rgb(30, 29, 29);
+    color: var(--pinnacle-bg);
     clip-path: polygon(50% 100vh, 0% 160vh, 0% 99.99%, 99.99% 99.99%, 100% 160vh);
 }
 #description .right-body, #schedule .right-body {
@@ -275,6 +275,7 @@ footer .inner {
 #initialCanvas .generatedLine-line {
     background-color: var(--pinnacle-gold);
 }
+
 /* Mobile Optimization */
 #mobileView .container.inner h2 {
     margin-left: 0;
@@ -448,7 +449,7 @@ footer .inner {
     box-shadow: 0px 0px 10px 2px black;
 }
 
-
+/* Timeline element (replaces Schedule) */
 #timeline-container {
     font-size: 28px;
     font-weight: lighter;
