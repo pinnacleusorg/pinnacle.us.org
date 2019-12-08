@@ -29,9 +29,11 @@ $(function() {
     consoleBanner += ("                               |___/          |_|                                                                                  ");
     console.log(consoleBanner);
 // Polyfill for ios / safari - https://github.com/AlfonsoFilho/ClipPath
-    $('.overflowTriangle').ClipPath('50% 0, 0 100%, 100% 100%');
-    $('.linesCanvas-outside#mainCanvas').ClipPath('50% 100vh, 0% 160vh, 0% 100%, 100% 100%, 100% 160vh');
-
+    $('.overflowTriangle').ClipPath('50% 0, 0 100%, 100% 100%');    
+    var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    if(isSafari) {
+        $('.linesCanvas-outside#mainCanvas').ClipPath('50% 100vh, 0% 160vh, 0% 100%, 100% 100%, 100% 160vh');
+    }
 // Update/Generate Lines
     updateLines();
     $(window).resize(function() {

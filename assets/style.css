@@ -119,6 +119,7 @@ html, body {
     background-color: rgb(248, 246, 237);
     color: var(--pinnacle-bg);
     clip-path: polygon(50% 100vh, 0% 160vh, 0% 99.99%, 99.99% 99.99%, 100% 160vh);
+    overflow: hidden;
 }
 #description .right-body, #schedule .right-body {
     font-size: 28px;
