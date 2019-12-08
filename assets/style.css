@@ -66,6 +66,7 @@ html, body {
 }
 #hero #keyLogo {
     width: 10rem;
+    padding-right: 3px;
 }
 #hero #keyLabel {
     margin-top: 4rem !important;
