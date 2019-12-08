@@ -39,6 +39,7 @@ $(function() {
     }
 // Update/Generate Lines
     updateLines();
+    renderButtons();
     $(window).resize(function() {
         updateLines();
     });
@@ -277,4 +278,38 @@ function renderLine(parent, lines) {
             $(parent).append(line);
         }
     }
+}
+function renderButtons() {
+    $('.pinnacle-btn').each(function() {
+    	$e = $(this);
+    	var message = $e.text();
+    	$e.html(message);
+        var w = $('.pinnacle-btn').outerWidth();
+        var h = $('.pinnacle-btn').outerHeight();
+        var strokeWidth = 3;
+        var modifiedW = w + strokeWidth;
+        var modifiedH = h + strokeWidth;
+        $e.outerWidth(modifiedW);
+        $e.outerHeight(modifiedH);
+    	var points = [];
+    	points[0] = [0, h*0.25];
+    	points[1] = [h*0.25, 0];
+    	points[2] = [w-h*0.25, 0];
+    	points[3] = [w, h*0.25];
+    	points[4] = [w, h*0.75];
+    	points[5] = [w-h*0.25, h];
+    	points[6] = [h*0.25, h];
+    	points[7] = [0, h*0.75];
+    	var svg = "";
+    	for(var i = 0; i < points.length; i++) {
+    		var x = points[i][0]+strokeWidth/2;
+    		var y = points[i][1]+strokeWidth/2;
+    		if(i == 0) svg += "M "+x+" "+y+" ";
+    		else	   svg += "L "+x+" "+y+" ";
+        }
+    	svg += "Z";
+    	console.log(svg)
+        $e.html('<div class="btn-label">'+message+'</div>');
+    	$('<svg width="'+modifiedW+'px" height="'+modifiedH+'px"><path d="'+svg+'"/></svg>').appendTo($e);
+    });
 }
