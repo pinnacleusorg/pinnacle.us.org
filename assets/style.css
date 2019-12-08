@@ -379,7 +379,7 @@ footer .inner {
     top: 0;
     left: 20%;
     right: 10%;
-    height: 5px;
+    height: 3px;
     background-color: var(--pinnacle-bg);
 }
 .mobileOnly.titleDivider.divider-right .divider-edge {
@@ -387,7 +387,7 @@ footer .inner {
     top: 0;
     left: 60%;
     right: -20%;
-    height: 5px;
+    height: 3px;
     background-color: var(--pinnacle-bg);
     transform: rotate(45deg);
 }
@@ -400,7 +400,7 @@ footer .inner {
     top: 0;
     right: 60%;
     left: -20%;
-    height: 5px;
+    height: 3px;
     background-color: var(--pinnacle-bg);
     transform: rotate(-45deg);
 }
@@ -414,7 +414,7 @@ footer .inner {
     pointer-events:none;
 }
 .mobileOnly.sideLines div {
-    width: 5px;
+    width: 3px;
     background-color: var(--pinnacle-bg);
     position: absolute;
     z-index: 2;
