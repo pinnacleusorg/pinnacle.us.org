@@ -1,10 +1,13 @@
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0); //keep at top on refresh
+}
+
 var mobile = true,
     reduced = false,
     highestScroll = 0,
     initialScroll = false;
 
 (function(){
-    // could this break stuff in the future? probably. Adjust offset to be relative to ultrawide-capture instead of global.
     var offsetMethod = jQuery.fn.offset;
     jQuery.fn.offset = function(){
         var offset = offsetMethod.apply( this, arguments );
@@ -29,7 +32,7 @@ $(function() {
     consoleBanner += ("                               |___/          |_|                                                                                  ");
     console.log(consoleBanner);
 // Polyfill for ios / safari - https://github.com/AlfonsoFilho/ClipPath
-    $('.overflowTriangle').ClipPath('50% 0, 0 100%, 100% 100%');    
+    $('.overflowTriangle').ClipPath('50% 0, 0 100%, 100% 100%');
     var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
     if(isSafari) {
         $('.linesCanvas-outside#mainCanvas').ClipPath('50% 100vh, 0% 160vh, 0% 100%, 100% 100%, 100% 160vh');

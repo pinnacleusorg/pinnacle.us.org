@@ -484,3 +484,12 @@ footer .inner {
     font-weight: bold;
     padding: 3rem;
 }
+
+#mobileView .tl-ele {
+    flex-direction: column;
+    text-align: right !important;
+    margin: 3rem 0;
+}
+#mobileView .timeline-desc {
+    margin-right: 0;
+}
