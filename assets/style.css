@@ -4,6 +4,7 @@
     --pinnacle-bg: rgb(30, 29, 29);
 }
 html, body {
+    background-color: var(--pinnacle-bg);
     color: rgb(248, 246, 237);
     font-family: KeplerStd;
     margin: 0;
@@ -44,6 +45,9 @@ html, body {
 .gold-bg {
     background-color: var(--pinnacle-gold);
     color: var(--pinnacle-bg);
+}
+a, a:hover, a:focus {
+    color: var(--pinnacle-gold);
 }
 /* Hero Section */
 #hero {
@@ -230,12 +234,22 @@ html, body {
     width: 100%;
     max-height: 30vh
 }
-
+/* Sponsor Specific Adjustments */
+#hack-plus {
+}
+#sponsor-ad {
+    max-width: 100%;
+    font-size: 2rem;
+}
 /* Footer */
 footer {
     font-size: 1.2rem;
     font-weight: bolder;
     letter-spacing: 1.2px;
+/* Edge to Edge footer on ultrawide */
+    width: 100vw;
+    position: absolute;
+    left: 0;
 }
 footer .inner {
     padding-top: 4rem !important;
@@ -453,7 +467,6 @@ footer .inner {
     max-width: 1680px;
     margin-left: auto;
     margin-right: auto;
-    box-shadow: 0px 0px 10px 2px black;
 }
 
 /* Timeline element (replaces Schedule) */
