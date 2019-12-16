@@ -139,7 +139,7 @@ html, body {
 
 /* Schedule Section */
 #schedule {
-    padding-bottom: 450px;
+    padding-bottom: 550px;
 }
 #schedule h2 {
     margin-left: -8rem;
@@ -172,7 +172,7 @@ html, body {
     left: 0;
     right: 0;
     bottom: -1px;
-    height: 400px;
+    height: 500px;
     overflow-x: hidden;
 }
 .skyline-component {
@@ -290,6 +290,9 @@ footer .inner {
     margin: 0;
     padding-left: 10vw;
     font-size: 1.5rem;
+}
+#mobileView #schedule {
+    padding-bottom: 350px;
 }
 #mobileView #schedule .skyline {
     height: 300px;
