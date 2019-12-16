@@ -515,7 +515,7 @@ footer .inner {
     fill: transparent;
     stroke: var(--pinnacle-gold);
     stroke-width: 3px;
-    transition: fill 0.2s ease;
+    transition: fill 0.3s ease;
 }
 .pinnacle-btn:focus,
 .pinnacle-btn:hover svg path {
@@ -525,6 +525,16 @@ footer .inner {
 .pinnacle-btn:hover {
     text-decoration: none;
     color: inherit;
+}
+.pinnacle-btn:focus .btn-label,
+.pinnacle-btn:hover .btn-label {
+    transition: color 0.3s ease;
+    color: var(--pinnacle-bg);
+}
+
+.pinnacle-btn:focus .btn-label,
+.pinnacle-btn:hover .btn-label {
+    color: white;
 }
 #mobileView .tl-ele {
     flex-direction: column;
