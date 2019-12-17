@@ -247,9 +247,9 @@ footer {
     font-weight: bolder;
     letter-spacing: 1.2px;
 /* Edge to Edge footer on ultrawide */
-    width: 100vw;
     position: absolute;
     left: 0;
+    right: 0;
 }
 footer .inner {
     padding-top: 4rem !important;
