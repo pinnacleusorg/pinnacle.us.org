@@ -31,6 +31,7 @@ $(function() {
     consoleBanner += ("                                __/ |         | |                                                                                  \n");
     consoleBanner += ("                               |___/          |_|                                                                                  ");
     console.log(consoleBanner);
+    console.log("Peeking under the hood? We want you on our team! Apply now: http://hack.ms/P20-Team-Application");
 // Polyfill for ios / safari - https://github.com/AlfonsoFilho/ClipPath
     $('.overflowTriangle').ClipPath('50% 0, 0 100%, 100% 100%');
     var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
