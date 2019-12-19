@@ -177,14 +177,15 @@ a, a:hover, a:focus {
     left: 0;
     right: 0;
     bottom: -1px;
-    height: 500px;
+    height: 550px;
     overflow-x: hidden;
 }
 .skyline-component {
     width: 100%;
     height: 100%;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
+    background-position: bottom;
     position: absolute;
 }
 #skyline_brdg {
