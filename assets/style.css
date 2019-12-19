@@ -9,6 +9,7 @@ html, body {
     font-family: KeplerStd;
     margin: 0;
     padding: 0;
+
 }
 @font-face {
     font-family: "KeplerStd";
@@ -295,6 +296,11 @@ footer .inner {
 }
 
 /* Mobile Optimization */
+html#mobileView,
+#mobileView body {
+    z-index: -5;
+    position: absolute;
+}
 #mobileView .container.inner h2 {
     margin-left: 0;
     text-align: center;
