@@ -509,6 +509,8 @@ html#mobileView,
 }
 .timeline-date {
     font-weight: bold;
+    min-width: 150px;
+    text-align: right;
 }
 .timeline-end {
     display: block;
