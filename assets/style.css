@@ -47,8 +47,13 @@ html, body {
     background-color: var(--pinnacle-gold);
     color: var(--pinnacle-bg);
 }
-a, a:hover, a:focus {
+a {
     color: var(--pinnacle-gold);
+    transition: color 0.2s;
+}
+a:hover, a:focus {
+    color: white;
+    text-decoration: none;
 }
 /* Hero Section */
 #hero {
