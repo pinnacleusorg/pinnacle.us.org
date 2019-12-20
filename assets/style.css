@@ -255,10 +255,9 @@ footer {
     position: absolute;
     left: 0;
     right: 0;
-}
-footer .inner {
-    padding-top: 4rem !important;
-    padding-bottom: 1rem !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Overlay Lines */
