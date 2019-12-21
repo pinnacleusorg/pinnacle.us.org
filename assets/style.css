@@ -194,16 +194,16 @@ a:hover, a:focus {
     position: absolute;
 }
 #skyline_black {
-    background-image: url('skyline/black.png');
+    background-image: url('skyline/black.svg');
 }
 #skyline_gold {
-    background-image: url('skyline/gold.png');
+    background-image: url('skyline/gold.svg');
 }
 #skyline_goldengate {
-    background-image: url('skyline/goldengate.png');
+    background-image: url('skyline/goldengate.svg');
 }
 #skyline_twinpeaks {
-    background-image: url('skyline/twinpeaks.png');
+    background-image: url('skyline/twinpeaks.svg');
 }
 .skyline-component.animated {
     transition: transform 2s ease;
