@@ -76,7 +76,7 @@ function processScroll() {
     if(highestScroll > scrollTop)
         return;
     //If we've reached skyline portion, slide it in
-    if(scrollTop + screenHeight - $('.skyline').offset().top > 0 && $('#skyline_brdg').hasClass('off-left'))
+    if(scrollTop + screenHeight - $('.skyline').offset().top > 0 && $('#skyline_goldengate').hasClass('off-left'))
         $('.skyline-component').removeClass('off-left').removeClass('off-right');
     highestScroll = scrollTop;
     //If we've reached the bottom, animate the last lines
@@ -309,7 +309,6 @@ function renderButtons() {
     		else	   svg += "L "+x+" "+y+" ";
         }
     	svg += "Z";
-    	console.log(svg)
         $e.html('<div class="btn-label">'+message+'</div>');
     	$('<svg width="'+modifiedW+'px" height="'+modifiedH+'px"><path d="'+svg+'"/></svg>').appendTo($e);
     });

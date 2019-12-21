@@ -47,8 +47,13 @@ html, body {
     background-color: var(--pinnacle-gold);
     color: var(--pinnacle-bg);
 }
-a, a:hover, a:focus {
+a {
     color: var(--pinnacle-gold);
+    transition: color 0.2s;
+}
+a:hover, a:focus {
+    color: white;
+    text-decoration: none;
 }
 /* Hero Section */
 #hero {
@@ -177,7 +182,7 @@ a, a:hover, a:focus {
     left: 0;
     right: 0;
     bottom: -1px;
-    height: 550px;
+    height: 650px;
     overflow-x: hidden;
 }
 .skyline-component {
@@ -188,14 +193,17 @@ a, a:hover, a:focus {
     background-position: bottom;
     position: absolute;
 }
-#skyline_brdg {
-    background-image: url('skyline_bridge.png');
+#skyline_black {
+    background-image: url('skyline/black.png');
 }
 #skyline_gold {
-    background-image: url('skyline_gold.png');
+    background-image: url('skyline/gold.png');
 }
-#skyline_dark {
-    background-image: url('skyline_dark.png');
+#skyline_goldengate {
+    background-image: url('skyline/goldengate.png');
+}
+#skyline_twinpeaks {
+    background-image: url('skyline/twinpeaks.png');
 }
 .skyline-component.animated {
     transition: transform 2s ease;
@@ -252,10 +260,9 @@ footer {
     position: absolute;
     left: 0;
     right: 0;
-}
-footer .inner {
-    padding-top: 4rem !important;
-    padding-bottom: 1rem !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Overlay Lines */
@@ -502,6 +509,8 @@ html#mobileView,
 }
 .timeline-date {
     font-weight: bold;
+    min-width: 150px;
+    text-align: right;
 }
 .timeline-end {
     display: block;
