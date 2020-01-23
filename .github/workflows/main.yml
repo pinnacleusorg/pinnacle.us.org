@@ -6,31 +6,33 @@ on:
       - master
       - development
 jobs:
-  publish:
+  deploy:
     runs-on: ubuntu-latest
     steps:
+      
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@master
+        
+      - name: Sync to S3 (Deploy)
+        if: github.ref == 'refs/heads/master';
+        uses: jakejarvis/s3-sync-action@master
         with:
-          fetch-depth: 1
+          args: --acl public-read --follow-symlinks --delete --exclude '.git/*'
+        env:
+          AWS_S3_BUCKET: 'pinnacle2020-dev'
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: 'us-west-2'
+          DEST_DIR: '/web-deploy'
 
-      - name: Publish to AWS S3
-        if: github.ref == 'refs/heads/master'
-        uses: opspresso/action-s3-sync@master
+      - name: Sync to S3 (Development)
+        if: github.ref == 'refs/heads/development';
+        uses: jakejarvis/s3-sync-action@master
+        with:
+          args: --acl public-read --follow-symlinks --delete --exclude '.git/*'
         env:
+          AWS_S3_BUCKET: 'pinnacle2020-dev'
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: "us-west-2"
-          FROM_PATH: "./"
-          DEST_PATH: "s3://pinnacle2020-dev/web-deploy/"
-          OPTIONS: "--acl public-read"
-      - name: Publish to AWS S3
-        if: github.ref == 'refs/heads/development'
-        uses: opspresso/action-s3-sync@master
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: "us-west-2"
-          FROM_PATH: "./"
-          DEST_PATH: "s3://pinnacle2020-dev/web-staging/"
-          OPTIONS: "--acl public-read"
+          AWS_REGION: 'us-west-2'
+          DEST_DIR: '/web-staging'
