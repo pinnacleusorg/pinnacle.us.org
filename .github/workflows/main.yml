@@ -1,0 +1,36 @@
+name: AWS S3 Sync
+
+on: 
+  push:
+    branches:
+      - master
+      - development
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
+
+      - name: Publish to AWS S3
+        if: github.head_ref == 'master'
+        uses: opspresso/action-s3-sync@master
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: "us-west-2"
+          FROM_PATH: "./"
+          DEST_PATH: "s3://pinnacle2020-dev/deploy/"
+          OPTIONS: "--acl public-read"
+      - name: Publish to AWS S3
+        if: github.head_ref == 'development'
+        uses: opspresso/action-s3-sync@master
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: "us-west-2"
+          FROM_PATH: "./"
+          DEST_PATH: "s3://pinnacle2020-dev/dev/"
+          OPTIONS: "--acl public-read"
