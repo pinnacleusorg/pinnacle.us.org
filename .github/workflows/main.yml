@@ -15,7 +15,7 @@ jobs:
           fetch-depth: 1
 
       - name: Publish to AWS S3
-        if: github.head_ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/master'
         uses: opspresso/action-s3-sync@master
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -25,7 +25,7 @@ jobs:
           DEST_PATH: "s3://pinnacle2020-dev/web-deploy/"
           OPTIONS: "--acl public-read"
       - name: Publish to AWS S3
-        if: github.head_ref == 'refs/heads/development'
+        if: github.ref == 'refs/heads/development'
         uses: opspresso/action-s3-sync@master
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
