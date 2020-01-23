@@ -22,7 +22,7 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: "us-west-2"
           FROM_PATH: "./"
-          DEST_PATH: "s3://pinnacle2020-dev/deploy/"
+          DEST_PATH: "s3://pinnacle2020-dev/web-deploy/"
           OPTIONS: "--acl public-read"
       - name: Publish to AWS S3
         if: github.head_ref == 'development'
@@ -32,5 +32,5 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: "us-west-2"
           FROM_PATH: "./"
-          DEST_PATH: "s3://pinnacle2020-dev/dev/"
+          DEST_PATH: "s3://pinnacle2020-dev/web-staging/"
           OPTIONS: "--acl public-read"
