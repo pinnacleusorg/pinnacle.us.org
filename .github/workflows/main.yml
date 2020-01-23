@@ -1,0 +1,38 @@
+name: AWS S3 Sync
+
+on: 
+  push:
+    branches:
+      - master
+      - development
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      
+      - name: Checkout
+        uses: actions/checkout@master
+        
+      - name: Sync to S3 (Deploy)
+        if: github.ref == 'refs/heads/master'
+        uses: jakejarvis/s3-sync-action@master
+        with:
+          args: --acl public-read --follow-symlinks --delete --exclude '.git/*'
+        env:
+          AWS_S3_BUCKET: 'pinnacle2020-dev'
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: 'us-west-2'
+          DEST_DIR: '/web-deploy'
+
+      - name: Sync to S3 (Development)
+        if: github.ref == 'refs/heads/development'
+        uses: jakejarvis/s3-sync-action@master
+        with:
+          args: --acl public-read --follow-symlinks --delete --exclude '.git/*'
+        env:
+          AWS_S3_BUCKET: 'pinnacle2020-dev'
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: 'us-west-2'
+          DEST_DIR: '/web-staging'
