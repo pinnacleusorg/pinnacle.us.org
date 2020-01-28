@@ -171,7 +171,7 @@ function updateLines() {
     lines[0] = [];
     lines[0][0] = [0, screenHeight * 0.8];
     lines[0][1] = [OF_description_inner.left*0.8, lines[0][0][1] + (OF_description_inner.left*0.8)];
-    lines[0][2] = [lines[0][1][0], OF_description_inner.top + H_description_inner*1.1];
+    lines[0][2] = [lines[0][1][0], OF_description_inner.top + H_description_inner*1.15];
 
     var g = OF_schedule_h2.left + $('#schedule h2').width()*1.5;
     lines[1] = [];
@@ -199,7 +199,7 @@ function updateLines() {
     lines[4][3] = [screenWidth, lines[4][2][1] + screenWidth - lines[4][2][0]];
 
     lines[5] = [];
-    lines[5][0] = [content_leftEdge * 0.5, lines[1][2][1]+50];
+    lines[5][0] = [content_leftEdge * 0.5, lines[1][2][1]+75];
     lines[5][1] = [screenWidth * 0.05, (lines[5][0][0] - screenWidth * 0.05) + lines[5][0][1]];
     lines[5][2] = [screenWidth * 0.05, OF_last_tl.top+50];
     lines[5][3] = [0, lines[5][2][1]+lines[5][2][0]];
@@ -285,8 +285,8 @@ function renderButtons() {
     	$e = $(this);
     	var message = $e.text();
     	$e.html(message);
-        var w = $('.pinnacle-btn').outerWidth();
-        var h = $('.pinnacle-btn').outerHeight();
+        var w = $e.outerWidth();
+        var h = $e.outerHeight();
         var strokeWidth = 4;
         var modifiedW = w + strokeWidth;
         var modifiedH = h + strokeWidth;

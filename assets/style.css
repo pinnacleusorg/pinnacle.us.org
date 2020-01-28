@@ -531,13 +531,14 @@ html#mobileView,
     position: relative;
     justify-content: center;
     align-items: center;
-    height: 6rem;
+    height: 4em;
+    width: 40%;
 }
 .pinnacle-btn:focus, .pinnacle-btn:active {
     outline: none;
 }
 .pinnacle-btn .btn-label {
-    font-size: 2rem;
+    font-size: 1.2rem;
 
     color: #F7F5E8;
     font-weight: bold;
@@ -545,7 +546,7 @@ html#mobileView,
     z-index: 99;
 }
 .pinnacle-btn .btn-label > svg {
-    height: 0.8em;
+    height: 0.7em;
     fill: #F7F5E8;
     stroke: #F7F5E8;
 }
@@ -611,10 +612,10 @@ html#mobileView,
     margin-bottom: 40px;
 }
 #applybtn {
-    min-width: 220px;
+    min-width: 180px;
 }
 #updatedbtn {
-    min-width: 220px;
+    min-width: 180px;
 }
 .stacked-input {
     width: 75%;
@@ -622,13 +623,13 @@ html#mobileView,
     margin-right: auto;
 }
 .input-group input {
-    border-color: var(--pinnacle-gold);
+    border-color: #1B1B1B;
     border-width: 3px;
     border-radius: 0;
     color: black;
     background-color: rgb(248, 246, 237);
     font-size: 1.3rem;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0.6rem;
 }
 .input-group input::placeholder {
     color: var(--pinnacle-bg);
@@ -636,7 +637,7 @@ html#mobileView,
 .input-group input:focus, .input-group input:active {
     outline: none;
     box-shadow: none;
-    border-color: var(--pinnacle-gold);
+    border-color: #1B1B1B;
     background-color: rgb(248, 246, 237);
     color: black;
 }
