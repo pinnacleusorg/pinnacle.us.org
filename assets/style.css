@@ -52,6 +52,10 @@ a {
     transition: color 0.2s;
 }
 a:hover, a:focus {
+    color: var(--pinnacle-bg);
+    text-decoration: none;
+}
+#sponsors a:hover, #sponsors a:focus {
     color: white;
     text-decoration: none;
 }
@@ -184,6 +188,7 @@ a:hover, a:focus {
     bottom: -1px;
     height: 650px;
     overflow-x: hidden;
+    pointer-events: none;
 }
 .skyline-component {
     width: 100%;
@@ -560,22 +565,26 @@ html#mobileView,
     stroke: #1B1B1B;
     transition: fill 0.3s ease, stroke 0.3s ease;
 }
-.pinnacle-btn:focus,
+.pinnacle-btn.hover > svg path,
+.pinnacle-btn:focus > svg path,
 .pinnacle-btn:hover > svg path {
     fill: #C69E60;
     stroke: #947043;
 }
+.pinnacle-btn.hover,
 .pinnacle-btn:focus,
 .pinnacle-btn:hover {
     text-decoration: none;
     color: white;
 }
+.pinnacle-btn.hover .btn-label,
 .pinnacle-btn:focus .btn-label,
 .pinnacle-btn:hover .btn-label {
     transition: color 0.3s ease;
     color: var(--pinnacle-bg);
 }
 
+.pinnacle-btn.hover .btn-label,
 .pinnacle-btn:focus .btn-label,
 .pinnacle-btn:hover .btn-label {
     color: white;
@@ -664,4 +673,27 @@ html#mobileView,
     left: 0;
     transform: rotate(45deg);
 
+}
+.legalees {
+    position: absolute;
+    width: 100%;
+    padding: .75rem 1.25rem;
+    left:0;
+
+}
+.legalees .small {
+    font-size: 70%;
+}
+.legalees a.small {
+    color: var(--pinnacle-bg);
+}
+.legalees a.small:hover {
+    color: var(--pinnacle-gold);
+}
+.legalees #updatedMsg {
+    line-height: 1.2rem;
+}
+.legalees #updatedMsg.err {
+    color: var(--pinnacle-gold);
+    font-size: 1rem;
 }

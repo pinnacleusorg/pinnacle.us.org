@@ -44,6 +44,11 @@ $(function() {
     $(window).resize(function() {
         updateLines();
     });
+    $('#updatedbtn').click(function() {
+        var name = $('#engagement-fn').val();
+        var email = $('#engagement-email').val();
+        //submit, report errors to #updatedMsg.
+    })
 
 // Handle Scrolling Animation
     $(window).scroll(function() {
