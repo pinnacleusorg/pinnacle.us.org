@@ -66,7 +66,7 @@ $(function() {
             $('#engagement-email').prop('disabled', false);
         }).fail(function(msg) {
             console.log(msg);
-            var error = "Please confirm your email address";
+            var error = "Error: Please confirm your email address is accurate";
             if(msg.status == 409)
                 error = "You're already on our list!";
             $('#updatedMsg').addClass("err").text(error);

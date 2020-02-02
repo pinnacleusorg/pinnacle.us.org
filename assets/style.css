@@ -674,12 +674,6 @@ html#mobileView,
     transform: rotate(45deg);
 
 }
-.legalees {
-    position: absolute;
-    width: 100%;
-    padding: .75rem 1.25rem;
-    left:0;
-}
 .legalees .small {
     font-size: 70%;
 }
@@ -687,5 +681,5 @@ html#mobileView,
     color: var(--pinnacle-bg);
 }
 .legalees a.small:hover {
-    color: var(--pinnacle-gold);
+    text-decoration: underline;
 }
