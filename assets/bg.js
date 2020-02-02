@@ -20,7 +20,6 @@ var mobile = true,
     }
 })();
 $(function() {
-// Console banner (just for kicks)
     var consoleBanner = "";
     consoleBanner += ("  _______ _                  _                       _                   __   _                _         _   _                     \n");
     consoleBanner += (" |__   __| |                | |                     (_)                 / _| | |              | |       | | | |                    \n");
@@ -44,10 +43,37 @@ $(function() {
     $(window).resize(function() {
         updateLines();
     });
-    $('#updatedbtn').click(function() {
-        var name = $('#engagement-fn').val();
-        var email = $('#engagement-email').val();
+    var subscribeDisabled = false;
+    $('#updatedbtn').click(function(e) {
+        e.preventDefault();
+        if(subscribeDisabled)
+            return;
+        subscribeDisabled = true;
+        var name = $('#engagement-fn').prop('disabled', true).val();
+        var email = $('#engagement-email').prop('disabled', true).val();
         //submit, report errors to #updatedMsg.
+        $.ajax('https://api.pinnacle.us.org/1.0/contacts', {
+            type: 'post',
+            data: JSON.stringify({"email": email, "name": name}),
+            dataType: 'json',
+            contentType: 'application/json'
+        }).done(function() {
+            $('#engagement-fn').val("");
+            $('#engagement-email').val("");
+            $('#updatedMsg').addClass("successful").text("Welcome to the mailing list!");
+            subscribeDisabled = false;
+            $('#engagement-fn').prop('disabled', false);
+            $('#engagement-email').prop('disabled', false);
+        }).fail(function(msg) {
+            console.log(msg);
+            var error = "Please confirm your email address";
+            if(msg.status == 409)
+                error = "You're already on our list!";
+            $('#updatedMsg').addClass("err").text(error);
+            subscribeDisabled = false;
+            $('#engagement-fn').prop('disabled', false);
+            $('#engagement-email').prop('disabled', false);
+        })
     })
 
 // Handle Scrolling Animation
