@@ -675,6 +675,7 @@ html#mobileView,
 
 }
 .legalees .small {
+    letter-spacing: 0.3px;
     font-size: 70%;
 }
 .legalees a.small {
