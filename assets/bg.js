@@ -20,7 +20,6 @@ var mobile = true,
     }
 })();
 $(function() {
-// Console banner (just for kicks)
     var consoleBanner = "";
     consoleBanner += ("  _______ _                  _                       _                   __   _                _         _   _                     \n");
     consoleBanner += (" |__   __| |                | |                     (_)                 / _| | |              | |       | | | |                    \n");
@@ -44,6 +43,42 @@ $(function() {
     $(window).resize(function() {
         updateLines();
     });
+    var subscribeDisabled = false;
+    $('#updatedbtn').click(function(e) {
+        e.preventDefault();
+
+        var name = $('#engagement-fn').val().trim();
+        var email = $('#engagement-email').val().trim();
+        if(name.length == 0 || email.length == 0)
+            return;
+        if(subscribeDisabled)
+            return;
+        subscribeDisabled = true;
+        $('#engagement-fn, #engagement-email').prop('disabled', true);
+        //submit, report errors to #updatedMsg.
+        $.ajax('https://api.pinnacle.us.org/1.0/contacts', {
+            type: 'post',
+            data: JSON.stringify({"email": email, "name": name}),
+            dataType: 'json',
+            contentType: 'application/json'
+        }).done(function() {
+            $('#engagement-fn').val("");
+            $('#engagement-email').val("");
+            $('#updatedMsg').addClass("successful").text("Welcome to the mailing list!");
+            subscribeDisabled = false;
+            $('#engagement-fn').prop('disabled', false);
+            $('#engagement-email').prop('disabled', false);
+        }).fail(function(msg) {
+            console.log(msg);
+            var error = "Error: Please confirm your email address is accurate";
+            if(msg.status == 409)
+                error = "You're already on our list!";
+            $('#updatedMsg').addClass("err").text(error);
+            subscribeDisabled = false;
+            $('#engagement-fn').prop('disabled', false);
+            $('#engagement-email').prop('disabled', false);
+        })
+    })
 
 // Handle Scrolling Animation
     $(window).scroll(function() {
@@ -171,7 +206,7 @@ function updateLines() {
     lines[0] = [];
     lines[0][0] = [0, screenHeight * 0.8];
     lines[0][1] = [OF_description_inner.left*0.8, lines[0][0][1] + (OF_description_inner.left*0.8)];
-    lines[0][2] = [lines[0][1][0], OF_description_inner.top + H_description_inner*1.1];
+    lines[0][2] = [lines[0][1][0], OF_description_inner.top + H_description_inner*1.15];
 
     var g = OF_schedule_h2.left + $('#schedule h2').width()*1.5;
     lines[1] = [];
@@ -199,7 +234,7 @@ function updateLines() {
     lines[4][3] = [screenWidth, lines[4][2][1] + screenWidth - lines[4][2][0]];
 
     lines[5] = [];
-    lines[5][0] = [content_leftEdge * 0.5, lines[1][2][1]+50];
+    lines[5][0] = [content_leftEdge * 0.5, lines[1][2][1]+75];
     lines[5][1] = [screenWidth * 0.05, (lines[5][0][0] - screenWidth * 0.05) + lines[5][0][1]];
     lines[5][2] = [screenWidth * 0.05, OF_last_tl.top+50];
     lines[5][3] = [0, lines[5][2][1]+lines[5][2][0]];
@@ -285,22 +320,22 @@ function renderButtons() {
     	$e = $(this);
     	var message = $e.text();
     	$e.html(message);
-        var w = $('.pinnacle-btn').outerWidth();
-        var h = $('.pinnacle-btn').outerHeight();
-        var strokeWidth = 3;
+        var w = $e.outerWidth();
+        var h = $e.outerHeight();
+        var strokeWidth = 4;
         var modifiedW = w + strokeWidth;
         var modifiedH = h + strokeWidth;
         $e.outerWidth(modifiedW);
         $e.outerHeight(modifiedH);
+        //svg building!!
     	var points = [];
-    	points[0] = [0, h*0.25];
-    	points[1] = [h*0.25, 0];
-    	points[2] = [w-h*0.25, 0];
-    	points[3] = [w, h*0.25];
-    	points[4] = [w, h*0.75];
-    	points[5] = [w-h*0.25, h];
-    	points[6] = [h*0.25, h];
-    	points[7] = [0, h*0.75];
+    	points[0] = [0, h*0.30];
+    	points[1] = [h*0.30, 0];
+    	points[2] = [w, 0];
+    	points[3] = [w, h*0.70];
+    	points[4] = [w-h*0.30, h];
+    	points[5] = [0, h];
+    	points[6] = [0, h*0.70];
     	var svg = "";
     	for(var i = 0; i < points.length; i++) {
     		var x = points[i][0]+strokeWidth/2;
@@ -309,7 +344,12 @@ function renderButtons() {
     		else	   svg += "L "+x+" "+y+" ";
         }
     	svg += "Z";
-        $e.html('<div class="btn-label">'+message+'</div>');
-    	$('<svg width="'+modifiedW+'px" height="'+modifiedH+'px"><path d="'+svg+'"/></svg>').appendTo($e);
+        arrow = " \
+        <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"> \
+            <path d=\"M10,2l9,10l-9,10h2l9-10L12,2H10z\"/> \
+        </svg>";
+
+        $e.html('<div class="btn-label">'+message+' '+arrow+'</div>');
+    	$('<svg width="'+modifiedW+'px" height="'+modifiedH+'px"><path d="'+svg+'" stroke-width="'+strokeWidth+'"/></svg>').appendTo($e);
     });
 }
