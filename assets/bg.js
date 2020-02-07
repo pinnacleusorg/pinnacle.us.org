@@ -46,11 +46,15 @@ $(function() {
     var subscribeDisabled = false;
     $('#updatedbtn').click(function(e) {
         e.preventDefault();
+
+        var name = $('#engagement-fn').val().trim();
+        var email = $('#engagement-email').val().trim();
+        if(name.length == 0 || email.length == 0)
+            return;
         if(subscribeDisabled)
             return;
         subscribeDisabled = true;
-        var name = $('#engagement-fn').prop('disabled', true).val();
-        var email = $('#engagement-email').prop('disabled', true).val();
+        $('#engagement-fn, #engagement-email').prop('disabled', true);
         //submit, report errors to #updatedMsg.
         $.ajax('https://api.pinnacle.us.org/1.0/contacts', {
             type: 'post',
