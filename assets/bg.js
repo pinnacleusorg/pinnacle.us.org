@@ -93,7 +93,38 @@ $(function() {
             if($(window).height() > 650)
                 $('#scrollDown-container').css('opacity', 1);
         }
-    }, 3000)
+    }, 3000);
+    var isAnimating = false;
+    $('.carousel-nav').click(function() {
+        if(isAnimating) return;
+        isAnimating = true;
+        var direction = 1;
+        if($(this).hasClass('mirrorflip')) direction = -1;
+        var $inner = $('.carousel-inner');
+        var boxSize = $inner.width();
+        var offset = boxSize / 5 * direction;
+        var currentPosition = $inner.scrollLeft();
+        $inner.animate({scrollLeft: currentPosition+offset+'px'}, 800, function(){
+            isAnimating = false;
+        });
+        //detect overscroll
+        var firstElement = $('.carousel-first');
+        var lastElement = $('.carousel-last');
+        if(currentPosition == 0 && direction == -1) {
+            isAnimating = false;
+            console.log("Left overscroll");
+            firstElement.animate({'margin-left': '20px'}, 300, function() {
+                firstElement.animate({'margin-left': '5px'}, 300);
+            });
+        }
+        else if(currentPosition > (boxSize / 5 * $('.carousel-element').length) - boxSize - 10 && direction == 1) {
+            console.log("right overscroll");
+            //TODO: fix the end animation
+            $('.carousel-element').animate({'margin-left': '-10'}, 300).promise().done(function() {
+                $('.carousel-element').animate({'margin-left': '5px'}, 300);
+            });
+        }
+    });
 });
 function processScroll() {
     initialScroll = true;
@@ -191,6 +222,7 @@ function updateLines() {
         content_rightEdge = ($('.right-body').first().offset().left + $('.right-body').first().width()) * 1.1;
 
     var OF_description_inner = $('#description .inner').offset(),
+        OF_carousel_h2 = $('#carousel h2').offset(),
         OF_schedule_h2 = $('#schedule h2').offset(),
         OF_description_h2 = $('#description h2').offset(),
         OF_last_tl = $('.tl-ele').last().offset(),
@@ -206,7 +238,8 @@ function updateLines() {
     lines[0] = [];
     lines[0][0] = [0, screenHeight * 0.8];
     lines[0][1] = [OF_description_inner.left*0.8, lines[0][0][1] + (OF_description_inner.left*0.8)];
-    lines[0][2] = [lines[0][1][0], OF_description_inner.top + H_description_inner*1.15];
+    lines[0][2] = [lines[0][1][0], OF_description_inner.top + H_description_inner*1.1];
+    lines[0][3] = [0, lines[0][1][0] + lines[0][2][1]];
 
     var g = OF_schedule_h2.left + $('#schedule h2').width()*1.5;
     lines[1] = [];
@@ -224,7 +257,7 @@ function updateLines() {
 
     lines[3] = [];
     lines[3][0] = [screenWidth * 0.95, screenHeight * 0.75];
-    lines[3][1] = [lines[3][0][0], OF_schedule_h2.top];
+    lines[3][1] = [lines[3][0][0], OF_carousel_h2.top];
     lines[3][2] = [screenWidth, (lines[3][1][1] + (screenWidth * 0.05))];
 
     lines[4] = [];

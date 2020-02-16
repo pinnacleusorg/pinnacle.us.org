@@ -144,7 +144,7 @@ a:hover, a:focus {
     margin-left: auto;
     width: 65%;
 }
-#description h2, #schedule h2 {
+#description h2, #schedule h2, #carousel h2 {
     font-size: 3.5rem;
 }
 #description h2 {
@@ -683,4 +683,66 @@ html#mobileView,
 }
 .legalees a.small:hover {
     text-decoration: underline;
+}
+#carousel {
+    padding-bottom: 22rem !important;
+}
+#carousel h2 {
+    text-align: center;
+    padding-bottom: 2rem;
+}
+#carousel .inner {
+    max-width: 90%;
+}
+
+.carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.carousel-nav {
+    width: 80px;
+    -webkit-appearance: none !important;
+    border: none !important;
+    background: none !important;
+    outline: none !important;
+    font-size: 3rem;
+    overflow: visible;
+}
+.carousel-nav svg {
+    width: 80%;
+}
+.carousel-inner {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: hidden;
+}
+.carousel-element {
+    width: calc(20% - 10px);
+    margin-left: 5px;
+    margin-right: 5px;
+    display: inline-block;
+    text-align: center;
+    flex: 0 0 auto;
+}
+.carousel-element img {
+    width: 100%;
+    padding: 25px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.carousel-element .carousel-title {
+    display: block;
+    color: var(--pinnacle-gold);
+    font-size: 1.6rem;
+}
+
+.carousel-element .carousel-location {
+    display: block;
+    color: var(--pinnacle-bg);
+    font-size: 1.6rem;
+}
+.mirrorflip {
+    -webkit-transform: scale(-1, 1);
+    transform: scale(-1, 1);
 }
