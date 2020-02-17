@@ -746,3 +746,38 @@ html#mobileView,
     -webkit-transform: scale(-1, 1);
     transform: scale(-1, 1);
 }
+.bounceLeftAnimation {
+    animation-name: bounceLeftAnimation;
+    animation-duration: 0.6s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+}
+@keyframes bounceLeftAnimation {
+    0% {
+        transform: translateX(0px);
+    }
+    70% {
+        transform: translateX(-15px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+.bounceRightAnimation {
+    animation-name: bounceRightAnimation;
+    animation-duration: 0.6s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+}
+@keyframes bounceRightAnimation {
+    0% {
+        transform: translateX(0px);
+    }
+    70% {
+        transform: translateX(15px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}

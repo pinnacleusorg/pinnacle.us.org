@@ -112,17 +112,14 @@ $(function() {
         var lastElement = $('.carousel-last');
         if(currentPosition == 0 && direction == -1) {
             isAnimating = false;
-            console.log("Left overscroll");
-            firstElement.animate({'margin-left': '20px'}, 300, function() {
-                firstElement.animate({'margin-left': '5px'}, 300);
-            });
+            //apply height to force refresh after removing class
+            $inner.removeClass('bounceRightAnimation bounceLeftAnimation').height($inner.height());
+            $inner.addClass('bounceRightAnimation');
         }
         else if(currentPosition > (boxSize / 5 * $('.carousel-element').length) - boxSize - 10 && direction == 1) {
-            console.log("right overscroll");
-            //TODO: fix the end animation
-            $('.carousel-element').animate({'margin-left': '-10'}, 300).promise().done(function() {
-                $('.carousel-element').animate({'margin-left': '5px'}, 300);
-            });
+            isAnimating = false;
+            $inner.removeClass('bounceRightAnimation bounceLeftAnimation').height($inner.height());
+            $inner.addClass('bounceLeftAnimation');
         }
     });
 });
