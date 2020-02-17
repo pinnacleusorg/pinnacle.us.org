@@ -42,6 +42,7 @@ $(function() {
     renderButtons();
     $(window).resize(function() {
         updateLines();
+        $('.carousel-inner').animate({scrollLeft: '0px'}, 400);
     });
     var subscribeDisabled = false;
     $('#updatedbtn').click(function(e) {
@@ -112,13 +113,13 @@ $(function() {
         var lastElement = $('.carousel-last');
         if(currentPosition == 0 && direction == -1) {
             isAnimating = false;
-            //apply height to force refresh after removing class
-            $inner.removeClass('bounceRightAnimation bounceLeftAnimation').height($inner.height());
+            //useless scrollTop() to force refresh after removing class
+            $inner.removeClass('bounceRightAnimation bounceLeftAnimation').scrollTop();
             $inner.addClass('bounceRightAnimation');
         }
         else if(currentPosition > (boxSize / 5 * $('.carousel-element').length) - boxSize - 10 && direction == 1) {
             isAnimating = false;
-            $inner.removeClass('bounceRightAnimation bounceLeftAnimation').height($inner.height());
+            $inner.removeClass('bounceRightAnimation bounceLeftAnimation').scrollTop();
             $inner.addClass('bounceLeftAnimation');
         }
     });

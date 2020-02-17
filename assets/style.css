@@ -719,6 +719,7 @@ html#mobileView,
 }
 .carousel-element {
     width: calc(20% - 10px);
+    min-width: 140px;
     margin-left: 5px;
     margin-right: 5px;
     display: inline-block;
@@ -741,6 +742,19 @@ html#mobileView,
     display: block;
     color: var(--pinnacle-bg);
     font-size: 1.6rem;
+}
+
+@media (max-width: 1050px) {
+    #carousel {
+        padding-bottom: 5rem !important;
+    }
+    .carousel-inner {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .carousel-nav {
+        display: none;
+    }
 }
 .mirrorflip {
     -webkit-transform: scale(-1, 1);
