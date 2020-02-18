@@ -732,11 +732,12 @@ html#mobileView,
     text-align: center;
     flex: 0 0 auto;
 }
-.carousel-element img {
+.carousel-element .carousel-image {
     width: 100%;
     padding: 25px;
     margin-left: auto;
     margin-right: auto;
+    cursor: pointer;
 }
 .carousel-element .carousel-title {
     display: block;

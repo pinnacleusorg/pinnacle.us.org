@@ -123,6 +123,9 @@ $(function() {
             $inner.addClass('bounceLeftAnimation');
         }
     });
+    $('.carousel-image').click(function() {
+        $(this).parent().find('a')[0].click();
+    })
 });
 function processScroll() {
     initialScroll = true;
