@@ -674,6 +674,12 @@ html#mobileView,
     transform: rotate(45deg);
 
 }
+#footer > a {
+    color: var(--pinnacle-bg);
+}
+#footer > a:hover {
+    text-decoration: underline;
+}
 .legalees .small {
     letter-spacing: 0.3px;
     font-size: 70%;
