@@ -754,10 +754,12 @@ html#mobileView,
     margin-top: 15px;
     font-size: 1.5rem;
 }
-@media (max-width: 1050px) {
+@media (max-width: 767px) {
     #carousel {
         padding-bottom: 5rem !important;
     }
+}
+@media (max-width: 1050px) {
     .carousel-inner {
         flex-wrap: wrap;
         justify-content: center;
