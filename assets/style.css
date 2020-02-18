@@ -784,7 +784,6 @@ html#mobileView,
     animation-iteration-count: 1;
     animation-timing-function: ease-in;
 }
-
 @keyframes bounceRightAnimation {
     0% {
         transform: translateX(0px);
