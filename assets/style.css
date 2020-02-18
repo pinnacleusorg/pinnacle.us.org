@@ -144,7 +144,7 @@ a:hover, a:focus {
     margin-left: auto;
     width: 65%;
 }
-#description h2, #schedule h2 {
+#description h2, #schedule h2, #carousel h2 {
     font-size: 3.5rem;
 }
 #description h2 {
@@ -674,6 +674,12 @@ html#mobileView,
     transform: rotate(45deg);
 
 }
+#footer > a {
+    color: var(--pinnacle-bg);
+}
+#footer > a:hover {
+    text-decoration: underline;
+}
 .legalees .small {
     letter-spacing: 0.3px;
     font-size: 70%;
@@ -683,4 +689,119 @@ html#mobileView,
 }
 .legalees a.small:hover {
     text-decoration: underline;
+}
+#carousel {
+    padding-bottom: 22rem !important;
+}
+#carousel h2 {
+    text-align: center;
+    padding-bottom: 2rem;
+}
+#carousel .inner {
+    max-width: 90%;
+}
+
+.carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.carousel-nav {
+    width: 80px;
+    -webkit-appearance: none !important;
+    border: none !important;
+    background: none !important;
+    outline: none !important;
+    font-size: 3rem;
+    overflow: visible;
+}
+.carousel-nav svg {
+    width: 80%;
+}
+.carousel-inner {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: hidden;
+}
+.carousel-element {
+    width: calc(20% - 10px);
+    min-width: 140px;
+    margin-left: 5px;
+    margin-right: 5px;
+    display: inline-block;
+    text-align: center;
+    flex: 0 0 auto;
+}
+.carousel-element img {
+    width: 100%;
+    padding: 25px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.carousel-element .carousel-title {
+    display: block;
+    color: var(--pinnacle-gold);
+    font-size: 1.6rem;
+}
+
+.carousel-element .carousel-location {
+    display: block;
+    color: var(--pinnacle-bg);
+    font-size: 1.6rem;
+}
+.carousel-subtitle {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 1.5rem;
+}
+@media (max-width: 1050px) {
+    #carousel {
+        padding-bottom: 5rem !important;
+    }
+    .carousel-inner {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .carousel-nav {
+        display: none;
+    }
+}
+.mirrorflip {
+    -webkit-transform: scale(-1, 1);
+    transform: scale(-1, 1);
+}
+.bounceLeftAnimation {
+    animation-name: bounceLeftAnimation;
+    animation-duration: 0.6s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+}
+@keyframes bounceLeftAnimation {
+    0% {
+        transform: translateX(0px);
+    }
+    70% {
+        transform: translateX(-15px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+.bounceRightAnimation {
+    animation-name: bounceRightAnimation;
+    animation-duration: 0.6s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+}
+@keyframes bounceRightAnimation {
+    0% {
+        transform: translateX(0px);
+    }
+    70% {
+        transform: translateX(15px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
 }
