@@ -743,7 +743,11 @@ html#mobileView,
     color: var(--pinnacle-bg);
     font-size: 1.6rem;
 }
-
+.carousel-subtitle {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 1.5rem;
+}
 @media (max-width: 1050px) {
     #carousel {
         padding-bottom: 5rem !important;
