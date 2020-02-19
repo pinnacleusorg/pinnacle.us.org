@@ -701,7 +701,7 @@ html#mobileView,
 }
 #carousel h2 {
     text-align: center;
-    padding-bottom: 2rem;
+    padding-bottom: 0.8rem;
 }
 #carousel .inner {
     max-width: 90%;
