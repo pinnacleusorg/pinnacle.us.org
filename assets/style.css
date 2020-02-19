@@ -522,7 +522,13 @@ html#mobileView,
     text-align: center;
     font-size: 3rem;
     font-weight: bold;
-    padding: 1rem 3rem;
+    padding: 0 3rem;
+}
+.timeline-socials {
+    text-align: center;
+    display: block;
+    font-size: 1.3rem;
+    padding-bottom: 1rem;
 }
 .timeline-end.lead {
     font-size: 2rem;
@@ -672,7 +678,6 @@ html#mobileView,
 	width: 0.5em;
     left: 0;
     transform: rotate(45deg);
-
 }
 #footer > a {
     color: var(--pinnacle-bg);
@@ -684,10 +689,11 @@ html#mobileView,
     letter-spacing: 0.3px;
     font-size: 70%;
 }
-.legalees a.small {
+.legalees a {
     color: var(--pinnacle-bg);
+    text-decoration: underline;
 }
-.legalees a.small:hover {
+.legalees a:hover {
     text-decoration: underline;
 }
 #carousel {
@@ -724,10 +730,10 @@ html#mobileView,
     overflow: hidden;
 }
 .carousel-element {
-    width: calc(20% - 10px);
+    width: calc(20% - 20px);
     min-width: 140px;
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
     display: inline-block;
     text-align: center;
     flex: 0 0 auto;
@@ -738,6 +744,10 @@ html#mobileView,
     margin-left: auto;
     margin-right: auto;
     cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+.carousel-element .carousel-image:hover {
+    transform: translateY(-4px);
 }
 .carousel-element .carousel-title {
     display: block;
@@ -761,6 +771,9 @@ html#mobileView,
     }
 }
 @media (max-width: 1050px) {
+    #carousel h2 {
+        padding-bottom: 0;
+    }
     .carousel-inner {
         flex-wrap: wrap;
         justify-content: center;
