@@ -782,6 +782,12 @@ html#mobileView,
         display: none;
     }
 }
+@media (min-width: 1550px) {
+    #carousel {
+        padding-bottom: 28rem !important;
+    }
+
+}
 .mirrorflip {
     -webkit-transform: scale(-1, 1);
     transform: scale(-1, 1);
