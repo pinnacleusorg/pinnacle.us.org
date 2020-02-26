@@ -105,6 +105,11 @@ $(function() {
         var boxSize = $inner.width();
         var offset = boxSize / 5 * direction;
         var currentPosition = $inner.scrollLeft();
+        $(this).addClass("clicked");
+        var holdEle = this;
+        setTimeout(function(){
+            $(holdEle).removeClass("clicked");
+        }, 500)
         $inner.animate({scrollLeft: currentPosition+offset+'px'}, 800, function(){
             isAnimating = false;
         });

@@ -720,9 +720,14 @@ html#mobileView,
     outline: none !important;
     font-size: 3rem;
     overflow: visible;
+    transform: scale(1.0);
+    transition: transform 0.5s ease;
 }
 .carousel-nav svg {
     width: 80%;
+}
+.carousel-nav.clicked {
+    transform: scale(1.1);
 }
 .carousel-inner {
     display: flex;
@@ -789,8 +794,10 @@ html#mobileView,
 
 }
 .mirrorflip {
-    -webkit-transform: scale(-1, 1);
     transform: scale(-1, 1);
+}
+.mirrorflip.clicked {
+    transform: scale(-1.1, 1.1);
 }
 .bounceLeftAnimation {
     animation-name: bounceLeftAnimation;
