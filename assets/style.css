@@ -735,13 +735,14 @@ html#mobileView,
     overflow: hidden;
 }
 .carousel-element {
-    width: calc(20% - 20px);
+    width: calc(25% - 100px);
     min-width: 140px;
-    margin-left: 10px;
-    margin-right: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
     display: inline-block;
     text-align: center;
     flex: 0 0 auto;
+    box-sizing: content-box;
 }
 .carousel-element .carousel-image {
     width: 100%;
@@ -786,6 +787,14 @@ html#mobileView,
     .carousel-nav {
         display: none;
     }
+}
+@media (max-width: 1260px) {
+    .carousel-element {
+        width: calc(25% - 50px);
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
 }
 @media (min-width: 1550px) {
     #carousel {
