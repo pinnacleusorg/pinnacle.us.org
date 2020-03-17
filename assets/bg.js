@@ -128,10 +128,35 @@ $(function() {
             $inner.addClass('bounceLeftAnimation');
         }
     });
-    $('.carousel-image').click(function() {
-        $(this).parent().find('a')[0].click();
-    })
+    $('.carousel-image, .carousel-element a').click(function(e) {
+        e.preventDefault();
+        //trigger modal!
+        // pull data ...
+        var dataContainer = $(this).closest('.carousel-element').data('addr');
+        $.getJSON("/assets/hackathons/"+dataContainer, function(data) {
+            triggerModal(data);
+        });
+        //TODO: loading status
+        // $(this).parent().find('a')[0].click();
+    });
+    $('#backdrop').click(function() {
+        cancelModal();
+    });
 });
+function triggerModal(blob) {
+    //fade backdrop
+    $('body').addClass('withModal');
+    $('#backdrop').addClass('modal-cover');
+
+}
+
+function cancelModal() {
+    //deconstruct
+    console.log('close modal');
+    $('body').removeClass('withModal');
+    $('#backdrop').removeClass('modal-cover');
+}
+
 function processScroll() {
     initialScroll = true;
     //CONS:
