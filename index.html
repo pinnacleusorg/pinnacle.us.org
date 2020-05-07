@@ -25,22 +25,70 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="assets/style.css">
         <title>Pinnacle • The Olympics of Hackathons</title>
+        <style>
+            .linesCanvas-outside#initialCanvas {
+                z-index: 99;
+            }
+            #hero {
+                position: static;
+            }
+            #sponsors {
+                color: var(--pinnacle-gold);
+            }
+            #sponsors .inner {
+                padding: 10rem 0 15rem 0;
+                padding-top: 10rem;
+                transition: padding 1s ease;
+            }
+            #sponsors h1 {
+                font-size: 4rem;
+                font-weight: 100;
+                padding-bottom: 4rem;
+            }
+            #sponsors p {
+                font-size: 1.5rem;
+                margin-bottom: 0;
+            }
+            #mobileView #hero {
+                height: 100vh;
+                padding-bottom: 0vh;
+            }
+            #mobileView #sponsors .inner {
+                padding: 0;
+            }
+            #details {
+                width: 50%;
+                margin: 0 auto;
+                max-height: 0px;
+                overflow: hidden;
+                transition: max-height 1s ease;
+            }
+            #detailbtn {
+                transform: scaleY(1);
+                transition: transform 0.5s ease;
+            }
+            #schedule {
+                padding-bottom: 0;
+                min-height: 60vh;
+            }
+            #schedule .inner {
+                min-height: 0;
+            }
+            .engagement-deck {
+                color: var(--pinnacle-gold);
+            }
+        </style>
     </head>
     <body>
         <div class="ultrawide-capture">
             <div class="linesCanvas-outside" id="initialCanvas">
                 <div class="linesCanvas-inside"></div>
             </div>
-            <div class="linesCanvas-outside" id="mainCanvas">
+            <div class="linesCanvas-outside" id="canv2">
                 <div class="linesCanvas-inside"></div>
             </div>
-            <div class="mobileOnly sideLines sideLinesTop">
-                <div class="line-in"></div>
-                <div class="line-side"></div>
-                <div class="line-out"></div>
-            </div>
-            <div id="scrollDown-container">
-                <img src="assets/mouse.png">
+            <div class="linesCanvas-outside" id="mainCanvas">
+                <div class="linesCanvas-inside"></div>
             </div>
             <div class="container-fluid fh fw" id="hero">
                 <div class="container inner">
@@ -49,134 +97,22 @@
                     <span class="byline brandImg mt-4" id="keyByline">The Olympics of Hackathons</span>
                 </div>
             </div>
-            <div class="container-fluid light-bg py-5" id="description">
-                <div class="overflowTriangle">
-                    <div class="mobileOnly sideLines" style="top:-20vh;">
-                        <div class="line-side"></div>
-                    </div>
-                </div>
-                <div class="mobileOnly sideLines" style="top:-10vh;">
-                    <div class="line-side"></div>
-                    <div class="line-out"></div>
-                </div>
+            <div class="container-fluid dark-bg" id="sponsors">
                 <div class="container inner">
-                    <h2 class="mb-5">What is Pinnacle?</h2>
-                    <div class="mobileOnly titleDivider divider-right">
-                        <div class="divider-top"></div>
-                        <div class="divider-edge"></div>
+                    <h1 class="text-center">Postponed.</h1>
+                    <div class="text-center mb-5">
+                        <p>Until 2021</p>
+                        <p>due to COVID-19</p>
                     </div>
-                    <div class="right-body">
-                        <p>Pinnacle is a competitive collegiate hackathon where the world’s top 200 hackers get together in San Francisco for 36 hours. Unlike a traditional hackathon, Pinnacle invites 4 winners from each of the world’s largest 50 collegiate hackathons to compete in an epic tournament-styled event.</p>
-                        <p>Our participants, who represent the brightest developers, designers, and creators in the nation, will be flown out to San Francisco for a weekend at Pinnacle in late 2020. Want to participate? Stay tuned for more updates on our website.</p>
+                    <a href="#" class="pinnacle-btn pinnacle-btn-dark mt-2" id="detailbtn">Details</a>
+                    <div class="text-center" id="details">
+                        <p>Due to the COVID-19 pandemic, it is with a heavy heart that we have decided to postpone our event until Fall 2021.</p>
+                        <p>We hope everyone is staying safe and healthy! We will have announcements in the coming weeks regarding our plans in the interim, so please check back soon for more information.</p>
                     </div>
                 </div>
             </div>
-            <div class="container-fluid light-bg py-5" id="carousel">
+            <div class="container-fluid dark-bg" id="schedule">
                 <div class="container inner">
-                    <h2 class="mb-2">Qualifying Hackathons</h2>
-                    <p class="carousel-subtitle mb-4">This list is not final; we will announce additional qualifying hackathons in the near future.</p>
-                    <div class="carousel">
-                        <button class="carousel-nav mirrorflip">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M10,2l9,10l-9,10h2l9-10L12,2H10z"></path>
-                            </svg>
-                        </button>
-                        <div class="carousel-inner">
-                            <div class="carousel-element carousel-first" id="mhacks">
-                                <img src="/assets/hackathons/mhacks.png" class="carousel-image">
-                                <div class="carousel-info">
-                                    <span class="carousel-title"><a href="https://mhacks.org/" target="_blank">MHacks</a></span>
-                                    <span class="carousel-location">Ann Arbor, MI</span>
-                                </div>
-                            </div>
-                            <div class="carousel-element" id="hackharvard">
-                                <img src="/assets/hackathons/hackharvard.png" class="carousel-image">
-                                <div class="carousel-info">
-                                    <span class="carousel-title"><a href="https://hackharvard.io/" target="_blank">HackHarvard</a></span>
-                                    <span class="carousel-location">Cambridge, MA</span>
-                                </div>
-                            </div>
-                            <div class="carousel-element" id="hackduke">
-                                <img src="/assets/hackathons/hackduke.png" class="carousel-image">
-                                <div class="carousel-info">
-                                    <span class="carousel-title"><a href="https://hackduke.org/" target="_blank">HackDuke</a></span>
-                                    <span class="carousel-location">Durham, NC</span>
-                                </div>
-                            </div>
-                            <div class="carousel-element" id="hacktech">
-                                <img src="/assets/hackathons/hacktech.png" class="carousel-image">
-                                <div class="carousel-info">
-                                    <span class="carousel-title"><a href="https://hacktech.io/" target="_blank">Hacktech</a></span>
-                                    <span class="carousel-location">Pasadena, CA</span>
-                                </div>
-                            </div>
-                            <div class="carousel-element" id="vandyhacks">
-                                <img src="/assets/hackathons/vandyhacks.png" class="carousel-image">
-                                <div class="carousel-info">
-                                    <span class="carousel-title"><a href="https://vandyhacks.org/" target="_blank">VandyHacks</a></span>
-                                    <span class="carousel-location">Nashville, TN</span>
-                                </div>
-                            </div>
-                            <div class="carousel-element" id="hacknyu">
-                                <img src="/assets/hackathons/hacknyu.png" class="carousel-image">
-                                <div class="carousel-info">
-                                    <span class="carousel-title"><a href="https://hacknyu.org/" target="_blank">HackNYU</a></span>
-                                    <span class="carousel-location">Brooklyn, NY</span>
-                                </div>
-                            </div>
-                            <div class="carousel-element" id="slohacks">
-                                <img src="/assets/hackathons/slohacks.png" class="carousel-image">
-                                <div class="carousel-info">
-                                    <span class="carousel-title"><a href="https://www.slohacks.com/" target="_blank">SLO Hacks</a></span>
-                                    <span class="carousel-location">San Luis Obispo, CA</span>
-                                </div>
-                            </div>
-                            <div class="carousel-element carousel-last" id="losaltoshacks">
-                                <img src="/assets/hackathons/losaltoshacks.png" class="carousel-image">
-                                <div class="carousel-info">
-                                    <span class="carousel-title"><a href="https://losaltoshacks.com/" target="_blank">Los Altos Hacks</a></span>
-                                    <span class="carousel-location">Sunnyvale, CA</span>
-                                </div>
-                            </div>
-                            <div class="carousel-element carousel-last" id="superposition">
-                                <img src="/assets/hackathons/superposition.png" class="carousel-image">
-                                <div class="carousel-info">
-                                    <span class="carousel-title"><a href="https://superposition.tech/" target="_blank">Superposition</a></span>
-                                    <span class="carousel-location">San Francisco, CA</span>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="carousel-nav">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M10,2l9,10l-9,10h2l9-10L12,2H10z"></path>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="container-fluid light-bg" id="schedule">
-                <div class="container inner">
-                    <h2>Timeline</h2>
-                    <div class="mobileOnly titleDivider divider-left">
-                        <div class="divider-top"></div>
-                        <div class="divider-edge"></div>
-                    </div>
-                    <div class="container" id="timeline-container">
-                        <div class="tl-ele timeline-right">
-                            <span class="timeline-desc">Attend a qualifying hackathon</span>
-                            <span class="timeline-date">Jan-June 2020</span>
-                        </div>
-                        <div class="tl-ele timeline-right">
-                            <span class="timeline-desc">Top 50 teams are invited</span>
-                            <span class="timeline-date">July 2020</span>
-                        </div>
-                        <div class="tl-ele timeline-right">
-                            <span class="timeline-desc">Apply as a team for potential consideration</span>
-                            <span class="timeline-date">August 2020</span>
-                        </div>
-                        <span class="timeline-end">Coming Fall 2020.</span>
-                        <span class="timeline-socials"><a href="https://twitter.com/pinnacleusorg" target="_blank">Twitter</a> &bull; <a href="https://medium.com/pinnacleusorg" target="_blank">Medium</a> &bull; <a href="https://facebook.com/pinnacleusorg" target="_blank">Facebook</a> &bull; <a href="https://instagram.com/pinnacleusorg" target="_blank">Instagram</a></span>
-                    </div>
                     <div class="card-deck engagement-deck">
                         <div class="card">
                             <div class="card-body">
@@ -184,7 +120,7 @@
                                 <p class="card-text p-2">Be a part of the team that makes it happen.</p>
                             </div>
                             <div class="card-footer">
-                                <a href="https://hack.ms/P20-Team-Application" class="pinnacle-btn mt-2" id="applybtn">Apply Now</a>
+                                <a href="https://hack.ms/P20-Team-Application" class="pinnacle-btn pinnacle-btn-dark mt-2" id="applybtn" style="width: 184px; height: 68px;"><div class="btn-label">Apply Now          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">             <path d="M10,2l9,10l-9,10h2l9-10L12,2H10z"></path>         </svg></div><svg width="184px" height="68px"><path d="M 2 21.2 L 21.2 2 L 182 2 L 182 46.8 L 162.8 66 L 2 66 L 2 46.8 Z" stroke-width="4"></path></svg></a>
                             </div>
                         </div>
                         <div class="card card-divider">
@@ -203,25 +139,8 @@
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <a href="#submit" class="pinnacle-btn mt-2" id="updatedbtn">Stay Updated</a>
+                                <a href="#submit" class="pinnacle-btn pinnacle-btn-dark mt-2" id="updatedbtn" style="width: 184px; height: 68px;"><div class="btn-label">Stay Updated          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">             <path d="M10,2l9,10l-9,10h2l9-10L12,2H10z"></path>         </svg></div><svg width="184px" height="68px"><path d="M 2 21.2 L 21.2 2 L 182 2 L 182 46.8 L 162.8 66 L 2 66 L 2 46.8 Z" stroke-width="4"></path></svg></a>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="skyline">
-                    <div class="skyline-component animated off-left" id="skyline_goldengate"></div>
-                    <div class="skyline-component animated off-right" id="skyline_twinpeaks"></div>
-                    <div class="skyline-component animated off-right" id="skyline_gold"></div>
-                    <div class="skyline-component animated off-right" id="skyline_black"></div>
-                </div>
-            </div>
-            <div class="container-fluid dark-bg" id="sponsors">
-                <div class="container inner">
-                    <h2 class="text-center">Sponsors</h2>
-                    <div class="sponsor-logos">
-                        <div class="sponsor" id="sponsor-ad">
-                            We will be announcing our sponsors soon!<br>
-                            Interested in being one?<br>Please email us at <a href="mailto:sponsor@pinnacle.us.org">sponsor@pinnacle.us.org</a>.
                         </div>
                     </div>
                 </div>
@@ -237,6 +156,19 @@
             <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
             <script src="assets/clippath.min.js"></script>
             <script src="assets/bg.js"></script>
+            <script>
+            $(function() {
+                $('#detailbtn').click(function(e) {
+                    //open details ...
+                    e.preventDefault();
+                    var trueHeight = $('#details').css('visibility', 'hidden').css('max-height', 'none').height();
+                    $('#details').css('visibility', 'visible').css('max-height', '0px').show();
+                    $('#details').css('max-height', trueHeight + "px");
+                    $('#detailbtn').css('transform', 'scaleY(0)');
+                    $('#sponsors > .inner').css('padding-top', "calc(10rem - "+trueHeight+"px)");
+                });
+            });
+            </script>
         </div>
     </body>
 </html>

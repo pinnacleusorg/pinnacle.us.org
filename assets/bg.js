@@ -85,7 +85,7 @@ $(function() {
     $(window).scroll(function() {
         if(mobile)
             return;
-        processScroll();
+        //processScroll();
     });
 
 // Prompt user to scroll if they idle at top.
@@ -148,8 +148,8 @@ function processScroll() {
     if(highestScroll > scrollTop)
         return;
     //If we've reached skyline portion, slide it in
-    if(scrollTop + screenHeight - $('.skyline').offset().top > 0 && $('#skyline_goldengate').hasClass('off-left'))
-        $('.skyline-component').removeClass('off-left').removeClass('off-right');
+    // if(scrollTop + screenHeight - $('.skyline').offset().top > 0 && $('#skyline_goldengate').hasClass('off-left'))
+    //     $('.skyline-component').removeClass('off-left').removeClass('off-right');
     highestScroll = scrollTop;
     //If we've reached the bottom, animate the last lines
     if(scrollPercent >= 98) {
@@ -187,7 +187,7 @@ function processScroll() {
         var currentWidth = $e.width();
         //If we're close to the real width, finish the line and mark it complete
         //OR: if the line is falling off the screen, just mark it complete so we can keep the animation on-screen.
-        if(Math.abs(currentWidth - realWidth) <= 0.5 || realBottomOffset - scrollTop < screenHeight*0.2) {
+        if(Math.abs(currentWidth - realWidth) <= 0.5 || realBottomOffset - scrollTop < screenHeight*0.4) {
             $e.data('rendered', true).css('max-width', realWidth+'px');
             return;
         }
@@ -206,7 +206,7 @@ function updateLines() {
     if(screenWidth < 767) {
         mobile = true;
         $('html').prop('id', 'mobileView');
-        $('#initialCanvas, #mainCanvas').children().empty();
+        $('#initialCanvas, #mainCanvas, #canv2').children().empty();
         $(canvas1).empty();
         $(canvas2).empty();
         canvasContainer.width(0); //no canvas on mobile
@@ -223,80 +223,25 @@ function updateLines() {
         }
     }
 
-    //useful offsets:
-    var content_leftEdge = ($('.right-body').first().offset().left) * 0.9,
-        content_rightEdge = ($('.right-body').first().offset().left + $('.right-body').first().width()) * 1.1;
-
-    var OF_description_inner = $('#description .inner').offset(),
-        OF_carousel_h2 = $('#carousel h2').offset(),
-        OF_schedule_h2 = $('#schedule h2').offset(),
-        OF_description_h2 = $('#description h2').offset(),
-        OF_last_tl = $('.tl-ele').last().offset(),
-        OF_scheduleSection = $('#schedule').offset(),
-        OF_sponsors = $('#sponsors').offset();
-
-    var H_description_inner = $('#description .inner').height(),
-        H_schedule_h2 = $('#schedule h2').height(),
-        H_description_h2 = $('#description h2').height(),
-        H_sponsors = $('#sponsors').height();
+    //useful offset:
+    var content_leftEdge = screenWidth * 0.1,
+        content_rightEdge = screenWidth * 0.9;
 
     var lines = [];
     lines[0] = [];
     lines[0][0] = [0, screenHeight * 0.8];
-    lines[0][1] = [OF_description_inner.left*0.8, lines[0][0][1] + (OF_description_inner.left*0.8)];
-    lines[0][2] = [lines[0][1][0], OF_description_inner.top + H_description_inner*1.1];
-    lines[0][3] = [0, lines[0][1][0] + lines[0][2][1]];
+    lines[0][1] = [content_leftEdge * 1.2, lines[0][0][1] + (content_leftEdge * 1.2)];
+    lines[0][2] = [lines[0][1][0], screenHeight * 1.5];
+    lines[0][3] = [content_leftEdge * 2, lines[0][2][1] + (content_leftEdge * 2  - lines[0][1][0])];
 
-    var g = OF_schedule_h2.left + $('#schedule h2').width()*1.5;
     lines[1] = [];
     lines[1][0] = [screenWidth * 0.05, screenHeight * 0.7];
-    lines[1][1] = [lines[1][0][0], OF_schedule_h2.top + H_schedule_h2/2 - (g - lines[1][0][0])];
-    lines[1][2] = [g, (g - lines[1][1][0]) + lines[1][1][1]];
-    lines[1][3] = [0, lines[1][2][0] + lines[1][2][1]];
-
-    lines[2] = [];
-    lines[2][0] = [screenWidth, screenHeight * 0.8];
-    lines[2][1] = [content_rightEdge, (lines[2][0][1] + (lines[2][0][0] - content_rightEdge))];
-    lines[2][2] = [content_rightEdge, OF_description_h2.top + H_description_h2 - content_rightEdge*0.15];
-    lines[2][3] = [content_rightEdge * 0.85, lines[2][2][1] + content_rightEdge*0.15];
-    lines[2][4] = [content_rightEdge * 0.7, lines[2][3][1]];
-
-    lines[3] = [];
-    lines[3][0] = [screenWidth * 0.95, screenHeight * 0.75];
-    lines[3][1] = [lines[3][0][0], OF_carousel_h2.top];
-    lines[3][2] = [screenWidth, (lines[3][1][1] + (screenWidth * 0.05))];
-
-    lines[4] = [];
-    lines[4][0] = [content_rightEdge * 0.7, OF_description_h2.top];
-    lines[4][1] = [content_rightEdge, lines[4][0][1]];
-    lines[4][2] = [content_rightEdge, OF_description_inner.top + H_description_inner/2];
-    lines[4][3] = [screenWidth, lines[4][2][1] + screenWidth - lines[4][2][0]];
-
-    lines[5] = [];
-    lines[5][0] = [content_leftEdge * 0.5, lines[1][2][1]+75];
-    lines[5][1] = [screenWidth * 0.05, (lines[5][0][0] - screenWidth * 0.05) + lines[5][0][1]];
-    lines[5][2] = [screenWidth * 0.05, OF_last_tl.top+50];
-    lines[5][3] = [0, lines[5][2][1]+lines[5][2][0]];
-
-    lines[6] = [];
-    lines[6][0] = [content_rightEdge * 0.9, OF_scheduleSection.top];
-    lines[6][1] = [screenWidth * 0.95, (OF_scheduleSection.top + (screenWidth * 0.95 - content_rightEdge * 0.9))];
-    lines[6][2] = [screenWidth * 0.95, OF_last_tl.top-50];
-    lines[6][3] = [screenWidth, lines[6][2][1]+(screenWidth - lines[6][2][0])];
-
-    lines[7] = [];
-    lines[7][0] = [screenWidth, OF_sponsors.top + 100];
-    lines[7][1] = [content_rightEdge, (OF_sponsors.top + 100 + (screenWidth-content_rightEdge))];
-    lines[7][2] = [content_rightEdge, OF_sponsors.top + H_sponsors*0.9];
-    lines[7][3] = [screenWidth, OF_sponsors.top + H_sponsors*0.9];
-    if(reduced) {
-        //remove some lines to draw when on reduced screen size
+    lines[1][1] = [lines[1][0][0], screenHeight * 1.1];
+    lines[1][2] = [screenWidth * 0.2, lines[1][1][1] + screenWidth*0.2 - lines[1][0][0]];
+    if(mobile || reduced) {
         lines[0] = [];
-        lines[3] = [];
-        lines[5] = [];
-        lines[6] = [];
+        lines[1] = [];
     }
-
     //"canvas" setup
     //NB: I continually refer to this as a "canvas" despite it no longer being a canvas, so pardon the term use.
     //Ensure our sizes are identical on the two clones to allow for lining up multi-colored lines
@@ -310,16 +255,15 @@ function updateLines() {
     $(canvasContainer).width(screenWidth);
 
     highestScroll = 0;
+    renderLine(canvas1, lines); //all lines
     renderLine(canvas2, lines); //all lines
-    renderLine(canvas1, [lines[0], lines[1], lines[2], lines[3]]); //top lines
+    // renderLine(canvas1, [lines[0], lines[1], lines[2], lines[3]]); //top lines
 }
 function renderLine(parent, lines) {
     $(parent).empty(); //clear out all lines (vs modifying existing ones for simplicity)
     for(var i = 0; i < lines.length; i++) {
         var thisLine = lines[i];
         var goldColor = false;
-        if(i == 7) //sponsor section line is gold.
-            goldColor = true;
         for(var j = 0; j < thisLine.length - 1; j++) {
             var firstPoint = thisLine[j];
             var secondPoint = thisLine[j+1];
@@ -350,6 +294,8 @@ function renderLine(parent, lines) {
             if(Math.abs(desiredAngle - 2.35619) <= 0.1 || Math.abs(desiredAngle - Math.PI) <= 0.1)
                 translate = "translate("+(x_diff)+"px, 0px) ";
             inner.width(lineWidth+'px').css('transform', translate+'rotate('+desiredAngle+'rad)');
+            inner.css('max-width', lineWidth+'px');
+
             $(parent).append(line);
         }
     }

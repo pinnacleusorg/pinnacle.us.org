@@ -307,7 +307,13 @@ footer {
 #initialCanvas .generatedLine-line {
     background-color: var(--pinnacle-gold);
 }
+#canv2 .generatedLine-line {
+    background-color: var(--pinnacle-gold);
+}
 
+#canv2 {
+    transform: scaleX(-1);
+}
 /* Mobile Optimization */
 html#mobileView,
 #mobileView body {
@@ -556,10 +562,17 @@ html#mobileView,
     z-index: 99;
     letter-spacing: 0.7px;
 }
+.pinnacle-btn-dark .btn-label {
+    color: var(--pinnacle-gold);
+}
 .pinnacle-btn .btn-label > svg {
     height: 0.7em;
     fill: #F7F5E8;
     stroke: #F7F5E8;
+}
+.pinnacle-btn-dark .btn-label > svg {
+    fill: var(--pinnacle-gold);
+    stroke: var(--pinnacle-gold);
 }
 .pinnacle-btn > svg {
     position: absolute;
@@ -571,11 +584,34 @@ html#mobileView,
     stroke: #1B1B1B;
     transition: fill 0.3s ease, stroke 0.3s ease;
 }
+.pinnacle-btn-dark > svg path {
+    stroke: #947043;
+    transition: fill 0.3s ease, stroke 0.3s ease;
+}
 .pinnacle-btn.hover > svg path,
 .pinnacle-btn:focus > svg path,
 .pinnacle-btn:hover > svg path {
     fill: #C69E60;
     stroke: #947043;
+}
+.pinnacle-btn-dark.hover > svg path,
+.pinnacle-btn-dark:focus > svg path,
+.pinnacle-btn-dark:hover > svg path {
+    fill: #C69E60;
+    stroke: #947043;
+}
+.pinnacle-btn-dark.hover .btn-label > svg path,
+.pinnacle-btn-dark:focus .btn-label > svg path,
+.pinnacle-btn-dark:hover .btn-label > svg path {
+    fill: white;
+    stroke: white;
+}
+
+.pinnacle-btn.hover,
+.pinnacle-btn:focus,
+.pinnacle-btn:hover {
+    text-decoration: none;
+    color: white;
 }
 .pinnacle-btn.hover,
 .pinnacle-btn:focus,
@@ -638,7 +674,7 @@ html#mobileView,
     margin-right: auto;
 }
 .input-group input {
-    border-color: #1B1B1B;
+    border-color: var(--pinnacle-gold);
     border-width: 3px;
     border-radius: 0;
     color: black;
@@ -652,7 +688,7 @@ html#mobileView,
 .input-group input:focus, .input-group input:active {
     outline: none;
     box-shadow: none;
-    border-color: #1B1B1B;
+    border-color: var(--pinnacle-gold);
     background-color: rgb(248, 246, 237);
     color: black;
 }
