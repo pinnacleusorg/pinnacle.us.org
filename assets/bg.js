@@ -141,10 +141,10 @@ function processScroll() {
     var scrollPercent = (scrollTop / (pageHeight - screenHeight)) * 100;
 
     //Parallax logo at top of scroll
-    if(scrollPercent < 20) {
-        var adj = 150 * scrollPercent / 20;
-        $('#hero .inner').css('margin-top', 'calc(-8rem - '+adj+'px)');
-    }
+    // if(scrollPercent < 20) {
+    //     var adj = 150 * scrollPercent / 20;
+    //     $('#hero .inner').css('margin-top', 'calc(-8rem - '+adj+'px)');
+    // }
     if(highestScroll > scrollTop)
         return;
     //If we've reached skyline portion, slide it in

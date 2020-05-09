@@ -26,6 +26,9 @@
         <link rel="stylesheet" href="assets/style.css">
         <title>Pinnacle • The Olympics of Hackathons</title>
         <style>
+            html, body {
+                width: 100%;
+            }
             .linesCanvas-outside#initialCanvas {
                 z-index: 99;
             }
@@ -51,11 +54,15 @@
                 margin-bottom: 0;
             }
             #mobileView #hero {
-                height: 100vh;
+                min-height: 500px;
+                height: 60vh;
                 padding-bottom: 0vh;
             }
             #mobileView #sponsors .inner {
                 padding: 0;
+            }
+            #mobileView #sponsors {
+                padding-bottom: 20vh;
             }
             #details {
                 width: 50%;
