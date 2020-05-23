@@ -85,6 +85,85 @@
             .engagement-deck {
                 color: var(--pinnacle-gold);
             }
+            .event-image {
+                width: 50%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            #everest .event-image #everest-logo {
+                transform: scaleY(0);
+                /* Account for offset center in expansion */
+                transform-origin: 50% 55.5%;
+                transition: transform 0.5s ease-out;
+            }
+            #everest .event-image.open #everest-logo {
+                transform: scaleY(1);
+            }
+
+            .event-descriptor {
+                margin-top: 3rem;
+                width: 70%;
+                margin-left: auto;
+                margin-right: auto;
+                text-align: center;
+                font-family: 'Casper';
+                color: var(--pinnacle-gold);
+            }
+            .event-title {
+                text-transform: uppercase;
+                font-size: 3rem;
+                text-transform: uppercase;
+                letter-spacing: 15px;
+                margin-bottom: -15px;
+                margin-right: -15px;
+            }
+            .event-byline {
+                text-transform: lowercase;
+                font-size: 1.5rem;
+            }
+            .event-detail {
+                font-size: 1.5rem;
+
+            }
+            #everest .event-image .event-descriptor {
+                opacity: 0;
+                transition: opacity 0.5s ease-out;
+                transition-delay: 0.1s;
+            }
+            #everest .event-image.open .event-descriptor {
+                opacity: 1;
+            }
+            .everest-line {
+                width: 100%;
+                height: 4px;
+                background-color: var(--pinnacle-gold);
+                position: relative;
+                top: 224px;
+            }
+            .event-body {
+                width: 50%;
+                margin-left: auto;
+                margin-right: auto;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            .event-body .pinnacle-btn {
+                transform: scaleY(1);
+                transform-origin: center top;
+                transition: transform 0.5s ease;
+            }
+            .event-detail-long {
+                color: var(--pinnacle-gold);
+                font-family: 'Casper';
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.5s ease, margin 0.5s ease;
+            }
+            .event-body.open .event-detail-long {
+                max-height: 1000px;
+            }
         </style>
     </head>
     <body>
@@ -107,19 +186,64 @@
             </div>
             <div class="container-fluid dark-bg" id="sponsors">
                 <div class="container inner">
-                    <h1 class="text-center">Postponed.</h1>
+                    <h1 class="text-center">2020 Summer Events</h1>
                     <div class="text-center mb-5">
-                        <p>Due to COVID-19</p>
+                        <p>Online Events</p>
                         <p>Until 2021</p>
                     </div>
                     <a href="#" class="pinnacle-btn pinnacle-btn-dark mt-2" id="detailbtn">Details</a>
-                    <div class="text-center" id="details">
-                        <p>Due to the COVID-19 pandemic, it is with a heavy heart that we have decided to postpone our event until Fall 2021.</p>
-                        <p>We hope everyone is staying safe and healthy! We will have announcements in the coming weeks regarding our plans in the interim, so please check back soon for more information.</p>
+                    <div class="" id="details">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <p>Some kind of call to action ... </p>
                     </div>
                 </div>
             </div>
-            <div class="container-fluid dark-bg" id="schedule">
+            <div class="container-fluid dark-bg summer-event" id="everest">
+                <div class="container inner">
+                    <div class="event-image">
+                        <div class="everest-line">
+                        </div>
+                        <img src="/assets/everest.svg" id="everest-logo">
+                        <div class="event-descriptor">
+                            <p class="event-title">Everest</p>
+                            <p class="event-byline">The tallest of them all</p>
+                            <p class="event-detail">Race to the peak<br>in Pinnacle's first ever<br>virtual event.</p>
+                        </div>
+                    </div>
+                    <div class="event-body">
+                        <a href="#" class="pinnacle-btn pinnacle-btn-dark mt-2 w-25" id="everestBtn">Details</a>
+                        <div class="event-detail-long" id="everestDetails">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            <p>Some kind of call to action ... </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid dark-bg summer-event" id="fuji">
+                <div class="container inner">
+                    <div class="event-image">
+                        <div class="everest-line">
+                        </div>
+                        <img src="/assets/fuji.svg" id="fuji-logo">
+                        <div class="event-descriptor-left">
+                            <img src="/assets/fuji-typo.svg" id="fuji-typo">
+                        </div>
+                        <div class="event-descriptor">
+                            <p class="event-title">Fuji</p>
+                            <p class="event-byline">Enter the sacret mountain</p>
+                            <p class="event-detail">Choose your path,<br>and unleash your<br>creativity.</p>
+                        </div>
+                    </div>
+                    <div class="event-body">
+                        <a href="#" class="pinnacle-btn pinnacle-btn-dark mt-2 w-25" id="everestBtn">Details</a>
+                        <div class="event-detail-long" id="everestDetails">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            <p>Some kind of call to action ... </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="container-fluid dark-bg" id="schedule">
                 <div class="container inner">
                     <div class="card-deck engagement-deck">
                         <div class="card">
@@ -152,7 +276,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <footer class="gold-bg">
                 <div class="container-fluid inner text-center p-5" id="footer">
                     &copy; 2020 Pinnacle<br>
@@ -174,6 +298,16 @@
                     $('#details').css('max-height', trueHeight + "px");
                     $('#detailbtn').css('transform', 'scaleY(0)');
                     $('#sponsors > .inner').css('padding-top', "calc(10rem - "+trueHeight+"px)");
+                });
+                $('.event-body .pinnacle-btn').click(function(e) {
+                    e.preventDefault();
+                    var $details = $(this).next();
+                    var btnHeight = $(this).height();
+                    var trueHeight = $details.css('visibility', 'hidden').css('max-height', 'none').height();
+                    $details.css('visibility', 'visible').css('max-height', '0px').show();
+                    $details.css('max-height', trueHeight + "px");
+                    $(this).css('transform', 'scaleY(0)');
+                    $details.css('margin-top', "-"+btnHeight+"px");
                 });
             });
             </script>

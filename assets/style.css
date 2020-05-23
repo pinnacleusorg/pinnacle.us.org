@@ -21,6 +21,16 @@ html, body {
     src: url("font/KeplerStd-SemiboldScnDisp.otf");
     font-weight: 500;
 }
+@font-face {
+    font-family: "Casper";
+    src: url("font/Casper-Regular.ttf");
+    font-weight: normal;
+}
+@font-face {
+    font-family: "Casper";
+    src: url("font/Casper-Bold.ttf");
+    font-weight: bold;
+}
 .fw {
     width: 100vw;
 }
