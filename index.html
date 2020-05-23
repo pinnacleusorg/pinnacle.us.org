@@ -85,6 +85,12 @@
             .engagement-deck {
                 color: var(--pinnacle-gold);
             }
+            .summer-event {
+                min-height: 100vh;
+            }
+            .summer-event .container {
+                margin: 4rem auto;
+            }
             .event-image {
                 width: 50%;
                 margin-left: auto;
@@ -96,7 +102,7 @@
                 transform-origin: 50% 55.5%;
                 transition: transform 0.5s ease-out;
             }
-            #everest .event-image.open #everest-logo {
+            #everest.se-open .event-image #everest-logo {
                 transform: scaleY(1);
             }
 
@@ -130,7 +136,7 @@
                 transition: opacity 0.5s ease-out;
                 transition-delay: 0.1s;
             }
-            #everest .event-image.open .event-descriptor {
+            #everest.se-open .event-image .event-descriptor {
                 opacity: 1;
             }
             .everest-line {
@@ -163,6 +169,25 @@
             }
             .event-body.open .event-detail-long {
                 max-height: 1000px;
+            }
+            .event-descriptor-split {
+                display: flex;
+                align-items: center;
+                flex-direction: row;
+                justify-content: space-between;
+                width: 80%;
+                margin: 4rem auto;
+            }
+            .event-descriptor-split .event-descriptor-typo {
+                width: 40%;
+            }
+            #fuji-typo {
+                width: 65%;
+            }
+            .event-descriptor-split .event-descriptor {
+                width: 60%;
+                text-align: left;
+                margin: 0;
             }
         </style>
     </head>
@@ -198,7 +223,7 @@
                     </div>
                 </div>
             </div>
-            <div class="container-fluid dark-bg summer-event" id="everest">
+            <div class="container-fluid dark-bg summer-event se-open" id="everest">
                 <div class="container inner">
                     <div class="event-image">
                         <div class="everest-line">
@@ -222,16 +247,42 @@
             <div class="container-fluid dark-bg summer-event" id="fuji">
                 <div class="container inner">
                     <div class="event-image">
+                        <img src="/assets/fuji.svg" id="fuji-logo">
+                        <div class="event-descriptor-split">
+                            <div class="event-descriptor-typo">
+                                <img src="/assets/fuji-typo.svg" id="fuji-typo">
+                            </div>
+                            <div class="event-descriptor">
+                                <p class="event-title">Fuji</p>
+                                <p class="event-byline">Enter the<br>sacret mountain</p>
+                                <p class="event-detail">Choose your path,<br>and unleash your<br>creativity.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="event-body">
+                        <a href="#" class="pinnacle-btn pinnacle-btn-dark mt-2 w-25" id="everestBtn">Details</a>
+                        <div class="event-detail-long" id="everestDetails">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            <p>Some kind of call to action ... </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid dark-bg summer-event" id="olympus">
+                <div class="container inner">
+                    <div class="event-image">
                         <div class="everest-line">
                         </div>
                         <img src="/assets/fuji.svg" id="fuji-logo">
-                        <div class="event-descriptor-left">
-                            <img src="/assets/fuji-typo.svg" id="fuji-typo">
-                        </div>
-                        <div class="event-descriptor">
-                            <p class="event-title">Fuji</p>
-                            <p class="event-byline">Enter the sacret mountain</p>
-                            <p class="event-detail">Choose your path,<br>and unleash your<br>creativity.</p>
+                        <div class="event-descriptor-split">
+                            <div class="event-descriptor-typo">
+                                <img src="/assets/fuji-typo.svg" id="fuji-typo">
+                            </div>
+                            <div class="event-descriptor">
+                                <p class="event-title">Fuji</p>
+                                <p class="event-byline">Enter the<br>sacret mountain</p>
+                                <p class="event-detail">Choose your path,<br>and unleash your<br>creativity.</p>
+                            </div>
                         </div>
                     </div>
                     <div class="event-body">
