@@ -19,184 +19,34 @@ var mobile = true,
         return newOffset;
     }
 })();
+
+var subscribeDisabled = false;
+
 $(function() {
-    var consoleBanner = "";
-    consoleBanner += ("  _______ _                  _                       _                   __   _                _         _   _                     \n");
-    consoleBanner += (" |__   __| |                | |                     (_)                 / _| | |              | |       | | | |                    \n");
-    consoleBanner += ("    | |  | |__   ___    ___ | |_   _ _ __ ___  _ __  _  ___ ___    ___ | |_  | |__   __ _  ___| | ____ _| |_| |__   ___  _ __  ___ \n");
-    consoleBanner += ("    | |  | '_ \\ / _ \\  / _ \\| | | | | '_ ` _ \\| '_ \\| |/ __/ __|  / _ \\|  _| | '_ \\ / _` |/ __| |/ / _` | __| '_ \\ / _ \\| '_ \\/ __|\n");
-    consoleBanner += ("    | |  | | | |  __/ | (_) | | |_| | | | | | | |_) | | (__\\__ \\ | (_) | |   | | | | (_| | (__|   | (_| | |_| | | | (_) | | | \\__ \\\n");
-    consoleBanner += ("    |_|  |_| |_|\\___|  \\___/|_|\\__, |_| |_| |_| .__/|_|\\___|___/  \\___/|_|   |_| |_|\\__,_|\\___|_|\\_\\__,_|\\__|_| |_|\\___/|_| |_|___/\n");
-    consoleBanner += ("                                __/ |         | |                                                                                  \n");
-    consoleBanner += ("                               |___/          |_|                                                                                  ");
-    console.log(consoleBanner);
-    console.log("Peeking under the hood? We want you on our team! Apply now: http://hack.ms/P20-Team-Application");
-// Polyfill for ios / safari - https://github.com/AlfonsoFilho/ClipPath
-    $('.overflowTriangle').ClipPath('50% 0, 0 100%, 100% 100%');
-    var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-    if(isSafari) {
-        $('.linesCanvas-outside#mainCanvas').ClipPath('50% 100vh, 0% 160vh, 0% 100%, 100% 100%, 100% 160vh');
-    }
-// Update/Generate Lines
+    handleBanner();
     updateLines();
     renderButtons();
     $(window).resize(function() {
         updateLines();
         $('.carousel-inner').animate({scrollLeft: '0px'}, 400);
     });
-    var subscribeDisabled = false;
-    $('#updatedbtn').click(function(e) {
-        e.preventDefault();
 
-        var name = $('#engagement-fn').val().trim();
-        var email = $('#engagement-email').val().trim();
-        if(name.length == 0 || email.length == 0)
-            return;
-        if(subscribeDisabled)
-            return;
-        subscribeDisabled = true;
-        $('#engagement-fn, #engagement-email').prop('disabled', true);
-        //submit, report errors to #updatedMsg.
-        $.ajax('https://api.pinnacle.us.org/1.0/contacts', {
-            type: 'post',
-            data: JSON.stringify({"email": email, "name": name}),
-            dataType: 'json',
-            contentType: 'application/json'
-        }).done(function() {
-            $('#engagement-fn').val("");
-            $('#engagement-email').val("");
-            $('#updatedMsg').addClass("successful").text("Welcome to the mailing list!");
-            subscribeDisabled = false;
-            $('#engagement-fn').prop('disabled', false);
-            $('#engagement-email').prop('disabled', false);
-        }).fail(function(msg) {
-            console.log(msg);
-            var error = "Error: Please confirm your email address is accurate";
-            if(msg.status == 409)
-                error = "You're already on our list!";
-            $('#updatedMsg').addClass("err").text(error);
-            subscribeDisabled = false;
-            $('#engagement-fn').prop('disabled', false);
-            $('#engagement-email').prop('disabled', false);
-        })
+    $('#updatedbtn').click(function(e) {
+        handleSub(e);
     })
 
-// Handle Scrolling Animation
     $(window).scroll(function() {
         if(mobile)
             return;
-        //processScroll();
+        processScroll();
     });
 
-// Prompt user to scroll if they idle at top.
-    setTimeout(function() {
-        if(!initialScroll) {
-            if($(window).height() > 650)
-                $('#scrollDown-container').css('opacity', 1);
-        }
-    }, 3000);
-    var isAnimating = false;
-    $('.carousel-nav').click(function() {
-        if(isAnimating) return;
-        isAnimating = true;
-        var direction = 1;
-        if($(this).hasClass('mirrorflip')) direction = -1;
-        var $inner = $('.carousel-inner');
-        var boxSize = $inner.width();
-        var offset = boxSize / 5 * direction;
-        var currentPosition = $inner.scrollLeft();
-        $(this).addClass("clicked");
-        var holdEle = this;
-        setTimeout(function(){
-            $(holdEle).removeClass("clicked");
-        }, 500)
-        $inner.animate({scrollLeft: currentPosition+offset+'px'}, 800, function(){
-            isAnimating = false;
-        });
-        //detect overscroll
-        var firstElement = $('.carousel-first');
-        var lastElement = $('.carousel-last');
-        if(currentPosition == 0 && direction == -1) {
-            isAnimating = false;
-            //useless scrollTop() to force refresh after removing class
-            $inner.removeClass('bounceRightAnimation bounceLeftAnimation').scrollTop();
-            $inner.addClass('bounceRightAnimation');
-        }
-        else if(currentPosition > (boxSize / 5 * $('.carousel-element').length) - boxSize - 10 && direction == 1) {
-            isAnimating = false;
-            $inner.removeClass('bounceRightAnimation bounceLeftAnimation').scrollTop();
-            $inner.addClass('bounceLeftAnimation');
-        }
-    });
-    $('.carousel-image').click(function() {
-        $(this).parent().find('a')[0].click();
-    })
 });
 function processScroll() {
-    initialScroll = true;
-    //CONS:
-    var scrollTop = $(window).scrollTop();
-    var pageHeight = $('html').height();
-    var screenHeight = $(window).height();
-    var scrollPercent = (scrollTop / (pageHeight - screenHeight)) * 100;
-
-    //Parallax logo at top of scroll
-    // if(scrollPercent < 20) {
-    //     var adj = 150 * scrollPercent / 20;
-    //     $('#hero .inner').css('margin-top', 'calc(-8rem - '+adj+'px)');
-    // }
-    if(highestScroll > scrollTop)
-        return;
-    //If we've reached skyline portion, slide it in
-    // if(scrollTop + screenHeight - $('.skyline').offset().top > 0 && $('#skyline_goldengate').hasClass('off-left'))
-    //     $('.skyline-component').removeClass('off-left').removeClass('off-right');
-    highestScroll = scrollTop;
-    //If we've reached the bottom, animate the last lines
-    if(scrollPercent >= 98) {
-        $('.generatedLine-container[data-line-set="7"] > div').css('max-width', '1000px');
-        return;
-    }
-    $('.generatedLine-line').each(function() {
-        var $e = $(this);
-        if($e.data('rendered'))
-            return true;
-        //CONS:
-        var $parent = $e.parent();
-        var scrollDiff = scrollTop + 3*screenHeight/4 - $e.offset().top;
-        var previousLineRendered = false
-        var thisLineSet = parseInt($parent.data('line-set'));
-        var thisLineNumber = parseInt($parent.data('line-number'));
-        var previousLine = $('.generatedLine-container[data-line-set=\"'+thisLineSet+'\"][data-line-number=\"'+(thisLineNumber-1)+'\"] > div');
-        var startPosition;
-
-        if(thisLineNumber == 0 || (thisLineNumber > 0 && previousLine.data('rendered')))
-            previousLineRendered = true;
-        //Skip this line if the previous line in the set isn't done yet, or if we haven't scrolled to it
-        if(scrollDiff < 0 || !previousLineRendered)
-            return true;
-        //Mark where on scrollTop we start this line at, so the animation jumps a consistent amount as we scroll forward
-        if($e.data('startPos'))
-            startPosition = $e.data('startPos');
-        else {
-            startPosition = scrollTop;
-            $e.data('startPos', startPosition);
-        }
-        //Clone to find the real line width if it were not limited
-        var realWidth = $e.clone().css('max-width', 'none').width();
-        var realBottomOffset = $parent.offset().top + $parent.height();
-        var currentWidth = $e.width();
-        //If we're close to the real width, finish the line and mark it complete
-        //OR: if the line is falling off the screen, just mark it complete so we can keep the animation on-screen.
-        if(Math.abs(currentWidth - realWidth) <= 0.5 || realBottomOffset - scrollTop < screenHeight*0.4) {
-            $e.data('rendered', true).css('max-width', realWidth+'px');
-            return;
-        }
-        var newWidth = (scrollTop-startPosition)*1.3;
-        $e.css('max-width', newWidth+'px');
-    });
+    //on keyframe ...
 }
+
 function updateLines() {
-    //CONS:
     var screenHeight = Math.min($(window).height(), $('.ultrawide-capture').height());
     var screenWidth = Math.min($(window).width(), $('.ultrawide-capture').width());
     var canvasContainer = $('.linesCanvas-outside');
@@ -227,6 +77,10 @@ function updateLines() {
     var content_leftEdge = screenWidth * 0.1,
         content_rightEdge = screenWidth * 0.9;
 
+    //summer event specific ...
+    var content_everest_byline = $('#everest .event-byline').position();
+    var dimension_everest_byline = $('#everest .event-byline').outerHeight();
+
     var lines = [];
     lines[0] = [];
     lines[0][0] = [0, screenHeight * 0.8];
@@ -238,6 +92,13 @@ function updateLines() {
     lines[1][0] = [screenWidth * 0.05, screenHeight * 0.7];
     lines[1][1] = [lines[1][0][0], screenHeight * 1.1];
     lines[1][2] = [screenWidth * 0.2, lines[1][1][1] + screenWidth*0.2 - lines[1][0][0]];
+
+    lines[2] = [];
+    lines[2][0] = [0, content_everest_byline.top - (content_leftEdge * 0.2)];
+    lines[2][1] = [content_leftEdge, lines[2][0][1]];
+    lines[2][2] = [content_leftEdge * 1.2, content_everest_byline.top];
+
+
     if(mobile || reduced) {
         lines[0] = [];
         lines[1] = [];
@@ -337,4 +198,52 @@ function renderButtons() {
         $e.html('<div class="btn-label">'+message+' '+arrow+'</div>');
     	$('<svg width="'+modifiedW+'px" height="'+modifiedH+'px"><path d="'+svg+'" stroke-width="'+strokeWidth+'"/></svg>').appendTo($e);
     });
+}
+function handleSub(e) {
+    e.preventDefault();
+
+    var name = $('#engagement-fn').val().trim();
+    var email = $('#engagement-email').val().trim();
+    if(name.length == 0 || email.length == 0)
+        return;
+    if(subscribeDisabled)
+        return;
+    subscribeDisabled = true;
+    $('#engagement-fn, #engagement-email').prop('disabled', true);
+    //submit, report errors to #updatedMsg.
+    $.ajax('https://api.pinnacle.us.org/1.0/contacts', {
+        type: 'post',
+        data: JSON.stringify({"email": email, "name": name}),
+        dataType: 'json',
+        contentType: 'application/json'
+    }).done(function() {
+        $('#engagement-fn').val("");
+        $('#engagement-email').val("");
+        $('#updatedMsg').addClass("successful").text("Welcome to the mailing list!");
+        subscribeDisabled = false;
+        $('#engagement-fn').prop('disabled', false);
+        $('#engagement-email').prop('disabled', false);
+    }).fail(function(msg) {
+        console.log(msg);
+        var error = "Error: Please confirm your email address is accurate";
+        if(msg.status == 409)
+            error = "You're already on our list!";
+        $('#updatedMsg').addClass("err").text(error);
+        subscribeDisabled = false;
+        $('#engagement-fn').prop('disabled', false);
+        $('#engagement-email').prop('disabled', false);
+    });
+}
+function handleBanner() {
+    var consoleBanner = "";
+    consoleBanner += ("  _______ _                  _                       _                   __   _                _         _   _                     \n");
+    consoleBanner += (" |__   __| |                | |                     (_)                 / _| | |              | |       | | | |                    \n");
+    consoleBanner += ("    | |  | |__   ___    ___ | |_   _ _ __ ___  _ __  _  ___ ___    ___ | |_  | |__   __ _  ___| | ____ _| |_| |__   ___  _ __  ___ \n");
+    consoleBanner += ("    | |  | '_ \\ / _ \\  / _ \\| | | | | '_ ` _ \\| '_ \\| |/ __/ __|  / _ \\|  _| | '_ \\ / _` |/ __| |/ / _` | __| '_ \\ / _ \\| '_ \\/ __|\n");
+    consoleBanner += ("    | |  | | | |  __/ | (_) | | |_| | | | | | | |_) | | (__\\__ \\ | (_) | |   | | | | (_| | (__|   | (_| | |_| | | | (_) | | | \\__ \\\n");
+    consoleBanner += ("    |_|  |_| |_|\\___|  \\___/|_|\\__, |_| |_| |_| .__/|_|\\___|___/  \\___/|_|   |_| |_|\\__,_|\\___|_|\\_\\__,_|\\__|_| |_|\\___/|_| |_|___/\n");
+    consoleBanner += ("                                __/ |         | |                                                                                  \n");
+    consoleBanner += ("                               |___/          |_|                                                                                  ");
+    console.log(consoleBanner);
+    console.log("Peeking under the hood? We want you on our team! Apply now: http://hack.ms/P20-Team-Application");
 }

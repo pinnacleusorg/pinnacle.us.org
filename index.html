@@ -86,7 +86,7 @@
                 color: var(--pinnacle-gold);
             }
             .summer-event {
-                min-height: 100vh;
+                min-height: 120vh; /* TODO: Scale this to pre account for total height that the div will be if the text is expanded */
             }
             .summer-event .container {
                 margin: 4rem auto;
@@ -156,9 +156,8 @@
                 align-items: center;
             }
             .event-body .pinnacle-btn {
-                transform: scaleY(1);
-                transform-origin: center top;
-                transition: transform 0.5s ease;
+                opacity: 1;
+                transition: opacity 0.5s ease;
             }
             .event-detail-long {
                 color: var(--pinnacle-gold);
@@ -166,6 +165,7 @@
                 max-height: 0;
                 overflow: hidden;
                 transition: max-height 0.5s ease, margin 0.5s ease;
+                transition-delay: 0.2s;
             }
             .event-body.open .event-detail-long {
                 max-height: 1000px;
@@ -254,7 +254,7 @@
                             </div>
                             <div class="event-descriptor">
                                 <p class="event-title">Fuji</p>
-                                <p class="event-byline">Enter the<br>sacret mountain</p>
+                                <p class="event-byline">Enter the<br>sacred mountain</p>
                                 <p class="event-detail">Choose your path,<br>and unleash your<br>creativity.</p>
                             </div>
                         </div>
@@ -357,7 +357,7 @@
                     var trueHeight = $details.css('visibility', 'hidden').css('max-height', 'none').height();
                     $details.css('visibility', 'visible').css('max-height', '0px').show();
                     $details.css('max-height', trueHeight + "px");
-                    $(this).css('transform', 'scaleY(0)');
+                    $(this).css('opacity', '0').css('pointer-events', 'none');
                     $details.css('margin-top', "-"+btnHeight+"px");
                 });
             });
