@@ -25,10 +25,9 @@ var subscribeDisabled = false;
 $(function() {
     handleBanner();
     detectScreenSize();
-    setTimeout(function() {
-        updateLines();  //this should get replaced by the loadscreen
-    }, 1000);
+    updateLines();
     renderButtons();
+    $('html').removeClass('preload');
     $(window).resize(function() {
         detectScreenSize();
         updateLines();
@@ -42,6 +41,29 @@ $(function() {
         if(mobile)
             return;
         processScroll();
+    });
+    //TODO: probably reconcile these
+    //transform animation
+    $('#detailbtn').click(function(e) {
+        //open details ...
+        e.preventDefault();
+        var trueHeight = $('#details').css('visibility', 'hidden').css('max-height', 'none').height();
+        $('#details').css('visibility', 'visible').css('max-height', '0px').show();
+        $('#details').css('max-height', trueHeight + "px");
+        $('#detailbtn').css('transform', 'scaleY(0)');
+        $('#sponsors > .inner').css('padding-top', "calc(10rem - "+trueHeight+"px)");
+    });
+    //fade animation
+    $('.event-body .pinnacle-btn').click(function(e) {
+        e.preventDefault();
+        var $details = $(this).next();
+        var btnHeight = $(this).height();
+        var trueHeight = $details.css('visibility', 'hidden').css('max-height', 'none').height();
+        $details.css('visibility', 'visible').css('max-height', '0px').show();
+        $details.css('max-height', trueHeight + "px");
+        $(this).css('opacity', '0').css('pointer-events', 'none');
+        $details.css('margin-top', "-"+btnHeight+"px");
+        $(this).closest('.summer-event').addClass('descOpen');
     });
 
 });
@@ -144,23 +166,7 @@ function updateLines() {
     lines[14][0] = [lines[11][1][0] - bambooWidth, content_fuji_logo.top];
     lines[14][1] = [lines[14][0][0] + bambooWidth, lines[14][0][1] + bambooWidth];
 
-
-
-/*
-
-    lines[0] = [];
-    lines[0][0] = [0, screenHeight * 0.8];
-    lines[0][1] = [content_leftEdge * 1.2, lines[0][0][1] + (content_leftEdge * 1.2)];
-    lines[0][2] = [lines[0][1][0], screenHeight * 1.5];
-    lines[0][3] = [content_leftEdge * 2, lines[0][2][1] + (content_leftEdge * 2  - lines[0][1][0])];
-
-    lines[1] = [];
-    lines[1][0] = [screenWidth * 0.05, screenHeight * 0.7];
-    lines[1][1] = [lines[1][0][0], screenHeight * 1.1];
-    lines[1][2] = [screenWidth * 0.2, lines[1][1][1] + screenWidth*0.2 - lines[1][0][0]];
-
-*/
-    //drawing lines R->L hurts my head so much
+    //top lines mirrored (0, 1)
     lines[15] = [];
     lines[15][0] = [screenWidth, screenHeight * 0.8];
     lines[15][1] = [screenWidth - content_leftEdge * 1.2, lines[0][1][1]];
@@ -173,10 +179,25 @@ function updateLines() {
     lines[16][2] = [screenWidth * 0.8, lines[1][2][1]];
 
 
-    console.log(lines);
     if(mobile || reduced) {
+        //to be revisited
         lines[0] = [];
         lines[1] = [];
+        lines[2] = [];
+        lines[3] = [];
+        lines[4] = [];
+        lines[5] = [];
+        lines[6] = [];
+        lines[7] = [];
+        lines[8] = [];
+        lines[9] = [];
+        lines[10] = [];
+        lines[11] = [];
+        lines[12] = [];
+        lines[13] = [];
+        lines[14] = [];
+        lines[15] = [];
+        lines[16] = [];
     }
     //"canvas" setup
     //NB: I continually refer to this as a "canvas" despite it no longer being a canvas, so pardon the term use.
