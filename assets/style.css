@@ -1041,17 +1041,22 @@ html.preload #sponsors .inner {
     align-items: center;
     flex-direction: row;
     justify-content: space-between;
-    width: 80%;
-    margin: 4rem auto;
+    width: 110%;
+    margin: 4rem 0;
+    margin-left: -5%;
+    /* give us a little extra room on the split views */
+
 }
 .event-descriptor-split .event-descriptor-typo {
     width: 40%;
+    text-align: right;
+
 }
 #fuji-typo {
     width: 65%;
 }
 .event-descriptor-split .event-descriptor {
-    width: 60%;
+    width: 40%;
     text-align: left;
     margin: 0;
 }
