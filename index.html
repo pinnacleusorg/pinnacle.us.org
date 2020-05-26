@@ -126,6 +126,7 @@
             .event-byline {
                 text-transform: lowercase;
                 font-size: 1.5rem;
+                margin-bottom: 3rem;
             }
             .event-detail {
                 font-size: 1.5rem;
@@ -199,9 +200,6 @@
             <div class="linesCanvas-outside" id="canv2">
                 <div class="linesCanvas-inside"></div>
             </div>
-            <div class="linesCanvas-outside" id="mainCanvas">
-                <div class="linesCanvas-inside"></div>
-            </div>
             <div class="container-fluid fh fw" id="hero">
                 <div class="container inner">
                     <img src="assets/icon.png" alt="Pinnacle Logo" class="brandImg mb-3" id="keyLogo">
@@ -268,33 +266,7 @@
                     </div>
                 </div>
             </div>
-            <div class="container-fluid dark-bg summer-event" id="olympus">
-                <div class="container inner">
-                    <div class="event-image">
-                        <div class="everest-line">
-                        </div>
-                        <img src="/assets/fuji.svg" id="fuji-logo">
-                        <div class="event-descriptor-split">
-                            <div class="event-descriptor-typo">
-                                <img src="/assets/fuji-typo.svg" id="fuji-typo">
-                            </div>
-                            <div class="event-descriptor">
-                                <p class="event-title">Fuji</p>
-                                <p class="event-byline">Enter the<br>sacret mountain</p>
-                                <p class="event-detail">Choose your path,<br>and unleash your<br>creativity.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="event-body">
-                        <a href="#" class="pinnacle-btn pinnacle-btn-dark mt-2 w-25" id="everestBtn">Details</a>
-                        <div class="event-detail-long" id="everestDetails">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                            <p>Some kind of call to action ... </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- <div class="container-fluid dark-bg" id="schedule">
+            <div class="container-fluid dark-bg" id="schedule">
                 <div class="container inner">
                     <div class="card-deck engagement-deck">
                         <div class="card">
@@ -303,7 +275,7 @@
                                 <p class="card-text p-2">Be a part of the team that makes it happen.</p>
                             </div>
                             <div class="card-footer">
-                                <a href="https://hack.ms/P20-Team-Application" class="pinnacle-btn pinnacle-btn-dark mt-2" id="applybtn" style="width: 184px; height: 68px;"><div class="btn-label">Apply Now          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">             <path d="M10,2l9,10l-9,10h2l9-10L12,2H10z"></path>         </svg></div><svg width="184px" height="68px"><path d="M 2 21.2 L 21.2 2 L 182 2 L 182 46.8 L 162.8 66 L 2 66 L 2 46.8 Z" stroke-width="4"></path></svg></a>
+                                <a href="https://hack.ms/P20-Team-Application" class="pinnacle-btn pinnacle-btn-dark mt-2" id="applybtn">Apply Now</a>
                             </div>
                         </div>
                         <div class="card card-divider">
@@ -322,12 +294,12 @@
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <a href="#submit" class="pinnacle-btn pinnacle-btn-dark mt-2" id="updatedbtn" style="width: 184px; height: 68px;"><div class="btn-label">Stay Updated          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">             <path d="M10,2l9,10l-9,10h2l9-10L12,2H10z"></path>         </svg></div><svg width="184px" height="68px"><path d="M 2 21.2 L 21.2 2 L 182 2 L 182 46.8 L 162.8 66 L 2 66 L 2 46.8 Z" stroke-width="4"></path></svg></a>
+                                <a href="#submit" class="pinnacle-btn pinnacle-btn-dark mt-2" id="updatedbtn">Stay Updated</a>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div> -->
+            </div>
             <footer class="gold-bg">
                 <div class="container-fluid inner text-center p-5" id="footer">
                     &copy; 2020 Pinnacle<br>
@@ -341,6 +313,8 @@
             <script src="assets/bg.js"></script>
             <script>
             $(function() {
+                //TODO: probably reconcile these
+                //transform animation
                 $('#detailbtn').click(function(e) {
                     //open details ...
                     e.preventDefault();
@@ -350,6 +324,7 @@
                     $('#detailbtn').css('transform', 'scaleY(0)');
                     $('#sponsors > .inner').css('padding-top', "calc(10rem - "+trueHeight+"px)");
                 });
+                //fade animation
                 $('.event-body .pinnacle-btn').click(function(e) {
                     e.preventDefault();
                     var $details = $(this).next();
@@ -359,6 +334,7 @@
                     $details.css('max-height', trueHeight + "px");
                     $(this).css('opacity', '0').css('pointer-events', 'none');
                     $details.css('margin-top', "-"+btnHeight+"px");
+                    $(this).closest('.summer-event').addClass('descOpen');
                 });
             });
             </script>
