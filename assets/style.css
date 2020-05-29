@@ -958,7 +958,6 @@ html.preload #sponsors .inner {
 }
 .event-image {
     width: 50%;
-    min-width: 400px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -1015,7 +1014,6 @@ html.preload #sponsors .inner {
 }
 .event-body {
     width: 50%;
-    min-width: 400px;
     margin-left: auto;
     margin-right: auto;
     display: flex;
@@ -1061,4 +1059,15 @@ html.preload #sponsors .inner {
     width: 40%;
     text-align: left;
     margin: 0;
+}
+@media (max-width: 600px) {
+    .event-image, .event-body {
+        min-width: 400px;
+    }
+    .
+}
+@media (min-width: 768px) {
+    .w-md-50 {
+        width: 50% !important;
+    }
 }
