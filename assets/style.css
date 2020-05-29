@@ -905,8 +905,7 @@ html.preload #sponsors .inner {
     color: var(--pinnacle-gold);
 }
 #sponsors .inner {
-    padding: 10rem 0 15rem 0;
-    padding-top: 10rem;
+    padding: 0rem 0 15rem 0;
     transition: padding 1s ease;
 }
 #sponsors h1 {

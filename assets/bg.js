@@ -33,8 +33,9 @@ $(function() {
         updateLines();
     });
 
-    $('#updatedbtn').click(function(e) {
-        handleSub(e);
+    $('#updatedbtn-early, #updatedbtn-end').click(function(e) {
+        var ele = $(this);
+        handleSub(e, ele);
     })
 
     $(window).scroll(function() {
@@ -85,10 +86,22 @@ function updateLines() {
     //summer event specific ...
     var content_everest_byline = $('#everest .event-byline').position();
     var dimension_everest_byline = $('#everest .event-byline').outerHeight();
+
     var content_fuji_logo = $('#fuji-logo').position();
     var dimension_fuji_logo = $('#fuji-logo').outerHeight();
+
     var content_fuji_byline = $('#fuji .event-descriptor-split').position();
     var dimension_fuji_byline = $('#fuji .event-descriptor-split').outerHeight();
+
+    var content_olympus_logo = $('#olympus-logo').position();
+    var dimension_olympus_logo = $('#olympus-logo').outerHeight();
+
+    var content_olympus_byline = $('#olympus .event-byline').position();
+    var dimension_olympus_byline = $('#olympus .event-byline').outerHeight();
+
+    var content_footer = $('footer').position();
+
+
     var bambooWidth = 40;
     var lines = [];
     lines[0] = [];
@@ -155,7 +168,7 @@ function updateLines() {
     lines[12] = [];
     lines[12][0] = [lines[10][0][0] + bambooWidth, lines[10][1][1] + bambooWidth/10];
     lines[12][1] = [lines[12][0][0] - bambooWidth, lines[12][0][1] + bambooWidth];
-    lines[12][2] = [lines[12][1][0], $('#fuji').position().top + $('#fuji').outerHeight()];
+    lines[12][2] = [lines[12][1][0], $('#fuji').position().top + $('#fuji').outerHeight() * 0.8];
     lines[12][3] = [0, lines[12][2][1] + lines[12][1][0]];
 
     lines[13] = [];
@@ -178,42 +191,90 @@ function updateLines() {
     lines[16][1] = [lines[16][0][0], lines[1][1][1]];
     lines[16][2] = [screenWidth * 0.8, lines[1][2][1]];
 
+    //Olympus Lines
+    var pillarWidth = bambooWidth * 2;
+    lines[17] = [];
+    lines[17][0] = [lines[8][0][0] + pillarWidth, content_olympus_logo.top];
+    lines[17][1] = [0, lines[17][0][1]];
+
+    lines[18] = [];
+    lines[18][0] = [screenWidth - lines[17][0][0], lines[17][0][1]];
+    lines[18][1] = [screenWidth, lines[17][0][1]];
+
+    lines[19] = [];
+    lines[19][0] = [lines[8][0][0], content_olympus_logo.top - bambooWidth];
+    lines[19][1] = [lines[19][0][0], content_olympus_byline.top + dimension_olympus_byline/2];
+
+    lines[20] = [];
+    lines[20][0] = [lines[19][0][0] - pillarWidth, lines[17][0][1]];
+    lines[20][1] = [lines[20][0][0], content_olympus_logo.top + 3*dimension_olympus_logo/4];
+
+    lines[21] = [];
+    lines[21][0] = [lines[20][0][0] - pillarWidth, lines[17][0][1]];
+    lines[21][1] = [lines[21][0][0], $('#olympus').position().top + $('#olympus').outerHeight()];
+    lines[21][2] = [lines[17][0][0], lines[21][1][1] + (lines[17][0][0] - lines[21][0][0])];
+    lines[21][3] = [lines[21][2][0], content_footer.top+40];
+
+    lines[22] = [];
+    lines[22][1] = [screenWidth - lines[8][0][0], content_olympus_logo.top - bambooWidth];
+    lines[22][0] = [screenWidth, lines[22][1][1] - lines[8][0][0]];
+    lines[22][2] = [lines[22][1][0], lines[19][1][1]];
+
+    lines[23] = [];
+    lines[23][0] = [lines[22][1][0] + pillarWidth, lines[17][0][1]];
+    lines[23][1] = [lines[23][0][0], content_olympus_logo.top + 3*dimension_olympus_logo/4];
+
+    lines[24] = [];
+    lines[24][0] = [lines[23][0][0] + pillarWidth, lines[17][0][1]];
+    lines[24][1] = [lines[24][0][0], lines[21][1][1]];
+    lines[24][2] = [screenWidth - lines[17][0][0], lines[24][1][1] + lines[24][1][0] - (screenWidth - lines[17][0][0])];
+    lines[24][3] = [lines[24][2][0], content_footer.top+40];
+
+    lines[25] = [];
+    lines[25][0] = [lines[17][0][0], lines[24][1][1] - pillarWidth];
+    lines[25][1] = [0, lines[25][0][1]];
+
+    lines[26] = [];
+    lines[26][0] = [screenWidth - lines[25][0][0], lines[25][0][1]];
+    lines[26][1] = [screenWidth, lines[26][0][1]];
+
+    lines[27] = [];
+    lines[27][1] = [lines[8][0][0], lines[25][0][1]];
+    lines[27][0] = [lines[27][1][0], lines[26][0][1] - pillarWidth * 2];
+
+    lines[28] = [];
+    lines[28][1] = [lines[8][0][0] - pillarWidth, lines[25][0][1]];
+    lines[28][0] = [lines[28][1][0], lines[26][0][1] - pillarWidth * 4];
+
+    lines[29] = [];
+    lines[29][1] = [screenWidth - lines[8][0][0], lines[25][0][1]];
+    lines[29][0] = [lines[29][1][0], lines[26][0][1] - pillarWidth * 2];
+
+    lines[30] = [];
+    lines[30][1] = [screenWidth - lines[8][0][0] + pillarWidth, lines[25][0][1]];
+    lines[30][0] = [lines[30][1][0], lines[26][0][1] - pillarWidth * 4];
+
+
 
     if(mobile || reduced) {
         //to be revisited
-        lines[0] = [];
-        lines[1] = [];
-        lines[2] = [];
-        lines[3] = [];
-        lines[4] = [];
-        lines[5] = [];
-        lines[6] = [];
-        lines[7] = [];
-        lines[8] = [];
-        lines[9] = [];
-        lines[10] = [];
-        lines[11] = [];
-        lines[12] = [];
-        lines[13] = [];
-        lines[14] = [];
-        lines[15] = [];
-        lines[16] = [];
+        for(var i = 0; i < lines.length; i++) {
+            lines[i] = [];
+        }
     }
     //"canvas" setup
     //NB: I continually refer to this as a "canvas" despite it no longer being a canvas, so pardon the term use.
     canvas1.width(screenWidth);
-    canvas1.height($('html').height());
+    canvas1.height($('html').height()+50);
 
     canvas2.width(screenWidth);
     canvas2.height($('html').height());
 
-    $(canvasContainer).height($('html').height());
+    $(canvasContainer).height($('html').height()+50);
     $(canvasContainer).width(screenWidth);
 
     highestScroll = 0;
     renderLine(canvas1, lines); //all lines
-    //renderLine(canvas2, lines); //all lines
-    // renderLine(canvas1, [lines[0], lines[1], lines[2], lines[3]]); //top lines
 }
 function renderLine(parent, lines) {
     $(parent).empty(); //clear out all lines (vs modifying existing ones for simplicity)
@@ -294,17 +355,23 @@ function renderButtons() {
     	$('<svg width="'+modifiedW+'px" height="'+modifiedH+'px"><path d="'+svg+'" stroke-width="'+strokeWidth+'"/></svg>').appendTo($e);
     });
 }
-function handleSub(e) {
+function handleSub(e, $ele) {
     e.preventDefault();
 
-    var name = $('#engagement-fn').val().trim();
-    var email = $('#engagement-email').val().trim();
+    var $card = $ele.closest('.card');
+    var $name = $('[name="engagement-fn"]', $card);
+    var $email = $('[name="engagement-email"]', $card);
+    var $combined = $name.add($email);
+    var $msg = $('.updatedMsg', $card);
+
+    var name = $name.val().trim();
+    var email = $email.val().trim();
     if(name.length == 0 || email.length == 0)
         return;
     if(subscribeDisabled)
         return;
     subscribeDisabled = true;
-    $('#engagement-fn, #engagement-email').prop('disabled', true);
+    $combined.prop('disabled', true);
     //submit, report errors to #updatedMsg.
     $.ajax('https://api.pinnacle.us.org/1.0/contacts', {
         type: 'post',
@@ -312,21 +379,18 @@ function handleSub(e) {
         dataType: 'json',
         contentType: 'application/json'
     }).done(function() {
-        $('#engagement-fn').val("");
-        $('#engagement-email').val("");
-        $('#updatedMsg').addClass("successful").text("Welcome to the mailing list!");
+        $combined.val("");
+        $msg.addClass("successful").text("Welcome to the mailing list!");
         subscribeDisabled = false;
-        $('#engagement-fn').prop('disabled', false);
-        $('#engagement-email').prop('disabled', false);
+        $combined.prop('disabled', false);
     }).fail(function(msg) {
         console.log(msg);
         var error = "Error: Please confirm your email address is accurate";
         if(msg.status == 409)
             error = "You're already on our list!";
-        $('#updatedMsg').addClass("err").text(error);
+        $msg.addClass("err").text(error);
         subscribeDisabled = false;
-        $('#engagement-fn').prop('disabled', false);
-        $('#engagement-email').prop('disabled', false);
+        $combined.prop('disabled', false);
     });
 }
 function handleBanner() {
@@ -372,9 +436,10 @@ function detectScreenSize() {
         var $ele = $(this);
         //expand to get real height ...
         $('.event-detail-long', $ele).css('max-height', 'none');
+        $ele.css('min-height', '0'); //TODO: fix infinite zoooooom
+
         var trueHeight = $ele.outerHeight() - $('.pinnacle-btn', $ele).outerHeight();
         $('.event-detail-long', $ele).css('max-height', '0');
-        console.log(trueHeight);
         $ele.css('min-height', 'calc('+trueHeight+'px + 5rem)');
     })
 }
