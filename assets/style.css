@@ -1062,9 +1062,15 @@ html.preload #sponsors .inner {
 }
 @media (max-width: 600px) {
     .event-image, .event-body {
-        min-width: 400px;
+        width: 100%;
     }
-    .
+    .event-title {
+        font-size: 2.5rem;
+    }
+    .event-descriptor-split {
+        width: 100%;
+        margin-left: 0;
+    }
 }
 @media (min-width: 768px) {
     .w-md-50 {
