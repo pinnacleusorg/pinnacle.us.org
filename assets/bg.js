@@ -409,6 +409,9 @@ function handleBanner() {
 function detectScreenSize() {
     var screenWidth = Math.min($(window).width(), $('.ultrawide-capture').width());
     //Detect mobile form factor (no lines), or reduced lines form factor (reduced=true)
+    var canvasContainer = $('.linesCanvas-outside');
+    var canvas1 = $('.linesCanvas-inside', canvasContainer[0]);
+    var canvas2 = $('.linesCanvas-inside', canvasContainer[1]);
     if(screenWidth < 767) {
         mobile = true;
         $('html').prop('id', 'mobileView');

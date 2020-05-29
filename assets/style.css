@@ -560,6 +560,7 @@ html#mobileView,
     align-items: center;
     height: 4em;
     width: 40%;
+    min-width: 150px;
 }
 .pinnacle-btn:focus, .pinnacle-btn:active {
     outline: none;
@@ -957,6 +958,7 @@ html.preload #sponsors .inner {
 }
 .event-image {
     width: 50%;
+    min-width: 400px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -1013,6 +1015,7 @@ html.preload #sponsors .inner {
 }
 .event-body {
     width: 50%;
+    min-width: 400px;
     margin-left: auto;
     margin-right: auto;
     display: flex;
