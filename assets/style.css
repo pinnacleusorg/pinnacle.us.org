@@ -1059,6 +1059,11 @@ html.preload #sponsors .inner {
     text-align: left;
     margin: 0;
 }
+@media (max-width: 991.98px) {
+    .event-image, .event-body {
+        width: 70%;
+    }
+}
 @media (max-width: 600px) {
     .event-image, .event-body {
         width: 100%;

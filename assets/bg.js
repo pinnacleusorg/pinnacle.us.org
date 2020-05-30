@@ -90,8 +90,8 @@ function updateLines() {
     var content_fuji_logo = $('#fuji-logo').position();
     var dimension_fuji_logo = $('#fuji-logo').outerHeight();
 
-    var content_fuji_byline = $('#fuji .event-descriptor-split').position();
-    var dimension_fuji_byline = $('#fuji .event-descriptor-split').outerHeight();
+    var content_fuji_byline = $('#fuji .event-descriptor').position();
+    var dimension_fuji_byline = $('#fuji .event-descriptor').outerHeight();
 
     var content_olympus_logo = $('#olympus-logo').position();
     var dimension_olympus_logo = $('#olympus-logo').outerHeight();
