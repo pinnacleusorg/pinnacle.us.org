@@ -1070,12 +1070,12 @@ html.preload #sponsors .inner {
 }
 .split-button-side:first-child {
     flex-basis: 100%;
-    transition: flex-basis 0.5s ease;
+    transition: padding-left 0.5s ease;
 }
 .split-button-side:last-child {
     flex-basis: 0%;
-    width:50%;
-    transition: width 1s ease;
+    max-width:50%;
+    transition: max-width 1s ease;
 }
 .split-button-side .pinnacle-btn {
 }

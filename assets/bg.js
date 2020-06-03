@@ -75,8 +75,11 @@ $(function() {
         $details.css('max-height', trueHeight + "px");
         $(this).css('opacity', '0').css('pointer-events', 'none');
         $details.css('margin-top', "10px");
-        $(this).closest('.split-button-side').prev().css('flex-basis', 0);
-        $(this).closest('.split-button-side').css('width', 0);
+        var $otherBtn = $(this).closest('.split-button').find('.split-button-side').eq(0);
+        var $otherBtnO = $('.pinnacle-btn', $otherBtn);
+        var widthAdjustment = $otherBtnO.width()/2;
+        $otherBtn.css('padding-left', 'calc(50% - '+widthAdjustment+'px)');
+        $(this).closest('.split-button-side').css('max-width', 0);
         $(this).closest('.summer-event').addClass('descOpen');
     });
 
