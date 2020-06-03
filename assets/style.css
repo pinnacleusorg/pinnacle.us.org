@@ -688,20 +688,20 @@ html#mobileView,
     border-color: var(--pinnacle-gold);
     border-width: 3px;
     border-radius: 0;
-    color: black;
-    background-color: rgb(248, 246, 237);
+    color: var(--pinnacle-gold);
+    background-color: transparent;
     font-size: 1.3rem;
     padding: 0.5rem 0.6rem;
 }
 .input-group input::placeholder {
-    color: var(--pinnacle-bg);
+    color: var(--pinnacle-gold);
 }
 .input-group input:focus, .input-group input:active {
     outline: none;
     box-shadow: none;
     border-color: var(--pinnacle-gold);
-    background-color: rgb(248, 246, 237);
-    color: black;
+    background-color: transparent;
+    color: var(--pinnacle-gold);
 }
 
 .stacked-input .input-group:first-child input {
@@ -1058,6 +1058,18 @@ html.preload #sponsors .inner {
     width: 40%;
     text-align: left;
     margin: 0;
+}
+.split-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.split-button-side:first-child {
+    flex-basis: 100%;
+    transition: flex-basis 1s ease, width 1s ease;
+}
+.split-button-side .pinnacle-btn {
 }
 @media (max-width: 991.98px) {
     .event-image, .event-body {

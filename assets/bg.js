@@ -55,7 +55,7 @@ $(function() {
         $('#sponsors > .inner').css('padding-top', "calc(10rem - "+trueHeight+"px)");
     });
     //fade animation
-    $('.event-body .pinnacle-btn').click(function(e) {
+    $('.event-body .pinnacle-btn-details').click(function(e) {
         e.preventDefault();
         var $details = $(this).next();
         var btnHeight = $(this).height();
@@ -64,6 +64,18 @@ $(function() {
         $details.css('max-height', trueHeight + "px");
         $(this).css('opacity', '0').css('pointer-events', 'none');
         $details.css('margin-top', "-"+btnHeight+"px");
+        $(this).closest('.summer-event').addClass('descOpen');
+    });
+    $('.event-body .split-button .pinnacle-btn-details').click(function(e) {
+        e.preventDefault();
+        var $details = $(this).closest('.split-button').next();
+        var btnHeight = $(this).height();
+        var trueHeight = $details.css('visibility', 'hidden').css('max-height', 'none').height();
+        $details.css('visibility', 'visible').css('max-height', '0px').show();
+        $details.css('max-height', trueHeight + "px");
+        $(this).css('opacity', '0').css('pointer-events', 'none');
+        $details.css('margin-top', "10px");
+        $(this).closest('.split-button-side').css("flex-basis", 0).css('width', 0);
         $(this).closest('.summer-event').addClass('descOpen');
     });
 
@@ -441,7 +453,7 @@ function detectScreenSize() {
         $('.event-detail-long', $ele).css('max-height', 'none');
         $ele.css('min-height', '0'); //TODO: fix infinite zoooooom
 
-        var trueHeight = $ele.outerHeight() - $('.pinnacle-btn', $ele).outerHeight();
+        var trueHeight = $ele.outerHeight()// - $('.pinnacle-btn', $ele).outerHeight();
         $('.event-detail-long', $ele).css('max-height', '0');
         $ele.css('min-height', 'calc('+trueHeight+'px + 5rem)');
     })
