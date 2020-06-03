@@ -75,7 +75,8 @@ $(function() {
         $details.css('max-height', trueHeight + "px");
         $(this).css('opacity', '0').css('pointer-events', 'none');
         $details.css('margin-top', "10px");
-        $(this).closest('.split-button-side').css("flex-basis", 0).css('width', 0);
+        $(this).closest('.split-button-side').prev().css('flex-basis', 0);
+        $(this).closest('.split-button-side').css('width', 0);
         $(this).closest('.summer-event').addClass('descOpen');
     });
 
