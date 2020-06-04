@@ -459,6 +459,6 @@ function detectScreenSize() {
 
         var trueHeight = $ele.outerHeight()// - $('.pinnacle-btn', $ele).outerHeight();
         $('.event-detail-long', $ele).css('max-height', '0');
-        $ele.css('min-height', 'calc('+trueHeight+'px + 5rem)');
+        $ele.css('min-height', 'calc('+trueHeight+'px + 10rem)');
     })
 }
