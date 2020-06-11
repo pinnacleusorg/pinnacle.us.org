@@ -707,6 +707,10 @@ html#mobileView,
     color: var(--pinnacle-gold);
 }
 
+.input-group input:disabled {
+    background-color: #00000030;
+}
+
 .stacked-input .input-group:first-child input {
     border-bottom-width: 0.5px;
 }
