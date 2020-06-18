@@ -366,10 +366,11 @@ html#mobileView,
     display: none;
 }
 #mobileView #hero {
-    height: 90vh;
+    min-height: 50vh;
+    height: auto;
     position: relative;
     display: block;
-    padding-bottom: 120vh;
+    padding-bottom: 20vh;
 }
 #mobileView #hero .inner {
     padding: 4rem;
@@ -926,8 +927,7 @@ html.preload #sponsors .inner {
     margin-bottom: 0;
 }
 #mobileView #hero {
-    min-height: 500px;
-    height: 60vh;
+    min-height: 50vh;
     padding-bottom: 0vh;
 }
 #mobileView #sponsors .inner {
@@ -1110,4 +1110,20 @@ html.preload #sponsors .inner {
     .w-md-50 {
         width: 50% !important;
     }
+}
+
+#hero #liveEvent {
+    font-size: 2em;
+    width: 100%;
+    display: block;
+    margin: 2em 0;
+}
+#hero #liveEvent a {
+    color: var(--pinnacle-gold);
+    text-shadow: 0 0 4px #c69e604d;
+    transition: text-shadow 0.3s ease;
+}
+#hero #liveEvent a:hover {
+    color: var(--pinnacle-gold);
+    text-shadow: 0 0 8px rgba(198, 158, 96, 0.8);
 }
