@@ -371,6 +371,7 @@ html#mobileView,
     position: relative;
     display: block;
     padding-bottom: 20vh;
+    z-index: 0;
 }
 #mobileView #hero .inner {
     padding: 4rem;
