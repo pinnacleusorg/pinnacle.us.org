@@ -1121,10 +1121,10 @@ html.preload #sponsors .inner {
 }
 #hero #liveEvent a {
     color: var(--pinnacle-gold);
-    text-shadow: 0 0 4px #c69e604d;
+    text-shadow: 0 0 8px rgba(198, 158, 96, 0.4);
     transition: text-shadow 0.3s ease;
 }
 #hero #liveEvent a:hover {
     color: var(--pinnacle-gold);
-    text-shadow: 0 0 8px rgba(198, 158, 96, 0.8);
+    text-shadow: 0 0 12px rgba(198, 158, 96, 0.8);
 }
