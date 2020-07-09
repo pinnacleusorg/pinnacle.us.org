@@ -11,9 +11,6 @@ html, body {
     padding: 0;
 
 }
-.color-pinnacle {
-    color: var(--pinnacle-gold);
-}
 @font-face {
     font-family: "KeplerStd";
     src: url("font/KeplerStd-LightScn.otf");
@@ -23,16 +20,6 @@ html, body {
     font-family: "KeplerStd";
     src: url("font/KeplerStd-SemiboldScnDisp.otf");
     font-weight: 500;
-}
-@font-face {
-    font-family: "Casper";
-    src: url("font/Casper-Regular.ttf");
-    font-weight: normal;
-}
-@font-face {
-    font-family: "Casper";
-    src: url("font/Casper-Bold.ttf");
-    font-weight: bold;
 }
 .fw {
     width: 100vw;
@@ -320,13 +307,7 @@ footer {
 #initialCanvas .generatedLine-line {
     background-color: var(--pinnacle-gold);
 }
-#canv2 .generatedLine-line {
-    background-color: var(--pinnacle-gold);
-}
 
-#canv2 {
-    transform: scaleX(-1);
-}
 /* Mobile Optimization */
 html#mobileView,
 #mobileView body {
@@ -366,12 +347,10 @@ html#mobileView,
     display: none;
 }
 #mobileView #hero {
-    min-height: 50vh;
-    height: auto;
+    height: 90vh;
     position: relative;
     display: block;
-    padding-bottom: 20vh;
-    z-index: 0;
+    padding-bottom: 120vh;
 }
 #mobileView #hero .inner {
     padding: 4rem;
@@ -565,7 +544,6 @@ html#mobileView,
     align-items: center;
     height: 4em;
     width: 40%;
-    min-width: 150px;
 }
 .pinnacle-btn:focus, .pinnacle-btn:active {
     outline: none;
@@ -578,17 +556,10 @@ html#mobileView,
     z-index: 99;
     letter-spacing: 0.7px;
 }
-.pinnacle-btn-dark .btn-label {
-    color: var(--pinnacle-gold);
-}
 .pinnacle-btn .btn-label > svg {
     height: 0.7em;
     fill: #F7F5E8;
     stroke: #F7F5E8;
-}
-.pinnacle-btn-dark .btn-label > svg {
-    fill: var(--pinnacle-gold);
-    stroke: var(--pinnacle-gold);
 }
 .pinnacle-btn > svg {
     position: absolute;
@@ -600,34 +571,11 @@ html#mobileView,
     stroke: #1B1B1B;
     transition: fill 0.3s ease, stroke 0.3s ease;
 }
-.pinnacle-btn-dark > svg path {
-    stroke: #947043;
-    transition: fill 0.3s ease, stroke 0.3s ease;
-}
 .pinnacle-btn.hover > svg path,
 .pinnacle-btn:focus > svg path,
 .pinnacle-btn:hover > svg path {
     fill: #C69E60;
     stroke: #947043;
-}
-.pinnacle-btn-dark.hover > svg path,
-.pinnacle-btn-dark:focus > svg path,
-.pinnacle-btn-dark:hover > svg path {
-    fill: #C69E60;
-    stroke: #947043;
-}
-.pinnacle-btn-dark.hover .btn-label > svg path,
-.pinnacle-btn-dark:focus .btn-label > svg path,
-.pinnacle-btn-dark:hover .btn-label > svg path {
-    fill: white;
-    stroke: white;
-}
-
-.pinnacle-btn.hover,
-.pinnacle-btn:focus,
-.pinnacle-btn:hover {
-    text-decoration: none;
-    color: white;
 }
 .pinnacle-btn.hover,
 .pinnacle-btn:focus,
@@ -690,27 +638,23 @@ html#mobileView,
     margin-right: auto;
 }
 .input-group input {
-    border-color: var(--pinnacle-gold);
+    border-color: #1B1B1B;
     border-width: 3px;
     border-radius: 0;
-    color: var(--pinnacle-gold);
-    background-color: transparent;
+    color: black;
+    background-color: rgb(248, 246, 237);
     font-size: 1.3rem;
     padding: 0.5rem 0.6rem;
 }
 .input-group input::placeholder {
-    color: var(--pinnacle-gold);
+    color: var(--pinnacle-bg);
 }
 .input-group input:focus, .input-group input:active {
     outline: none;
     box-shadow: none;
-    border-color: var(--pinnacle-gold);
-    background-color: transparent;
-    color: var(--pinnacle-gold);
-}
-
-.input-group input:disabled {
-    background-color: #00000030;
+    border-color: #1B1B1B;
+    background-color: rgb(248, 246, 237);
+    color: black;
 }
 
 .stacked-input .input-group:first-child input {
@@ -889,242 +833,4 @@ html#mobileView,
     100% {
         transform: translateX(0px);
     }
-}
-
-
-/* Summer Events */
-html, body {
-    width: 100%;
-}
-/* get rid of animations occuring during page setup ... this will eventually get obscured by the load screen */
-html.preload {
-    transition-duration: 0s !important;
-}
-html.preload #sponsors .inner {
-    transition-duration: 0s !important;
-}
-
-.linesCanvas-outside#initialCanvas {
-    z-index: 99;
-}
-#hero {
-    position: static;
-    width: 100%;
-}
-#sponsors {
-    color: var(--pinnacle-gold);
-}
-#sponsors .inner {
-    padding: 0rem 0 15rem 0;
-    transition: padding 1s ease;
-}
-#sponsors h1 {
-    font-size: 4rem;
-    font-weight: 100;
-    padding-bottom: 4rem;
-}
-#sponsors p {
-    font-size: 1.5rem;
-    margin-bottom: 0;
-}
-#mobileView #hero {
-    min-height: 50vh;
-    padding-bottom: 0vh;
-}
-#mobileView #sponsors .inner {
-    padding: 0;
-}
-#mobileView #sponsors {
-    padding-bottom: 20vh;
-}
-#details {
-    width: 50%;
-    margin: 0 auto;
-    max-height: 0px;
-    overflow: hidden;
-    transition: max-height 1s ease;
-}
-#detailbtn {
-    transform: scaleY(1);
-    transition: transform 0.5s ease;
-}
-#schedule {
-    padding-bottom: 0;
-    min-height: 60vh;
-}
-#schedule .inner {
-    min-height: 0;
-}
-.engagement-deck {
-    color: var(--pinnacle-gold);
-}
-.summer-event {
-    min-height: 120vh; /* TODO: Scale this to pre account for total height that the div will be if the text is expanded */
-}
-.summer-event .container {
-    margin: 4rem auto;
-}
-.event-image {
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
-}
-#everest .event-image #everest-logo {
-    transform: scaleY(0);
-    /* Account for offset center in expansion */
-    transform-origin: 50% 55.5%;
-    transition: transform 0.5s ease-out;
-}
-#everest.se-open .event-image #everest-logo {
-    transform: scaleY(1);
-}
-
-.event-descriptor {
-    margin-top: 3rem;
-    width: 70%;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    font-family: 'Casper';
-    color: var(--pinnacle-gold);
-}
-.event-title {
-    text-transform: uppercase;
-    font-size: 3rem;
-    text-transform: uppercase;
-    letter-spacing: 15px;
-    margin-bottom: -15px;
-    margin-right: -15px;
-}
-.event-byline {
-    font-size: 1.5rem;
-    margin-bottom: 3rem;
-}
-.event-detail {
-    font-size: 1.5rem;
-
-}
-#everest .event-image .event-descriptor {
-    opacity: 0;
-    transition: opacity 0.5s ease-out;
-    transition-delay: 0.1s;
-}
-#everest.se-open .event-image .event-descriptor {
-    opacity: 1;
-}
-.everest-line {
-    width: 100%;
-    height: 4px;
-    background-color: var(--pinnacle-gold);
-    position: relative;
-    top: 224px;
-}
-.event-body {
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.event-body .pinnacle-btn {
-    opacity: 1;
-    transition: opacity 0.5s ease;
-}
-.event-detail-long {
-    color: var(--pinnacle-gold);
-    font-family: 'Casper';
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease, margin 0.5s ease;
-    transition-delay: 0.2s;
-}
-.event-body.open .event-detail-long {
-    max-height: 1000px;
-}
-.event-descriptor-split {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 110%;
-    margin: 4rem 0;
-    margin-left: -5%;
-    /* give us a little extra room on the split views */
-
-}
-.event-descriptor-split .event-descriptor-typo {
-    width: 40%;
-    text-align: right;
-
-}
-#fuji-typo {
-    width: 65%;
-}
-.event-descriptor-split .event-descriptor {
-    width: 40%;
-    text-align: left;
-    margin: 0;
-}
-.split-button {
-    width: 80%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.split-button-side:first-child {
-    flex-basis: 100%;
-    transition: padding-left 0.5s ease;
-}
-.split-button-side:last-child {
-    flex-basis: 0%;
-    max-width:50%;
-    transition: max-width 1s ease;
-}
-.split-button-side .pinnacle-btn {
-}
-.short-line {
-    width: 20%;
-    height: 4px;
-    background-color: var(--pinnacle-gold);
-    margin: 2rem 0;
-}
-@media (max-width: 991.98px) {
-    .event-image, .event-body {
-        width: 70%;
-    }
-}
-@media (max-width: 600px) {
-    .event-image, .event-body {
-        width: 100%;
-    }
-    .event-title {
-        font-size: 2.5rem;
-    }
-    .event-descriptor-split {
-        width: 100%;
-        margin-left: 0;
-    }
-}
-@media (min-width: 768px) {
-    .w-md-50 {
-        width: 50% !important;
-    }
-}
-
-#hero #liveEvent {
-    font-size: 2em;
-    width: 100%;
-    display: block;
-    margin: 2em 0;
-}
-#hero #liveEvent a {
-    color: var(--pinnacle-gold);
-    text-shadow: 0 0 8px rgba(198, 158, 96, 0.4);
-    transition: text-shadow 0.3s ease;
-}
-#hero #liveEvent a:hover {
-    color: var(--pinnacle-gold);
-    text-shadow: 0 0 12px rgba(198, 158, 96, 0.8);
 }
