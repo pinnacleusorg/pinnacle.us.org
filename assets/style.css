@@ -135,14 +135,14 @@ a:hover, a:focus {
 }
 
 /* Description Section */
-#description {
+#pre-description {
     margin-top: 160vh;
 }
-#description, #schedule {
+#pre-description, #description, #schedule {
     min-height: 800px;
     position: relative;
 }
-#description .overflowTriangle {
+#pre-description .overflowTriangle {
     position: absolute;
     left: 0;
     right: 0;
@@ -173,9 +173,7 @@ a:hover, a:focus {
     padding-bottom: 550px;
 }
 #schedule h2 {
-    margin-left: -8rem;
-    display: inline-block;
-    padding-right: 50px;
+    text-align: center;
 }
 #schedule .inner {
     min-height: 40rem;
@@ -512,12 +510,12 @@ html#mobileView,
     display: block;
     margin-left: auto;
     width: 100%;
-    margin-top: 10%;
+    margin-top: 8%;
 }
 .tl-ele {
     display: flex;
     width: 100%;
-    margin: 8rem 0;
+    margin: 6rem 0;
 }
 .tl-ele.timeline-right {
     justify-content: flex-end;
@@ -526,15 +524,17 @@ html#mobileView,
 
 }
 .timeline-desc {
-    margin-right: 10%;
+    margin-left: 10%;
     color: var(--pinnacle-gold);
 }
 .timeline-date {
     font-weight: bold;
     min-width: 150px;
-    text-align: right;
+    width: 60%;
+    text-align: left;
 }
 .timeline-end {
+    margin-top: 8rem;
     display: block;
     text-align: center;
     font-size: 3rem;
@@ -850,4 +850,23 @@ html#mobileView,
     100% {
         transform: translateX(0px);
     }
+}
+
+
+.big-num-container {
+    display: flex;
+    width: 100%;
+}
+.big-num-container .big-num {
+    flex-basis: 33%;
+    text-align: center;
+    padding: 0 5%;
+}
+.big-num .big-num-num {
+    font-size: 5rem;
+    font-weight: bold;
+}
+.big-num .big-num-label {
+    color: var(--pinnacle-gold);
+    font-size: 1.5rem
 }
