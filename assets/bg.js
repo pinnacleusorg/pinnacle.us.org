@@ -222,7 +222,7 @@ function updateLines() {
             $('html').prop('id', '');
         }
     }
-
+    return;
     //useful offsets:
     var content_leftEdge = ($('.right-body').first().offset().left) * 0.9,
         content_rightEdge = ($('.right-body').first().offset().left + $('.right-body').first().width()) * 1.1;
