@@ -870,3 +870,45 @@ html#mobileView,
     color: var(--pinnacle-gold);
     font-size: 1.5rem
 }
+
+
+#pre-description {
+    height: 100vh;
+}
+.overflow-hide {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+.scroll-container {
+    width: 100%;
+    height: 100vh;
+    overflow-y: scroll;
+}
+#pre-description .eyecatchers {
+    height: 300vh;
+}
+.eyecatcher {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+}
+.eyecatcher-icon {
+    width: 25%;
+}
+.eyecatcher-icon img {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.eyecatcher-body {
+    width: 60%;
+    margin-left: 15%;
+}
+.eyecatcher-body h3 {
+    font-size: 3rem;
+}
+.eyecatcher-body p {
+    font-size: 1.5rem;
+}
