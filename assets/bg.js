@@ -87,6 +87,10 @@ $(function() {
             return;
         processScroll();
     });
+    $('#pre-description .scroll-container').scroll(function() {
+        if(mobile) return;
+        processEyecatchers();
+    })
 
 // Prompt user to scroll if they idle at top.
     setTimeout(function() {
@@ -139,6 +143,25 @@ function processScroll() {
     var pageHeight = $('html').height();
     var screenHeight = $(window).height();
     var scrollPercent = (scrollTop / (pageHeight - screenHeight)) * 100;
+
+    //Handle eyecatchers scroll freedom ...
+    var $eyecatcher = $('#pre-description .scroll-container');
+    var eyecatcherTop = $eyecatcher.offset().top;
+    var eyecatcherHeight = $eyecatcher.height();
+    var eyecatcherIntHeight = $('.eyecatchers', $eyecatcher).height();
+    if(scrollTop >= eyecatcherTop-20 && scrollTop+screenHeight-20 <= eyecatcherTop+eyecatcherHeight) {
+        //our window is centered -- unlock ...
+        console.log("Eyecatchers unlocked at top");
+        $eyecatcher.addClass('scroll-enabled');
+        $('body').addClass('lockScroll');
+        $(window).scrollTop(eyecatcherTop);
+    } else {
+        //we're not centered -- lock!
+        console.log("Eyecatchers locked");
+        // $eyecatcher.addClass('scroll-enabled').scrollTop(0);
+        $eyecatcher.removeClass('scroll-enabled');
+        $('body').removeClass('lockScroll');
+    }
 
     //Parallax logo at top of scroll
     if(scrollPercent < 20) {
@@ -194,6 +217,27 @@ function processScroll() {
         var newWidth = (scrollTop-startPosition)*1.3;
         $e.css('max-width', newWidth+'px');
     });
+}
+function processEyecatchers() {
+    // ...
+    var $ele = $('#pre-description .scroll-container');
+    var top = $ele.offset().top;
+    var height = $ele.height();
+    var interiorHeight = $('.eyecatchers', $ele).height();
+    var scrollPosition = $ele.scrollTop();
+    console.log("eyecatchers scroll at "+scrollPosition);
+    if(scrollPosition == 0) {
+        console.log("unlock @ top of scroll ...");
+        $ele.removeClass('scroll-enabled');
+        $('body').removeClass('lockScroll');
+        //unlock @ top of scroll ...
+    } else if(scrollPosition == interiorHeight - height) {
+        console.log("unlock @ bottom of scroll");
+        $ele.removeClass('scroll-enabled');
+        $('body').removeClass('lockScroll');
+        // $(window).scrollTop(eyecatcherTop+eyecatcherHeight);
+
+    }
 }
 function updateLines() {
     //CONS:

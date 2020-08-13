@@ -11,6 +11,9 @@ html, body {
     padding: 0;
 
 }
+body.lockScroll {
+    overflow-y: hidden;
+}
 @font-face {
     font-family: "KeplerStd";
     src: url("font/KeplerStd-LightScn.otf");
@@ -881,8 +884,15 @@ html#mobileView,
     overflow: hidden;
 }
 .scroll-container {
+    background-color: red;
     width: 100%;
     height: 100vh;
+    overflow-y: hidden;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
+.scroll-container.scroll-enabled {
     overflow-y: scroll;
 }
 #pre-description .eyecatchers {
