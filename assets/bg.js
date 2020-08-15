@@ -40,6 +40,7 @@ $(function() {
 // Update/Generate Lines
     updateLines();
     renderButtons();
+    spawnEyecatchers();
     $(window).resize(function() {
         updateLines();
         $('.carousel-inner').animate({scrollLeft: '0px'}, 400);
@@ -238,6 +239,48 @@ function processEyecatchers() {
         // $(window).scrollTop(eyecatcherTop+eyecatcherHeight);
 
     }
+}
+function spawnEyecatchers() {
+    //gsap ...
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.to("#pre-description", {
+        scrollTrigger: {
+            trigger: "#pre-description",
+            scrub: true,
+            pin: true,
+            start: "center center",
+            end: "bottom -400%",
+            toggleClass: "active",
+            ease: "none",
+            markers: false
+        }
+    });
+    //fade  out
+    gsap.to("#prestige", {
+        scrollTrigger: {
+            trigger: "#prestige",
+            scrub: true,
+            start: "center center",
+            end: "center -100%",
+            toggleClass: "fadeOut",
+            ease: "none",
+            markers: true
+        },
+        opacity: 0
+    });
+    //fade sect2 in
+    gsap.to("#fame", {
+        scrollTrigger: {
+            trigger: "#fame",
+            scrub: true,
+            start: "center -100%",
+            end: "center -200%",
+            toggleClass: "fadeIn",
+            ease: "none",
+            markers: true
+        },
+        opacity: 1
+    });
 }
 function updateLines() {
     //CONS:

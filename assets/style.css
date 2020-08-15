@@ -892,16 +892,20 @@ html#mobileView,
     position: sticky;
     top: 0;
 }
-.scroll-container.scroll-enabled {
-    overflow-y: scroll;
-}
 #pre-description .eyecatchers {
-    height: 300vh;
+    height: 100vh;
+    position: relative;
 }
 .eyecatcher {
     display: flex;
     height: 100vh;
     align-items: center;
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+}
+.eyecatcher-inframe {
+    opacity: 1;
 }
 .eyecatcher-icon {
     width: 25%;
