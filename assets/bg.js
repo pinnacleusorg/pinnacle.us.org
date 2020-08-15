@@ -87,10 +87,10 @@ $(function() {
             return;
         processScroll();
     });
-    $('#pre-description .scroll-container').scroll(function() {
-        if(mobile) return;
-        processEyecatchers();
-    })
+    // $('#pre-description .scroll-container').scroll(function() {
+    //     if(mobile) return;
+    //     processEyecatchers();
+    // })
 
 // Prompt user to scroll if they idle at top.
     setTimeout(function() {
@@ -144,24 +144,24 @@ function processScroll() {
     var screenHeight = $(window).height();
     var scrollPercent = (scrollTop / (pageHeight - screenHeight)) * 100;
 
-    //Handle eyecatchers scroll freedom ...
-    var $eyecatcher = $('#pre-description .scroll-container');
-    var eyecatcherTop = $eyecatcher.offset().top;
-    var eyecatcherHeight = $eyecatcher.height();
-    var eyecatcherIntHeight = $('.eyecatchers', $eyecatcher).height();
-    if(scrollTop >= eyecatcherTop-20 && scrollTop+screenHeight-20 <= eyecatcherTop+eyecatcherHeight) {
-        //our window is centered -- unlock ...
-        console.log("Eyecatchers unlocked at top");
-        $eyecatcher.addClass('scroll-enabled');
-        $('body').addClass('lockScroll');
-        $(window).scrollTop(eyecatcherTop);
-    } else {
-        //we're not centered -- lock!
-        console.log("Eyecatchers locked");
-        // $eyecatcher.addClass('scroll-enabled').scrollTop(0);
-        $eyecatcher.removeClass('scroll-enabled');
-        $('body').removeClass('lockScroll');
-    }
+    // //Handle eyecatchers scroll freedom ...
+    // var $eyecatcher = $('#pre-description .scroll-container');
+    // var eyecatcherTop = $eyecatcher.offset().top;
+    // var eyecatcherHeight = $eyecatcher.height();
+    // var eyecatcherIntHeight = $('.eyecatchers', $eyecatcher).height();
+    // if(scrollTop >= eyecatcherTop-20 && scrollTop+screenHeight-20 <= eyecatcherTop+eyecatcherHeight) {
+    //     //our window is centered -- unlock ...
+    //     console.log("Eyecatchers unlocked at top");
+    //     $eyecatcher.addClass('scroll-enabled');
+    //     $('body').addClass('lockScroll');
+    //     $(window).scrollTop(eyecatcherTop);
+    // } else {
+    //     //we're not centered -- lock!
+    //     console.log("Eyecatchers locked");
+    //     // $eyecatcher.addClass('scroll-enabled').scrollTop(0);
+    //     $eyecatcher.removeClass('scroll-enabled');
+    //     $('body').removeClass('lockScroll');
+    // }
 
     //Parallax logo at top of scroll
     if(scrollPercent < 20) {
