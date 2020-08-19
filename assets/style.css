@@ -902,10 +902,8 @@ html#mobileView,
     align-items: center;
     position: absolute;
     width: 100%;
+    top: 20%;
     opacity: 0;
-}
-.eyecatcher-inframe {
-    opacity: 1;
 }
 .eyecatcher-icon {
     width: 25%;

@@ -243,44 +243,123 @@ function processEyecatchers() {
 function spawnEyecatchers() {
     //gsap ...
     gsap.registerPlugin(ScrollTrigger);
-    gsap.to("#pre-description", {
+    var timeline = gsap.timeline({
         scrollTrigger: {
             trigger: "#pre-description",
             scrub: true,
             pin: true,
             start: "center center",
-            end: "bottom -400%",
-            toggleClass: "active",
+            end: "bottom -100%",
+            toggleClass: "longScroll",
             ease: "none",
             markers: false
         }
     });
-    //fade  out
-    gsap.to("#prestige", {
-        scrollTrigger: {
-            trigger: "#prestige",
-            scrub: true,
-            start: "center center",
-            end: "center -100%",
-            toggleClass: "fadeOut",
-            ease: "none",
-            markers: true
-        },
-        opacity: 0
-    });
-    //fade sect2 in
-    gsap.to("#fame", {
-        scrollTrigger: {
-            trigger: "#fame",
-            scrub: true,
-            start: "center -100%",
-            end: "center -200%",
-            toggleClass: "fadeIn",
-            ease: "none",
-            markers: true
-        },
-        opacity: 1
-    });
+    var elementsToAdd = ["#prestige", "#fame", "#unlimited"];
+    elementsToAdd.forEach(function(sect, indx) {
+        var start = "center center-="+ ((indx-1) * 50) +"%";
+        var end = "center center-="+ ((indx) * 50) +"%";
+        if(indx == 0) { //don't animate first
+            start = "center 150%";
+            end = "center 100%";
+        }
+        console.log("pinning "+sect+" to "+start+" and "+end);
+        timeline.fromTo(sect, { opacity: 0, top: "20%" }, {
+            scrollTrigger: {
+                trigger: sect,
+                scrub: true,
+                start: start,
+                end: end,
+                ease: "none",
+                markers: true
+                // onEnter: function(progress, direction, isActive) {
+                //     console.log("Starting "+sect);
+                //     //move out previous ...
+                //     var targetIndx = indx-1;
+                //     if(targetIndx < 0) return;
+                //     var targetEle = elementsToAdd[targetIndx];
+                //     //tween out ...
+                //     console.log("tweening out "+targetEle);
+                //     $(targetEle).animate({
+                //         opacity: 0,
+                //         top: "-20%"
+                //     }, 300, function(){});
+                // },
+                // onEnterBack: function(progress, direction, isActive) {
+                //     console.log("Reverse starting "+sect);
+                //     console.log("Starting "+sect);
+                //     //move out previous ...
+                //     var targetIndx = indx+1;
+                //     if(targetIndx > elementsToAdd.length) return;
+                //     var targetEle = elementsToAdd[targetIndx];
+                //     //tween out ...
+                //     console.log("tweening out "+targetEle);
+                //     $(targetEle).animate({
+                //         opacity: 0,
+                //         top: "-20%"
+                //     }, 300, function(){})
+                // }
+            },
+            opacity: 1,
+            top: "0%",
+        });
+    })
+    //Prestige
+    // timeline.addLabel("fame-out").fromTo("#fame", { opacity: 1, top: "0%"}, {
+    //     scrollTrigger: {
+    //         trigger: "#fame",
+    //         scrub: true,
+    //         start: "center -200%",
+    //         end: "+200",
+    //         ease: "none",
+    //         markers: false
+    //     },
+    //     opacity: 0,
+    //     top: "-40%"
+    // });
+
+    //Fame
+    // gsap.to("#fame", {
+    //     scrollTrigger: {
+    //         trigger: "#fame",
+    //         scrub: true,
+    //         start: "center -100%",
+    //         end: "center -200%",
+    //         toggleClass: "eyecatchers-animating",
+    //         ease: "none",
+    //         markers: false
+    //     },
+    //     opacity: 1,
+    //     top: "0%"
+    // });
+    // gsap.fromTo("#fame", { opacity: 1, top: "0%"}, {
+    //     scrollTrigger: {
+    //         trigger: "#fame",
+    //         scrub: true,
+    //         start: "center -200%",
+    //         end: "+200",
+    //         toggleClass: "eyecatchers-animateDown",
+    //         ease: "none",
+    //         markers: true
+    //     },
+    //     opacity: 0,
+    //     top: "-20%"
+    // });
+    //
+    // //Unlimited
+    // gsap.to("#unlimited", {
+    //     scrollTrigger: {
+    //         trigger: "#unlimited",
+    //         scrub: true,
+    //         start: "center -200%",
+    //         end: "center -300%",
+    //         toggleClass: "eyecatchers-animating",
+    //         ease: "none",
+    //         markers: false
+    //     },
+    //     opacity: 1,
+    //     top: "0%"
+    // });
 }
 function updateLines() {
     //CONS:
