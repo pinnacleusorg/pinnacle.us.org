@@ -88,10 +88,6 @@ $(function() {
             return;
         processScroll();
     });
-    // $('#pre-description .scroll-container').scroll(function() {
-    //     if(mobile) return;
-    //     processEyecatchers();
-    // })
 
 // Prompt user to scroll if they idle at top.
     setTimeout(function() {
@@ -144,25 +140,6 @@ function processScroll() {
     var pageHeight = $('html').height();
     var screenHeight = $(window).height();
     var scrollPercent = (scrollTop / (pageHeight - screenHeight)) * 100;
-
-    // //Handle eyecatchers scroll freedom ...
-    // var $eyecatcher = $('#pre-description .scroll-container');
-    // var eyecatcherTop = $eyecatcher.offset().top;
-    // var eyecatcherHeight = $eyecatcher.height();
-    // var eyecatcherIntHeight = $('.eyecatchers', $eyecatcher).height();
-    // if(scrollTop >= eyecatcherTop-20 && scrollTop+screenHeight-20 <= eyecatcherTop+eyecatcherHeight) {
-    //     //our window is centered -- unlock ...
-    //     console.log("Eyecatchers unlocked at top");
-    //     $eyecatcher.addClass('scroll-enabled');
-    //     $('body').addClass('lockScroll');
-    //     $(window).scrollTop(eyecatcherTop);
-    // } else {
-    //     //we're not centered -- lock!
-    //     console.log("Eyecatchers locked");
-    //     // $eyecatcher.addClass('scroll-enabled').scrollTop(0);
-    //     $eyecatcher.removeClass('scroll-enabled');
-    //     $('body').removeClass('lockScroll');
-    // }
 
     //Parallax logo at top of scroll
     if(scrollPercent < 20) {
@@ -219,27 +196,6 @@ function processScroll() {
         $e.css('max-width', newWidth+'px');
     });
 }
-function processEyecatchers() {
-    // ...
-    var $ele = $('#pre-description .scroll-container');
-    var top = $ele.offset().top;
-    var height = $ele.height();
-    var interiorHeight = $('.eyecatchers', $ele).height();
-    var scrollPosition = $ele.scrollTop();
-    console.log("eyecatchers scroll at "+scrollPosition);
-    if(scrollPosition == 0) {
-        console.log("unlock @ top of scroll ...");
-        $ele.removeClass('scroll-enabled');
-        $('body').removeClass('lockScroll');
-        //unlock @ top of scroll ...
-    } else if(scrollPosition == interiorHeight - height) {
-        console.log("unlock @ bottom of scroll");
-        $ele.removeClass('scroll-enabled');
-        $('body').removeClass('lockScroll');
-        // $(window).scrollTop(eyecatcherTop+eyecatcherHeight);
-
-    }
-}
 function spawnEyecatchers() {
     //gsap ...
     gsap.registerPlugin(ScrollTrigger);
@@ -249,117 +205,90 @@ function spawnEyecatchers() {
             scrub: true,
             pin: true,
             start: "center center",
-            end: "bottom -100%",
+            end: "bottom -50%",
             toggleClass: "longScroll",
             ease: "none",
             markers: false
         }
     });
-    var elementsToAdd = ["#prestige", "#fame", "#unlimited"];
-    elementsToAdd.forEach(function(sect, indx) {
-        var start = "center center-="+ ((indx-1) * 50) +"%";
-        var end = "center center-="+ ((indx) * 50) +"%";
-        if(indx == 0) { //don't animate first
-            start = "center 150%";
-            end = "center 100%";
-        }
-        console.log("pinning "+sect+" to "+start+" and "+end);
-        timeline.fromTo(sect, { opacity: 0, top: "20%" }, {
-            scrollTrigger: {
-                trigger: sect,
-                scrub: true,
-                start: start,
-                end: end,
-                ease: "none",
-                markers: true
-                // onEnter: function(progress, direction, isActive) {
-                //     console.log("Starting "+sect);
-                //     //move out previous ...
-                //     var targetIndx = indx-1;
-                //     if(targetIndx < 0) return;
-                //     var targetEle = elementsToAdd[targetIndx];
-                //     //tween out ...
-                //     console.log("tweening out "+targetEle);
-                //     $(targetEle).animate({
-                //         opacity: 0,
-                //         top: "-20%"
-                //     }, 300, function(){});
-                // },
-                // onEnterBack: function(progress, direction, isActive) {
-                //     console.log("Reverse starting "+sect);
-                //     console.log("Starting "+sect);
-                //     //move out previous ...
-                //     var targetIndx = indx+1;
-                //     if(targetIndx > elementsToAdd.length) return;
-                //     var targetEle = elementsToAdd[targetIndx];
-                //     //tween out ...
-                //     console.log("tweening out "+targetEle);
-                //     $(targetEle).animate({
-                //         opacity: 0,
-                //         top: "-20%"
-                //     }, 300, function(){})
-                // }
-            },
-            opacity: 1,
-            top: "0%",
-        });
-    })
-    //Prestige
-    // timeline.addLabel("fame-out").fromTo("#fame", { opacity: 1, top: "0%"}, {
-    //     scrollTrigger: {
-    //         trigger: "#fame",
-    //         scrub: true,
-    //         start: "center -200%",
-    //         end: "+200",
-    //         ease: "none",
-    //         markers: false
-    //     },
-    //     opacity: 0,
-    //     top: "-40%"
-    // });
 
-    //Fame
-    // gsap.to("#fame", {
-    //     scrollTrigger: {
-    //         trigger: "#fame",
-    //         scrub: true,
-    //         start: "center -100%",
-    //         end: "center -200%",
-    //         toggleClass: "eyecatchers-animating",
-    //         ease: "none",
-    //         markers: false
-    //     },
-    //     opacity: 1,
-    //     top: "0%"
-    // });
-    // gsap.fromTo("#fame", { opacity: 1, top: "0%"}, {
-    //     scrollTrigger: {
-    //         trigger: "#fame",
-    //         scrub: true,
-    //         start: "center -200%",
-    //         end: "+200",
-    //         toggleClass: "eyecatchers-animateDown",
-    //         ease: "none",
-    //         markers: true
-    //     },
-    //     opacity: 0,
-    //     top: "-20%"
-    // });
-    //
-    // //Unlimited
-    // gsap.to("#unlimited", {
-    //     scrollTrigger: {
-    //         trigger: "#unlimited",
-    //         scrub: true,
-    //         start: "center -200%",
-    //         end: "center -300%",
-    //         toggleClass: "eyecatchers-animating",
-    //         ease: "none",
-    //         markers: false
-    //     },
-    //     opacity: 1,
-    //     top: "0%"
-    // });
+    var prestigeTimeline = gsap.timeline({
+        scrollTrigger: {
+            trigger: "#prestige",
+            scrub: true,
+            start: "center center-=0%",
+            end: "center center-=50%",
+            ease: "none",
+            markers: false
+        }
+    });
+    prestigeTimeline.fromTo("#prestige", {opacity: 0, top: "20%" }, {
+        opacity: 1,
+        top: "0%",
+        duration: 1
+    });
+    prestigeTimeline.to("#prestige", {
+        opacity: 1,
+        top: "0%",
+        duration: 1
+    });
+    prestigeTimeline.to("#prestige", {
+        opacity: 0,
+        top: "-20%",
+        duration: 1
+    });
+
+    var fameTimeline = gsap.timeline({
+        scrollTrigger: {
+            trigger: "#fame",
+            scrub: true,
+            start: "center center-=50%",
+            end: "center center-=100%",
+            ease: "none",
+            markers: false
+        }
+    });
+    fameTimeline.fromTo("#fame", {opacity: 0, top: "20%" }, {
+        opacity: 1,
+        top: "0%",
+        duration: 1
+    });
+    fameTimeline.to("#fame", {
+        opacity: 1,
+        top: "0%",
+        duration: 1
+    });
+    fameTimeline.to("#fame", {
+        opacity: 0,
+        top: "-20%",
+        duration: 1
+    });
+
+    var unlimitedTimeline = gsap.timeline({
+        scrollTrigger: {
+            trigger: "#unlimited",
+            scrub: true,
+            start: "center center-=100%",
+            end: "center center-=150%",
+            ease: "none",
+            markers: false
+        }
+    });
+    unlimitedTimeline.fromTo("#unlimited", {opacity: 0, top: "20%" }, {
+        opacity: 1,
+        top: "0%",
+        duration: 1
+    });
+    unlimitedTimeline.to("#unlimited", {
+        opacity: 1,
+        top: "0%",
+        duration: 1
+    });
+    unlimitedTimeline.to("#unlimited", {
+        opacity: 1,
+        top: "0%",
+        duration: 1
+    });
 }
 function updateLines() {
     //CONS:
@@ -388,81 +317,84 @@ function updateLines() {
             $('html').prop('id', '');
         }
     }
-    return;
     //useful offsets:
     var content_leftEdge = ($('.right-body').first().offset().left) * 0.9,
         content_rightEdge = ($('.right-body').first().offset().left + $('.right-body').first().width()) * 1.1;
 
     var OF_description_inner = $('#description .inner').offset(),
-        OF_carousel_h2 = $('#carousel h2').offset(),
         OF_schedule_h2 = $('#schedule h2').offset(),
         OF_description_h2 = $('#description h2').offset(),
         OF_last_tl = $('.tl-ele').last().offset(),
         OF_scheduleSection = $('#schedule').offset(),
-        OF_sponsors = $('#sponsors').offset();
+        OF_sponsors = $('#sponsors').offset(),
+        OF_predesc = $('#pre-description').offset();
 
     var H_description_inner = $('#description .inner').height(),
         H_schedule_h2 = $('#schedule h2').height(),
         H_description_h2 = $('#description h2').height(),
-        H_sponsors = $('#sponsors').height();
+        H_sponsors = $('#sponsors').height(),
+        H_predesc = $('#pre-description').height();
+
 
     var lines = [];
+
     lines[0] = [];
     lines[0][0] = [0, screenHeight * 0.8];
-    lines[0][1] = [OF_description_inner.left*0.8, lines[0][0][1] + (OF_description_inner.left*0.8)];
-    lines[0][2] = [lines[0][1][0], OF_description_inner.top + H_description_inner*1.1];
-    lines[0][3] = [0, lines[0][1][0] + lines[0][2][1]];
+    lines[0][1] = [screenWidth*0.1, lines[0][0][1]+screenWidth*0.1];
+    lines[0][2] = [screenWidth*0.1, screenHeight*4.5];
+    lines[0][3] = [0, lines[0][2][1] + screenWidth*0.1];
+    // var lines = [];
+    // lines[0] = [];
+    // lines[0][0] = [0, screenHeight * 0.8];
+    // lines[0][1] = [OF_description_inner.left*0.8, lines[0][0][1] + (OF_description_inner.left*0.8)];
+    // lines[0][2] = [lines[0][1][0], OF_description_inner.top + H_description_inner*1.1];
+    // lines[0][3] = [0, lines[0][1][0] + lines[0][2][1]];
+    //
+    // var g = OF_schedule_h2.left + $('#schedule h2').width()*1.5;
+    // lines[1] = [];
+    // lines[1][0] = [screenWidth * 0.05, screenHeight * 0.7];
+    // lines[1][1] = [lines[1][0][0], OF_schedule_h2.top + H_schedule_h2/2 - (g - lines[1][0][0])];
+    // lines[1][2] = [g, (g - lines[1][1][0]) + lines[1][1][1]];
+    // lines[1][3] = [0, lines[1][2][0] + lines[1][2][1]];
+    //
+    // lines[2] = [];
+    // lines[2][0] = [screenWidth, screenHeight * 0.8];
+    // lines[2][1] = [content_rightEdge, (lines[2][0][1] + (lines[2][0][0] - content_rightEdge))];
+    // lines[2][2] = [content_rightEdge, OF_description_h2.top + H_description_h2 - content_rightEdge*0.15];
+    // lines[2][3] = [content_rightEdge * 0.85, lines[2][2][1] + content_rightEdge*0.15];
+    // lines[2][4] = [content_rightEdge * 0.7, lines[2][3][1]];
 
-    var g = OF_schedule_h2.left + $('#schedule h2').width()*1.5;
-    lines[1] = [];
-    lines[1][0] = [screenWidth * 0.05, screenHeight * 0.7];
-    lines[1][1] = [lines[1][0][0], OF_schedule_h2.top + H_schedule_h2/2 - (g - lines[1][0][0])];
-    lines[1][2] = [g, (g - lines[1][1][0]) + lines[1][1][1]];
-    lines[1][3] = [0, lines[1][2][0] + lines[1][2][1]];
+    // lines[3] = [];
+    // lines[3][0] = [screenWidth * 0.95, screenHeight * 0.75];
+    // lines[3][1] = [lines[3][0][0], OF_carousel_h2.top];
+    // lines[3][2] = [screenWidth, (lines[3][1][1] + (screenWidth * 0.05))];
 
-    lines[2] = [];
-    lines[2][0] = [screenWidth, screenHeight * 0.8];
-    lines[2][1] = [content_rightEdge, (lines[2][0][1] + (lines[2][0][0] - content_rightEdge))];
-    lines[2][2] = [content_rightEdge, OF_description_h2.top + H_description_h2 - content_rightEdge*0.15];
-    lines[2][3] = [content_rightEdge * 0.85, lines[2][2][1] + content_rightEdge*0.15];
-    lines[2][4] = [content_rightEdge * 0.7, lines[2][3][1]];
+    // lines[3] = [];
+    // lines[3][0] = [content_rightEdge * 0.7, OF_description_h2.top];
+    // lines[3][1] = [content_rightEdge, lines[3][0][1]];
+    // lines[3][2] = [content_rightEdge, OF_description_inner.top + H_description_inner/2];
+    // lines[3][3] = [screenWidth, lines[3][2][1] + screenWidth - lines[3][2][0]];
+    //
+    // lines[4] = [];
+    // lines[4][0] = [content_leftEdge * 0.5, lines[1][2][1]+75];
+    // lines[4][1] = [screenWidth * 0.05, (lines[4][0][0] - screenWidth * 0.05) + lines[4][0][1]];
+    // lines[4][2] = [screenWidth * 0.05, OF_last_tl.top+50];
+    // lines[4][3] = [0, lines[4][2][1]+lines[4][2][0]];
+    //
+    // lines[5] = [];
+    // lines[5][0] = [content_rightEdge * 0.9, OF_scheduleSection.top];
+    // lines[5][1] = [screenWidth * 0.95, (OF_scheduleSection.top + (screenWidth * 0.95 - content_rightEdge * 0.9))];
+    // lines[5][2] = [screenWidth * 0.95, OF_last_tl.top-50];
+    // lines[5][3] = [screenWidth, lines[5][2][1]+(screenWidth - lines[5][2][0])];
 
-    lines[3] = [];
-    lines[3][0] = [screenWidth * 0.95, screenHeight * 0.75];
-    lines[3][1] = [lines[3][0][0], OF_carousel_h2.top];
-    lines[3][2] = [screenWidth, (lines[3][1][1] + (screenWidth * 0.05))];
-
-    lines[4] = [];
-    lines[4][0] = [content_rightEdge * 0.7, OF_description_h2.top];
-    lines[4][1] = [content_rightEdge, lines[4][0][1]];
-    lines[4][2] = [content_rightEdge, OF_description_inner.top + H_description_inner/2];
-    lines[4][3] = [screenWidth, lines[4][2][1] + screenWidth - lines[4][2][0]];
-
-    lines[5] = [];
-    lines[5][0] = [content_leftEdge * 0.5, lines[1][2][1]+75];
-    lines[5][1] = [screenWidth * 0.05, (lines[5][0][0] - screenWidth * 0.05) + lines[5][0][1]];
-    lines[5][2] = [screenWidth * 0.05, OF_last_tl.top+50];
-    lines[5][3] = [0, lines[5][2][1]+lines[5][2][0]];
-
-    lines[6] = [];
-    lines[6][0] = [content_rightEdge * 0.9, OF_scheduleSection.top];
-    lines[6][1] = [screenWidth * 0.95, (OF_scheduleSection.top + (screenWidth * 0.95 - content_rightEdge * 0.9))];
-    lines[6][2] = [screenWidth * 0.95, OF_last_tl.top-50];
-    lines[6][3] = [screenWidth, lines[6][2][1]+(screenWidth - lines[6][2][0])];
-
-    lines[7] = [];
-    lines[7][0] = [screenWidth, OF_sponsors.top + 100];
-    lines[7][1] = [content_rightEdge, (OF_sponsors.top + 100 + (screenWidth-content_rightEdge))];
-    lines[7][2] = [content_rightEdge, OF_sponsors.top + H_sponsors*0.9];
-    lines[7][3] = [screenWidth, OF_sponsors.top + H_sponsors*0.9];
-    if(reduced) {
-        //remove some lines to draw when on reduced screen size
-        lines[0] = [];
-        lines[3] = [];
-        lines[5] = [];
-        lines[6] = [];
-    }
-
+    // if(reduced) {
+    //     //remove some lines to draw when on reduced screen size
+    //     lines[0] = [];
+    //     // lines[3] = [];
+    //     lines[4] = [];
+    //     lines[5] = [];
+    // }
+    //
     //"canvas" setup
     //NB: I continually refer to this as a "canvas" despite it no longer being a canvas, so pardon the term use.
     //Ensure our sizes are identical on the two clones to allow for lining up multi-colored lines
@@ -477,7 +409,7 @@ function updateLines() {
 
     highestScroll = 0;
     renderLine(canvas2, lines); //all lines
-    renderLine(canvas1, [lines[0], lines[1], lines[2], lines[3]]); //top lines
+    // renderLine(canvas1, [lines[0], lines[1], lines[2], lines[3]]); //top lines
 }
 function renderLine(parent, lines) {
     $(parent).empty(); //clear out all lines (vs modifying existing ones for simplicity)
