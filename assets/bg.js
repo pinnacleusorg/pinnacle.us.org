@@ -208,10 +208,13 @@ function spawnEyecatchers() {
             end: "bottom -50%",
             toggleClass: "longScroll",
             ease: "none",
+            onRefresh: function() { //refresh to adjust line change due to gsap grow
+                updateLines();
+            },
             markers: false
         }
     });
-
+    //Originally we created these in a loop to be DRY ... but there's some subtle differences between states its not really worth it
     var prestigeTimeline = gsap.timeline({
         scrollTrigger: {
             trigger: "#prestige",
@@ -321,28 +324,61 @@ function updateLines() {
     var content_leftEdge = ($('.right-body').first().offset().left) * 0.9,
         content_rightEdge = ($('.right-body').first().offset().left + $('.right-body').first().width()) * 1.1;
 
-    var OF_description_inner = $('#description .inner').offset(),
+    var OF_bigNumber = $('#big-numbers').offset(),
+        OF_description_inner = $('#description .inner').offset(),
         OF_schedule_h2 = $('#schedule h2').offset(),
+        OF_schedule = $('#schedule').offset(),
         OF_description_h2 = $('#description h2').offset(),
         OF_last_tl = $('.tl-ele').last().offset(),
-        OF_scheduleSection = $('#schedule').offset(),
+        OF_timeline = $('#timeline-container').offset(),
         OF_sponsors = $('#sponsors').offset(),
         OF_predesc = $('#pre-description').offset();
 
-    var H_description_inner = $('#description .inner').height(),
+    var H_bigNumber = $('#big-numbers').height(),
+        H_description_inner = $('#description .inner').height(),
         H_schedule_h2 = $('#schedule h2').height(),
+        H_timeline = $('#timeline-container').height(),
+        H_last_tl = $('.tl-ele').last().height(),
         H_description_h2 = $('#description h2').height(),
         H_sponsors = $('#sponsors').height(),
         H_predesc = $('#pre-description').height();
 
 
     var lines = [];
-
     lines[0] = [];
     lines[0][0] = [0, screenHeight * 0.8];
     lines[0][1] = [screenWidth*0.1, lines[0][0][1]+screenWidth*0.1];
-    lines[0][2] = [screenWidth*0.1, screenHeight*4.5];
+    lines[0][2] = [screenWidth*0.1, OF_bigNumber.top];
     lines[0][3] = [0, lines[0][2][1] + screenWidth*0.1];
+
+    lines[1] = [];
+    lines[1][0] = [screenWidth*0.05, screenHeight * 0.7];
+    lines[1][1] = [screenWidth*0.05, OF_bigNumber.top + H_bigNumber];
+    lines[1][2] = [0, lines[1][1][1] + lines[1][1][0]];
+
+    lines[2] = [];
+    lines[2][0] = [screenWidth, lines[0][0][1]];
+    lines[2][1] = [screenWidth * 0.9, lines[0][1][1]];
+    lines[2][2] = [screenWidth * 0.9, lines[0][2][1]];
+    lines[2][3] = [screenWidth, lines[0][3][1]];
+
+    lines[3] = [];
+    lines[3][0] = [screenWidth*0.95, lines[1][0][1]];
+    lines[3][1] = [screenWidth*0.95, lines[1][1][1]];
+    lines[3][2] = [screenWidth, lines[1][2][1]];
+
+    lines[4] = [];
+    lines[4][0] = [screenWidth*0.2, OF_schedule_h2.top + H_schedule_h2];
+    lines[4][1] = [screenWidth*0.1, lines[4][0][1] + screenWidth*0.1];
+    lines[4][2] = [screenWidth*0.1, OF_last_tl.top + H_last_tl];
+    lines[4][3] = [0, lines[4][2][1] + lines[4][2][0]];
+
+    lines[5] = [];
+    lines[5][0] = [screenWidth*0.8, lines[4][0][1]];
+    lines[5][1] = [screenWidth*0.9, lines[4][1][1]];
+    lines[5][2] = [screenWidth*0.9, lines[4][2][1]];
+    lines[5][3] = [screenWidth, lines[4][3][1]];
+
     // var lines = [];
     // lines[0] = [];
     // lines[0][0] = [0, screenHeight * 0.8];
@@ -409,7 +445,7 @@ function updateLines() {
 
     highestScroll = 0;
     renderLine(canvas2, lines); //all lines
-    // renderLine(canvas1, [lines[0], lines[1], lines[2], lines[3]]); //top lines
+    renderLine(canvas1, [lines[0], lines[1], lines[2], lines[3]]); //top lines
 }
 function renderLine(parent, lines) {
     $(parent).empty(); //clear out all lines (vs modifying existing ones for simplicity)
