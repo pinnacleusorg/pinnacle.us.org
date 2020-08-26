@@ -38,6 +38,7 @@ $(function() {
         $('.linesCanvas-outside#mainCanvas').ClipPath('50% 100vh, 0% 160vh, 0% 100%, 100% 100%, 100% 160vh');
     }
 // Update/Generate Lines
+    gsap.registerPlugin(ScrollTrigger);
     updateLines();
     renderButtons();
     spawnEyecatchers();
@@ -83,11 +84,29 @@ $(function() {
     })
 
 // Handle Scrolling Animation
-    $(window).scroll(function() {
-        if(mobile)
-            return;
-        processScroll();
-    });
+    //Can we handle this with GSAP ?
+    ScrollTrigger.matchMedia({
+        "(min-width: 767px)": function() {
+            var timeline = gsap.timeline({defaults: {duration: 1},
+              scrollTrigger: {
+                trigger: "html",
+                scrub: true,
+                start: "top top",
+                end: "bottom bottom",
+                onUpdate: processScroll
+            }});
+        },
+        "(max-width: 766px)": function() {
+            // no lines on mobile ...
+        }
+    })
+
+
+    // $(window).scroll(function() {
+    //     if(mobile)
+    //         return;
+    //     processScroll();
+    // });
 
 // Prompt user to scroll if they idle at top.
     setTimeout(function() {
@@ -133,15 +152,15 @@ $(function() {
         $(this).parent().find('a')[0].click();
     })
 });
-function processScroll() {
+function processScroll(scroll) {
     initialScroll = true;
     //CONS:
     var scrollTop = $(window).scrollTop();
     var pageHeight = $('html').height();
     var screenHeight = $(window).height();
-    var scrollPercent = (scrollTop / (pageHeight - screenHeight)) * 100;
+    var scrollPercent = scroll.progress.toFixed(2)*100;
 
-    //Parallax logo at top of scroll
+    //Parallax logo at top of scroll (TODO: replace with GSAP parallax)
     if(scrollPercent < 20) {
         var adj = 150 * scrollPercent / 20;
         $('#hero .inner').css('margin-top', 'calc(-8rem - '+adj+'px)');
@@ -149,14 +168,10 @@ function processScroll() {
     if(highestScroll > scrollTop)
         return;
     //If we've reached skyline portion, slide it in
+    // TODO: slide this in w GSAP
     if(scrollTop + screenHeight - $('.skyline').offset().top > 0 && $('#skyline_goldengate').hasClass('off-left'))
         $('.skyline-component').removeClass('off-left').removeClass('off-right');
     highestScroll = scrollTop;
-    //If we've reached the bottom, animate the last lines
-    if(scrollPercent >= 98) {
-        $('.generatedLine-container[data-line-set="7"] > div').css('max-width', '1000px');
-        return;
-    }
     $('.generatedLine-line').each(function() {
         var $e = $(this);
         if($e.data('rendered'))
@@ -198,7 +213,6 @@ function processScroll() {
 }
 function spawnEyecatchers() {
     //gsap ...
-    gsap.registerPlugin(ScrollTrigger);
     var timeline = gsap.timeline({
         scrollTrigger: {
             trigger: "#pre-description",
