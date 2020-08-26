@@ -514,6 +514,7 @@ html#mobileView,
     margin-left: auto;
     width: 100%;
     margin-top: 8%;
+    padding: 0 10%;
 }
 .tl-ele {
     display: flex;
@@ -904,6 +905,7 @@ html#mobileView,
     width: 100%;
     top: 20%;
     opacity: 0;
+    padding: 0 10%;
 }
 .eyecatcher-icon {
     width: 25%;

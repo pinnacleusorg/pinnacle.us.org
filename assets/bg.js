@@ -206,12 +206,10 @@ function spawnEyecatchers() {
             pin: true,
             start: "center center",
             end: "bottom -50%",
-            toggleClass: "longScroll",
-            ease: "none",
+            ease: "power3",
             onRefresh: function() { //refresh to adjust line change due to gsap grow
                 updateLines();
-            },
-            markers: false
+            }
         }
     });
     //Originally we created these in a loop to be DRY ... but there's some subtle differences between states its not really worth it
@@ -221,8 +219,7 @@ function spawnEyecatchers() {
             scrub: true,
             start: "center center-=0%",
             end: "center center-=50%",
-            ease: "none",
-            markers: false
+            ease: "power3"
         }
     });
     prestigeTimeline.fromTo("#prestige", {opacity: 0, top: "20%" }, {
@@ -247,8 +244,7 @@ function spawnEyecatchers() {
             scrub: true,
             start: "center center-=50%",
             end: "center center-=100%",
-            ease: "none",
-            markers: false
+            ease: "power3"
         }
     });
     fameTimeline.fromTo("#fame", {opacity: 0, top: "20%" }, {
@@ -273,8 +269,7 @@ function spawnEyecatchers() {
             scrub: true,
             start: "center center-=100%",
             end: "center center-=150%",
-            ease: "none",
-            markers: false
+            ease: "power3"
         }
     });
     unlimitedTimeline.fromTo("#unlimited", {opacity: 0, top: "20%" }, {
@@ -379,50 +374,6 @@ function updateLines() {
     lines[5][2] = [screenWidth*0.9, lines[4][2][1]];
     lines[5][3] = [screenWidth, lines[4][3][1]];
 
-    // var lines = [];
-    // lines[0] = [];
-    // lines[0][0] = [0, screenHeight * 0.8];
-    // lines[0][1] = [OF_description_inner.left*0.8, lines[0][0][1] + (OF_description_inner.left*0.8)];
-    // lines[0][2] = [lines[0][1][0], OF_description_inner.top + H_description_inner*1.1];
-    // lines[0][3] = [0, lines[0][1][0] + lines[0][2][1]];
-    //
-    // var g = OF_schedule_h2.left + $('#schedule h2').width()*1.5;
-    // lines[1] = [];
-    // lines[1][0] = [screenWidth * 0.05, screenHeight * 0.7];
-    // lines[1][1] = [lines[1][0][0], OF_schedule_h2.top + H_schedule_h2/2 - (g - lines[1][0][0])];
-    // lines[1][2] = [g, (g - lines[1][1][0]) + lines[1][1][1]];
-    // lines[1][3] = [0, lines[1][2][0] + lines[1][2][1]];
-    //
-    // lines[2] = [];
-    // lines[2][0] = [screenWidth, screenHeight * 0.8];
-    // lines[2][1] = [content_rightEdge, (lines[2][0][1] + (lines[2][0][0] - content_rightEdge))];
-    // lines[2][2] = [content_rightEdge, OF_description_h2.top + H_description_h2 - content_rightEdge*0.15];
-    // lines[2][3] = [content_rightEdge * 0.85, lines[2][2][1] + content_rightEdge*0.15];
-    // lines[2][4] = [content_rightEdge * 0.7, lines[2][3][1]];
-
-    // lines[3] = [];
-    // lines[3][0] = [screenWidth * 0.95, screenHeight * 0.75];
-    // lines[3][1] = [lines[3][0][0], OF_carousel_h2.top];
-    // lines[3][2] = [screenWidth, (lines[3][1][1] + (screenWidth * 0.05))];
-
-    // lines[3] = [];
-    // lines[3][0] = [content_rightEdge * 0.7, OF_description_h2.top];
-    // lines[3][1] = [content_rightEdge, lines[3][0][1]];
-    // lines[3][2] = [content_rightEdge, OF_description_inner.top + H_description_inner/2];
-    // lines[3][3] = [screenWidth, lines[3][2][1] + screenWidth - lines[3][2][0]];
-    //
-    // lines[4] = [];
-    // lines[4][0] = [content_leftEdge * 0.5, lines[1][2][1]+75];
-    // lines[4][1] = [screenWidth * 0.05, (lines[4][0][0] - screenWidth * 0.05) + lines[4][0][1]];
-    // lines[4][2] = [screenWidth * 0.05, OF_last_tl.top+50];
-    // lines[4][3] = [0, lines[4][2][1]+lines[4][2][0]];
-    //
-    // lines[5] = [];
-    // lines[5][0] = [content_rightEdge * 0.9, OF_scheduleSection.top];
-    // lines[5][1] = [screenWidth * 0.95, (OF_scheduleSection.top + (screenWidth * 0.95 - content_rightEdge * 0.9))];
-    // lines[5][2] = [screenWidth * 0.95, OF_last_tl.top-50];
-    // lines[5][3] = [screenWidth, lines[5][2][1]+(screenWidth - lines[5][2][0])];
-
     // if(reduced) {
     //     //remove some lines to draw when on reduced screen size
     //     lines[0] = [];
@@ -432,6 +383,8 @@ function updateLines() {
     // }
     //
     //"canvas" setup
+
+
     //NB: I continually refer to this as a "canvas" despite it no longer being a canvas, so pardon the term use.
     //Ensure our sizes are identical on the two clones to allow for lining up multi-colored lines
     canvas1.width(screenWidth);
