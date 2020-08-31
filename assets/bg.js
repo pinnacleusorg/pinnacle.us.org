@@ -47,7 +47,7 @@ $(function() {
         $('.carousel-inner').animate({scrollLeft: '0px'}, 400);
     });
     var subscribeDisabled = false;
-    $('#updatedbtn').click(function(e) {
+        $('#updatedbtn').click(function(e) {
         e.preventDefault();
 
         var name = $('#engagement-fn').val().trim();
@@ -219,7 +219,7 @@ function spawnEyecatchers() {
             scrub: true,
             pin: true,
             start: "center center",
-            end: "bottom -50%",
+            end: "bottom 50%",
             ease: "power3",
             onRefresh: function() { //refresh to adjust line change due to gsap grow
                 updateLines();
@@ -231,12 +231,12 @@ function spawnEyecatchers() {
         scrollTrigger: {
             trigger: "#prestige",
             scrub: true,
-            start: "center center-=0%",
-            end: "center center-=50%",
+            start: "center center+=75%",
+            end: "center center+=25%",
             ease: "power3"
         }
     });
-    prestigeTimeline.fromTo("#prestige", {opacity: 0, top: "20%" }, {
+    prestigeTimeline.fromTo("#prestige", {opacity: 0, top: "30%" }, {
         opacity: 1,
         top: "0%",
         duration: 1
@@ -248,7 +248,7 @@ function spawnEyecatchers() {
     });
     prestigeTimeline.to("#prestige", {
         opacity: 0,
-        top: "-20%",
+        top: "-30%",
         duration: 1
     });
 
@@ -256,12 +256,12 @@ function spawnEyecatchers() {
         scrollTrigger: {
             trigger: "#fame",
             scrub: true,
-            start: "center center-=50%",
-            end: "center center-=100%",
+            start: "center center+=41.66%",
+            end: "center center-=8.33%",
             ease: "power3"
         }
     });
-    fameTimeline.fromTo("#fame", {opacity: 0, top: "20%" }, {
+    fameTimeline.fromTo("#fame", {opacity: 0, top: "30%" }, {
         opacity: 1,
         top: "0%",
         duration: 1
@@ -273,7 +273,7 @@ function spawnEyecatchers() {
     });
     fameTimeline.to("#fame", {
         opacity: 0,
-        top: "-20%",
+        top: "-30%",
         duration: 1
     });
 
@@ -281,12 +281,12 @@ function spawnEyecatchers() {
         scrollTrigger: {
             trigger: "#unlimited",
             scrub: true,
-            start: "center center-=100%",
-            end: "center center-=150%",
+            start: "center center+=8.333%",
+            end: "center center-=41.666%",
             ease: "power3"
         }
     });
-    unlimitedTimeline.fromTo("#unlimited", {opacity: 0, top: "20%" }, {
+    unlimitedTimeline.fromTo("#unlimited", {opacity: 0, top: "30%" }, {
         opacity: 1,
         top: "0%",
         duration: 1
