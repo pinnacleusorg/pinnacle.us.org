@@ -868,7 +868,7 @@ html#mobileView,
 .big-num-container .big-num {
     flex-basis: 33%;
     text-align: center;
-    padding: 0 5%;
+    padding: 0 2.5%;
 }
 .big-num .big-num-num {
     font-size: 5rem;
