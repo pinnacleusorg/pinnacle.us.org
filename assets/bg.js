@@ -19,6 +19,7 @@ var mobile = true,
         return newOffset;
     }
 })();
+var bigNumbers = [];
 $(function() {
     var consoleBanner = "";
     consoleBanner += ("  _______ _                  _                       _                   __   _                _         _   _                     \n");
@@ -42,6 +43,9 @@ $(function() {
     updateLines();
     renderButtons();
     spawnEyecatchers();
+    $('.big-num-num').each(function() {
+        bigNumbers.push(new countUp.CountUp(this, $(this).data('to')));
+    });
     $(window).resize(function() {
         updateLines();
         $('.carousel-inner').animate({scrollLeft: '0px'}, 400);
@@ -223,6 +227,10 @@ function spawnEyecatchers() {
             ease: "power3",
             onRefresh: function() { //refresh to adjust line change due to gsap grow
                 updateLines();
+            },
+            onLeave: function() {
+                console.log("trigger numbers");
+                bigNumbers.map(function(num) { num.start() });
             }
         }
     });
