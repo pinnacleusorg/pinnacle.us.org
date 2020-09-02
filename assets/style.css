@@ -343,7 +343,7 @@ html#mobileView,
 #mobileView .container.inner .right-body {
     width: 100%;
     margin: 0;
-    padding-left: 10vw;
+    padding: 0 5%;
     font-size: 1.5rem;
 }
 #mobileView #schedule {
