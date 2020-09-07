@@ -865,6 +865,9 @@ html#mobileView,
     display: flex;
     width: 100%;
 }
+#mobileView .big-num-container {
+    flex-direction: column;
+}
 .big-num-container .big-num {
     flex-basis: 33%;
     text-align: center;
