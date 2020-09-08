@@ -23,10 +23,162 @@
 
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=0">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="/assets/bootstrap.min.css">
         <link rel="stylesheet" href="assets/style.css">
         <title>Pinnacle • The Olympics of Hackathons</title>
+        <style>
+        body.withModal {
+            overflow: hidden;
+        }
+        .cover-all {
+            pointer-events: none;
+            position: fixed;
+            display: flex;
+            top:0;
+            left:0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.3);
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.5s;
+            z-index: 20;
+        }
+        .cover-all.modal-cover {
+            pointer-events: all;
+            opacity: 1;
+        }
+        .modal-frame {
+            width: 60%;
+            /* TODO: We have fixed target points due to static content design ... replace this with a javascript fill if necessary */
+            --target-height: 408px;
+            --notchSize: 60px;
+        }
+        .modal-inner {
+            height: var(--target-height);
+            width: 100%;
+            background-color: var(--pinnacle-bg-light);
+            color: var(--pinnacle-bg);
+            position: relative;
+            /* https://css-tricks.com/notched-boxes/ */
+            clip-path:
+              polygon(
+                0% var(--notchSize),
+                var(--notchSize) 0%,
+                100% 0%,
+                100% calc(100% - var(--notchSize)),
+                calc(100% - var(--notchSize)) 100%,
+                var(--notchSize) 100%,
+                0% 100%
+              );
+              z-index: 25;
+
+        }
+        .modal-inner {
+            display: flex;
+            flex-direction: column;
+            padding: 0 25px;
+        }
+        .modal-top {
+            border-left: 3px solid var(--pinnacle-gold);
+            display: flex;
+            margin: 0 1rem;
+        }
+        .modal-bottom {
+            margin: 0 1rem;
+        }
+        .modal-logo {
+            width: 45%;
+            padding: 0 3rem;
+            display: flex;
+            align-items: center;
+        }
+        .modal-logo img {
+            width: 100%;
+        }
+        .modal-hackerList {
+            margin-left: calc(50% - 0.75rem);
+            border-left: 3px solid var(--pinnacle-gold);
+        }
+        .modal-inner .modal-title {
+            font-size: 3rem;
+        }
+        .modal-inner h4 {
+            font-weight: normal !important;
+            margin-bottom: 0.1rem;
+        }
+        .modal-inner li {
+            font-weight: normal !important;
+            margin-bottom: -0.3rem;
+            font-size: 1.5rem;
+        }
+        .modal-backing {
+            height: calc( var(--target-height) + 10px);
+            background-color: var(--pinnacle-gold);
+            position: absolute;
+            width: calc(60% + 10px);
+            left: calc(20% - 5px);
+            top: 50%;
+            transform: translate(0%, -50%);
+            clip-path:
+              polygon(
+                0% var(--notchSize),
+                var(--notchSize) 0%,
+                100% 0%,
+                100% calc(100% - var(--notchSize)),
+                calc(100% - var(--notchSize)) 100%,
+                var(--notchSize) 100%,
+                0% 100%
+              );
+              z-index: 5;
+        }
+        .modal-dismiss {
+            height: var(--notchSize);
+            padding: calc((var(--notchSize) - 20px) / 2) 0;
+        }
+        .modal-dismiss svg {
+            display: block;
+            margin-left: auto;
+            height: 100%;
+        }
+        </style>
     </head>
-    <body>
+    <body class="withModal">
+        <div class="cover-all modal-cover" id="backdrop">
+            <div class="modal-frame" id="modal">
+                <div class="modal-inner">
+                    <div class="modal-dismiss">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 55.11 55.11">
+                            <rect x="20.36" y="-8.44" width="14.4" height="72" rx="7.2" transform="translate(27.56 -11.41) rotate(45)" style="fill:#7b7c80"/>
+                            <rect x="20.36" y="-8.44" width="14.4" height="72" rx="7.2" transform="translate(-11.41 27.56) rotate(-45)" style="fill:#7b7c80"/>
+                        </svg>
+                    </div>
+                    <div class="modal-top">
+                        <div class="modal-logo">
+                            <img src="/assets/hackathons/hackduke.png">
+                        </div>
+                        <div class="modal-body">
+                            <h1 class="modal-title">Tree Hacks</h1>
+                            <h4 class="modal-host">Stanford University</h4>
+                            <h4 class="modal-location">Stanford, CA</h4>
+                            <h4 class="modal-date">February 14-16, 2020</h4>
+                        </div>
+                    </div>
+                    <div class="modal-bottom">
+                        <div class="modal-hackerList">
+                            <ul>
+                                <li>Samuel Escapa</li>
+                                <li>Jamsheed Mistri</li>
+                                <li>Oscar Bjorkman</li>
+                                <li>Michael Yoo</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-backing"></div>
+            </div>
+        </div>
         <div class="ultrawide-capture">
             <div class="linesCanvas-outside" id="initialCanvas">
                 <div class="linesCanvas-inside"></div>
