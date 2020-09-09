@@ -240,13 +240,12 @@ function spawnEyecatchers() {
     //Originally we created these in a loop to be DRY ... but there's some subtle differences between states its not really worth it
     var prestige_start = 75;
     var prestige_end = 75 - sectionHeight;
-    console.log("prestige "+prestige_start+" to "+prestige_end);
     var prestigeTimeline = gsap.timeline({
         scrollTrigger: {
             trigger: "#prestige",
             scrub: true,
-            start: "center center+=75%",
-            end: "center center+=25%",
+            start: "center center+="+prestige_start+"%",
+            end: "center center+="+prestige_end+"%",
             ease: "power3"
         }
     });
@@ -266,14 +265,13 @@ function spawnEyecatchers() {
         duration: 1
     });
     var fame_start = prestige_end + ((1/3) * sectionHeight); //weird math here bc negatives
-    var fame_end = fame_start - sectionHeight;
-    console.log("fame "+fame_start+" to "+fame_end);
+    var fame_end = -1 * (fame_start - sectionHeight);
     var fameTimeline = gsap.timeline({
         scrollTrigger: {
             trigger: "#fame",
             scrub: true,
-            start: "center center+=41.66%",
-            end: "center center-=8.33%",
+            start: "center center+="+fame_start+"%",
+            end: "center center-="+fame_end+"%",
             ease: "power3"
         }
     });
@@ -292,16 +290,14 @@ function spawnEyecatchers() {
         top: "-30%",
         duration: 1
     });
-    var unlimited_start = fame_end + ((1/3) * sectionHeight);
-    var unlimited_end = unlimited_start + sectionHeight;
-    console.log("unlimited "+unlimited_start+" to "+unlimited_end);
-
+    var unlimited_start = (-1*fame_end) + ((1/3) * sectionHeight);
+    var unlimited_end = -1 * (unlimited_start - sectionHeight);
     var unlimitedTimeline = gsap.timeline({
         scrollTrigger: {
             trigger: "#unlimited",
             scrub: true,
-            start: "center center+=8.333%",
-            end: "center center-=41.666%",
+            start: "center center+="+unlimited_start+"%",
+            end: "center center-="+unlimited_end+"%",
             ease: "power3"
         }
     });
