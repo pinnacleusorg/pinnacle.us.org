@@ -52,7 +52,7 @@
         .modal-frame {
             width: 60%;
             /* TODO: We have fixed target points due to static content design ... replace this with a javascript fill if necessary */
-            --target-height: 408px;
+            --target-height: 430px;
             --notchSize: 60px;
         }
         .modal-inner {
@@ -144,8 +144,8 @@
         }
         </style>
     </head>
-    <body class="withModal">
-        <div class="cover-all modal-cover" id="backdrop">
+    <body class="">
+        <div class="cover-all" id="backdrop">
             <div class="modal-frame" id="modal">
                 <div class="modal-inner">
                     <div class="modal-dismiss">
@@ -282,10 +282,10 @@
                     </div>
                 </div>
             </div>
-            <!-- <div class="container-fluid light-bg py-5" id="carousel">
+            <div class="container-fluid light-bg py-5" id="carousel">
                 <div class="container inner">
-                    <h2 class="mb-2">Qualifying Hackathons</h2>
-                    <p class="carousel-subtitle mb-4">We will begin to announce qualifying hackathons for the 2020-21 Pinnacle Season soon.</p>
+                    <h2 class="mb-2">Upcoming Hackathons</h2>
+                    <p class="carousel-subtitle mb-4">Participate in an upcoming partner event to qualify for Pinnacle 2021.</p>
                     <div class="carousel">
                         <button class="carousel-nav mirrorflip">
                             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -293,18 +293,46 @@
                             </svg>
                         </button>
                         <div class="carousel-inner">
-                            <div class="carousel-element carousel-first" id="">
-                                <img src="/assets/hackathons/" class="carousel-image">
+                            <div class="carousel-element carousel-first" id="hackduke">
+                                <img src="/assets/hackathons/hackduke.png" class="carousel-image">
                                 <div class="carousel-info">
-                                    <span class="carousel-title"><a href="" target="_blank"></a></span>
-                                    <span class="carousel-location"></span>
+                                    <span class="carousel-title"><a href="" target="_blank">HackDuke</a></span>
+                                    <span class="carousel-location">9/15/20</span>
                                 </div>
                             </div>
-                            <div class="carousel-element carousel-last" id="">
-                                <img src="/assets/hackathons/" class="carousel-image">
+                            <div class="carousel-element" id="lah">
+                                <img src="/assets/hackathons/losaltoshacks.png" class="carousel-image">
                                 <div class="carousel-info">
-                                    <span class="carousel-title"><a href="" target="_blank"></a></span>
-                                    <span class="carousel-location"></span>
+                                    <span class="carousel-title"><a href="" target="_blank">Los Altos Hacks</a></span>
+                                    <span class="carousel-location">9/20/20</span>
+                                </div>
+                            </div>
+                            <div class="carousel-element" id="mhacks">
+                                <img src="/assets/hackathons/mhacks.png" class="carousel-image">
+                                <div class="carousel-info">
+                                    <span class="carousel-title"><a href="" target="_blank">MHacks</a></span>
+                                    <span class="carousel-location">10/15/20</span>
+                                </div>
+                            </div>
+                            <div class="carousel-element" id="vandyhacks">
+                                <img src="/assets/hackathons/vandyhacks.png" class="carousel-image">
+                                <div class="carousel-info">
+                                    <span class="carousel-title"><a href="" target="_blank">VandyHacks</a></span>
+                                    <span class="carousel-location">10/30/20</span>
+                                </div>
+                            </div>
+                            <div class="carousel-element" id="slohacks">
+                                <img src="/assets/hackathons/slohacks.png" class="carousel-image">
+                                <div class="carousel-info">
+                                    <span class="carousel-title"><a href="" target="_blank">SLO Hacks</a></span>
+                                    <span class="carousel-location">11/15/20</span>
+                                </div>
+                            </div>
+                            <div class="carousel-element carousel-last" id="hacknyu">
+                                <img src="/assets/hackathons/hacknyu.png" class="carousel-image">
+                                <div class="carousel-info">
+                                    <span class="carousel-title"><a href="" target="_blank">HackNYU</a></span>
+                                    <span class="carousel-location">12/1/20</span>
                                 </div>
                             </div>
                         </div>
@@ -314,8 +342,9 @@
                             </svg>
                         </button>
                     </div>
+                    <p class="carousel-subtitle mt-4">Check our our <a href="/hackathons">full list</a> of partnered events.</p>
                 </div>
-            </div> -->
+            </div>
             <div class="container-fluid light-bg" id="schedule">
                 <div class="container inner">
                     <h2>Timeline</h2>
