@@ -234,7 +234,13 @@ function spawnEyecatchers() {
             }
         }
     });
+    var sectionHeight = 50;
+    var beginning = 75; //first section will end at beginning - sectionHeight
+    //next section will begin at ending - (0.33*sectionHeight)
     //Originally we created these in a loop to be DRY ... but there's some subtle differences between states its not really worth it
+    var prestige_start = 75;
+    var prestige_end = 75 - sectionHeight;
+    console.log("prestige "+prestige_start+" to "+prestige_end);
     var prestigeTimeline = gsap.timeline({
         scrollTrigger: {
             trigger: "#prestige",
@@ -252,14 +258,16 @@ function spawnEyecatchers() {
     prestigeTimeline.to("#prestige", {
         opacity: 1,
         top: "0%",
-        duration: 1
+        duration: 1.5
     });
     prestigeTimeline.to("#prestige", {
         opacity: 0,
         top: "-30%",
         duration: 1
     });
-
+    var fame_start = prestige_end + ((1/3) * sectionHeight); //weird math here bc negatives
+    var fame_end = fame_start - sectionHeight;
+    console.log("fame "+fame_start+" to "+fame_end);
     var fameTimeline = gsap.timeline({
         scrollTrigger: {
             trigger: "#fame",
@@ -277,13 +285,16 @@ function spawnEyecatchers() {
     fameTimeline.to("#fame", {
         opacity: 1,
         top: "0%",
-        duration: 1
+        duration: 1.5
     });
     fameTimeline.to("#fame", {
         opacity: 0,
         top: "-30%",
         duration: 1
     });
+    var unlimited_start = fame_end + ((1/3) * sectionHeight);
+    var unlimited_end = unlimited_start + sectionHeight;
+    console.log("unlimited "+unlimited_start+" to "+unlimited_end);
 
     var unlimitedTimeline = gsap.timeline({
         scrollTrigger: {
@@ -302,7 +313,7 @@ function spawnEyecatchers() {
     unlimitedTimeline.to("#unlimited", {
         opacity: 1,
         top: "0%",
-        duration: 1
+        duration: 1.5
     });
     unlimitedTimeline.to("#unlimited", {
         opacity: 1,
