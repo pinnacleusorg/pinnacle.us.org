@@ -127,7 +127,7 @@ $(function() {
         if($(this).hasClass('mirrorflip')) direction = -1;
         var $inner = $('.carousel-inner');
         var boxSize = $inner.width();
-        var offset = boxSize / 5 * direction;
+        var offset = boxSize / 4 * direction;
         var currentPosition = $inner.scrollLeft();
         $(this).addClass("clicked");
         var holdEle = this;
@@ -146,16 +146,43 @@ $(function() {
             $inner.removeClass('bounceRightAnimation bounceLeftAnimation').scrollTop();
             $inner.addClass('bounceRightAnimation');
         }
-        else if(currentPosition > (boxSize / 5 * $('.carousel-element').length) - boxSize - 10 && direction == 1) {
+        else if(currentPosition > (boxSize / 4 * $('.carousel-element').length) - boxSize - 10 && direction == 1) {
             isAnimating = false;
             $inner.removeClass('bounceRightAnimation bounceLeftAnimation').scrollTop();
             $inner.addClass('bounceLeftAnimation');
         }
     });
-    $('.carousel-image').click(function() {
+    $('.carousel-image, .carousel-element a').click(function(e) {
+        /*
+        e.preventDefault();
+        //trigger modal!
+        // pull data ...
+        var dataContainer = $(this).closest('.carousel-element').data('addr');
+        $.getJSON("/assets/hackathons/"+dataContainer, function(data) {
+            triggerModal(data);
+        });
+        //TODO: loading status
+        */
         $(this).parent().find('a')[0].click();
-    })
+    });
+    $('#backdrop').click(function() {
+        cancelModal();
+    });
 });
+function triggerModal(blob) {
+    //fade backdrop
+    $('body').addClass('withModal');
+    $('#backdrop').addClass('modal-cover');
+
+}
+
+function cancelModal() {
+    //deconstruct
+    console.log('close modal');
+    $('body').removeClass('withModal');
+    $('#backdrop').removeClass('modal-cover');
+}
+
 function processScroll(scroll) {
     initialScroll = true;
     //CONS:
