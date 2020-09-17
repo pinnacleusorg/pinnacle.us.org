@@ -153,6 +153,7 @@ $(function() {
         }
     });
     $('.carousel-image, .carousel-element a').click(function(e) {
+        /*
         e.preventDefault();
         //trigger modal!
         // pull data ...
@@ -161,7 +162,8 @@ $(function() {
             triggerModal(data);
         });
         //TODO: loading status
-        // $(this).parent().find('a')[0].click();
+        */
+        $(this).parent().find('a')[0].click();
     });
     $('#backdrop').click(function() {
         cancelModal();
