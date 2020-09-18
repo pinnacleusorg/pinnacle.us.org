@@ -29,17 +29,18 @@
             padding: 3rem;
         }
         .hackathon-grid {
+            display: flex;
             width: 100%;
             padding: 0;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            grid-gap: 50px;
+            overflow: hidden;
+            flex-wrap: wrap;
+            justify-content: center;
         }
         .carousel-element {
-            width: 100%;
-            padding: 0;
+            padding: 15px;
+            width: calc(25% - 50px);
+            min-width: 220px;
         }
-        /* TODO: center last element when uneven */
         </style>
     </head>
     <body>
