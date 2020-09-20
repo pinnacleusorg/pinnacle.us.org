@@ -1,0 +1,31 @@
+/* Sponsors Section */
+#sponsors {
+    text-align: center;
+    z-index: 1;
+}
+#sponsors .inner {
+    padding: 18rem 0;
+}
+#sponsors h2 {
+    font-size: 3rem;
+}
+.sponsor-logos {
+    width: 100%;
+}
+.sponsor-logos .sponsor {
+    margin: 3rem auto;
+    width: 100%;
+    display: block;
+    max-width: 300px;
+}
+.sponsor-logos .sponsor img {
+    width: 100%;
+    max-height: 30vh
+}
+/* Sponsor Specific Adjustments */
+#hack-plus {
+}
+#sponsor-ad {
+    max-width: 100%;
+    font-size: 2rem;
+}

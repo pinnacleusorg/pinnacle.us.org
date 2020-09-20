@@ -1,0 +1,50 @@
+/* Timeline element (replaces Schedule) */
+#timeline-container {
+    font-size: 28px;
+    font-weight: lighter;
+    display: block;
+    margin-left: auto;
+    width: 100%;
+    margin-top: 8%;
+    padding: 0 10%;
+}
+.tl-ele {
+    display: flex;
+    width: 100%;
+    margin: 6rem 0;
+}
+.tl-ele.timeline-right {
+    justify-content: flex-end;
+}
+.tl-ele.timeline-left {
+
+}
+.timeline-desc {
+    margin-left: 10%;
+    color: var(--pinnacle-gold);
+}
+.timeline-date {
+    font-weight: bold;
+    min-width: 150px;
+    width: 60%;
+    text-align: left;
+}
+.timeline-end {
+    margin-top: 8rem;
+    display: block;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: bold;
+    padding: 0 3rem;
+}
+.timeline-socials {
+    text-align: center;
+    display: block;
+    font-size: 1.3rem;
+    padding-bottom: 1rem;
+}
+.timeline-end.lead {
+    font-size: 2rem;
+    padding-bottom: 3rem;
+    font-weight: normal;
+}

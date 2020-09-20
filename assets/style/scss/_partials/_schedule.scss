@@ -1,0 +1,25 @@
+/* Schedule Section */
+#schedule {
+    padding-bottom: 550px;
+}
+#schedule h2 {
+    text-align: center;
+}
+#schedule .inner {
+    min-height: 40rem;
+}
+#schedule .right-body {
+    margin-top: 8rem;
+    font-size: 34px;
+}
+.calendar-obj {
+    font-weight: bold;
+}
+.calendar-obj .time {
+    float: left;
+    display: inline-block;
+}
+.calendar-obj .description {
+    float: right;
+    display: inline-block;
+}
