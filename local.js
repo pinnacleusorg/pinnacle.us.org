@@ -1,3 +1,10 @@
+const { exec } = require('child_process');
+
+const sass = exec('sass --watch assets/sass/main.scss:assets/style.css');
+
+sass.on('exit', function (code) {
+    console.log('Child process exited with exit code '+code);
+  });
 var bs = require('browser-sync').create();
 
 bs.init({
