@@ -250,7 +250,7 @@ function spawnEyecatchers() {
             scrub: true,
             pin: true,
             start: "center center",
-            end: "bottom 50%",
+            end: "bottom 20%",
             ease: "power3",
             onRefresh: function() { //refresh to adjust line change due to gsap grow
                 updateLines();
@@ -261,7 +261,7 @@ function spawnEyecatchers() {
             }
         }
     });
-    var sectionHeight = 50;
+    var sectionHeight = 80;
     var beginning = 75; //first section will end at beginning - sectionHeight
     //next section will begin at ending - (0.33*sectionHeight)
     //Originally we created these in a loop to be DRY ... but there's some subtle differences between states its not really worth it
