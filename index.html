@@ -142,6 +142,18 @@
             margin-left: auto;
             height: 100%;
         }
+        #count-display {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 5px;
+  color: black;
+  background-color: white;
+  border: 1px solid black;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 1s;
+}
         </style>
     </head>
     <body class="">
@@ -271,7 +283,7 @@
                     <div class="line-out"></div>
                 </div> -->
                 <div class="container inner">
-                    <h2 class="mb-5">What is Pinnacle?</h2>
+                    <h2 class="mb-5 teaser" teaser-id="main">What is Pinnacle?</h2>
                     <!-- <div class="mobileOnly titleDivider divider-right">
                         <div class="divider-top"></div>
                         <div class="divider-edge"></div>
@@ -434,7 +446,7 @@
                     <div class="card-deck engagement-deck">
                         <div class="card">
                             <div class="card-body">
-                                <h3 class="card-title">Future staff?</h3>
+                                <h3 class="card-title teaser" teaser-id="future">Future staff?</h3>
                                 <p class="card-text p-2">Be a part of the team that makes it happen.</p>
                             </div>
                             <div class="card-footer">
@@ -473,7 +485,7 @@
                 <div class="container inner">
                     <h2 class="text-center">Sponsors</h2>
                     <div class="sponsor-logos">
-                        <div class="sponsor" id="sponsor-ad">
+                        <div class="sponsor teaser" id="sponsor-ad" teaser-id="sponsor">
                             We will be announcing our sponsors soon!<br>
                             Interested in being one?<br>Please email us at <a href="mailto:sponsor@pinnacle.us.org">sponsor@pinnacle.us.org</a>.
                         </div>
@@ -495,5 +507,54 @@
             <script src="assets/clippath.min.js"></script>
             <script src="assets/bg.js"></script>
         </div>
+
+        <div id="count-display">
+            Counter <span id="counter">0</span>/3
+           </div>
+        <script>
+            window.onload = function() {
+                let teaserStep = 0;
+                const highlightedIds = [];
+                const countDisplayElement = document.getElementById("count-display");
+
+                let timer;
+
+                const incrementCounter = (id) => {
+                    if (teaserStep === 3 || highlightedIds.includes(id)) return;
+                    highlightedIds.push(id);
+                    countDisplayElement.style.opacity = 1;
+                    countDisplayElement.style.zIndex = 1000;
+                    document.getElementById("counter").innerHTML = ++teaserStep;
+
+                
+                    if (teaserStep === 3) countDisplayElement.innerHTML = "You've unlocked <a href='#' target='_blank'>teaser 1</a>."
+                }
+
+                function onSelection(e) {
+                    if (timer) clearTimeout(timer);
+                    
+                    const selection = (document.all) ? document.selection.createRange().text : document.getSelection();
+                    if (selection.type !== "Range" || selection.toString() !== "?") return;
+
+                    
+                    timer = window.setTimeout(() => {
+                        if (teaserStep === 3) return;
+                    
+                        const selectedElement = selection.anchorNode.parentNode;
+
+                        if (!selectedElement.classList.contains("teaser")) return;
+
+                        if (teaserStep === 0) {
+                            if (selectedElement.getAttribute("teaser-id") === "main") incrementCounter("main");	
+                        } else {
+                            incrementCounter(selectedElement.getAttribute("teaser-id"));
+                        }
+                    }, teaserStep === 0 ? 5000 : 1000)
+                }
+
+                document.onmouseup = onSelection;
+                if (!document.all) document.captureEvents(Event.MOUSEUP);
+            }
+        </script>
     </body>
 </html>
