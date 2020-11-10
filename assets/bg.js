@@ -38,6 +38,37 @@ $(function() {
     if(isSafari) {
         $('.linesCanvas-outside#mainCanvas').ClipPath('50% 100vh, 0% 160vh, 0% 100%, 100% 100%, 100% 160vh');
     }
+
+    //teaser inject
+    var teaser_step = 0;
+    var teaser_highlighted = [];
+    var $teaser = $('#count-display');
+    var teaser_timer;
+    function teaser_increment(e) {
+        if(teaser_step === 3 || teaser_highlighted.includes(e)) return;
+        teaser_highlighted.push(e);
+        $teaser.css("opacity", 1).css("z-index", 1000);
+        $('#counter', $teaser).html(++teaser_step);
+
+        if(teaser_step === 3) $teaser.html("You've unlocked <a href='/teaser' target='_blank'>teaser 1</a>.");
+    }
+    $('.teaser').select(function() {
+        if(teaser_step === 3) return;
+        console.log("selected", this);
+        var id = $(this).attr('id');
+        var selection = (document.all) ? document.selection.createRange().text : document.getSelection();
+        setTimeout(function() {
+            var newSelection = (document.all) ? document.selection.createRange().text : document.getSelection();
+            if(JSON.stringify(newSelection) == JSON.stringify(selection)) {
+                //we kept the same selection ...
+                if(teaser_step === 0) {
+                    if(id == "t-flag-1") teaser_increment(id);
+                }
+                else
+                    teaser_increment(id);
+            }
+        }, teaser_step === 0 ? 5000 : 1000);
+    });
 // Update/Generate Lines
     gsap.registerPlugin(ScrollTrigger);
     updateLines();

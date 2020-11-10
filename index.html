@@ -23,7 +23,6 @@
 
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=0">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="/assets/bootstrap.min.css">
         <link rel="stylesheet" href="assets/style.css">
         <title>Pinnacle • The Olympics of Hackathons</title>
         <style>
@@ -271,7 +270,7 @@
                     <div class="line-out"></div>
                 </div> -->
                 <div class="container inner">
-                    <h2 class="mb-5">What is Pinnacle?</h2>
+                    <h2 class="mb-5">What is Pinnacle<textarea disabled rows="1" class="teaser" id="t-flag-1">?</textarea></h2>
                     <!-- <div class="mobileOnly titleDivider divider-right">
                         <div class="divider-top"></div>
                         <div class="divider-edge"></div>
@@ -434,7 +433,7 @@
                     <div class="card-deck engagement-deck">
                         <div class="card">
                             <div class="card-body">
-                                <h3 class="card-title">Future staff?</h3>
+                                <h3 class="card-title">Future staff<textarea disabled rows="1" class="teaser" id="t-flag-2">?</textarea></h3>
                                 <p class="card-text p-2">Be a part of the team that makes it happen.</p>
                             </div>
                             <div class="card-footer">
@@ -475,7 +474,7 @@
                     <div class="sponsor-logos">
                         <div class="sponsor" id="sponsor-ad">
                             We will be announcing our sponsors soon!<br>
-                            Interested in being one?<br>Please email us at <a href="mailto:sponsor@pinnacle.us.org">sponsor@pinnacle.us.org</a>.
+                            Interested in being one<textarea disabled rows="1" class="teaser" id="t-flag-3">?</textarea><br>Please email us at <a href="mailto:sponsor@pinnacle.us.org">sponsor@pinnacle.us.org</a>.
                         </div>
                     </div>
                 </div>
@@ -488,6 +487,9 @@
                     </div>
                 </div>
             </footer>
+            <div id="count-display">
+                Counter <span id="counter">0</span>/3
+            </div>
             <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.0/gsap.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.0/ScrollTrigger.min.js"></script>
