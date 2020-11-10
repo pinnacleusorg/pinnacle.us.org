@@ -987,7 +987,7 @@ html#mobileView,
     line-height: 100%;
     left: 2px;
     -webkit-text-fill-color: unset;
-
+    opacity: 1;
 }
 /* by far my favorite hack here. apply top only on webkit */
 .teaser:not(*:root) {
