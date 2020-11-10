@@ -945,3 +945,51 @@ html#mobileView,
 .eyecatcher-body p {
     font-size: 1.5rem;
 }
+#count-display {
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 5px;
+    color: black;
+    background-color: white;
+    border: 1px solid black;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 1s;
+}
+/* lol overwrite default textarea styles */
+.teaser {
+    overflow: hidden;
+    resize: unset;
+    text-rendering: unset;
+    color: unset;
+    letter-spacing: unset;
+    word-spacing: unset;
+    text-transform: unset;
+    text-indent: unset;
+    text-shadow: unset;
+    appearance: unset;
+    background-color: unset;
+    flex-direction: unset;
+    cursor: unset;
+    font: inherit;
+    margin: unset;
+    border: unset;
+    padding: unset;
+    white-space: unset;
+    overflow-wrap: unset;
+    outline: unset;
+    height: 1em;
+    width:1em;
+    display: inline-block;
+    text-align: left;
+    position: relative;
+    line-height: 100%;
+    left: 2px;
+    -webkit-text-fill-color: unset;
+
+}
+/* by far my favorite hack here. apply top only on webkit */
+.teaser:not(*:root) {
+    top: 0.3em;
+}
