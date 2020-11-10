@@ -52,15 +52,18 @@ $(function() {
 
         if(teaser_step === 3) $teaser.html("You've unlocked <a href='/teaser' target='_blank'>teaser 1</a>.");
     }
-    $('.teaser').bind('select touchend', function() {
+    $('.teaser').bind('select', function() {
         if(teaser_step === 3) return;
         console.log("selected", this);
         var id = $(this).attr('id');
         var selection = (document.all) ? document.selection.createRange().text : document.getSelection();
-        if(selection.toString() !== "?") return;
+        var focusedElement = document.activeElement;
+        console.log(selection, focusedElement)
+        if(selection.toString() !== "?" && !(selection.toString() == "" && focusedElement.selectionStart == 0 && focusedElement.selectionEnd == 1)) return;
         setTimeout(function() {
             var newSelection = (document.all) ? document.selection.createRange().text : document.getSelection();
-            if(JSON.stringify(newSelection) == JSON.stringify(selection)) {
+            console.log("in timeout", newSelection, selection);
+            if(Object.is(newSelection, selection) && focusedElement == document.activeElement) {
                 //we kept the same selection ...
                 if(teaser_step === 0) {
                     if(id == "t-flag-1") teaser_increment(id);
