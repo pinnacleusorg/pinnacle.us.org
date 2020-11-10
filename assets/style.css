@@ -991,5 +991,13 @@ html#mobileView,
 }
 /* by far my favorite hack here. apply top only on webkit */
 .teaser:not(*:root) {
-    top: 0.3em;
+    top: 0.2em;
+}
+/* retina is closer to 0.3 offset */
+@media
+(-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+    .teaser:not(*:root) {
+        top: 0.3em;
+    }
 }
