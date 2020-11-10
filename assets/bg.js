@@ -52,7 +52,7 @@ $(function() {
 
         if(teaser_step === 3) $teaser.html("You've unlocked <a href='/teaser' target='_blank'>teaser 1</a>.");
     }
-    $('.teaser').bind('select', function() {
+    $('.teaser').bind('select touchend', function() {
         if(teaser_step === 3) return;
         console.log("selected", this);
         var id = $(this).attr('id');
