@@ -52,11 +52,12 @@ $(function() {
 
         if(teaser_step === 3) $teaser.html("You've unlocked <a href='/teaser' target='_blank'>teaser 1</a>.");
     }
-    $('.teaser').select(function() {
+    $('.teaser').bind('select touchend', function() {
         if(teaser_step === 3) return;
         console.log("selected", this);
         var id = $(this).attr('id');
         var selection = (document.all) ? document.selection.createRange().text : document.getSelection();
+        if(selection.toString() !== "?") return;
         setTimeout(function() {
             var newSelection = (document.all) ? document.selection.createRange().text : document.getSelection();
             if(JSON.stringify(newSelection) == JSON.stringify(selection)) {
