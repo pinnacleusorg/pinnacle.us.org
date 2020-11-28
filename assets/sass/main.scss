@@ -10,14 +10,14 @@
 
 /* Global + Utility */
 :root {
-    --pinnacle-gold: rgb(198, 158, 96);
-    --pinnacle-bg: rgb(30, 29, 29);
-    --pinnacle-bg-light: rgb(248, 246, 237);
+    --pinnacle-gold: #c79d5e;
+    --pinnacle-bg: #1e1e1e;
+    --pinnacle-bg-light: #f8f5e8;
 }
 html, body {
     background-color: var(--pinnacle-bg);
     color: var(--pinnacle-bg-light);
-    font-family: KeplerStd;
+    font-family: CasperRegular;
     margin: 0;
     padding: 0;
     width: 100%;
@@ -35,6 +35,16 @@ body.lockScroll {
     font-family: "KeplerStd";
     src: url("font/KeplerStd-SemiboldScnDisp.otf");
     font-weight: 500;
+}
+@font-face {
+    font-family: "CasperRegular";
+    src: url("font/Casper-Regular.ttf");
+    font-weight: normal
+}
+@font-face {
+    font-family: "CasperBold";
+    src: url("font/Casper-Bold.ttf");
+    font-weight: normal
 }
 .fw {
     width: 100vw;
@@ -89,7 +99,7 @@ a:hover, a:focus {
 }
 .pinnacle-btn .btn-label {
     font-size: 1.2rem;
-    color: #F7F5E8;
+    color: var(--pinnacle-bg-light);
     font-weight: bold;
     position: relative;
     z-index: 99;
@@ -97,8 +107,8 @@ a:hover, a:focus {
 }
 .pinnacle-btn .btn-label > svg {
     height: 0.7em;
-    fill: #F7F5E8;
-    stroke: #F7F5E8;
+    fill: var(--pinnacle-bg-light);
+    stroke: var(--pinnacle-bg-light);
 }
 .pinnacle-btn > svg {
     position: absolute;
@@ -106,15 +116,15 @@ a:hover, a:focus {
     left:0;
 }
 .pinnacle-btn > svg path {
-    fill: #1B1B1B;
-    stroke: #1B1B1B;
+    fill: var(--pinnacle-bg);
+    stroke: var(--pinnacle-bg);
     transition: fill 0.3s ease, stroke 0.3s ease;
 }
 .pinnacle-btn.hover > svg path,
 .pinnacle-btn:focus > svg path,
 .pinnacle-btn:hover > svg path {
-    fill: #C69E60;
-    stroke: #947043;
+    fill: var(--pinnacle-gold);
+    stroke: var(--pinnacle-gold);
 }
 .pinnacle-btn.hover,
 .pinnacle-btn:focus,

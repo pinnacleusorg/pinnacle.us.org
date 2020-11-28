@@ -16,8 +16,8 @@
 *.log
 *.sql
 *.sqlite
-*.style.css
-*.style.css.map
+*.style.css*
+*.style.css.map*
 .DS_Store
 .DS_Store?
 ._*
@@ -26,5 +26,5 @@
 ehthumbs.db
 Thumbs.db
 CNAME
-
+*.sass-cache/*
 node_modules
