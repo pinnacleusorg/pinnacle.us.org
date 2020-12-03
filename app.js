@@ -14,7 +14,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 if(process.env.NODE_ENV == 'production')
-    app.use(logger({ skip: function(req, res) { return res.statusCode < 400 }, stream: __dirname + '/../morgan.log'));
+    app.use(logger({ skip: function(req, res) { return res.statusCode < 400 }, stream: __dirname + '/../morgan.log'}));
 else
     app.use(logger('dev'));
 
