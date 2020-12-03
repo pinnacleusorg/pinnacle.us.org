@@ -1,0 +1,340 @@
+<%- include('partials/simple-header', {title: "Pinnacle • Partnered Events"}) %>
+            <div class="container">
+                <a href="/">&lsaquo; Home</a>
+                <h2 class="text-center">Partnered Events</h2>
+                <p class="carousel-subtitle mb-4">More events will be announced in the coming weeks.</p>
+                <div class="hackathon-grid">
+                    <%
+                    var hackathons = [
+                        {
+                            "short_id": "athenahacks",
+                            "name": "AthenaHacks",
+                            "url": "https://www.athenahacks.com/",
+                            "showDate": false
+                        },
+                        {
+                            "short_id": "bitcamp",
+                            "name": "Bitcamp",
+                            "url": "https://bit.camp/",
+                            "showDate": false
+                        },
+                        {
+                            "short_id": "boilermake",
+                            "name": "BoilerMake",
+                            "url": "https://boilermake.org/",
+                            "showDate": false
+                        },
+                        {
+                            "short_id": "bostonhacks",
+                            "name": "BostonHacks",
+                            "url": "https://bostonhacks.io/",
+                            "showDate": false
+                        },
+                        {
+                            "short_id": "brickhack",
+                            "name": "BrickHack",
+                            "url": "https://brickhack.io/",
+                            "showDate": false
+                        },
+                        {
+                            "short_id": "calhacks",
+                            "name": "Cal Hacks",
+                            "url": "https://calhacks.io/",
+                            "showDate": false
+                        },
+                        {
+                            "short_id": "cmdf",
+                            "name": "cmd-f",
+                            "url": "https://cmd-f.nwplus.io/",
+                            "showDate": false
+                        },
+                        {
+                            "short_id": "cruzhacks",
+                            "name": "CruzHacks",
+                            "url": "https://www.cruzhacks.com/",
+                            "showDate": false
+                        },
+                        {
+                            "short_id": "cuhacking",
+                            "name": "cuHacking",
+                            "url": "https://cuhacking.com/",
+                            "showDate": false
+                        },
+                        {
+                            "short_id": "deltahacks",
+                            "name": "DeltaHacks",
+                            "url": "https://www.deltahacks.com/",
+                            "showDate": false
+                        },
+                        {
+                            "short_id": "dubhacks",
+                            "name": "DubHacks",
+                            "url": "https://dubhacks.co/",
+                            "showDate": false
+                        },
+                        {
+                            "short_id": "hackcu",
+                            "name": "HackCU",
+                            "url": "https://hackcu.org/",
+                            "showDate": false
+                        },
+                        {
+                            "short_id": "hackdartmouth",
+                            "name": "HackDartmouth",
+                            "url": "https://hackdartmouth.io/",
+                            "showDate": false
+                        },
+                        {
+                            "short_id": "hackdavis",
+                            "name": "HackDavis",
+                            "url": "https://hackdavis.io/",
+                            "showDate": false
+                        },
+                        {
+                            "short_id": "hackduke",
+                            "name": "HackDuke",
+                            "url": "https://hackduke.org/",
+                            "showDate": false
+                        },
+                        {
+                            "short_id": "hackgt",
+                            "name": "HackGT",
+                            "url": "https://2020.hack.gt/",
+                            "showDate": false
+                        },
+                        {
+                            "short_id": "hackillinois",
+                            "name": "HackIllinois",
+                            "url": "https://www.hackillinois.org/",
+                            "showDate": false
+                        },
+                        {
+                            "short_id": "hackmty",
+                            "name": "HackMTY",
+                            "url": "https://hackmty.com/",
+                            "showDate": false
+                        },
+                        {
+                            "short_id": "hacknyu",
+                            "name": "HackNYU",
+                            "url": "https://hacknyu.org/",
+                            "showDate": false
+                        },
+                        {
+                            "short_id": "hackprinceton",
+                            "name": "HackPrinceton",
+                            "url": "https://www.hackprinceton.com/",
+                            "showDate": false
+                        },
+                        {
+                            "short_id": "hacksc",
+                            "name": "HackSC",
+                            "url": "https://hacksc.com/",
+                            "showDate": false
+                        },
+                        {
+                            "short_id": "hacktech",
+                            "name": "Hacktech",
+                            "url": "https://hacktech2020.devpost.com/",
+                            "showDate": false
+                        },
+                        {
+                            "short_id": "hacktx",
+                            "name": "HackTX",
+                            "url": "https://hacktx.com/",
+                            "showDate": false
+                        },
+                        {
+                            "short_id": "hackuci",
+                            "name": "HackUCI",
+                            "url": "https://www.hackuci.com/",
+                            "showDate": false
+                        },
+                        {
+                            "short_id": "hackumass",
+                            "name": "HackUMass",
+                            "url": "https://hackumass.com/",
+                            "showDate": false
+                        },
+                        {
+                            "short_id": "hackutd",
+                            "name": "HackUTD",
+                            "url": "https://2021.hackutd.co/",
+                            "showDate": false
+                        },
+                        {
+                            "short_id": "hackwestern",
+                            "name": "HackWestern",
+                            "url": "https://hackwestern.com/",
+                            "showDate": false
+                        },
+                        {
+                            "short_id": "hackthenorth",
+                            "name": "Hack the North",
+                            "url": "https://hackthenorth.com/",
+                            "showDate": false
+                        },
+                        {
+                            "short_id": "hoohacks",
+                            "name": "HooHacks",
+                            "url": "https://www.hoohacks.io/",
+                            "showDate": false
+                        },
+                        {
+                            "short_id": "ivyhacks",
+                            "name": "IvyHacks",
+                            "url": "https://ivyhacks.com/",
+                            "showDate": false
+                        },
+                        {
+                            "short_id": "lahacks",
+                            "name": "LA Hacks",
+                            "url": "https://lahacks.com",
+                            "showDate": false
+                        },
+                        {
+                            "short_id": "mhacks",
+                            "name": "MHacks",
+                            "url": "https://mhacks.org/",
+                            "showDate": false
+                        },
+                        {
+                            "short_id": "nwhacks",
+                            "name": "nwHacks",
+                            "url": "https://www.nwhacks.io/",
+                            "showDate": false
+                        },
+                        {
+                            "short_id": "pennapps",
+                            "name": "PennApps",
+                            "url": "https://pennapps.com/",
+                            "showDate": false
+                        },
+                        {
+                            "short_id": "ruhacks",
+                            "name": "RU Hacks",
+                            "url": "https://ruhacks.com/",
+                            "showDate": false
+                        },
+                        {
+                            "short_id": "sdhacks",
+                            "name": "SD Hacks",
+                            "url": "https://sdhacks.io/",
+                            "showDate": false
+                        },
+                        {
+                            "short_id": "shehacks",
+                            "name": "SheHacks",
+                            "url": "https://shehacks.ca/",
+                            "showDate": false
+                        },
+                        {
+                            "short_id": "slohacks",
+                            "name": "SLO Hacks",
+                            "url": "https://www.slohacks.com/",
+                            "showDate": false
+                        },
+                        {
+                            "short_id": "swamphacks",
+                            "name": "SwampHacks",
+                            "url": "https://2021.swamphacks.com/",
+                            "showDate": false
+                        },
+                        {
+                            "short_id": "tamuhack",
+                            "name": "TAMUhack",
+                            "url": "https://tamuhack.com/th",
+                            "showDate": false
+                        },
+                        {
+                            "short_id": "tartanhacks",
+                            "name": "TartanHacks",
+                            "url": "https://tartanhacks.com/",
+                            "showDate": false
+                        },
+                        {
+                            "short_id": "technica",
+                            "name": "Technica",
+                            "url": "https://gotechnica.org/",
+                            "showDate": false
+                        },
+                        {
+                            "short_id": "ttboston",
+                            "name": "TechTogether Boston",
+                            "url": "https://boston.techtogether.io/",
+                            "showDate": false
+                        },
+                        {
+                            "short_id": "treehacks",
+                            "name": "TreeHacks",
+                            "url": "https://www.treehacks.com/",
+                            "showDate": false
+                        },
+                        {
+                            "short_id": "ubhacking",
+                            "name": "UB Hacking",
+                            "url": "https://www.ubhacking.com/",
+                            "showDate": false
+                        },
+                        {
+                            "short_id": "uoft",
+                            "name": "UofTHacks",
+                            "url": "https://uofthacks.com/",
+                            "showDate": false
+                        },
+                        {
+                            "short_id": "vandyhacks",
+                            "name": "VandyHacks",
+                            "url": "https://vandyhacks.org/",
+                            "showDate": false
+                        },
+                        {
+                            "short_id": "angelhacks",
+                            "name": "AngelHacks",
+                            "url": "https://www.angelhacks.org/",
+                            "showDate": false,
+                            "highschool": true
+                        },
+                        {
+                            "short_id": "losaltoshacks",
+                            "name": "Los Altos Hacks",
+                            "url": "https://www.losaltoshacks.com/",
+                            "showDate": false,
+                            "highschool": true
+                        },
+                        {
+                            "short_id": "masseyhacks",
+                            "name": "MasseyHacks",
+                            "url": "https://masseyhacks.ca/",
+                            "showDate": false,
+                            "highschool": true
+                        },
+                        {
+                            "short_id": "superposition",
+                            "name": "Superposition",
+                            "url": "https://superposition.tech/",
+                            "showDate": false,
+                            "highschool": true
+                        },
+                        {
+                            "short_id": "teenhacksli",
+                            "name": "TeenHacks LI",
+                            "url": "https://teenhacksli.com/",
+                            "showDate": false,
+                            "highschool": true
+                        }
+                    ];
+                    for(var i = 0; i < hackathons.length; i++) {
+                        if(hackathons[i].highschool) continue; %>
+                        <%- include('partials/carousel-element', hackathons[i]); %>
+                    <%}%>
+                </div>
+                <h2 class="text-center mt-5">High School Hackathons</h2>
+                <div class="hackathon-grid mb-2">
+                    <% for(var i = 0; i < hackathons.length; i++) {
+                        if(!hackathons[i].highschool) continue; %>
+                        <%- include('partials/carousel-element', hackathons[i]); %>
+                    <%}%>
+                </div>
+            </div>
+<%- include('partials/simple-footer') %>
