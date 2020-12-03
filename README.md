@@ -1,7 +1,5 @@
-# css rework branch for pinnacle.us.org
+#### To run locally (port 9000) w/ browsersync, run:
+`node local.js`
 
-#### To start browser-sync (installed locally):
-`./node_modules/.bin/browser-sync --config 'local.js'`
-
-#### To compile Sass files into style.css, run:
-`sass --watch assets/sass/main.scss:assets/style.css`
+#### To run locally (port 9000) w/o browsersync, run:
+`node app.js`
