@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en" id="mobileView">
+    <head>
+        <meta charset="utf-8">
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+        <link rel="manifest" href="/assets/site.webmanifest">
+        <link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#c69e60">
+        <link rel="shortcut icon" href="/assets/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="Pinnacle">
+        <meta name="application-name" content="Pinnacle">
+        <meta name="msapplication-TileColor" content="#c69e60">
+        <meta name="msapplication-config" content="/assets/browserconfig.xml">
+        <meta name="theme-color" content="#1e1d1d">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="assets/style.css">
+        <title>Pinnacle • One of Four</title>
+        <style>
+        #mobileView #hero {
+            height: auto;
+            padding-bottom: 0;
+        }
+        .standalone-body {
+            background-color: rgb(248, 246, 237);
+            color: var(--pinnacle-bg);
+            padding: 3rem;
+        }
+        .aspect-ratio {
+            width: 100%;
+            position: relative;
+            height: 0;
+            padding-bottom: 56.25%;
+        }
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        </style>
+    </head>
+    <body>
+        <div class="container-fluid fw" id="hero">
+            <div class="container inner">
+                <img src="assets/icon.png" alt="Pinnacle Logo" class="brandImg mb-3" id="keyLogo">
+            </div>
+        </div>
+        <div class="container-fluid standalone-body">
+            <div class="container">
+                <a href="/">&lsaquo; Home</a>
+                <h2>One of Four</h2>
+                <div class="aspect-ratio">
+                    <iframe width="100%" src="https://www.youtube.com/embed/lc7l1DZITzg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+        <footer class="gold-bg">
+            <div class="container-fluid inner text-center p-5" id="footer">
+                &copy; 2020 Pinnacle
+            </div>
+        </footer>
+    </body>
+</html>
