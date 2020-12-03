@@ -38,6 +38,41 @@ $(function() {
     if(isSafari) {
         $('.linesCanvas-outside#mainCanvas').ClipPath('50% 100vh, 0% 160vh, 0% 100%, 100% 100%, 100% 160vh');
     }
+
+    //teaser inject
+    var teaser_step = 0;
+    var teaser_highlighted = [];
+    var $teaser = $('#count-display');
+    var teaser_timer;
+    function teaser_increment(e) {
+        if(teaser_step === 3 || teaser_highlighted.includes(e)) return;
+        teaser_highlighted.push(e);
+        $teaser.css("opacity", 1).css("z-index", 1000);
+        $('#counter', $teaser).html(++teaser_step);
+
+        if(teaser_step === 3) $teaser.html("You've unlocked <a href='/teaser' target='_blank'>teaser 1</a>.");
+    }
+    $('.teaser').bind('select touchend', function() {
+        if(teaser_step === 3) return;
+        console.log("selected", this);
+        var id = $(this).attr('id');
+        var selection = (document.all) ? document.selection.createRange().text : document.getSelection();
+        var focusedElement = document.activeElement;
+        console.log(selection, focusedElement)
+        if(selection.toString() !== "?" && !(selection.toString() == "" && focusedElement.selectionStart == 0 && focusedElement.selectionEnd == 1)) return;
+        setTimeout(function() {
+            var newSelection = (document.all) ? document.selection.createRange().text : document.getSelection();
+            console.log("in timeout", newSelection, selection);
+            if(Object.is(newSelection, selection) && focusedElement == document.activeElement) {
+                //we kept the same selection ...
+                if(teaser_step === 0) {
+                    if(id == "t-flag-1") teaser_increment(id);
+                }
+                else
+                    teaser_increment(id);
+            }
+        }, teaser_step === 0 ? 5000 : 1000);
+    });
 // Update/Generate Lines
     gsap.registerPlugin(ScrollTrigger);
     updateLines();
@@ -250,7 +285,7 @@ function spawnEyecatchers() {
             scrub: true,
             pin: true,
             start: "center center",
-            end: "bottom 50%",
+            end: "bottom 20%",
             ease: "power3",
             onRefresh: function() { //refresh to adjust line change due to gsap grow
                 updateLines();
@@ -261,7 +296,7 @@ function spawnEyecatchers() {
             }
         }
     });
-    var sectionHeight = 50;
+    var sectionHeight = 80;
     var beginning = 75; //first section will end at beginning - sectionHeight
     //next section will begin at ending - (0.33*sectionHeight)
     //Originally we created these in a loop to be DRY ... but there's some subtle differences between states its not really worth it

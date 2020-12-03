@@ -11,6 +11,9 @@ router.get('/hackathons', function(req, res, next) {
 router.get('/privacy', function(req, res, next) {
   res.render('privacy');
 });
+router.get('/teaser', function(req, res, next) {
+  res.render('teaser');
+});
 router.get('/favicon.ico', function(req, res, next) {
     res.sendFile(path.join(__dirname, '../', 'assets', 'favicon.ico'));
 });

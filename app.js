@@ -21,7 +21,9 @@ app.use(sassMiddleware({
   src: path.join(__dirname, 'assets', 'sass'),
   dest: path.join(__dirname, 'assets'),
   indentedSyntax: false,
-  sourceMap: true
+  sourceMap: true,
+  debug: true,
+  prefix: '/assets/'
 }));
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
