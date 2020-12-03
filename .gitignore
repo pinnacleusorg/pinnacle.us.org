@@ -16,8 +16,8 @@
 *.log
 *.sql
 *.sqlite
-*.main.css
-*.main.css.map
+.main.css
+.main.css.map
 .DS_Store
 .DS_Store?
 ._*
