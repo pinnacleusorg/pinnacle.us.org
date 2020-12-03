@@ -3,6 +3,7 @@ var path = require('path');
 var logger = require('morgan');
 var sassMiddleware = require('node-sass-middleware');
 var indexRouter = require('./routes/index');
+
 if(!process.env.PORT)
     require('dotenv').config();
 
@@ -14,6 +15,7 @@ app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 
+app.use((req, res, next) => { res.removeHeader('X-Powered-By'); next(); });
 
 //SASS Middleware
 app.use(sassMiddleware({
@@ -31,7 +33,7 @@ app.use('/', indexRouter);
 
 //Catch 404
 app.use(function(req, res, next) {
-    res.status(err.status || 500);
+    res.status(404);
     res.render('404');
 });
 
