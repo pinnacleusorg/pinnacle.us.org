@@ -3,6 +3,7 @@ var path = require('path');
 var logger = require('morgan');
 var sassMiddleware = require('node-sass-middleware');
 var indexRouter = require('./routes/index');
+var cors = require('cors');
 
 if(!process.env.PORT)
     require('dotenv').config();
@@ -19,6 +20,8 @@ else
     app.use(logger('dev'));
 
 app.use((req, res, next) => { res.removeHeader('X-Powered-By'); next(); });
+
+app.use(cors());
 
 //SASS Middleware
 app.use(sassMiddleware({
