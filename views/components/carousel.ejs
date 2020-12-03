@@ -1,0 +1,195 @@
+<div class="container-fluid light-bg py-5" id="carousel">
+    <div class="container inner">
+        <h2 class="mb-2">Upcoming Hackathons</h2>
+        <p class="carousel-subtitle mb-4">Participate in an upcoming partner event to qualify for Pinnacle 2021.</p>
+        <div class="carousel">
+            <button class="carousel-nav mirrorflip">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M10,2l9,10l-9,10h2l9-10L12,2H10z"></path>
+                </svg>
+            </button>
+            <div class="carousel-inner">
+                <%
+                var hackathons = [
+                    {
+                        "short_id": "hackduke",
+                        "name": "HackDuke",
+                        "url": "https://hackduke.org/",
+                        "showDate": true,
+                        "date": "12/5/20"
+                    },
+                    {
+                        "short_id": "hackumass",
+                        "name": "HackUMass",
+                        "url": "https://hackumass.com/",
+                        "showDate": true,
+                        "date": "12/18/20"
+                    },
+                    {
+                        "short_id": "shehacks",
+                        "name": "SheHacks",
+                        "url": "https://shehacks.ca/",
+                        "showDate": true,
+                        "date": "1/8/21"
+                    },
+                    {
+                        "short_id": "nwhacks",
+                        "name": "nwHacks",
+                        "url": "https://www.nwhacks.io/",
+                        "showDate": true,
+                        "date": "1/9/21"
+                    },
+                    {
+                        "short_id": "hackthenorth",
+                        "name": "Hack the North",
+                        "url": "https://hackthenorth.com/",
+                        "showDate": true,
+                        "date": "1/15/21"
+                    },
+                    {
+                        "short_id": "cruzhacks",
+                        "name": "CruzHacks",
+                        "url": "https://www.cruzhacks.com/",
+                        "showDate": true,
+                        "date": "1/15/21"
+                    },
+                    {
+                        "short_id": "hackdavis",
+                        "name": "HackDavis",
+                        "url": "https://hackdavis.io/",
+                        "showDate": true,
+                        "date": "1/16/21"
+                    },
+                    {
+                        "short_id": "boilermake",
+                        "name": "BoilerMake",
+                        "url": "https://boilermake.org/",
+                        "showDate": true,
+                        "date": "1/22/21"
+                    },
+                    {
+                        "short_id": "cuhacking",
+                        "name": "cuHacking",
+                        "url": "https://cuhacking.com/",
+                        "showDate": true,
+                        "date": "1/29/21"
+                    },
+                    {
+                        "short_id": "swamphacks",
+                        "name": "SwampHacks",
+                        "url": "https://2021.swamphacks.com/",
+                        "showDate": true,
+                        "date": "1/29/21"
+                    },
+                    {
+                        "short_id": "tamuhack",
+                        "name": "TAMUhack",
+                        "url": "https://tamuhack.com/th",
+                        "showDate": true,
+                        "date": "1/30/21"
+                    },
+                    {
+                        "short_id": "tartanhacks",
+                        "name": "TartanHacks",
+                        "url": "https://tartanhacks.com/",
+                        "showDate": true,
+                        "date": "2/5/21"
+                    },
+                    {
+                        "short_id": "treehacks",
+                        "name": "TreeHacks",
+                        "url": "https://www.treehacks.com/",
+                        "showDate": true,
+                        "date": "2/12/21"
+                    },
+                    {
+                        "short_id": "hacksc",
+                        "name": "HackSC",
+                        "url": "https://hacksc.com/",
+                        "showDate": true,
+                        "date": "2/19/21"
+                    },
+                    {
+                        "short_id": "sdhacks",
+                        "name": "SD Hacks",
+                        "url": "https://www.sdhacks.io/",
+                        "showDate": true,
+                        "date": "2/19/21"
+                    },
+                    {
+                        "short_id": "uoft",
+                        "name": "UofTHacks",
+                        "url": "https://uofthacks.com/",
+                        "showDate": true,
+                        "date": "2/19/21"
+                    },
+                    {
+                        "short_id": "brickhack",
+                        "name": "BrickHack",
+                        "url": "https://brickhack.io/",
+                        "showDate": true,
+                        "date": "2/20/21"
+                    },
+                    {
+                        "short_id": "angelhacks",
+                        "name": "AngelHacks",
+                        "url": "https://www.angelhacks.org/",
+                        "showDate": true,
+                        "date": "2/26/21"
+                    },
+                    {
+                        "short_id": "hackutd",
+                        "name": "HackUTD",
+                        "url": "https://2021.hackutd.co/",
+                        "showDate": true,
+                        "date": "2/27/21"
+                    },
+                    {
+                        "short_id": "deltahacks",
+                        "name": "DeltaHacks",
+                        "url": "https://www.deltahacks.com/",
+                        "showDate": true,
+                        "date": "3/5/21"
+                    },
+                    {
+                        "short_id": "athenahacks",
+                        "name": "AthenaHacks",
+                        "url": "https://www.athenahacks.com/",
+                        "showDate": true,
+                        "date": "3/6/21"
+                    },
+                    {
+                        "short_id": "hackcu",
+                        "name": "HackCU",
+                        "url": "https://hackcu.org/",
+                        "showDate": true,
+                        "date": "3/6/21"
+                    },
+                    {
+                        "short_id": "lahacks",
+                        "name": "LA Hacks",
+                        "url": "https://lahacks.com",
+                        "showDate": true,
+                        "date": "3/21/21"
+                    },
+                    {
+                        "short_id": "masseyhacks",
+                        "name": "MasseyHacks",
+                        "url": "https://masseyhacks.ca/",
+                        "showDate": true,
+                        "date": "6/5/21"
+                    }
+                ];
+                for(var i = 0; i < hackathons.length; i++) {%>
+                    <%- include('../partials/carousel-element', hackathons[i]); %>
+                <%}%>
+            </div>
+            <button class="carousel-nav">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M10,2l9,10l-9,10h2l9-10L12,2H10z"></path>
+                </svg>
+            </button>
+        </div>
+        <p class="carousel-subtitle mt-4">Check out our <a href="/hackathons">full list</a> of partnered events.</p>
+    </div>
+</div>
