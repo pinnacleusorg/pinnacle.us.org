@@ -18,7 +18,7 @@ if(process.env.NODE_ENV == 'production')
     app.use(logger("default", { skip: function(req, res) { return res.statusCode < 400 }, stream: __dirname + '/../morgan.log'}));
 else
     app.use(logger('dev'));
-n
+
 app.use((req, res, next) => { res.removeHeader('X-Powered-By'); next(); });
 
 app.use(cors());
