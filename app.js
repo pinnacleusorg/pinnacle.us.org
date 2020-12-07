@@ -1,7 +1,7 @@
 var express = require('express');
 var path = require('path');
 var logger = require('morgan');
-var sassMiddleware = require('node-sass-middleware');
+var sassMiddleware = require('node-sass-middleware'); //TODO: this library sucks! use sass directly...
 var indexRouter = require('./routes/index');
 var cors = require('cors');
 
