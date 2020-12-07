@@ -15,10 +15,10 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 if(process.env.NODE_ENV == 'production')
-    app.use(logger({ skip: function(req, res) { return res.statusCode < 400 }, stream: __dirname + '/../morgan.log'}));
+    app.use(logger("default", { skip: function(req, res) { return res.statusCode < 400 }, stream: __dirname + '/../morgan.log'}));
 else
     app.use(logger('dev'));
-
+n
 app.use((req, res, next) => { res.removeHeader('X-Powered-By'); next(); });
 
 app.use(cors());
@@ -55,15 +55,14 @@ server.on('error', function(error) {
     if (error.syscall !== 'listen') {
         throw error;
     }
-    var bind = typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port;
     // handle specific listen errors with friendly messages
     switch (error.code) {
         case 'EACCES':
-            console.error(bind + ' requires elevated privileges');
+            console.error('Pipe requires elevated privileges');
             process.exit(1);
             break;
         case 'EADDRINUSE':
-            console.error(bind + ' is already in use');
+            console.error('Port is already in use');
             process.exit(1);
             break;
         default:
