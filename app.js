@@ -1,9 +1,13 @@
 var express = require('express');
 var path = require('path');
+var fs = require('fs');
 var logger = require('morgan');
-var sassMiddleware = require('node-sass-middleware'); //TODO: this library sucks! use sass directly...
+var sass = require('sass');
 var indexRouter = require('./routes/index');
 var cors = require('cors');
+var debug = require('debug')('pinnacle.us.org:server');
+var chokidar = require('chokidar');
+var http = require('http');
 
 if(!process.env.PORT)
     require('dotenv').config();
@@ -24,14 +28,25 @@ app.use((req, res, next) => { res.removeHeader('X-Powered-By'); next(); });
 app.use(cors());
 
 //SASS Middleware
-app.use(sassMiddleware({
-  src: path.join(__dirname, 'assets', 'sass'),
-  dest: path.join(__dirname, 'assets'),
-  indentedSyntax: false,
-  sourceMap: true,
-  prefix: '/assets/',
-  outputStyle: 'compressed'
-}));
+
+// Instead of using middleware here, let's just render out our sass ...
+function buildCSS() {
+    debug("Rendering scss to main.css "+sass.info);
+    var coreCSS = sass.renderSync({
+        includePaths: [path.join(__dirname, 'assets', 'sass', '_partials')],
+        file: path.join(__dirname, 'assets', 'sass', 'main.scss'),
+        indentedSyntax: false,
+        sourceMap: true,
+        outFile: path.join(__dirname, 'assets', 'main.css'),
+        outputStyle: 'compressed'
+    });
+    fs.writeFileSync(path.join(__dirname, 'assets', 'main.css'), coreCSS.css);
+    debug("SASS rendered in "+coreCSS.stats.duration+"ms");
+}
+buildCSS();
+
+if(process.env.NODE_ENV != 'production')
+    chokidar.watch(path.join(__dirname, 'assets', 'sass')).on('change', buildCSS);
 
 //Route assets via /assets, rest to router...
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
@@ -44,8 +59,6 @@ app.use(function(req, res, next) {
 });
 
 //Build Server
-var debug = require('debug')('pinnacle.us.org:server');
-var http = require('http');
 app.set('port', process.env.PORT);
 
 var server = http.createServer(app);
