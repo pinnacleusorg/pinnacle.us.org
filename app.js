@@ -41,6 +41,7 @@ function buildCSS() {
         outputStyle: 'compressed'
     });
     fs.writeFileSync(path.join(__dirname, 'assets', 'main.css'), coreCSS.css);
+    fs.writeFileSync(path.join(__dirname, 'assets', 'main.css.map'), coreCSS.map);
     debug("SASS rendered in "+coreCSS.stats.duration+"ms");
 }
 buildCSS();
