@@ -227,7 +227,7 @@ module.exports = [
     {
         "short_id": "sdhacks",
         "name": "SD Hacks",
-        "url": "https://sdhacks.io/",
+        "url": "https://www.sdhacks.io/",
         "showDate": true,
         "date": "2/19/21"
     },
