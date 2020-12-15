@@ -7,15 +7,18 @@
                     <%
                     for(var i = 0; i < hackathons.length; i++) {
                         if(hackathons[i].highschool) continue;
-                        hackathons[i].showDate = false; %>
-                        <%- include('partials/carousel-element', hackathons[i]); %>
+                        var element = JSON.parse(JSON.stringify(hackathons[i]));
+                        element.showDate = false; %>
+                        <%- include('partials/carousel-element', element); %>
                     <%}%>
                 </div>
                 <h2 class="text-center mt-5">High School Hackathons</h2>
                 <div class="hackathon-grid mb-2">
                     <% for(var i = 0; i < hackathons.length; i++) {
-                        if(!hackathons[i].highschool) continue; %>
-                        <%- include('partials/carousel-element', hackathons[i]); %>
+                        if(!hackathons[i].highschool) continue;
+                        var element = JSON.parse(JSON.stringify(hackathons[i]));
+                        element.showDate = false; %>
+                        <%- include('partials/carousel-element', element); %>
                     <%}%>
                 </div>
             </div>
