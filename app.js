@@ -18,8 +18,10 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-if(process.env.NODE_ENV == 'production')
-    app.use(logger("default", { skip: function(req, res) { return res.statusCode < 400 }, stream: __dirname + '/../morgan.log'}));
+if(process.env.NODE_ENV == 'production') {
+    var accessLogStream = fs.createWriteStream(path.join(__dirname, '../', 'prod.log'), { flags: 'a' })
+    app.use(logger("combined", { stream: accessLogStream }));
+}
 else
     app.use(logger('dev'));
 
