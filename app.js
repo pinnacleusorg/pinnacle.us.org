@@ -17,6 +17,7 @@ var app = express();
 //EJS Views
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+app.set('trust proxy', true);
 
 if(process.env.NODE_ENV == 'production') {
     var accessLogStream = fs.createWriteStream(path.join(__dirname, '../', 'prod.log'), { flags: 'a' })
