@@ -187,9 +187,8 @@ $(function() {
             $inner.addClass('bounceLeftAnimation');
         }
     });
-    $('.carousel-image, .carousel-element a').click(function(e) {
+    $('.carousel-image').click(function(e) {
         /*
-        e.preventDefault();
         //trigger modal!
         // pull data ...
         var dataContainer = $(this).closest('.carousel-element').data('addr');
