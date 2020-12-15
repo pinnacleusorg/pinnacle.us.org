@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en" id="mobileView">
+    <head>
+        <%- include('header', {title: title}) %>
+        <style>
+        #mobileView #hero {
+            height: auto;
+            padding-bottom: 0;
+        }
+        .standalone-body {
+            background-color: rgb(248, 246, 237);
+            color: var(--pinnacle-bg);
+            padding: 3rem;
+        }
+        .hackathon-grid {
+            display: flex;
+            width: 100%;
+            padding: 0;
+            overflow: hidden;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .carousel-element {
+            padding: 15px;
+            width: calc(20% - 30px);
+            min-width: 180px;
+        }
+        </style>
+    </head>
+    <body>
+        <div class="container-fluid fw" id="hero">
+            <div class="container inner">
+                <img src="/assets/icon.png" alt="Pinnacle Logo" class="brandImg mb-3" id="keyLogo">
+            </div>
+        </div>
+        <div class="container-fluid standalone-body">

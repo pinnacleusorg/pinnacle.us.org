@@ -1,0 +1,146 @@
+@import "_partials/_carousel";
+@import "_partials/_description";
+@import "_partials/_hero";
+@import "_partials/_mobile";
+@import "_partials/_schedule";
+@import "_partials/_skyline";
+@import "_partials/_sponsors";
+@import "_partials/_timeline";
+@import "_partials/_utility";
+
+/* Global + Utility */
+:root {
+    --pinnacle-gold: #c79d5e;
+    --pinnacle-bg: #1e1e1e;
+    --pinnacle-bg-light: #f8f5e8;
+}
+html, body {
+    background-color: var(--pinnacle-bg);
+    color: var(--pinnacle-bg-light);
+    font-family: CasperRegular;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+}
+body.lockScroll {
+    overflow-y: hidden;
+}
+@font-face {
+    font-family: "KeplerStd";
+    src: url("font/KeplerStd-LightScn.otf");
+    font-weight: normal
+}
+@font-face {
+    font-family: "KeplerStd";
+    src: url("font/KeplerStd-SemiboldScnDisp.otf");
+    font-weight: 500;
+}
+@font-face {
+    font-family: "CasperRegular";
+    src: url("font/Casper-Regular.ttf");
+    font-weight: normal
+}
+@font-face {
+    font-family: "CasperBold";
+    src: url("font/Casper-Bold.ttf");
+    font-weight: normal
+}
+.fw {
+    width: 100vw;
+}
+.fh {
+    height: 100vh;
+}
+.fhplus {
+    height: calc(120vh);
+}
+@media (min-width: 1200px) {
+    .inner {
+        max-width: 900px;
+    }
+}
+.light-bg {
+    background-color: var(--pinnacle-bg-light);
+    color: var(--pinnacle-bg);
+}
+.dark-bg {
+    background-color: var(--pinnacle-bg);
+    color: var(--pinnacle-bg-light);
+}
+.gold-bg {
+    background-color: var(--pinnacle-gold);
+    color: var(--pinnacle-bg);
+}
+a {
+    color: var(--pinnacle-gold);
+    transition: color 0.2s;
+}
+a:hover, a:focus {
+    color: var(--pinnacle-bg);
+    text-decoration: none;
+}
+#sponsors a:hover, #sponsors a:focus {
+    color: white;
+    text-decoration: none;
+}
+.pinnacle-btn {
+    display: inline-flex;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    height: 4em;
+    width: 40%;
+}
+.pinnacle-btn:focus, .pinnacle-btn:active {
+    outline: none;
+}
+.pinnacle-btn .btn-label {
+    font-size: 1.2rem;
+    color: var(--pinnacle-bg-light);
+    font-weight: bold;
+    position: relative;
+    z-index: 99;
+    letter-spacing: 0.7px;
+}
+.pinnacle-btn .btn-label > svg {
+    height: 0.7em;
+    fill: var(--pinnacle-bg-light);
+    stroke: var(--pinnacle-bg-light);
+}
+.pinnacle-btn > svg {
+    position: absolute;
+    top:0;
+    left:0;
+}
+.pinnacle-btn > svg path {
+    fill: var(--pinnacle-bg);
+    stroke: var(--pinnacle-bg);
+    transition: fill 0.3s ease, stroke 0.3s ease;
+}
+.pinnacle-btn.hover > svg path,
+.pinnacle-btn:focus > svg path,
+.pinnacle-btn:hover > svg path {
+    fill: var(--pinnacle-gold);
+    stroke: var(--pinnacle-gold);
+}
+.pinnacle-btn.hover,
+.pinnacle-btn:focus,
+.pinnacle-btn:hover {
+    text-decoration: none;
+    color: white;
+}
+.pinnacle-btn.hover .btn-label,
+.pinnacle-btn:focus .btn-label,
+.pinnacle-btn:hover .btn-label {
+    transition: color 0.3s ease;
+    color: var(--pinnacle-bg);
+}
+
+.pinnacle-btn.hover .btn-label,
+.pinnacle-btn:focus .btn-label,
+.pinnacle-btn:hover .btn-label {
+    color: white;
+}

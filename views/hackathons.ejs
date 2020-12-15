@@ -1,0 +1,30 @@
+<%- include('partials/simple-header', {title: "Pinnacle • Partnered Events"}) %>
+            <div class="container">
+                <a href="/">&lsaquo; Home</a>
+                <h2 class="text-center">Partnered Events</h2>
+                <p class="carousel-subtitle mb-4">More events will be announced in the coming weeks.</p>
+                <div class="hackathon-grid">
+                    <%
+                    //sort alphabetically
+                    hackathons.sort(function(a, b) {
+                        return a.name.localeCompare(b.name);
+                    });
+
+                    for(var i = 0; i < hackathons.length; i++) {
+                        if(hackathons[i].highschool) continue;
+                        var element = JSON.parse(JSON.stringify(hackathons[i]));
+                        element.showDate = false; %>
+                        <%- include('partials/carousel-element', element); %>
+                    <%}%>
+                </div>
+                <h2 class="text-center mt-5">High School Hackathons</h2>
+                <div class="hackathon-grid mb-2">
+                    <% for(var i = 0; i < hackathons.length; i++) {
+                        if(!hackathons[i].highschool) continue;
+                        var element = JSON.parse(JSON.stringify(hackathons[i]));
+                        element.showDate = false; %>
+                        <%- include('partials/carousel-element', element); %>
+                    <%}%>
+                </div>
+            </div>
+<%- include('partials/simple-footer') %>
