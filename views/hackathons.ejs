@@ -5,6 +5,11 @@
                 <p class="carousel-subtitle mb-4">More events will be announced in the coming weeks.</p>
                 <div class="hackathon-grid">
                     <%
+                    //sort alphabetically
+                    hackathons.sort(function(a, b) {
+                        return a.name.localeCompare(b.name);
+                    });
+
                     for(var i = 0; i < hackathons.length; i++) {
                         if(hackathons[i].highschool) continue;
                         var element = JSON.parse(JSON.stringify(hackathons[i]));
