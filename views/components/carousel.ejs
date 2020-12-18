@@ -17,9 +17,10 @@
                     return a_d - b_d;
                 });
                 for(var i = 0; i < hackathons.length; i++) {
-                    if(hackathons[i].showDate) {%>
-                        <%- include('../partials/carousel-element', hackathons[i]); %>
-                <%}}%>
+                    if(hackathons[i].showDate) {
+                        if(new Date(hackathons[i].date) > new Date(Date.now() - 24*60*60*3*1000)) {%>
+                            <%- include('../partials/carousel-element', hackathons[i]); %>
+                <%}}}%>
             </div>
             <button class="carousel-nav">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
