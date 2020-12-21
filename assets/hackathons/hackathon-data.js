@@ -54,7 +54,7 @@ module.exports = [
     {
         "short_id": "cuhacking",
         "name": "cuHacking",
-        "url": "https://cuhacking.com/",
+        "url": "https://2021.cuhacking.com/",
         "showDate": true,
         "date": "1/29/21"
     },
