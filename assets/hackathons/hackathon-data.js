@@ -99,6 +99,13 @@ module.exports = [
         "date": "12/5/20"
     },
     {
+        "short_id": "hackher413",
+        "name": "HackHer413",
+        "url": "https://www.hackher413.com/",
+        "showDate": true,
+        "date": "2/13/21"
+    },
+    {
         "short_id": "hackgt",
         "name": "HackGT",
         "url": "https://2020.hack.gt/",
@@ -172,6 +179,13 @@ module.exports = [
         "name": "HackWestern",
         "url": "https://hackwestern.com/",
         "showDate": false
+    },
+    {
+        "short_id": "hackthe6ix",
+        "name": "Hack the 6ix",
+        "url": "https://hackthe6ix.com/",
+        "showDate": true,
+        "date": "8/21/20"
     },
     {
         "short_id": "hackthenorth",
