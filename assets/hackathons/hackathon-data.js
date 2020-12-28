@@ -201,6 +201,7 @@ module.exports = [
         "url": "https://www.hoohacks.io/",
         "showDate": true,
         "date": "3/27/21"
+    },
     {
         "short_id": "ivyhacks",
         "name": "IvyHacks",
