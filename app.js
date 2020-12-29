@@ -35,17 +35,23 @@ app.use(cors());
 // Instead of using middleware here, let's just render out our sass ...
 function buildCSS() {
     debug("Rendering scss to main.css "+sass.info);
-    var coreCSS = sass.renderSync({
-        includePaths: [path.join(__dirname, 'assets', 'sass', '_partials')],
-        file: path.join(__dirname, 'assets', 'sass', 'main.scss'),
-        indentedSyntax: false,
-        sourceMap: true,
-        outFile: path.join(__dirname, 'assets', 'main.css'),
-        outputStyle: 'compressed'
-    });
-    fs.writeFileSync(path.join(__dirname, 'assets', 'main.css'), coreCSS.css);
-    fs.writeFileSync(path.join(__dirname, 'assets', 'main.css.map'), coreCSS.map);
-    debug("SASS rendered in "+coreCSS.stats.duration+"ms");
+    try {
+        var coreCSS = sass.renderSync({
+            includePaths: [path.join(__dirname, 'assets', 'sass', '_partials')],
+            file: path.join(__dirname, 'assets', 'sass', 'main.scss'),
+            indentedSyntax: false,
+            sourceMap: true,
+            outFile: path.join(__dirname, 'assets', 'main.css'),
+            outputStyle: 'compressed'
+        });
+        fs.writeFileSync(path.join(__dirname, 'assets', 'main.css'), coreCSS.css);
+        fs.writeFileSync(path.join(__dirname, 'assets', 'main.css.map'), coreCSS.map);
+        debug("SASS rendered in "+coreCSS.stats.duration+"ms");
+    } catch(err) {
+        console.log("SCSS render FAILED", err);
+        fs.unlink(path.join(__dirname, 'assets', 'main.css'), function(){});
+        fs.unlink(path.join(__dirname, 'assets', 'main.css.map'), function(){});
+    }
 }
 buildCSS();
 
