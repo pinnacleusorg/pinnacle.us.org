@@ -235,6 +235,13 @@ module.exports = [
         "showDate": false
     },
     {
+        "short_id": "pearlhacks",
+        "name": "Pearl Hacks",
+        "url": "https://pearlhacks.com/",
+        "showDate": true,
+        "date": "2/19/21"
+    },
+    {
         "short_id": "ruhacks",
         "name": "RU Hacks",
         "url": "https://ruhacks.com/",
