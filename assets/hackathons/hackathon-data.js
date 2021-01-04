@@ -286,7 +286,7 @@ module.exports = [
         "name": "TartanHacks",
         "url": "https://tartanhacks.com/",
         "showDate": true,
-        "date": "2/5/21"
+        "date": "3/5/21"
     },
     {
         "short_id": "technica",
