@@ -82,7 +82,8 @@ module.exports = [
         "short_id": "hackdartmouth",
         "name": "HackDartmouth",
         "url": "https://hackdartmouth.io/",
-        "showDate": false
+        "showDate": true,
+        "date": "4/16/21"
     },
     {
         "short_id": "hackdavis",
