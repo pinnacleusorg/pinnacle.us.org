@@ -146,7 +146,7 @@ module.exports = [
     {
         "short_id": "hacktech",
         "name": "Hacktech",
-        "url": "https://hacktech2020.devpost.com/",
+        "url": "https://hacktech.app/",
         "showDate": false
     },
     {
