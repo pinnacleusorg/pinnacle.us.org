@@ -10,7 +10,8 @@ module.exports = [
         "short_id": "bitcamp",
         "name": "Bitcamp",
         "url": "https://bit.camp/",
-        "showDate": false
+        "showDate": true,
+        "date": "4/9/21"
     },
     {
         "short_id": "boilermake",
