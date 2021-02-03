@@ -43,7 +43,8 @@ module.exports = [
         "short_id": "cmdf",
         "name": "cmd-f",
         "url": "https://cmd-f.nwplus.io/",
-        "showDate": false
+        "showDate": true,
+        "date": "3/6/21"
     },
     {
         "short_id": "cruzhacks",
@@ -135,7 +136,8 @@ module.exports = [
         "short_id": "hackprinceton",
         "name": "HackPrinceton",
         "url": "https://www.hackprinceton.com/",
-        "showDate": false
+        "showDate": true,
+        "date": "4/2/21"
     },
     {
         "short_id": "hacksc",
