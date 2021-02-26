@@ -249,7 +249,8 @@ module.exports = [
         "short_id": "ruhacks",
         "name": "RU Hacks",
         "url": "https://ruhacks.com/",
-        "showDate": false
+        "showDate": true,
+        "date": "4/30/21"
     },
     {
         "short_id": "sdhacks",
@@ -350,14 +351,15 @@ module.exports = [
         "name": "MasseyHacks",
         "url": "https://masseyhacks.ca/",
         "showDate": true,
-        "date": "6/5/21",
+        "date": "6/11/21",
         "highschool": true
     },
     {
         "short_id": "superposition",
         "name": "Superposition",
         "url": "https://superposition.tech/",
-        "showDate": false,
+        "showDate": true,
+        "date": "4/9/21",
         "highschool": true
     },
     {
