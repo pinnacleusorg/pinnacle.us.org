@@ -118,7 +118,8 @@ module.exports = [
         "short_id": "hackillinois",
         "name": "HackIllinois",
         "url": "https://www.hackillinois.org/",
-        "showDate": false
+        "showDate": true,
+        "date": "4/9/21"
     },
     {
         "short_id": "hackmty",
@@ -150,7 +151,8 @@ module.exports = [
         "short_id": "hacktech",
         "name": "Hacktech",
         "url": "https://hacktech.app/",
-        "showDate": false
+        "showDate": true,
+        "date": "4/16/21"
     },
     {
         "short_id": "hacktx",
