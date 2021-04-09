@@ -37,7 +37,8 @@ module.exports = [
         "short_id": "calhacks",
         "name": "Cal Hacks",
         "url": "https://calhacks.io/",
-        "showDate": false
+        "showDate": true,
+        "date": "4/16/21"
     },
     {
         "short_id": "cmdf",
@@ -272,7 +273,8 @@ module.exports = [
         "short_id": "slohacks",
         "name": "SLO Hacks",
         "url": "https://www.slohacks.com/",
-        "showDate": false
+        "showDate": true,
+        "date": "4/15/21"
     },
     {
         "short_id": "swamphacks",
@@ -345,7 +347,8 @@ module.exports = [
         "short_id": "losaltoshacks",
         "name": "Los Altos Hacks",
         "url": "https://www.losaltoshacks.com/",
-        "showDate": false,
+        "showDate": true,
+        "date": "4/24/21",
         "highschool": true
     },
     {
