@@ -273,8 +273,7 @@ module.exports = [
         "short_id": "slohacks",
         "name": "SLO Hacks",
         "url": "https://www.slohacks.com/",
-        "showDate": true,
-        "date": "4/15/21"
+        "showDate": false
     },
     {
         "short_id": "swamphacks",
