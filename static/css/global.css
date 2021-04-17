@@ -1,36 +1,498 @@
-body {
-	margin: 0;
-	font-family: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-	font-size: 14px;
-	line-height: 1.5;
-	color: #333;
+.bounceLeftAnimation {
+  animation-name: bounceLeftAnimation;
+  animation-duration: 0.6s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
 }
 
-h1, h2, h3, h4, h5, h6 {
-	margin: 0 0 0.5em 0;
-	font-weight: 400;
-	line-height: 1.2;
+@keyframes bounceLeftAnimation {
+  0% {
+    transform: translateX(0px);
+  }
+  70% {
+    transform: translateX(-15px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+.bounceRightAnimation {
+  animation-name: bounceRightAnimation;
+  animation-duration: 0.6s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
 }
 
-h1 {
-	font-size: 2em;
+@keyframes bounceRightAnimation {
+  0% {
+    transform: translateX(0px);
+  }
+  70% {
+    transform: translateX(15px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+:root {
+  --pinnacle-gold: #c79d5e;
+  --pinnacle-bg: #1e1e1e;
+  --pinnacle-bg-light: #f8f5e8;
 }
 
+html, body {
+  background-color: var(--pinnacle-bg);
+  color: var(--pinnacle-bg-light);
+  font-family: CasperRegular;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+@font-face {
+  font-family: "KeplerStd";
+  src: url("font/KeplerStd-LightScn.otf");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "KeplerStd";
+  src: url("font/KeplerStd-SemiboldScnDisp.otf");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "CasperRegular";
+  src: url("font/Casper-Regular.ttf");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "CasperBold";
+  src: url("font/Casper-Bold.ttf");
+  font-weight: normal;
+}
 a {
-	color: inherit;
+  color: var(--pinnacle-gold);
+  transition: color 0.2s;
 }
 
-code {
-	font-family: menlo, inconsolata, monospace;
-	font-size: calc(1em - 2px);
-	color: #555;
-	background-color: #f0f0f0;
-	padding: 0.2em 0.4em;
-	border-radius: 2px;
+a:hover, a:focus {
+  color: var(--pinnacle-bg);
+  text-decoration: none;
 }
 
-@media (min-width: 400px) {
-	body {
-		font-size: 16px;
-	}
+#sponsors a:hover, #sponsors a:focus {
+  color: white;
+  text-decoration: none;
 }
+
+.light-bg {
+  background-color: var(--pinnacle-bg-light);
+  color: var(--pinnacle-bg);
+}
+
+.dark-bg {
+  background-color: var(--pinnacle-bg);
+  color: var(--pinnacle-bg-light);
+}
+
+.gold-bg {
+  background-color: var(--pinnacle-gold);
+  color: var(--pinnacle-bg);
+}
+
+.pinnacle-btn {
+  display: inline-flex;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  height: 4em;
+  width: 40%;
+}
+.pinnacle-btn:focus, .pinnacle-btn:active {
+  outline: none;
+}
+
+.pinnacle-btn .btn-label {
+  font-size: 1.2rem;
+  color: var(--pinnacle-bg-light);
+  font-weight: bold;
+  position: relative;
+  z-index: 99;
+  letter-spacing: 0.7px;
+}
+
+.pinnacle-btn .btn-label > svg {
+  height: 0.7em;
+  fill: var(--pinnacle-bg-light);
+  stroke: var(--pinnacle-bg-light);
+}
+
+.pinnacle-btn > svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.pinnacle-btn > svg path {
+  fill: var(--pinnacle-bg);
+  stroke: var(--pinnacle-bg);
+  transition: fill 0.3s ease, stroke 0.3s ease;
+}
+
+.pinnacle-btn.hover > svg path, .pinnacle-btn:focus > svg path, .pinnacle-btn:hover > svg path {
+  fill: var(--pinnacle-gold);
+  stroke: var(--pinnacle-gold);
+}
+
+.pinnacle-btn.hover, .pinnacle-btn:focus, .pinnacle-btn:hover {
+  text-decoration: none;
+  color: white;
+}
+
+.pinnacle-btn.hover .btn-label, .pinnacle-btn:focus .btn-label, .pinnacle-btn:hover .btn-label {
+  transition: color 0.3s ease;
+  color: var(--pinnacle-bg);
+}
+
+.pinnacle-btn.hover .btn-label, .pinnacle-btn:focus .btn-label, .pinnacle-btn:hover .btn-label {
+  color: white;
+}
+
+/* Footer */
+footer {
+  font-size: 1.2rem;
+  font-weight: bolder;
+  letter-spacing: 1.2px;
+  /* Edge to Edge footer on ultrawide */
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#footer > a {
+  color: var(--pinnacle-bg);
+}
+
+#footer > a:hover {
+  text-decoration: underline;
+}
+
+body.lockScroll {
+  overflow-y: hidden;
+}
+
+.fw {
+  width: 100vw;
+}
+
+.fh {
+  height: 100vh;
+}
+
+.fhplus {
+  height: calc(120vh);
+}
+
+@media (min-width: 1200px) {
+  .inner {
+    max-width: 900px;
+  }
+}
+/* W H A T */
+/* Overlay Lines */
+.linesCanvas-outside, .linesCanvas-inside {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  top: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.linesCanvas-outside#mainCanvas {
+  -webkit-clip-path: polygon(50% 100vh, 0% 160vh, 0% 100%, 100% 100%, 100% 160vh);
+  clip-path: polygon(50% 100vh, 0% 160vh, 0% 100%, 100% 100%, 100% 160vh);
+}
+
+.linesCanvas-outside#initialCanvas {
+  z-index: -1;
+}
+
+.generatedLine-container {
+  position: absolute;
+}
+
+.generatedLine-line {
+  height: 3px;
+  background-color: var(--pinnacle-bg);
+  transform-origin: 0px 1.5px;
+  max-width: 0px;
+  will-change: max-width;
+  transition: max-width 0.5s ease-out;
+}
+
+#initialCanvas .generatedLine-line {
+  background-color: var(--pinnacle-gold);
+}
+
+.card, .card-body, .card-footer {
+  background: none;
+  border: none;
+  font-family: KeplerStd;
+}
+
+.engagement-deck {
+  margin-bottom: 3rem;
+}
+
+.engagement-deck .card {
+  text-align: center;
+}
+
+.engagement-deck .card .card-body {
+  padding-bottom: 0;
+}
+
+.engagement-deck .card p.card-text {
+  font-size: 1.3rem !important;
+  font-family: CasperRegular;
+}
+
+.card.card-divider {
+  flex: 0 0 3px;
+  background-color: var(--pinnacle-gold);
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+#applybtn {
+  min-width: 180px;
+}
+
+#updatedbtn {
+  min-width: 180px;
+}
+
+.stacked-input {
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.input-group input {
+  border-color: #1B1B1B;
+  border-width: 3px;
+  border-radius: 0;
+  color: black;
+  background-color: var(--pinnacle-bg-light);
+  font-size: 1.3rem;
+  padding: 0.5rem 0.6rem;
+}
+
+.input-group input::placeholder {
+  color: var(--pinnacle-bg);
+}
+
+.input-group input:focus, .input-group input:active {
+  outline: none;
+  box-shadow: none;
+  border-color: #1B1B1B;
+  background-color: var(--pinnacle-bg-light);
+  color: black;
+}
+
+.stacked-input .input-group:first-child input {
+  border-bottom-width: 0.5px;
+}
+
+.stacked-input .input-group:last-child input {
+  border-top-width: 0.5px;
+}
+
+.arrow::before {
+  border-style: solid;
+  border-width: 2px 2px 0 0;
+  content: "";
+  display: inline-block;
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+  height: 0.5em;
+  position: relative;
+  top: 0.15em;
+  vertical-align: top;
+  width: 0.5em;
+  left: 0;
+  transform: rotate(45deg);
+}
+
+.legalees .small {
+  letter-spacing: 0.3px;
+  font-size: 70%;
+}
+
+.legalees a {
+  color: var(--pinnacle-bg);
+  text-decoration: underline;
+}
+
+.legalees a:hover {
+  text-decoration: underline;
+}
+
+.mirrorflip {
+  transform: scale(-1, 1);
+}
+
+.mirrorflip.clicked {
+  transform: scale(-1.1, 1.1);
+}
+
+.big-num-container {
+  display: flex;
+  width: 100%;
+}
+
+.big-num-container .big-num {
+  flex-basis: 33%;
+  text-align: center;
+  padding: 0 2.5%;
+}
+
+.big-num .big-num-num {
+  font-size: 5rem;
+  font-family: KeplerStd;
+  font-weight: bold;
+}
+
+.big-num .big-num-label {
+  color: var(--pinnacle-gold);
+  font-size: 1.5rem;
+}
+
+#pre-description {
+  height: 100vh;
+}
+
+.overflow-hide {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.scroll-container {
+  background-color: red;
+  width: 100%;
+  height: 100vh;
+  overflow-y: hidden;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+#pre-description .eyecatchers {
+  height: 100vh;
+  position: relative;
+}
+
+.eyecatcher {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  top: 20%;
+  opacity: 0;
+  padding: 0 10%;
+  left: 0;
+}
+
+.eyecatcher-icon {
+  width: 25%;
+}
+
+.eyecatcher-icon img {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.eyecatcher-body {
+  width: 60%;
+  margin-left: 15%;
+}
+
+.eyecatcher-body h3 {
+  font-size: 3rem;
+  font-family: KeplerStd;
+}
+
+.eyecatcher-body p {
+  font-size: 1.5rem;
+}
+
+/* Teaser Code */
+#count-display {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 5px;
+  color: black;
+  background-color: white;
+  border: 1px solid black;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+/* lol overwrite default textarea styles */
+.teaser {
+  overflow: hidden;
+  resize: unset;
+  text-rendering: unset;
+  color: unset;
+  letter-spacing: unset;
+  word-spacing: unset;
+  text-transform: unset;
+  text-indent: unset;
+  text-shadow: unset;
+  appearance: unset;
+  background-color: unset;
+  flex-direction: unset;
+  cursor: unset;
+  font: inherit;
+  margin: unset;
+  border: unset;
+  padding: unset;
+  white-space: unset;
+  overflow-wrap: unset;
+  outline: unset;
+  height: 1em;
+  width: 1em;
+  display: inline-block;
+  text-align: left;
+  position: relative;
+  line-height: 100%;
+  left: 2px;
+  -webkit-text-fill-color: unset;
+  opacity: 1;
+}
+
+/* by far my favorite hack here. apply top only on webkit */
+.teaser:not(*:root) {
+  top: 0.2em;
+}
+
+/* retina is closer to 0.3 offset */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .teaser:not(*:root) {
+    top: 0.3em;
+  }
+}
+
+/*# sourceMappingURL=global.css.map */

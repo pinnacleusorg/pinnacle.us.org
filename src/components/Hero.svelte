@@ -1,0 +1,58 @@
+<div class="container-fluid fh fw" id="hero">
+  <div class="container inner">
+    <img
+      src="meta/icon.png"
+      alt="Pinnacle Logo"
+      class="brandImg mb-3"
+      id="keyLogo"/>
+    <img
+      src="image/logo-text.png"
+      alt="Pinnacle"
+      class="brandImg"
+      id="keyLabel"/>
+    <span class="byline brandImg mt-4" id="keyByline">
+      The Olympics of Hackathons
+    </span>
+  </div>
+</div>
+
+<style lang="scss">
+  #hero {
+    background-color: var(--pinnacle-bg);
+    color: var(--pinnacle-gold);
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -3;
+    display: flex;
+    align-items: center;
+    font-family: KeplerStd;
+  }
+  #hero .brandImg {
+    width: 30rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: bolder;
+  }
+  #hero #keyLogo {
+    width: 10rem;
+    padding-right: 3px;
+  }
+  #hero #keyLabel {
+    margin-top: 4rem !important;
+  }
+  #hero #keyByline {
+    font-size: 25px;
+    font-weight: lighter;
+    letter-spacing: 1.2px;
+  }
+  #hero .inner {
+    margin-top: -8rem;
+    transition: margin-top 0.2s ease-out;
+  }
+  .container-fluid {
+    padding: 0;
+  }
+</style>

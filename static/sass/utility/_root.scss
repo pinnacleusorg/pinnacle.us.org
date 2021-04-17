@@ -1,0 +1,15 @@
+
+:root {
+	--pinnacle-gold: #c79d5e;
+	--pinnacle-bg: #1e1e1e;
+	--pinnacle-bg-light: #f8f5e8;
+}
+
+html, body {
+	background-color: var(--pinnacle-bg);
+	color: var(--pinnacle-bg-light);
+	font-family: CasperRegular;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}

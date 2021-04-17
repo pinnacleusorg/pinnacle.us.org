@@ -1,0 +1,61 @@
+
+.pinnacle-btn {
+	display: inline-flex;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	justify-content: center;
+	align-items: center;
+	height: 4em;
+	width: 40%;
+
+  &:focus, &:active {
+    outline: none;
+  }
+}
+
+.pinnacle-btn .btn-label {
+	font-size: 1.2rem;
+	color: var(--pinnacle-bg-light);
+	font-weight: bold;
+	position: relative;
+	z-index: 99;
+	letter-spacing: 0.7px;
+}
+
+.pinnacle-btn .btn-label>svg {
+	height: 0.7em;
+	fill: var(--pinnacle-bg-light);
+	stroke: var(--pinnacle-bg-light);
+}
+
+.pinnacle-btn>svg {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.pinnacle-btn>svg path {
+	fill: var(--pinnacle-bg);
+	stroke: var(--pinnacle-bg);
+	transition: fill 0.3s ease, stroke 0.3s ease;
+}
+
+.pinnacle-btn.hover>svg path, .pinnacle-btn:focus>svg path, .pinnacle-btn:hover>svg path {
+	fill: var(--pinnacle-gold);
+	stroke: var(--pinnacle-gold);
+}
+
+.pinnacle-btn.hover, .pinnacle-btn:focus, .pinnacle-btn:hover {
+	text-decoration: none;
+	color: white;
+}
+
+.pinnacle-btn.hover .btn-label, .pinnacle-btn:focus .btn-label, .pinnacle-btn:hover .btn-label {
+	transition: color 0.3s ease;
+	color: var(--pinnacle-bg);
+}
+
+.pinnacle-btn.hover .btn-label, .pinnacle-btn:focus .btn-label, .pinnacle-btn:hover .btn-label {
+	color: white;
+}

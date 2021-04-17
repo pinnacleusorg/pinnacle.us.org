@@ -1,0 +1,54 @@
+
+@font-face {
+	font-family: "KeplerStd";
+	src: url("font/KeplerStd-LightScn.otf");
+	font-weight: normal
+}
+
+@font-face {
+	font-family: "KeplerStd";
+	src: url("font/KeplerStd-SemiboldScnDisp.otf");
+	font-weight: 500;
+}
+
+@font-face {
+	font-family: "CasperRegular";
+	src: url("font/Casper-Regular.ttf");
+	font-weight: normal
+}
+
+@font-face {
+	font-family: "CasperBold";
+	src: url("font/Casper-Bold.ttf");
+	font-weight: normal
+}
+
+a {
+	color: var(--pinnacle-gold);
+	transition: color 0.2s;
+}
+
+a:hover, a:focus {
+	color: var(--pinnacle-bg);
+	text-decoration: none;
+}
+
+#sponsors a:hover, #sponsors a:focus {
+	color: white;
+	text-decoration: none;
+}
+
+.light-bg {
+	background-color: var(--pinnacle-bg-light);
+	color: var(--pinnacle-bg);
+}
+
+.dark-bg {
+	background-color: var(--pinnacle-bg);
+	color: var(--pinnacle-bg-light);
+}
+
+.gold-bg {
+	background-color: var(--pinnacle-gold);
+	color: var(--pinnacle-bg);
+}
