@@ -4,6 +4,7 @@
 	import Description from "../components/Description.svelte";
 	import Carousel from "../components/Carousel.svelte";
 	import Schedule from "../components/Schedule.svelte";
+	import Sponsors from "../components/Sponsors.svelte";
 </script>
 
 <svelte:head>
@@ -23,9 +24,9 @@
 	<Description />
 	<Carousel />
 	<Schedule />
+	<Sponsors />
 
 	<!--
-	<%- include('components/sponsors') %>
 	<%- include('partials/footer-body', {showLegal: true}) %>
 	-->
 	<div id="count-display">
