@@ -1,4 +1,4 @@
-<div class="container-fluid fh fw" id="hero">
+<div class="fh fw" id="hero">
   <div class="container inner">
     <img
       src="meta/icon.png"
