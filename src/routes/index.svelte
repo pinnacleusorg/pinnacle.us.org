@@ -3,6 +3,7 @@
 	import BigNumbers from "../components/BigNumbers.svelte";
 	import Description from "../components/Description.svelte";
 	import Carousel from "../components/Carousel.svelte";
+	import Schedule from "../components/Schedule.svelte";
 </script>
 
 <svelte:head>
@@ -21,10 +22,9 @@
 	<BigNumbers />
 	<Description />
 	<Carousel />
+	<Schedule />
 
 	<!--
-	<%- include('components/carousel') %>
-	<%- include('components/schedule') %>
 	<%- include('components/sponsors') %>
 	<%- include('partials/footer-body', {showLegal: true}) %>
 	-->
