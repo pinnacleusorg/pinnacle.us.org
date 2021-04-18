@@ -203,43 +203,6 @@ body.lockScroll {
   }
 }
 /* W H A T */
-/* Overlay Lines */
-.linesCanvas-outside, .linesCanvas-inside {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 999;
-  top: 0;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.linesCanvas-outside#mainCanvas {
-  -webkit-clip-path: polygon(50% 100vh, 0% 160vh, 0% 100%, 100% 100%, 100% 160vh);
-  clip-path: polygon(50% 100vh, 0% 160vh, 0% 100%, 100% 100%, 100% 160vh);
-}
-
-.linesCanvas-outside#initialCanvas {
-  z-index: -1;
-}
-
-.generatedLine-container {
-  position: absolute;
-}
-
-.generatedLine-line {
-  height: 3px;
-  background-color: var(--pinnacle-bg);
-  transform-origin: 0px 1.5px;
-  max-width: 0px;
-  will-change: max-width;
-  transition: max-width 0.5s ease-out;
-}
-
-#initialCanvas .generatedLine-line {
-  background-color: var(--pinnacle-gold);
-}
-
 .card, .card-body, .card-footer {
   background: none;
   border: none;

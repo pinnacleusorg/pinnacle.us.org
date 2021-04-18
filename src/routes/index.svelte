@@ -7,12 +7,6 @@
 </svelte:head>
 
 <div class="ultrawide-capture">
-	<div class="linesCanvas-outside" id="initialCanvas">
-		<div class="linesCanvas-inside"></div>
-	</div>
-	<div class="linesCanvas-outside" id="mainCanvas">
-		<div class="linesCanvas-inside"></div>
-	</div>
 	<div id="scrollDown-container">
 		<img src="icon/mouse.png" alt="Scroll Down">
 	</div>
