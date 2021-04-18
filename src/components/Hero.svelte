@@ -3,14 +3,14 @@
     <img
       src="meta/icon.png"
       alt="Pinnacle Logo"
-      class="brandImg mb-3"
+      class="brand-img"
       id="keyLogo"/>
     <img
       src="image/logo-text.png"
       alt="Pinnacle"
-      class="brandImg"
+      class="brand-img"
       id="keyLabel"/>
-    <span class="byline brandImg mt-4" id="keyByline">
+    <span class="byline brand-img" id="keyByline">
       The Olympics of Hackathons
     </span>
   </div>
@@ -29,7 +29,7 @@
     align-items: center;
     font-family: KeplerStd;
     
-    .brandImg {
+    .brand-img {
       width: 30rem;
       display: block;
       margin-left: auto;
@@ -38,8 +38,9 @@
     }
     
     #keyLogo {
-      width: 10rem;
+      margin-bottom: 1rem;
       padding-right: 3px;
+      width: 10rem;
     }
     
     #keyLabel {
@@ -47,6 +48,7 @@
     }
 
     #keyByline {
+      margin-top: 2rem;
       font-size: 25px;
       font-weight: lighter;
       letter-spacing: 1.2px;

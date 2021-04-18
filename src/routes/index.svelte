@@ -6,7 +6,7 @@
 	<title>Sapper project template</title>
 </svelte:head>
 
-<div class="ultrawide-capture">
+<div class="container-wide">
 	<div id="scroll-prompt">
 		<img src="icon/mouse.png" alt="Scroll Down">
 	</div>
@@ -27,25 +27,32 @@
 </div>
 
 <style lang="scss">
-	.ultrawide-capture {
-		max-width: 1680px;
-		margin: auto;
-	}
-	
 	#scroll-prompt {
-		width: 5vw;
+		animation: fade-in 0.3s 3s forwards;
+		opacity: 0;
+		transform: translate(-50%, -50%);
+		transition: opacity 0.5s ease-in-out;
+
 		height: 5vw;
 		max-width: 25px;
+		width: 5vw;
+
 		position: fixed;
 		bottom: 40px;
 		left: 50%;
-		transform: translate(-50%, -50%);
 		z-index: -2;
-		opacity: 0;
-		transition: opacity 0.5s ease-in-out;
 
 		img {
 			width: 100%;
+		}
+	}
+
+	@keyframes fade-in {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
 		}
 	}
 </style>
