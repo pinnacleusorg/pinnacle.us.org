@@ -15,5 +15,23 @@
 </footer>
 
 <style lang="scss">
-  
+  footer {
+    font-size: 1.2rem;
+    font-weight: bolder;
+    letter-spacing: 1.2px;
+    /* Edge to Edge footer on ultrawide */
+    position: absolute;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #footer > a {
+    color: var(--pinnacle-bg);
+  }
+  #footer > a:hover {
+    text-decoration: underline;
+  }
 </style>
