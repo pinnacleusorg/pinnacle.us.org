@@ -1,9 +1,10 @@
 <script lang="ts">
 	import Hero from "../components/Hero.svelte";
+	import BigNumbers from "../components/BigNumbers.svelte";
 </script>
 
 <svelte:head>
-	<title>Sapper project template</title>
+	<title>Pinnacle • The Olympics of Hackathons</title>
 </svelte:head>
 
 <div class="container-wide">
@@ -11,10 +12,15 @@
 		<img src="icon/mouse.png" alt="Scroll Down">
 	</div>
 	<Hero />
+	<div class="page-spacer"></div>
+	<div class="container-wide light-bg" id="pre-description">
+    <div class="overflow-triangle"></div>
+	</div>
+
+	<!-- components/eyecatchers -->
+	<BigNumbers />
 
 	<!--
-	<%- include('components/eyecatchers') %>
-	<%- include('components/big-numbers') %>
 	<%- include('components/description') %>
 	<%- include('components/carousel') %>
 	<%- include('components/schedule') %>
@@ -54,5 +60,18 @@
 		100% {
 			opacity: 1;
 		}
+	}
+
+	.page-spacer {
+		background-color: unset;
+		display: block;
+		min-height: 100vh;
+		position: relative;
+		z-index: -3;
+	}
+
+	#pre-description {
+		clip-path: polygon(50% 0px, 0px 100%, 100% 100%);
+		height: 60vh;
 	}
 </style>

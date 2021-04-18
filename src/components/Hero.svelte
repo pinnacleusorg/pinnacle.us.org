@@ -20,14 +20,19 @@
   #hero {
     background-color: var(--pinnacle-bg);
     color: var(--pinnacle-gold);
+    display: flex;
+    align-items: center;
     text-align: center;
+    font-family: KeplerStd;
     position: fixed;
     top: 0;
     left: 0;
     z-index: -3;
-    display: flex;
-    align-items: center;
-    font-family: KeplerStd;
+
+    .inner {
+      margin-top: -8rem;
+      transition: margin-top 0.2s ease-out;
+    }
     
     .brand-img {
       width: 30rem;
@@ -52,11 +57,6 @@
       font-size: 25px;
       font-weight: lighter;
       letter-spacing: 1.2px;
-    }
-
-    .inner {
-      margin-top: -8rem;
-      transition: margin-top 0.2s ease-out;
     }
   }
 </style>
