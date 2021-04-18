@@ -32,48 +32,14 @@ $(function() {
     consoleBanner += ("                               |___/          |_|                                                                                  ");
     console.log(consoleBanner);
     console.log("Peeking under the hood? We want you on our team! Apply now: http://hack.ms/P20-Team-Application");
-// Polyfill for ios / safari - https://github.com/AlfonsoFilho/ClipPath
+    // Polyfill for ios / safari - https://github.com/AlfonsoFilho/ClipPath
     $('.overflowTriangle').ClipPath('50% 0, 0 100%, 100% 100%');
     var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
     if(isSafari) {
         $('.linesCanvas-outside#mainCanvas').ClipPath('50% 100vh, 0% 160vh, 0% 100%, 100% 100%, 100% 160vh');
     }
 
-    //teaser inject
-    var teaser_step = 0;
-    var teaser_highlighted = [];
-    var $teaser = $('#count-display');
-    var teaser_timer;
-    function teaser_increment(e) {
-        if(teaser_step === 3 || teaser_highlighted.includes(e)) return;
-        teaser_highlighted.push(e);
-        $teaser.css("opacity", 1).css("z-index", 1000);
-        $('#counter', $teaser).html(++teaser_step);
-
-        if(teaser_step === 3) $teaser.html("You've unlocked <a href='/teaser' target='_blank'>teaser 1</a>.");
-    }
-    $('.teaser').bind('select touchend', function() {
-        if(teaser_step === 3) return;
-        console.log("selected", this);
-        var id = $(this).attr('id');
-        var selection = (document.all) ? document.selection.createRange().text : document.getSelection();
-        var focusedElement = document.activeElement;
-        console.log(selection, focusedElement)
-        if(selection.toString() !== "?" && !(selection.toString() == "" && focusedElement.selectionStart == 0 && focusedElement.selectionEnd == 1)) return;
-        setTimeout(function() {
-            var newSelection = (document.all) ? document.selection.createRange().text : document.getSelection();
-            console.log("in timeout", newSelection, selection);
-            if(Object.is(newSelection, selection) && focusedElement == document.activeElement) {
-                //we kept the same selection ...
-                if(teaser_step === 0) {
-                    if(id == "t-flag-1") teaser_increment(id);
-                }
-                else
-                    teaser_increment(id);
-            }
-        }, teaser_step === 0 ? 5000 : 1000);
-    });
-// Update/Generate Lines
+    // Update/Generate Lines
     gsap.registerPlugin(ScrollTrigger);
     updateLines();
     renderButtons();
@@ -138,66 +104,6 @@ $(function() {
         "(max-width: 766px)": function() {
             // no lines on mobile ...
         }
-    })
-
-
-    // $(window).scroll(function() {
-    //     if(mobile)
-    //         return;
-    //     processScroll();
-    // });
-
-// Prompt user to scroll if they idle at top.
-    setTimeout(function() {
-        if(!initialScroll) {
-            if($(window).height() > 650)
-                $('#scrollDown-container').css('opacity', 1);
-        }
-    }, 3000);
-    var isAnimating = false;
-    $('.carousel-nav').click(function() {
-        if(isAnimating) return;
-        isAnimating = true;
-        var direction = 1;
-        if($(this).hasClass('mirrorflip')) direction = -1;
-        var $inner = $('.carousel-inner');
-        var boxSize = $inner.width();
-        var offset = boxSize / 4 * direction;
-        var currentPosition = $inner.scrollLeft();
-        $(this).addClass("clicked");
-        var holdEle = this;
-        setTimeout(function(){
-            $(holdEle).removeClass("clicked");
-        }, 500)
-        $inner.animate({scrollLeft: currentPosition+offset+'px'}, 800, function(){
-            isAnimating = false;
-        });
-        //detect overscroll
-        var firstElement = $('.carousel-first');
-        var lastElement = $('.carousel-last');
-        if(currentPosition == 0 && direction == -1) {
-            isAnimating = false;
-            //useless scrollTop() to force refresh after removing class
-            $inner.removeClass('bounceRightAnimation bounceLeftAnimation').scrollTop();
-            $inner.addClass('bounceRightAnimation');
-        }
-        else if(currentPosition > (boxSize / 4 * $('.carousel-element').length) - boxSize - 10 && direction == 1) {
-            isAnimating = false;
-            $inner.removeClass('bounceRightAnimation bounceLeftAnimation').scrollTop();
-            $inner.addClass('bounceLeftAnimation');
-        }
-    });
-    $('.carousel-image').click(function(e) {
-        /*
-        //trigger modal!
-        // pull data ...
-        var dataContainer = $(this).closest('.carousel-element').data('addr');
-        $.getJSON("/assets/hackathons/"+dataContainer, function(data) {
-            triggerModal(data);
-        });
-        //TODO: loading status
-        */
-        $(this).parent().find('a')[0].click();
     });
     $('#backdrop').click(function() {
         cancelModal();
