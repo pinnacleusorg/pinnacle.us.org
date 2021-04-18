@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Hero from "../components/Hero.svelte";
 	import BigNumbers from "../components/BigNumbers.svelte";
+	import Description from "../components/Description.svelte";
 </script>
 
 <svelte:head>
@@ -13,15 +14,13 @@
 	</div>
 	<Hero />
 	<div class="page-spacer"></div>
-	<div class="container-wide light-bg" id="pre-description">
-    <div class="overflow-triangle"></div>
-	</div>
+	<div class="container-wide light-bg" id="pre-description"></div>
 
 	<!-- components/eyecatchers -->
 	<BigNumbers />
+	<Description />
 
 	<!--
-	<%- include('components/description') %>
 	<%- include('components/carousel') %>
 	<%- include('components/schedule') %>
 	<%- include('components/sponsors') %>
@@ -74,4 +73,9 @@
 		clip-path: polygon(50% 0px, 0px 100%, 100% 100%);
 		height: 60vh;
 	}
+
+  #pre-description, #schedule {
+		min-height: 800px;
+		position: relative;
+  }
 </style>
