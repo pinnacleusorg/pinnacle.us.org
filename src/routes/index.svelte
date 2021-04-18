@@ -7,7 +7,7 @@
 </svelte:head>
 
 <div class="ultrawide-capture">
-	<div id="scrollDown-container">
+	<div id="scroll-prompt">
 		<img src="icon/mouse.png" alt="Scroll Down">
 	</div>
 	<Hero />
@@ -32,8 +32,7 @@
 		margin: auto;
 	}
 	
-	/* Mouse overlay */
-	#scrollDown-container {
+	#scroll-prompt {
 		width: 5vw;
 		height: 5vw;
 		max-width: 25px;
@@ -44,10 +43,9 @@
 		z-index: -2;
 		opacity: 0;
 		transition: opacity 0.5s ease-in-out;
-		/* bad performance issues with blending this appropriately */
-		/* mix-blend-mode: difference; */
-	}
-	#scrollDown-container img {
-		width: 100%;
+
+		img {
+			width: 100%;
+		}
 	}
 </style>

@@ -28,31 +28,33 @@
     display: flex;
     align-items: center;
     font-family: KeplerStd;
-  }
-  #hero .brandImg {
-    width: 30rem;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    font-weight: bolder;
-  }
-  #hero #keyLogo {
-    width: 10rem;
-    padding-right: 3px;
-  }
-  #hero #keyLabel {
-    margin-top: 4rem !important;
-  }
-  #hero #keyByline {
-    font-size: 25px;
-    font-weight: lighter;
-    letter-spacing: 1.2px;
-  }
-  #hero .inner {
-    margin-top: -8rem;
-    transition: margin-top 0.2s ease-out;
-  }
-  .container-fluid {
-    padding: 0;
+    
+    .brandImg {
+      width: 30rem;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      font-weight: bolder;
+    }
+    
+    #keyLogo {
+      width: 10rem;
+      padding-right: 3px;
+    }
+    
+    #keyLabel {
+      margin-top: 4rem !important;
+    }
+
+    #keyByline {
+      font-size: 25px;
+      font-weight: lighter;
+      letter-spacing: 1.2px;
+    }
+
+    .inner {
+      margin-top: -8rem;
+      transition: margin-top 0.2s ease-out;
+    }
   }
 </style>
