@@ -2,6 +2,7 @@
 	import Hero from "../components/Hero.svelte";
 	import BigNumbers from "../components/BigNumbers.svelte";
 	import Description from "../components/Description.svelte";
+	import Carousel from "../components/Carousel.svelte";
 </script>
 
 <svelte:head>
@@ -19,6 +20,7 @@
 	<!-- components/eyecatchers -->
 	<BigNumbers />
 	<Description />
+	<Carousel />
 
 	<!--
 	<%- include('components/carousel') %>
@@ -74,7 +76,7 @@
 		height: 60vh;
 	}
 
-  #pre-description, #schedule {
+  #pre-description {
 		min-height: 800px;
 		position: relative;
   }
