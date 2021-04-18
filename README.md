@@ -2,35 +2,21 @@
 
 The default template for setting up a [Sapper](https://github.com/sveltejs/sapper) project. Can use either Rollup or webpack as bundler.
 
+## This Branch & Pinnacle Development
+
+### Commit Prefixes
+This branch currently uses the following (discretionary) commit prefixes:
+- `fix:` Fix an outstanding issue (e.g. Fixed page scroll on Safari)
+- `repo:` Repository-wide or general repository-affecting changes (e.g. Update README)
+- `sp:` Sapper-specific project changes (e.g. Added new component)
+- `style:` Style-only changes. Guaranteed to not affect functionality (e.g. Changed global border colour)
+
+These are intended to make viewing git history easier, giving an overview of potentially breaking or major changes.
+
+### Why Sapper?
+SSR with SPA architecture and routing baked in while using Svelte. Enough said. Below is the default README that explains how to run and understand this project's structure. This project uses SASS and TypeScript.
 
 ## Getting started
-
-
-### Using `degit`
-
-To create a new Sapper project based on Rollup locally, run
-
-```bash
-npx degit "sveltejs/sapper-template#rollup" my-app
-```
-
-For a webpack-based project, instead run
-
-```bash
-npx degit "sveltejs/sapper-template#webpack" my-app
-```
-
-[`degit`](https://github.com/Rich-Harris/degit) is a scaffolding tool that lets you create a directory from a branch in a repository.
-
-Replace `my-app` with the path where you wish to create the project.
-
-
-### Using GitHub templates
-
-Alternatively, you can create the new project as a GitHub repository using GitHub's template feature.
-
-Go to either [sapper-template-rollup](https://github.com/sveltejs/sapper-template-rollup) or [sapper-template-webpack](https://github.com/sveltejs/sapper-template-webpack) and click on "Use this template" to create a new project repository initialized by the template.
-
 
 ### Running the project
 
@@ -45,25 +31,6 @@ npm run dev
 This will start the development server on [localhost:3000](http://localhost:3000). Open it and click around.
 
 You now have a fully functional Sapper project! To get started developing, consult [sapper.svelte.dev](https://sapper.svelte.dev).
-
-### Using TypeScript
-
-By default, the template uses plain JavaScript. If you wish to use TypeScript instead, you need some changes to the project:
-
- * Add `typescript` as well as typings as dependences in `package.json`
- * Configure the bundler to use [`svelte-preprocess`](https://github.com/sveltejs/svelte-preprocess) and transpile the TypeScript code.
- * Add a `tsconfig.json` file
- * Update the project code to TypeScript
-
-The template comes with a script that will perform these changes for you by running
-
-```bash
-node scripts/setupTypeScript.js
-```
-
-`@sapper` dependencies are resolved through `src/node_modules/@sapper`, which is created during the build. You therefore need to run or build the project once to avoid warnings about missing dependencies.
-
-The script does not support webpack at the moment.
 
 ## Directory structure
 
