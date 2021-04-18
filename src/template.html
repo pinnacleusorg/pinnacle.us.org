@@ -3,14 +3,9 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1.0">
-	<meta name="theme-color" content="#333333">
+	<meta name="theme-color" content="#1e1d1d">
 
 	%sapper.base%
-
-	<link rel="stylesheet" href="css/global.css">
-	<link rel="manifest" href="manifest.json" crossorigin="use-credentials">
-	<link rel="icon" type="image/x-icon" href="meta/favicon.ico">
-	<link rel="apple-touch-icon" href="meta/apple-touch-icon.png">
 
 	<!-- Sapper creates a <script> tag containing `src/client.js`
 	     and anything else it needs to hydrate the app and
@@ -26,7 +21,7 @@
 	     the current page has one -->
 	%sapper.head%
 	
-	<!-- Extra meta tags for shortcuts, OG card, etc. -->
+	<!-- OpenGraph Information -->
 	<meta name="description" content="Pinnacle is a 36-hour competitive collegiate hackathon where 200 participants come together to build innovative and creative hacks in the San Francisco Bay Area." />
 	<meta property="og:title" content="Pinnacle • The Olympics of Hackathons" />
 	<meta property="og:type" content="website" />
@@ -34,29 +29,34 @@
 	<meta property="og:image" content="https://pinnacle.us.org/assets/banner.png" />
 	<meta property="og:description" content="The Olympics of Hackathons • Coming Fall 2021" />
 
-	<link rel="apple-touch-icon" sizes="180x180" href="/meta/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/meta/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/meta/favicon-16x16.png">
-	<link rel="manifest" href="/site.webmanifest">
-	<link rel="mask-icon" href="/meta/safari-pinned-tab.svg" color="#c69e60">
-	<link rel="shortcut icon" href="/meta/favicon.ico">
+	<!-- PWA/Shortcut Information -->
 	<meta name="apple-mobile-web-app-title" content="Pinnacle">
 	<meta name="application-name" content="Pinnacle">
 	<meta name="msapplication-TileColor" content="#c69e60">
 	<meta name="msapplication-config" content="/browserconfig.xml">
-	<meta name="theme-color" content="#1e1d1d">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="manifest" href="site.webmanifest" crossorigin="use-credentials">
 
+	<link rel="apple-touch-icon" sizes="180x180" href="/meta/apple-touch-icon.png">
+	<link rel="icon" type="image/x-icon" href="meta/favicon.ico">
+	<link rel="icon" type="image/png" sizes="16x16" href="/meta/favicon-16x16.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/meta/favicon-32x32.png">
+	<link rel="mask-icon" href="/meta/safari-pinned-tab.svg" color="#c69e60">
+	<link rel="shortcut icon" href="/meta/favicon.ico">
+
+	<!-- Local Dependencies -->
+	<link rel="stylesheet" href="css/global.css">
+	<script src="assets/clippath.min.js"></script>
+	<script src="assets/bg.js"></script>
+
+	<!-- External Dependencies -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.0/gsap.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.0/ScrollTrigger.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/countup.js/2.0.7/countUp.umd.min.js" integrity="sha512-poX8s2iLsdUeQUFYXMYYMigqM1QHZATXbQrbp2wQY5szR7P6er+pD52p4qLdLKf7mEuC7rEYB/EFpZ38+D4l+A==" crossorigin="anonymous"></script>
-	<script src="assets/clippath.min.js"></script>
-	<script src="assets/bg.js"></script>
 </head>
 <body>
-	<!-- The application will be rendered inside this element,
-	     because `src/client.ts` references it -->
+	<!-- The application will be rendered inside this element (src/client.ts) -->
 	<div id="sapper">%sapper.html%</div>
 </body>
 </html>
