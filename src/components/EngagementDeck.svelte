@@ -2,7 +2,7 @@
 <div class="card-deck engagement-deck">
   <div class="card">
       <div class="card-body">
-          <h3 class="card-title">Future staff<textarea readonly rows="1" class="teaser" id="t-flag-2">?</textarea></h3>
+          <h3 class="card-title">Future staff?</h3>
           <p class="card-text p-2">Be a part of the team that makes it happen.</p>
       </div>
       <div class="card-footer">

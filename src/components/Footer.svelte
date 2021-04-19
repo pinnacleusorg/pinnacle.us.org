@@ -27,11 +27,4 @@
     align-items: center;
     justify-content: center;
   }
-
-  #footer > a {
-    color: var(--pinnacle-bg);
-  }
-  #footer > a:hover {
-    text-decoration: underline;
-  }
 </style>

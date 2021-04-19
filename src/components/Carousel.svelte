@@ -1,5 +1,5 @@
 
-<div class="container-fluid light-bg" id="carousel">
+<div class="container-wide light-bg" id="carousel">
   <div class="container inner">
     <h2 class="mb-2">Upcoming Hackathons</h2>
     <p class="carousel-subtitle mb-4">Participate in an upcoming partner event to qualify for Pinnacle 2021.</p>
@@ -58,51 +58,12 @@
     width: 80%;
   }
 
-  .carousel-nav.clicked {
-    transform: scale(1.1);
-  }
-
   .carousel-inner {
     display: flex;
     flex-wrap: nowrap;
     overflow: hidden;
   }
 
-  .carousel-element {
-    width: calc(25% - 100px);
-    min-width: 140px;
-    padding-left: 50px;
-    padding-right: 50px;
-    display: inline-block;
-    text-align: center;
-    flex: 0 0 auto;
-    box-sizing: content-box;
-  }
-
-  .carousel-element .carousel-image {
-    width: 100%;
-    padding: 25px;
-    margin-left: auto;
-    margin-right: auto;
-    cursor: pointer;
-    transition: transform 0.2s ease-in-out;
-  }
-
-  .carousel-element .carousel-image:hover {
-    transform: translateY(-4px);
-  }
-
-  .carousel-element .carousel-title {
-    display: block;
-    color: var(--pinnacle-gold);
-    font-size: 1.6rem;
-  }
-
-  .carousel-element .carousel-location {
-    display: block;
-    color: var(--pinnacle-bg);
-    font-size: 1.6rem;
-  }
   .carousel-subtitle {
     text-align: center;
     margin-top: 15px;
@@ -125,14 +86,6 @@
     }
     .carousel-nav {
       display: none;
-    }
-  }
-
-  @media (max-width: 1260px) {
-    .carousel-element {
-      width: calc(25% - 50px);
-      padding-left: 25px;
-      padding-right: 25px;
     }
   }
 
