@@ -4,7 +4,7 @@
   import EngagementDeck from "./EngagementDeck.svelte";
 </script>
 
-<div class="container-fluid light-bg" id="schedule">
+<div class="container-wide light-bg" id="schedule">
   <div class="container inner">
     <h2>Timeline</h2>
     <Timeline />
@@ -19,74 +19,65 @@
 </div>
 
 <style lang="scss">
-  /* Schedule Section */
   #schedule {
-      padding-bottom: 550px;
+    padding-bottom: 550px;
+    position: relative;
   }
   #schedule h2 {
-      text-align: center;
+    text-align: center;
   }
   #schedule .inner {
-      min-height: 40rem;
+    min-height: 40rem;
   }
-  #schedule .right-body {
-      margin-top: 8rem;
-      font-size: 34px;
-  }
-  .calendar-obj {
-      font-weight: bold;
-  }
-  .calendar-obj .time {
-      float: left;
-      display: inline-block;
-  }
-  .calendar-obj .description {
-      float: right;
-      display: inline-block;
-  }
+  
   /* Animated Skyline */
   .skyline {
-      width: calc(100% + 1px);
-      position: absolute;
-      left: -1px;
-      right: 1px;
-      bottom: -1px;
-      height: 650px;
-      overflow-x: hidden;
-      pointer-events: none;
+    width: calc(100% + 1px);
+    position: absolute;
+    left: -1px;
+    right: 1px;
+    bottom: -1px;
+    height: 650px;
+    overflow-x: hidden;
+    pointer-events: none;
   }
+  
   .skyline-component {
-      width: 100%;
-      height: 100%;
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: bottom;
-      position: absolute;
-  }
-  #skyline_black {
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom;
+    position: absolute;
+
+    &#skyline_black {
       background-image: url('/image/skyline-black.svg');
-  }
-  #skyline_gold {
+    }
+    &#skyline_gold {
       background-image: url('/image/skyline-gold.svg');
-  }
-  #skyline_goldengate {
+    }
+    &#skyline_goldengate {
       background-image: url('/image/skyline-goldengate.svg');
-  }
-  #skyline_twinpeaks {
+    }
+    &#skyline_twinpeaks {
       background-image: url('/image/skyline-twinpeaks.svg');
+    }
   }
+
   .skyline-component.animated {
-      transition: transform 2s ease;
-      -webkit-transform: translateX(0%);
-      transform: translateX(0%);
-      will-change: transform;
+    transition: transform 2s ease;
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+    will-change: transform;
   }
+
   .skyline-component.off-right {
-      -webkit-transform: translateX(103%);
-      transform: translateX(103%);
+    -webkit-transform: translateX(103%);
+    transform: translateX(103%);
   }
+  
   .skyline-component.off-left {
-      -webkit-transform: translateX(-103%);
-      transform: translateX(-103%);
+    -webkit-transform: translateX(-103%);
+    transform: translateX(-103%);
   }
 </style>
