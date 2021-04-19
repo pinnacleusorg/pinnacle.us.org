@@ -76,6 +76,7 @@
     max-width: 100%;
     width: 100%;
     overflow: scroll;
+    -ms-scroll-snap-type: x mandatory;
     scroll-snap-type: x mandatory;
 
     scrollbar-width: none;
