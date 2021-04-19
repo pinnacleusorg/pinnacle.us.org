@@ -69,6 +69,11 @@ html {
   src: url("../font/Casper-Bold.ttf");
   font-weight: normal;
 }
+h2 {
+  font-family: KeplerStd, serif;
+  font-size: 3.5rem;
+}
+
 a {
   color: var(--pinnacle-gold);
   transition: color 0.2s;

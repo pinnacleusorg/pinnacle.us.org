@@ -26,14 +26,8 @@
     margin-left: auto;
     width: 65%;
   }
-  
-  #description h2 {
-    font-size: 3.5rem;
-    font-family: KeplerStd;
-  }
 
   #description h2 {
     margin-left: 6rem;
-    font-family: KeplerStd;
   }
 </style>

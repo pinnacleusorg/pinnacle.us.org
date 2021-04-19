@@ -43,6 +43,7 @@
     
     h2 {
       text-align: center;
+      margin-bottom: 0.5rem;
       padding-bottom: 0.8rem;
     }
     
@@ -99,7 +100,7 @@
 
     .carousel-element {
       display: block;
-      height: 200px;
+      height: 300px;
       min-width: calc(25% - 15px);
       scroll-snap-align: start;
       scroll-snap-stop: normal;
@@ -114,7 +115,7 @@
 
   .carousel-subtitle {
     text-align: center;
-    margin-top: 2rem;
+    margin-top: 15px;
     font-size: 1.3rem;
   }
 
