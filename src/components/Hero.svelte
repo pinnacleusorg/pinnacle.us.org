@@ -22,8 +22,8 @@
     color: var(--pinnacle-gold);
     display: flex;
     align-items: center;
-    text-align: center;
     font-family: KeplerStd;
+    text-align: center;
     position: fixed;
     top: 0;
     left: 0;
@@ -35,28 +35,43 @@
     }
     
     .brand-img {
-      width: 30rem;
       display: block;
-      margin-left: auto;
-      margin-right: auto;
       font-weight: bolder;
+      margin: auto;
+      width: 30rem;
     }
     
     #keyLogo {
       margin-bottom: 1rem;
-      padding-right: 3px;
       width: 10rem;
     }
     
     #keyLabel {
-      margin-top: 4rem !important;
+      margin-top: 4rem;
     }
 
     #keyByline {
-      margin-top: 2rem;
       font-size: 25px;
       font-weight: lighter;
       letter-spacing: 1.2px;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 767px) {
+      display: block;
+      height: 90vh;
+      width: 100%;
+      padding-bottom: 120vh;
+      position: relative;
+
+      .inner {
+        margin-top: 0 !important;
+        padding: 4rem;
+      }
+      
+      .brand-img, #keyLabel, #keyByline {
+        max-width: 100%;
+      }
     }
   }
 </style>
