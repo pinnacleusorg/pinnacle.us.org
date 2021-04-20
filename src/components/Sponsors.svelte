@@ -16,25 +16,26 @@
   #sponsors {
     text-align: center;
     z-index: 1;
+
+    .inner {
+      padding: 18rem 0;
+    }
   }
-  #sponsors .inner {
-    padding: 18rem 0;
-  }
-  #sponsors h2 {
-    font-size: 3rem;
-    font-family: KeplerStd;
-  }
+  
   .sponsor-logos {
     width: 100%;
   }
+
   .sponsor-logos .sponsor {
     margin: 3rem auto;
     width: 100%;
     display: block;
     max-width: 300px;
   }
+
   #sponsor-ad {
     max-width: 100%;
+    line-height: 1.5;
     font-size: 1.5rem;
   }
 </style>
