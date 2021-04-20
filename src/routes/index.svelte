@@ -19,7 +19,6 @@
 	<Hero />
 	<div class="page-spacer"></div>
 	<div class="container-wide light-bg" id="pre-description"></div>
-
 	<!-- components/eyecatchers -->
 	<BigNumbers />
 	<Description />
@@ -27,9 +26,6 @@
 	<Schedule />
 	<Sponsors />
 	<Footer showLegal="{true}" />
-	<div id="count-display">
-		Counter <span id="counter">0</span>/3
-	</div>
 </div>
 
 <style lang="scss">

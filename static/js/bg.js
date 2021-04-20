@@ -32,12 +32,6 @@ $(function () {
   consoleBanner += ("                               |___/          |_|                                                                                  ");
   console.log(consoleBanner);
   console.log("Peeking under the hood? We want you on our team! Apply now: http://hack.ms/P20-Team-Application");
-  // Polyfill for ios / safari - https://github.com/AlfonsoFilho/ClipPath
-  $('.overflowTriangle').ClipPath('50% 0, 0 100%, 100% 100%');
-  var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-  if (isSafari) {
-    $('.linesCanvas-outside#mainCanvas').ClipPath('50% 100vh, 0% 160vh, 0% 100%, 100% 100%, 100% 160vh');
-  }
 
   // Update/Generate Lines
   gsap.registerPlugin(ScrollTrigger);
@@ -83,34 +77,15 @@ $(function () {
     })
   })
 
-  // Handle Scrolling Animation
-  //Can we handle this with GSAP ?
-  ScrollTrigger.matchMedia({
-    "(min-width: 767px)": function () {
-      var timeline = gsap.timeline({
-        defaults: { duration: 1 },
-        scrollTrigger: {
-          trigger: "html",
-          scrub: true,
-          start: "top top",
-          end: "bottom bottom",
-          onUpdate: processScroll
-        }
-      });
-    },
-    "(max-width: 766px)": function () {
-      // no lines on mobile ...
-    }
-  });
   $('#backdrop').click(function () {
     cancelModal();
   });
 });
+
 function triggerModal(blob) {
   //fade backdrop
   $('body').addClass('withModal');
   $('#backdrop').addClass('modal-cover');
-
 }
 
 function cancelModal() {
