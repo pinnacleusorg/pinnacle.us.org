@@ -3,8 +3,6 @@
 @use './utility/animations';
 @use './utility/typography';
 
-@use './components/brandbtn';
-
 body.lockScroll {
 	overflow-y: hidden;
 }
@@ -28,7 +26,6 @@ body.lockScroll {
 }
 
 /* W H A T */
-
 
 .arrow::before {
   border-style: solid;
@@ -59,18 +56,4 @@ body.lockScroll {
 	position: -webkit-sticky;
 	position: sticky;
 	top: 0;
-}
-
-/* Teaser Code */
-#count-display {
-	position: fixed;
-	top: 0;
-	right: 0;
-	padding: 5px;
-	color: black;
-	background-color: white;
-	border: 1px solid black;
-	z-index: -1;
-	opacity: 0;
-	transition: opacity 1s;
 }
