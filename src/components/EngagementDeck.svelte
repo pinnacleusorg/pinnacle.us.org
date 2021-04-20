@@ -3,7 +3,7 @@
   import BrandButton from "./BrandButton.svelte";
 </script>
 
-<div class="flex-row flex-list engagement-deck">
+<div class="flex-row engagement-deck">
   <div class="card">
     <div class="card-body">
       <h3 class="card-title">Future staff?</h3>
@@ -42,9 +42,16 @@
 </div>
 
 <style lang="scss">
-  .card, .card-body, .card-footer {
+  .card {
+    display: flex;
+    flex-direction: column;
+  }
+  .card, .card-body {
     font-family: KeplerStd;
     flex: 1 1;
+  }
+  .card-title {
+    font-size: 1.75rem;
   }
   .engagement-deck {
     margin-bottom: 3rem;
@@ -66,6 +73,7 @@
     background-color: var(--pinnacle-gold);
     margin-top: 40px;
     margin-bottom: 40px;
+    margin-right: 0;
   }
   .stacked-input {
     width: 75%;
@@ -79,6 +87,7 @@
     color: black;
     background-color: var(--pinnacle-bg-light);
     font-size: 1.3rem;
+    font-family: inherit;
     padding: 0.5rem 0.6rem;
   }
   .input-group input::placeholder {
