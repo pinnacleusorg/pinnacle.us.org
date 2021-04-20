@@ -7,18 +7,6 @@ var mobile = true,
   highestScroll = 0,
   initialScroll = false;
 
-(function () {
-  var offsetMethod = jQuery.fn.offset;
-  jQuery.fn.offset = function () {
-    var offset = offsetMethod.apply(this, arguments);
-    var UWFix = offsetMethod.apply($('.container-wide'), arguments);
-    var newOffset = {
-      top: offset.top,
-      left: offset.left - UWFix.left
-    };
-    return newOffset;
-  }
-})();
 var bigNumbers = [];
 $(function () {
   var consoleBanner = "";
@@ -38,43 +26,6 @@ $(function () {
   $('.big-num-num').each(function () {
     bigNumbers.push(new countUp.CountUp(this, $(this).data('to')));
   });
-
-  var subscribeDisabled = false;
-  $('#updatedbtn').click(function (e) {
-    e.preventDefault();
-
-    var name = $('#engagement-fn').val().trim();
-    var email = $('#engagement-email').val().trim();
-    if (name.length == 0 || email.length == 0)
-      return;
-    if (subscribeDisabled)
-      return;
-    subscribeDisabled = true;
-    $('#engagement-fn, #engagement-email').prop('disabled', true);
-    //submit, report errors to #updatedMsg.
-    $.ajax('https://api.pinnacle.us.org/1.0/contacts', {
-      type: 'post',
-      data: JSON.stringify({ "email": email, "name": name }),
-      dataType: 'json',
-      contentType: 'application/json'
-    }).done(function () {
-      $('#engagement-fn').val("");
-      $('#engagement-email').val("");
-      $('#updatedMsg').addClass("successful").text("Welcome to the mailing list!");
-      subscribeDisabled = false;
-      $('#engagement-fn').prop('disabled', false);
-      $('#engagement-email').prop('disabled', false);
-    }).fail(function (msg) {
-      console.log(msg);
-      var error = "Error: Please confirm your email address is accurate";
-      if (msg.status == 409)
-        error = "You're already on our list!";
-      $('#updatedMsg').addClass("err").text(error);
-      subscribeDisabled = false;
-      $('#engagement-fn').prop('disabled', false);
-      $('#engagement-email').prop('disabled', false);
-    })
-  })
 });
 
 function processScroll(scroll) {

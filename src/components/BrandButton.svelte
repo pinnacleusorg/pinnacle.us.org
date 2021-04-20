@@ -14,7 +14,7 @@
 </a>
 {/if}
 {#if !isAnchor}
-<button class="pinnacle-btn">
+<button class="pinnacle-btn" on:click>
   <div class="btn-label">
     <span><slot></slot></span>
     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10,2l9,10l-9,10h2l9-10L12,2H10z"/></svg>
@@ -25,23 +25,27 @@
 
 <style lang="scss">
   .pinnacle-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
     display: inline-flex;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
     justify-content: center;
     align-items: center;
-    height: 4em;
-    width: 40%;
+    font-family: inherit;
+    text-decoration: none;
+    margin: auto;
+    min-height: 4rem;
     min-width: 180px;
+    height: 4rem;
+    position: relative;
 
     .btn-label {
-      font-size: 1.2rem;
       color: var(--pinnacle-bg-light);
+      font-size: 1.2rem;
       font-weight: bold;
+      letter-spacing: 0.7px;
       position: relative;
       z-index: 99;
-      letter-spacing: 0.7px;
     }
 
     .btn-label > svg {
@@ -54,6 +58,8 @@
       position: absolute;
       top: 0;
       left: 0;
+      width: 100%;
+      height: 100%;
     }
     
     > svg path {

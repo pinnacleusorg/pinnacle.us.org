@@ -1,6 +1,43 @@
 
 <script lang="ts">
   import BrandButton from "./BrandButton.svelte";
+
+  let subscribeDisabled = false;
+  let name: string, email: string; // Bound values
+
+  function trySubscribe(e): void {
+    e.preventDefault();
+
+    name = name.trim();
+    email = email.trim();
+    if (!name || !email)
+      return;
+    if (subscribeDisabled)
+      return;
+    subscribeDisabled = true;
+    //submit, report errors to #updatedMsg.
+    fetch('https://api.pinnacle.us.org/1.0/contacts', {
+        method: 'post',
+        body: JSON.stringify({ "email": email, "name": name }),
+        headers: new Headers({ "Content-Type": "application/json" })
+      })
+      .then(() => {
+        name = "";
+        email = "";
+        document.querySelector('#updatedMsg').classList.add("successful");
+        document.querySelector('#updatedMsg').textContent = "Welcome to the mailing list!";
+        subscribeDisabled = false;
+      })
+      .catch(function (msg) {
+        console.log(msg);
+        var error = "Error: Please confirm your email address is accurate";
+        if (msg.status == 409)
+          error = "You're already on our list!";
+        document.querySelector('#updatedMsg').classList.add("err");
+        document.querySelector('#updatedMsg').textContent = error;
+        subscribeDisabled = false;
+      });
+  }
 </script>
 
 <div class="flex-row engagement-deck">
@@ -19,14 +56,14 @@
       <h3 class="card-title">Stay in the Loop</h3>
       <div class="stacked-input">
         <div class="input-group">
-          <input
+          <input bind:value="{name}"
             type="text"
             class="form-control"
             id="engagement-fn"
             placeholder="First Name"/>
         </div>
         <div class="input-group">
-          <input
+          <input bind:value="{email}"
             type="email"
             class="form-control"
             id="engagement-email"
@@ -36,7 +73,7 @@
       </div>
     </div>
     <div class="card-footer">
-      <BrandButton href="#submit" isAnchor="{true}">Stay Updated</BrandButton>
+      <BrandButton on:click="{trySubscribe}">Stay Updated</BrandButton>
     </div>
   </div>
 </div>
@@ -49,9 +86,11 @@
   .card, .card-body {
     font-family: KeplerStd;
     flex: 1 1;
+    margin-bottom: 1rem;
   }
   .card-title {
     font-size: 1.75rem;
+    margin-bottom: 1rem;
   }
   .engagement-deck {
     margin-bottom: 3rem;
@@ -71,8 +110,8 @@
   .card-divider {
     flex: 0 0 3px;
     background-color: var(--pinnacle-gold);
-    margin-top: 40px;
-    margin-bottom: 40px;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
     margin-right: 0;
   }
   .stacked-input {
