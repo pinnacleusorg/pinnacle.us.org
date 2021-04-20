@@ -13,7 +13,15 @@
       <a
         href="https://hack.ms/P20-Team-Application"
         class="pinnacle-btn mt-2"
-        id="applybtn">Apply Now</a>
+        id="applybtn">
+        <div class="btn-label">
+          Apply Now
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M10,2l9,10l-9,10h2l9-10L12,2H10z"/>
+          </svg>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 184 65"><path d="M0,19.56,19.63,0H184V45.65L164.37,65.21H0V19.56Z"/></svg>
+      </a>
     </div>
   </div>
   <div class="card-divider"></div>
@@ -39,7 +47,15 @@
       </div>
     </div>
     <div class="card-footer">
-      <a href="#submit" class="pinnacle-btn mt-2" id="updatedbtn">Stay Updated</a>
+      <a href="#submit" class="pinnacle-btn mt-2" id="updatedbtn">
+        <div class="btn-label">
+          Stay Updated
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M10,2l9,10l-9,10h2l9-10L12,2H10z"/>
+          </svg>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 184 65"><path d="M0,19.56,19.63,0H184V45.65L164.37,65.21H0V19.56Z"/></svg>
+      </a>
     </div>
   </div>
 </div>
@@ -70,10 +86,7 @@
     margin-top: 40px;
     margin-bottom: 40px;
   }
-  #applybtn {
-    min-width: 180px;
-  }
-  #updatedbtn {
+  #applybtn, #updatedbtn {
     min-width: 180px;
   }
   .stacked-input {

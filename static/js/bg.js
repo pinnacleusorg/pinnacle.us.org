@@ -35,7 +35,6 @@ $(function () {
 
   // Update/Generate Lines
   gsap.registerPlugin(ScrollTrigger);
-  renderButtons();
   $('.big-num-num').each(function () {
     bigNumbers.push(new countUp.CountUp(this, $(this).data('to')));
   });
@@ -88,25 +87,4 @@ function processScroll(scroll) {
     var adj = 150 * scrollPercent / 20;
     $('#hero .inner').css('margin-top', 'calc(-8rem - ' + adj + 'px)');
   }
-}
-
-function renderButtons() {
-  $('.pinnacle-btn').each(function () {
-    $e = $(this);
-    var message = $e.text();
-    $e.html(message);
-    var w = $e.outerWidth();
-    var h = $e.outerHeight();
-    var strokeWidth = 4;
-    var modifiedW = w + strokeWidth;
-    var modifiedH = h + strokeWidth;
-    $e.outerWidth(modifiedW);
-    $e.outerHeight(modifiedH);
-    arrow = " \
-        <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"> \
-            <path d=\"M10,2l9,10l-9,10h2l9-10L12,2H10z\"/> \
-        </svg>";
-
-    $e.html('<div class="btn-label">' + message + ' ' + arrow + '</div>');
-  });
 }
