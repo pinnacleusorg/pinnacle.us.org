@@ -76,31 +76,11 @@ $(function () {
       $('#engagement-email').prop('disabled', false);
     })
   })
-
-  $('#backdrop').click(function () {
-    cancelModal();
-  });
 });
-
-function triggerModal(blob) {
-  //fade backdrop
-  $('body').addClass('withModal');
-  $('#backdrop').addClass('modal-cover');
-}
-
-function cancelModal() {
-  //deconstruct
-  console.log('close modal');
-  $('body').removeClass('withModal');
-  $('#backdrop').removeClass('modal-cover');
-}
 
 function processScroll(scroll) {
   initialScroll = true;
   //CONS:
-  var scrollTop = $(window).scrollTop();
-  var pageHeight = $('html').height();
-  var screenHeight = $(window).height();
   var scrollPercent = scroll.progress.toFixed(2) * 100;
 
   //Parallax logo at top of scroll (TODO: replace with GSAP parallax)
@@ -108,12 +88,6 @@ function processScroll(scroll) {
     var adj = 150 * scrollPercent / 20;
     $('#hero .inner').css('margin-top', 'calc(-8rem - ' + adj + 'px)');
   }
-  if (highestScroll > scrollTop)
-    return;
-  //If we've reached skyline portion, slide it in
-  // TODO: slide this in w GSAP
-  if (scrollTop + screenHeight - $('.skyline').offset().top > 0 && $('#skyline_goldengate').hasClass('off-left'))
-    $('.skyline-component').removeClass('off-left').removeClass('off-right');
 }
 
 function renderButtons() {
