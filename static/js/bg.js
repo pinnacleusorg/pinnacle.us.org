@@ -102,29 +102,11 @@ function renderButtons() {
     var modifiedH = h + strokeWidth;
     $e.outerWidth(modifiedW);
     $e.outerHeight(modifiedH);
-    //svg building!!
-    var points = [];
-    points[0] = [0, h * 0.30];
-    points[1] = [h * 0.30, 0];
-    points[2] = [w, 0];
-    points[3] = [w, h * 0.70];
-    points[4] = [w - h * 0.30, h];
-    points[5] = [0, h];
-    points[6] = [0, h * 0.70];
-    var svg = "";
-    for (var i = 0; i < points.length; i++) {
-      var x = points[i][0] + strokeWidth / 2;
-      var y = points[i][1] + strokeWidth / 2;
-      if (i == 0) svg += "M " + x + " " + y + " ";
-      else svg += "L " + x + " " + y + " ";
-    }
-    svg += "Z";
     arrow = " \
         <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"> \
             <path d=\"M10,2l9,10l-9,10h2l9-10L12,2H10z\"/> \
         </svg>";
 
     $e.html('<div class="btn-label">' + message + ' ' + arrow + '</div>');
-    $('<svg width="' + modifiedW + 'px" height="' + modifiedH + 'px"><path d="' + svg + '" stroke-width="' + strokeWidth + '"/></svg>').appendTo($e);
   });
 }

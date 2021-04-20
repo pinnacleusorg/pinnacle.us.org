@@ -1,19 +1,22 @@
 
-<div class="card-deck engagement-deck">
+<script lang="ts">
+
+</script>
+
+<div class="flex-row flex-list engagement-deck">
   <div class="card">
     <div class="card-body">
       <h3 class="card-title">Future staff?</h3>
-      <p class="card-text p-2">Be a part of the team that makes it happen.</p>
+      <p class="card-text">Be a part of the team that makes it happen.</p>
     </div>
     <div class="card-footer">
       <a
         href="https://hack.ms/P20-Team-Application"
         class="pinnacle-btn mt-2"
-        id="applybtn">Apply Now</a
-      >
+        id="applybtn">Apply Now</a>
     </div>
   </div>
-  <div class="card card-divider" />
+  <div class="card-divider"></div>
   <div class="card">
     <div class="card-body">
       <h3 class="card-title">Stay in the Loop</h3>
@@ -43,15 +46,15 @@
 
 <style lang="scss">
   .card, .card-body, .card-footer {
-    background: none;
-    border: none;
     font-family: KeplerStd;
+    flex: 1 1;
   }
   .engagement-deck {
     margin-bottom: 3rem;
   }
   .engagement-deck .card {
     text-align: center;
+    padding: 1.25rem;
   }
   .engagement-deck .card .card-body {
     padding-bottom: 0;
@@ -59,8 +62,9 @@
   .engagement-deck .card p.card-text {
     font-size: 1.3rem !important;
     font-family: CasperRegular;
+    padding: 0.5rem;
   }
-  .card.card-divider {
+  .card-divider {
     flex: 0 0 3px;
     background-color: var(--pinnacle-gold);
     margin-top: 40px;
