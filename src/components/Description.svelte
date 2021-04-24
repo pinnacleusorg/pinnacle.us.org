@@ -13,27 +13,35 @@
   #description {
     min-height: 800px;
 		position: relative;
-  }
+    
+    .inner {
+      padding: 15% 0;
+    }
 
-  #description .inner {
-    padding: 15% 0;
-  }
-
-  #description .right-body {
-    font-size: 20px;
-    font-weight: lighter;
-    text-align: center;
-    display: block;
-    padding: 10px 35px;
+    h2 {
+      text-align: center;
+    }
+    
+    .right-body {
+      font-size: 20px;
+      font-weight: lighter;
+      text-align: center;
+      display: block;
+      padding: 10px 55px;
+    }
 
     @media (min-width: 768px) {
-    font-size: 24px;
-      margin-left: auto;
-      width: 65%;
-    }
-  }
+      h2 {
+        margin-left: 6rem;
+        text-align: unset;
+      }
 
-  #description h2 {
-    margin-left: 6rem;
+      .right-body {
+        font-size: 24px;
+        text-align: left;
+        margin-left: auto;
+        width: 65%;
+      }
+    }
   }
 </style>
