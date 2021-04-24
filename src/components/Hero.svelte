@@ -10,7 +10,6 @@
       hero.style.marginTop = `calc(-8rem - ${scrollAdj}px)`;
     });
   });
-
 </script>
 
 <div class="fh fw" id="hero">
@@ -25,7 +24,7 @@
       alt="Pinnacle"
       class="brand-img"
       id="keyLabel"/>
-    <span class="byline brand-img" id="keyByline">
+    <span class="brand-img" id="keyByline">
       The Olympics of Hackathons
     </span>
   </div>
