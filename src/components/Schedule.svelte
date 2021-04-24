@@ -15,7 +15,7 @@
 </script>
 
 <div class="container-wide light-bg" id="schedule">
-  <div class="container inner">
+  <div class="container inner flex-column">
     <h2>Timeline</h2>
     <Timeline />
     <EngagementDeck />

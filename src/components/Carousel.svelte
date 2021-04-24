@@ -7,7 +7,7 @@
 </script>
 
 <div class="container-wide light-bg" id="carousel">
-  <div class="container inner">
+  <div class="container inner flex-column">
     <h2 class="mb-2">Upcoming Hackathons</h2>
     <p class="carousel-subtitle mb-4">Participate in an upcoming partner event to qualify for Pinnacle 2021.</p>
     <div class="carousel">
@@ -49,6 +49,7 @@
     
     .inner {
       max-width: 90%;
+      margin: auto;
     }
 
     @media (max-width: 767px) {
@@ -123,12 +124,11 @@
     #carousel h2 {
       padding-bottom: 0;
     }
-    .carousel-inner {
-      flex-wrap: wrap;
-      justify-content: center;
-    }
     .carousel-nav {
       display: none;
+    }
+    .carousel-inner .carousel-element {
+      min-width: 100%;
     }
   }
 

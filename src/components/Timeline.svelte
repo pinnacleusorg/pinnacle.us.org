@@ -1,14 +1,14 @@
 
-<div class="container" id="timeline-container">
-  <div class="tl-ele timeline-right">
-      <span class="timeline-date">Now until August 2021</span>
-      <span class="timeline-desc">
-        <p>Attend a qualifying hackathon</p>
-        <p>Winning teams are invited</p>
-        <p><em>Wildcard Tickets</em> are granted to secondary winners if spots become available</p>
-      </span>
+<div class="container flex-column" id="timeline-container">
+  <div class="tl-ele timeline-right flex-smart">
+    <span class="timeline-date">Now until August 2021</span>
+    <span class="timeline-desc">
+      <p>Attend a qualifying hackathon</p>
+      <p>Winning teams are invited</p>
+      <p><em>Wildcard Tickets</em> are granted to secondary winners if spots become available</p>
+    </span>
   </div>
-  <div class="tl-ele timeline-right">
+  <div class="tl-ele timeline-right flex-smart">
     <span class="timeline-date">September 2021</span>
     <span class="timeline-desc">Receive an all-expenses-paid ticket to Pinnacle, the Olympics of Hackathons</span>
   </div>
@@ -25,9 +25,7 @@
   #timeline-container {
     font-size: 28px;
     font-weight: lighter;
-    display: block;
     margin-left: auto;
-    width: 100%;
     margin-top: 8%;
     padding: 0 10%;
   }

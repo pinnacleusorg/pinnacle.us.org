@@ -59,13 +59,14 @@
 
 	#pre-description {
 		clip-path: polygon(50% 0px, 0px 100%, 100% 100%);
-		height: 60vh;
-	}
-
-  #pre-description {
-		min-height: 800px;
+    height: 30vh;
 		position: relative;
-  }
+
+    @media (min-width: 768px) {
+      height: 60vh;
+      min-height: 800px;
+    }
+	}
 
   @keyframes fade-in {
     0% {

@@ -20,11 +20,17 @@
   }
 
   #description .right-body {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: lighter;
+    text-align: center;
     display: block;
-    margin-left: auto;
-    width: 65%;
+    padding: 10px 35px;
+
+    @media (min-width: 768px) {
+    font-size: 24px;
+      margin-left: auto;
+      width: 65%;
+    }
   }
 
   #description h2 {

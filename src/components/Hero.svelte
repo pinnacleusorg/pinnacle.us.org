@@ -45,7 +45,9 @@
     z-index: -3;
 
     .inner {
+      box-sizing: border-box;
       margin-top: -8rem;
+      width: 100%;
       transition: margin-top 0.2s ease-out;
     }
     
@@ -73,18 +75,12 @@
     }
 
     @media (max-width: 767px) {
-      display: block;
-      height: 90vh;
-      width: 100%;
-      padding-bottom: 120vh;
-      position: relative;
-
       .inner {
         margin-top: 0 !important;
         padding: 4rem;
       }
       
-      .brand-img, #keyLabel, #keyByline {
+      .brand-img, #keyLabel, #keyByline, #keyLogo {
         max-width: 100%;
       }
     }

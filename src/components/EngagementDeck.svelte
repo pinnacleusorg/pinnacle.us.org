@@ -40,7 +40,7 @@
   }
 </script>
 
-<div class="flex-row engagement-deck">
+<div class="flex-smart engagement-deck">
   <div class="card">
     <h3 class="card-title">Future staff?</h3>
     <p class="card-text">Be a part of the team that makes it happen.</p>

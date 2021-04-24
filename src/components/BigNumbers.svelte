@@ -1,7 +1,7 @@
 
-<div class="container-wide light-bg" id="big-numbers">
+<div class="container-wide light-bg">
   <div class="container inner">
-    <div class="big-num-container">
+    <div class="flex-smart">
       <div class="big-num">
         <div class="big-num-num" data-from="0" data-to="36">36</div>
         <div class="big-num-label">
@@ -25,15 +25,11 @@
 </div>
 
 <style lang="scss">
-  .big-num-container {
-    display: flex;
-    width: 100%;
-  }
 
-  .big-num-container .big-num {
+  .big-num {
     flex-basis: 33%;
     text-align: center;
-    padding: 0 2.5%;
+    padding: 0 .5%;
   }
 
   .big-num .big-num-num {
