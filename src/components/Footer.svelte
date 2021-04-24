@@ -4,7 +4,7 @@
 </script>
 
 <footer class="gold-bg">
-  <div class="container-wide inner" id="footer">
+  <div class="container-wide inner">
     &copy; 2021 Pinnacle
     {#if showLegal}
       <div class="legalees">
@@ -22,7 +22,7 @@
     font-size: 1.2rem;
     font-weight: bolder;
     letter-spacing: 1.2px;
-    /* Edge to Edge footer on ultrawide */
+    
     position: absolute;
     left: 0;
     right: 0;
@@ -36,8 +36,6 @@
     }
 
     .legalees {
-      margin-top: 10px;
-
       .small {
         letter-spacing: 0.3px;
         font-size: 70%;

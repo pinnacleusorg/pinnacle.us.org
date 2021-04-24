@@ -8,6 +8,7 @@ html {
   background-color: var(--pinnacle-bg);
   color: var(--pinnacle-bg-light);
   font-family: CasperRegular;
+  line-height: 1.5;
   margin: 0;
   padding: 0;
   width: 100%;
@@ -47,6 +48,23 @@ html {
   }
   100% {
     transform: translateX(0px);
+  }
+}
+.fw {
+  width: 100vw;
+}
+
+.fh {
+  height: 100vh;
+}
+
+.fhplus {
+  height: calc(120vh);
+}
+
+@media (min-width: 1200px) {
+  .inner {
+    max-width: 900px;
   }
 }
 @font-face {
@@ -102,60 +120,6 @@ a:hover, a:focus {
 .gold-bg {
   background-color: var(--pinnacle-gold);
   color: var(--pinnacle-bg);
-}
-
-body.lockScroll {
-  overflow-y: hidden;
-}
-
-.fw {
-  width: 100vw;
-}
-
-.fh {
-  height: 100vh;
-}
-
-.fhplus {
-  height: calc(120vh);
-}
-
-@media (min-width: 1200px) {
-  .inner {
-    max-width: 900px;
-  }
-}
-/* W H A T */
-.arrow::before {
-  border-style: solid;
-  border-width: 2px 2px 0 0;
-  content: "";
-  display: inline-block;
-  margin-top: 0.25em;
-  margin-bottom: 0.25em;
-  height: 0.5em;
-  position: relative;
-  top: 0.15em;
-  vertical-align: top;
-  width: 0.5em;
-  left: 0;
-  transform: rotate(45deg);
-}
-
-.overflow-hide {
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-}
-
-.scroll-container {
-  background-color: red;
-  width: 100%;
-  height: 100vh;
-  overflow-y: hidden;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
 }
 
 /*# sourceMappingURL=global.css.map */

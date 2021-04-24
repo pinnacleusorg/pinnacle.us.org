@@ -20,6 +20,12 @@
     .inner {
       padding: 18rem 0;
     }
+
+    h2 {
+      font-size: 3rem;
+      margin: 0;
+      margin-bottom: 0.5rem;
+    }
   }
   
   .sponsor-logos {

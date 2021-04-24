@@ -49,15 +49,6 @@
 		}
 	}
 
-	@keyframes fade-in {
-		0% {
-			opacity: 0;
-		}
-		100% {
-			opacity: 1;
-		}
-	}
-
 	.page-spacer {
 		background-color: unset;
 		display: block;
@@ -74,5 +65,14 @@
   #pre-description {
 		min-height: 800px;
 		position: relative;
+  }
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
 </style>

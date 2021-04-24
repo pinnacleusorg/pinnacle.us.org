@@ -1,0 +1,18 @@
+
+.fw {
+	width: 100vw;
+}
+
+.fh {
+	height: 100vh;
+}
+
+.fhplus {
+	height: calc(120vh);
+}
+
+@media (min-width: 1200px) {
+	.inner {
+		max-width: 900px;
+	}
+}
