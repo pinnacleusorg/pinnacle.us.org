@@ -1,5 +1,26 @@
 
 <script lang="ts">
+  import { onMount } from "svelte";
+
+  interface Hackathon {
+    _id: number,
+    internal_title: string,
+    title: string, // Display Name
+    website: string, // URL string
+    startDate: string // DateTime string
+  }
+  let hackathons: Hackathon[] = [];
+
+  onMount(() => {
+    /* ! TODO: REPLACE THIS CORS PROXY IN PRODUCTION [DEVELOPMENT ONLY] */
+    fetch("https://cors.sdbagel.com/https://api.pinnacle.us.org/1.0/hackathons")
+      .then(res => res.json())
+      .then(res => hackathons = res.results)
+      .then(() => hackathons = hackathons.sort((a, b) => 
+        { return a.internal_title.localeCompare(b.internal_title); }))
+      .catch(ex => console.log("GET hackathons failed: "+ex));
+  });
+
   function scrollCarousel(direction: number): void {
     const c = document.querySelector("#carouselContainer");
     c.scrollBy(direction * c.getBoundingClientRect().width, 0);
@@ -8,8 +29,9 @@
 
 <div class="container-wide light-bg" id="carousel">
   <div class="container inner flex-column">
-    <h2 class="mb-2">Upcoming Hackathons</h2>
-    <p class="carousel-subtitle mb-4">Participate in an upcoming partner event to qualify for Pinnacle 2021.</p>
+    <h2>Partnered Events</h2>
+    <p class="carousel-subtitle">The winners of our partnered hackathons qualify for our premiere event.</p>
+    <br>
     <div class="carousel">
       <button class="carousel-nav reverse" on:click="{() => {scrollCarousel(-1);}}">
         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -17,15 +39,13 @@
         </svg>
       </button>
       <div class="carousel-inner flex-row flex-list" id="carouselContainer">
-        <div class="carousel-element">1</div>
-        <div class="carousel-element">2</div>
-        <div class="carousel-element">3</div>
-        <div class="carousel-element">4</div>
-        <div class="carousel-element">1</div>
-        <div class="carousel-element">2</div>
-        <div class="carousel-element">3</div>
-        <div class="carousel-element">4</div>
-        <div class="carousel-element">1</div>
+        {#each hackathons as event}
+          <a class="carousel-element" href="{event.website}" target="_blank">
+            <img src="vendor/{event.internal_title}.png" alt="{event.title}">
+            <span class="spacer"></span>
+            <span>{event.title}</span>
+          </a>
+        {/each}
       </div>
       <button class="carousel-nav" on:click="{() => {scrollCarousel(1);}}">
         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -33,6 +53,7 @@
         </svg>
       </button>
     </div>
+    <br><br><br>
     <p class="carousel-subtitle">Check out our <a href="/hackathons">full list</a> of partnered events.</p>
   </div>
 </div>
@@ -43,6 +64,7 @@
     
     h2 {
       text-align: center;
+      margin-top: 1rem;
       margin-bottom: 0.5rem;
       padding-bottom: 0.8rem;
     }
@@ -100,24 +122,33 @@
     }
 
     .carousel-element {
-      display: block;
-      height: 300px;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
       min-width: calc(25% - 15px);
       scroll-snap-align: start;
       scroll-snap-stop: normal;
 
-      // Distinguishing blocks. Debug only
-      background-color: #000;
-      border-radius: 5px;
-      color: #fff;
-      font-size: 24px;
+      img {
+        border-radius: 5px;
+        margin: auto;
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+        height: 220px;
+        width: 220px;
+      }
+
+      span {
+        display: block;
+        font-size: 1.6rem;
+      }
     }
   }
 
   .carousel-subtitle {
     text-align: center;
-    margin-top: 15px;
     font-size: 1.3rem;
+    margin: 0;
   }
 
   @media (max-width: 1050px) {
