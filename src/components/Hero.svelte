@@ -1,3 +1,18 @@
+
+<script lang="ts">
+  import { onMount } from "svelte";
+
+  onMount(() => {
+    document.addEventListener("scroll", () => {
+      const scrollAdj = (window.scrollY / window.innerHeight) * 100;
+      if (scrollAdj > 150) return; // Performance (reduce DOM operations)
+      let hero = document.querySelector("#hero .inner") as HTMLElement;
+      hero.style.marginTop = `calc(-8rem - ${scrollAdj}px)`;
+    });
+  });
+
+</script>
+
 <div class="fh fw" id="hero">
   <div class="container inner">
     <img

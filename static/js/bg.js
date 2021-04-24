@@ -2,8 +2,7 @@ window.onbeforeunload = function () {
   window.scrollTo(0, 0); //keep at top on refresh
 }
 
-var bigNumbers = [];
-(function () {
+document.addEventListener("DOMContentLoaded", () => {
   var consoleBanner = "";
   consoleBanner += ("  _______ _                  _                       _                   __   _                _         _   _                     \n");
   consoleBanner += (" |__   __| |                | |                     (_)                 / _| | |              | |       | | | |                    \n");
@@ -15,15 +14,4 @@ var bigNumbers = [];
   consoleBanner += ("                               |___/          |_|                                                                                  ");
   console.log(consoleBanner);
   console.log("Peeking under the hood? We want you on our team! Apply now: http://hack.ms/P20-Team-Application");
-})();
-
-function processScroll(scroll) {
-  //CONS:
-  var scrollPercent = scroll.progress.toFixed(2) * 100;
-
-  //Parallax logo at top of scroll (TODO: replace with GSAP parallax)
-  if (scrollPercent < 20) {
-    var adj = 150 * scrollPercent / 20;
-    //$('#hero .inner').css('margin-top', 'calc(-8rem - ' + adj + 'px)');
-  }
-}
+});
