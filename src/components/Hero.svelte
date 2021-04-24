@@ -7,7 +7,7 @@
       const scrollAdj = (window.scrollY / window.innerHeight) * 100;
       if (scrollAdj > 150) return; // Performance (reduce DOM operations)
       let hero = document.querySelector("#hero .inner") as HTMLElement;
-      hero.style.marginTop = `calc(-8rem - ${scrollAdj}px)`;
+      hero.style.marginTop = `calc(-7rem - ${scrollAdj}px)`;
     });
   });
 </script>
@@ -45,7 +45,7 @@
 
     .inner {
       box-sizing: border-box;
-      margin-top: -8rem;
+      margin-top: -7rem;
       width: 100%;
       transition: margin-top 0.2s ease-out;
     }
@@ -75,7 +75,6 @@
 
     @media (max-width: 767px) {
       .inner {
-        margin-top: 0 !important;
         padding: 4rem;
       }
       
