@@ -1,6 +1,6 @@
 {
-  "name": "TODO",
-  "description": "TODO",
+  "name": "pinnacle.us.org",
+  "description": "pinnacle.us.org landing site",
   "version": "0.0.1",
   "scripts": {
     "dev": "sapper dev",
