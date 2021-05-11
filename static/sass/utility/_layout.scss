@@ -13,22 +13,20 @@
 	}
 }
 
-.container-wide {
+.component-section {
+	padding: 2rem 0;
+}
+
+.component-section-large {
+	padding: 6rem 0;
+}
+
+@media (min-width: 768px) {
 	.component-section {
-		padding: 2rem 0;
+		padding: 4rem 0;
 	}
 	
 	.component-section-large {
-		padding: 6rem 0;
-	}
-
-	@media (min-width: 768px) {
-		.component-section {
-			padding: 4rem 0;
-		}
-		
-		.component-section-large {
-			padding: 12rem 0;
-		}
+		padding: 12rem 0;
 	}
 }

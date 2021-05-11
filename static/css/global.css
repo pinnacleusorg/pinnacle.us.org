@@ -63,21 +63,23 @@ html {
     max-width: 900px;
   }
 }
-.container-wide .component-section {
+.component-section {
   padding: 2rem 0;
 }
-.container-wide .component-section-large {
+
+.component-section-large {
   padding: 6rem 0;
 }
+
 @media (min-width: 768px) {
-  .container-wide .component-section {
+  .component-section {
     padding: 4rem 0;
   }
-  .container-wide .component-section-large {
+
+  .component-section-large {
     padding: 12rem 0;
   }
 }
-
 @font-face {
   font-family: "KeplerStd";
   src: url("../font/KeplerStd-LightScn.otf");

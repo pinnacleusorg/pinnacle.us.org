@@ -13,7 +13,7 @@
 	<title>Pinnacle • The Olympics of Hackathons</title>
 </svelte:head>
 
-<div class="container-wide">
+<div>
 	<div id="scroll-prompt">
 		<img src="icon/mouse.png" alt="Scroll Down">
 	</div>
