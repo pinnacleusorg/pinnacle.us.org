@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Hero from "../components/Hero.svelte";
+	import Video from "../components/Video.svelte";
 	import BigNumbers from "../components/BigNumbers.svelte";
 	import Description from "../components/Description.svelte";
 	import Carousel from "../components/Carousel.svelte";
@@ -19,7 +20,7 @@
 	<Hero />
 	<div class="page-spacer"></div>
 	<div class="container-wide light-bg" id="pre-description"></div>
-	<!-- components/eyecatchers -->
+	<Video />
 	<BigNumbers />
 	<Description />
 	<Carousel />
@@ -63,7 +64,7 @@
 		position: relative;
 
     @media (min-width: 768px) {
-      height: 60vh;
+      height: 50vh;
       min-height: 800px;
     }
 	}
