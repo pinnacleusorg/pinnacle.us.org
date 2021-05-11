@@ -14,7 +14,7 @@
   });
 </script>
 
-<div class="container-wide light-bg" id="schedule">
+<div class="container-wide component-section light-bg" id="schedule">
   <div class="container inner flex-column">
     <Timeline />
     <EngagementDeck />
@@ -28,11 +28,12 @@
 
 <style lang="scss">
   #schedule {
-    padding-bottom: 550px;
     position: relative;
-  }
-  #schedule .inner {
-    min-height: 40rem;
+		padding-bottom: 300px;
+		
+		.inner {
+			min-height: 40rem;
+		}
   }
   
   /* Animated Skyline */

@@ -1,5 +1,5 @@
 :root {
-  --pinnacle-gold: #c79d5e;
+  --pinnacle-gold: #C69E60;
   --pinnacle-bg: #1e1e1e;
   --pinnacle-bg-light: #f8f5e8;
 }
@@ -58,15 +58,26 @@ html {
   height: 100vh;
 }
 
-.fhplus {
-  height: calc(120vh);
-}
-
 @media (min-width: 1200px) {
   .inner {
     max-width: 900px;
   }
 }
+.container-wide .component-section {
+  padding: 2rem 0;
+}
+.container-wide .component-section-large {
+  padding: 6rem 0;
+}
+@media (min-width: 768px) {
+  .container-wide .component-section {
+    padding: 4rem 0;
+  }
+  .container-wide .component-section-large {
+    padding: 12rem 0;
+  }
+}
+
 @font-face {
   font-family: "KeplerStd";
   src: url("../font/KeplerStd-LightScn.otf");

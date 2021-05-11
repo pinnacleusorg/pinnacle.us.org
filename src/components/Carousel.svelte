@@ -27,7 +27,7 @@
   }
 </script>
 
-<div class="container-wide light-bg" id="carousel">
+<div class="container-wide component-section-large light-bg" id="carousel">
   <div class="container inner flex-column">
     <h2>Partnered Events</h2>
     <p class="carousel-subtitle">The winners of our partnered hackathons qualify for our premiere event.</p>
@@ -60,8 +60,6 @@
 
 <style lang="scss">
   #carousel {
-    padding-bottom: 16rem !important;
-    
     h2 {
       text-align: center;
       margin-top: 1rem;
@@ -72,10 +70,6 @@
     .inner {
       max-width: 90%;
       margin: auto;
-    }
-
-    @media (max-width: 767px) {
-      padding-bottom: 5rem !important;
     }
   }
 
@@ -160,12 +154,6 @@
     }
     .carousel-inner .carousel-element {
       min-width: 100%;
-    }
-  }
-
-  @media (min-width: 1550px) {
-    #carousel {
-      padding-bottom: 20rem !important;
     }
   }
 </style>

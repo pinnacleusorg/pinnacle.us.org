@@ -1,5 +1,5 @@
 
-<div class="container-wide dark-bg" id="sponsors">
+<div class="container-wide component-section-large dark-bg" id="sponsors">
   <div class="container inner">
     <h2 class="text-center">Sponsors</h2>
     <div class="sponsor-logos">
@@ -16,10 +16,6 @@
   #sponsors {
     text-align: center;
     z-index: 1;
-
-    .inner {
-      padding: 18rem 0;
-    }
 
     h2 {
       font-size: 3rem;

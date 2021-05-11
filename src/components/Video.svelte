@@ -1,5 +1,5 @@
 
-<div class="container-wide light-bg" id="video">
+<div class="container-wide component-section light-bg" id="video">
 	<div class="container inner">
 		<img src="image/video-bg.svg" alt="Background Lines" aria-hidden="true">
 		<iframe src="https://www.youtube-nocookie.com/embed/x14vZtYe9Sw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -10,7 +10,6 @@
 	#video {
 		display: flex;
 		align-items: center;
-		padding-bottom: 5rem;
 	}
 
 	#video > div {

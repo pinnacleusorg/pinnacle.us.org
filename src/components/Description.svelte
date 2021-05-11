@@ -1,5 +1,5 @@
 
-<div class="container-wide light-bg" id="description">
+<div class="container-wide component-section light-bg" id="description">
   <div class="container inner">
     <h2>What is Pinnacle?</h2>
     <div class="right-body">
@@ -11,12 +11,7 @@
 
 <style lang="scss">
   #description {
-    min-height: 800px;
 		position: relative;
-    
-    .inner {
-      padding: 15% 0;
-    }
 
     h2 {
       text-align: center;

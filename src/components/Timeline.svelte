@@ -12,13 +12,6 @@
     <span class="timeline-date">September 17-19, 2021</span>
     <span class="timeline-desc flex">Watch the world's best hackers face off at Pinnacle, live from Dallas.</span>
   </div>
-  <span class="timeline-end">Follow the Journey.</span>
-  <span class="timeline-socials">
-    <a href="https://twitter.com/pinnacleusorg" target="_blank">Twitter</a> &bull; 
-    <a href="https://medium.com/pinnacleusorg" target="_blank">Medium</a> &bull; 
-    <a href="https://facebook.com/pinnacleusorg" target="_blank">Facebook</a> &bull; 
-    <a href="https://instagram.com/pinnacleusorg" target="_blank">Instagram</a>
-  </span>
 </div>
 
 <style lang="scss">
@@ -53,22 +46,5 @@
     text-align: left;
     font-size: 0.8em;
     font-weight: bold;
-  }
-
-  .timeline-end {
-    display: block;
-    text-align: center;
-    font-family: KeplerStd;
-    font-size: 3rem;
-    font-weight: bold;
-    margin-top: 15rem;
-    padding: 0 3rem;
-  }
-
-  .timeline-socials {
-    display: block;
-    font-size: 1.3rem;
-    text-align: center;
-    padding-bottom: 1rem;
   }
 </style>

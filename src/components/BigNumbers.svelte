@@ -1,5 +1,5 @@
 
-<div class="container-wide light-bg">
+<div class="container-wide component-section light-bg">
   <div class="container inner">
     <div class="flex-smart">
       <div class="big-num">
@@ -25,7 +25,6 @@
 </div>
 
 <style lang="scss">
-
   .big-num {
     flex-basis: 33%;
     text-align: center;
