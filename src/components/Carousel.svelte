@@ -60,7 +60,7 @@
 
 <style lang="scss">
   #carousel {
-    padding-bottom: 22rem !important;
+    padding-bottom: 16rem !important;
     
     h2 {
       text-align: center;

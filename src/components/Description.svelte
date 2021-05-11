@@ -1,10 +1,10 @@
 
 <div class="container-wide light-bg" id="description">
   <div class="container inner">
-    <h2 class="mb-5">What is Pinnacle?</h2>
+    <h2>What is Pinnacle?</h2>
     <div class="right-body">
-      <p>Pinnacle invites 4 winners from each of the world’s largest 50 collegiate hackathons to compete in an epic hack-off in late 2021.</p>
-      <p>Our participants, who represent the brightest developers, designers, and creators in the nation, will receive invitations throughout the Pinnacle 2020-2021 hackathon season. If you'd like to earn a ticket to Pinnacle, win one of the qualifying events listed below, and stay tuned for more updates on our website.</p>
+      <p>Pinnacle invites a winning team from each of the world’s largest 50 collegiate hackathons and 5 high school hackathons to compete in an epic hack-off. This year, Pinnacle will be taking place on September 17-19 in Dallas, TX.</p>
+			<p>Our participants, who represent the brightest developers, designers, and creators in the nation, have received invitations throughout the Pinnacle 2020-2021 hackathon season. The current season ends in August 2021, and there are still qualifying hackathons left. If you'd like to earn a ticket to Pinnacle, win one of the qualifying events listed below.</p>
     </div>
   </div>
 </div>
@@ -20,10 +20,11 @@
 
     h2 {
       text-align: center;
+			margin-bottom: 2rem;
     }
     
     .right-body {
-      font-size: 20px;
+      font-size: 1.2rem;
       font-weight: lighter;
       text-align: center;
       display: block;
@@ -37,7 +38,7 @@
       }
 
       .right-body {
-        font-size: 24px;
+        font-size: 1.5rem;
         text-align: left;
         margin-left: auto;
         width: 65%;

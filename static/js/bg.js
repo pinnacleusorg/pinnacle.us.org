@@ -1,6 +1,3 @@
-window.onbeforeunload = function () {
-  window.scrollTo(0, 0); //keep at top on refresh
-}
 
 document.addEventListener("DOMContentLoaded", () => {
   var consoleBanner = "";
