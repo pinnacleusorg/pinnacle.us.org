@@ -4,8 +4,10 @@
 	import BigNumbers from "../components/BigNumbers.svelte";
 	import Description from "../components/Description.svelte";
 	import Carousel from "../components/Carousel.svelte";
-	import Schedule from "../components/Schedule.svelte";
+  import Timeline from "../components/Timeline.svelte";
+  import EngagementDeck from "../components/EngagementDeck.svelte";
 	import Sponsors from "../components/Sponsors.svelte";
+	import Skyline from "../components/Skyline.svelte";
 	import Footer from "../components/Footer.svelte";
 </script>
 
@@ -24,7 +26,9 @@
 	<BigNumbers />
 	<Description />
 	<Carousel />
-	<Schedule />
+	<Timeline />
+	<EngagementDeck />
+	<Skyline />
 	<Sponsors />
 	<Footer showLegal="{true}" />
 </div>

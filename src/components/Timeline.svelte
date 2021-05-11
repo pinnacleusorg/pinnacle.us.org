@@ -1,23 +1,26 @@
 
-<div class="container" id="timeline">
-	<h2>Timeline</h2>
-  <div class="flex-smart">
-    <span class="timeline-date">August 2021</span>
-    <span class="timeline-desc flex">
-      <p>Winners of qualifying hackathons receive an invitation for Pinnacle 2021.</p>
-      <p>The 2021-2022 Pinnacle Season begins with new qualifying events in August.</p>
-    </span>
-  </div>
-  <div class="flex-smart">
-    <span class="timeline-date">September 17-19, 2021</span>
-    <span class="timeline-desc flex">Watch the world's best hackers face off at Pinnacle, live from Dallas.</span>
-  </div>
+<div class="container-wide component-section light-bg">
+	<div class="container inner" id="timeline">
+		<h2>Timeline</h2>
+		<div class="flex-smart">
+			<span class="timeline-date">August 2021</span>
+			<span class="timeline-desc flex">
+				<p>Winners of qualifying hackathons receive an invitation for Pinnacle 2021.</p>
+				<p>The 2021-2022 Pinnacle Season begins with new qualifying events in August.</p>
+			</span>
+		</div>
+		<div class="flex-smart">
+			<span class="timeline-date">September 17-19, 2021</span>
+			<span class="timeline-desc flex">Watch the world's best hackers face off at Pinnacle, live from Dallas.</span>
+		</div>
+	</div>
 </div>
 
 <style lang="scss">
   #timeline {
     font-size: 28px;
     font-weight: lighter;
+		max-width: 700px;
     padding: 0 10%;
 
 		h2 {

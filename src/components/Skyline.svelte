@@ -1,24 +1,18 @@
 
 <script lang="ts">
   import { onMount } from "svelte";
-  import Timeline from "./Timeline.svelte";
-  import EngagementDeck from "./EngagementDeck.svelte";
 
   onMount(() => {
     document.addEventListener("scroll", () => {
-      let yPos = document.querySelector("#schedule").getBoundingClientRect().y;
-      if (yPos > 0) return; // yPos < 0 means skyline in view
+      let yPos = document.querySelector("#skyline-container").getBoundingClientRect().y;
+      if (yPos - 900 > 0) return; // yPos < 0 means skyline in view
       document.querySelector("#skyline").classList.remove("hidden");
       document.removeEventListener("scroll", this);
     });
   });
 </script>
 
-<div class="container-wide component-section light-bg" id="schedule">
-  <div class="container inner flex-column">
-    <Timeline />
-    <EngagementDeck />
-  </div>
+<div class="container-wide skyline-container light-bg" id="skyline-container">
   <div class="skyline hidden" id="skyline">
 		<div class="skyline-component off-left" id="skyline-black"></div>
 		<div class="skyline-component off-left" id="skyline-gold"></div>
@@ -27,25 +21,23 @@
 </div>
 
 <style lang="scss">
-  #schedule {
-    position: relative;
-		padding-bottom: 300px;
-		
-		.inner {
-			min-height: 40rem;
-		}
-  }
-  
-  /* Animated Skyline */
+	.skyline-container {
+		padding: 0;
+	}
+
   .skyline {
-    width: calc(100% + 1px);
-    position: absolute;
-    left: -1px;
-    right: 1px;
-    bottom: -1px;
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr;
+		margin-top: -550px;
     height: 650px;
+    width: 100%;
     overflow-x: hidden;
     pointer-events: none;
+
+		@media (min-width: 768px) {
+		margin-top: -250px;
+		}
   }
 
   .skyline.hidden {
@@ -60,12 +52,13 @@
   }
   
   .skyline-component {
+		grid-column: 1 / 1;
+		grid-row: 1 / 1;
     width: 100%;
     height: 100%;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: bottom;
-    position: absolute;
 
     transition: transform 2s ease;
     -webkit-transform: translateX(0%);

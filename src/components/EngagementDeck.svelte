@@ -40,42 +40,44 @@
   }
 </script>
 
-<div class="component-section-large">
-  <h2 class="timeline-end">Follow the Journey.</h2>
-  <span class="timeline-socials">
-    <a href="https://twitter.com/pinnacleusorg" target="_blank">Twitter</a> &bull; 
-    <a href="https://medium.com/pinnacleusorg" target="_blank">Medium</a> &bull; 
-    <a href="https://facebook.com/pinnacleusorg" target="_blank">Facebook</a> &bull; 
-    <a href="https://instagram.com/pinnacleusorg" target="_blank">Instagram</a>
-  </span>
-	<div class="flex-smart engagement-deck">
-		<div class="card">
-			<h3 class="card-title">Future staff?</h3>
-			<p class="card-text">Be a part of the team that makes it happen.</p>
-			<BrandButton href="https://hack.ms/P20-Team-Application" isAnchor="{true}">Apply Now</BrandButton>
-		</div>
-		<div class="card-divider"></div>
-		<form class="card">
-			<h3 class="card-title">Stay in the Loop</h3>
-			<div class="stacked-input">
-				<div class="input-group">
-					<input bind:value="{name}"
-						type="text"
-						class="form-control"
-						id="engagement-fn"
-						placeholder="First Name"/>
-				</div>
-				<div class="input-group">
-					<input bind:value="{email}"
-						type="email"
-						class="form-control"
-						id="engagement-email"
-						placeholder="Email Address"/>
-				</div>
-				<div class="mt-1" id="updatedMsg">&nbsp;</div>
+<div class="container-wide component-section light-bg">
+	<div class="container inner">
+		<h2 class="timeline-end">Follow the Journey.</h2>
+		<span class="timeline-socials">
+			<a href="https://twitter.com/pinnacleusorg" target="_blank">Twitter</a> &bull; 
+			<a href="https://medium.com/pinnacleusorg" target="_blank">Medium</a> &bull; 
+			<a href="https://facebook.com/pinnacleusorg" target="_blank">Facebook</a> &bull; 
+			<a href="https://instagram.com/pinnacleusorg" target="_blank">Instagram</a>
+		</span>
+		<div class="flex-smart engagement-deck">
+			<div class="card">
+				<h3 class="card-title">Future staff?</h3>
+				<p class="card-text">Be a part of the team that makes it happen.</p>
+				<BrandButton href="https://hack.ms/P20-Team-Application" isAnchor="{true}">Apply Now</BrandButton>
 			</div>
-			<BrandButton on:click="{trySubscribe}">Stay Updated</BrandButton>
-		</form>
+			<div class="card-divider"></div>
+			<form class="card">
+				<h3 class="card-title">Stay in the Loop</h3>
+				<div class="stacked-input">
+					<div class="input-group">
+						<input bind:value="{name}"
+							type="text"
+							class="form-control"
+							id="engagement-fn"
+							placeholder="First Name"/>
+					</div>
+					<div class="input-group">
+						<input bind:value="{email}"
+							type="email"
+							class="form-control"
+							id="engagement-email"
+							placeholder="Email Address"/>
+					</div>
+					<div class="mt-1" id="updatedMsg">&nbsp;</div>
+				</div>
+				<BrandButton on:click="{trySubscribe}">Stay Updated</BrandButton>
+			</form>
+		</div>
 	</div>
 </div>
 
