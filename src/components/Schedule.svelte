@@ -16,15 +16,13 @@
 
 <div class="container-wide light-bg" id="schedule">
   <div class="container inner flex-column">
-    <h2>Timeline</h2>
     <Timeline />
     <EngagementDeck />
   </div>
   <div class="skyline hidden" id="skyline">
-    <div class="skyline-component off-left" id="skyline_goldengate"></div>
-    <div class="skyline-component off-right" id="skyline_twinpeaks"></div>
-    <div class="skyline-component off-right" id="skyline_gold"></div>
-    <div class="skyline-component off-right" id="skyline_black"></div>
+		<div class="skyline-component off-left" id="skyline-black"></div>
+		<div class="skyline-component off-left" id="skyline-gold"></div>
+		<div class="skyline-component off-right" id="skyline-bridge"></div>
   </div>
 </div>
 
@@ -32,9 +30,6 @@
   #schedule {
     padding-bottom: 550px;
     position: relative;
-  }
-  #schedule h2 {
-    text-align: center;
   }
   #schedule .inner {
     min-height: 40rem;
@@ -76,17 +71,14 @@
     transform: translateX(0%);
     will-change: transform;
 
-    &#skyline_black {
+    &#skyline-black {
       background-image: url('/image/skyline-black.svg');
     }
-    &#skyline_gold {
+    &#skyline-gold {
       background-image: url('/image/skyline-gold.svg');
     }
-    &#skyline_goldengate {
-      background-image: url('/image/skyline-goldengate.svg');
-    }
-    &#skyline_twinpeaks {
-      background-image: url('/image/skyline-twinpeaks.svg');
+    &#skyline-bridge {
+      background-image: url('/image/skyline-bridge.svg');
     }
   }
 </style>
