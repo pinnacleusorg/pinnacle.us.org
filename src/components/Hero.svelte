@@ -7,7 +7,7 @@
       const scrollAdj = (window.scrollY / window.innerHeight) * 100;
       if (scrollAdj > 150) return; // Performance (reduce DOM operations)
       let hero = document.querySelector("#hero .inner") as HTMLElement;
-      hero.style.marginTop = `calc(-7rem - ${scrollAdj}px)`;
+      hero.style.marginTop = `calc(-3rem - ${scrollAdj}px)`;
     });
   });
 </script>
@@ -24,9 +24,12 @@
       alt="Pinnacle"
       class="brand-img"
       id="keyLabel"/>
-    <span class="brand-img" id="keyByline">
-      The Olympics of Hackathons
-    </span>
+    <p id="keyByline">The Olympics of Hackathons</p>
+		<p id="keyDateline">
+			<span>September 17-19, 2021</span><br>
+			<span>Dallas, Texas</span>
+		</p>
+		<p></p>
   </div>
 </div>
 
@@ -45,7 +48,7 @@
 
     .inner {
       box-sizing: border-box;
-      margin-top: -7rem;
+      margin-top: -3rem;
       width: 100%;
       transition: margin-top 0.2s ease-out;
     }
@@ -66,12 +69,20 @@
       margin-top: 4rem;
     }
 
-    #keyByline {
-      font-size: 25px;
+    #keyByline, #keyDateline {
       font-weight: lighter;
       letter-spacing: 1.2px;
-      margin-top: 2rem;
     }
+
+		#keyByline {
+      font-size: 2rem;
+      margin-top: 1.5rem;
+		}
+
+		#keyDateline {
+			font-size: 24px;
+			margin-top: 2.5rem;
+		}
 
     @media (max-width: 767px) {
       .inner {
@@ -81,6 +92,14 @@
       .brand-img, #keyLabel, #keyByline, #keyLogo {
         max-width: 100%;
       }
+
+			#keyByline {
+				font-size: 1.5rem;
+			}
+
+			#keyDateline {
+				font-size: 18px;
+			}
     }
   }
 </style>
