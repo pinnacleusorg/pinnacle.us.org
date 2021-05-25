@@ -99,13 +99,12 @@ a {
   transition: color 0.2s;
 }
 
-a:hover, a:focus {
-  color: var(--pinnacle-bg);
-  text-decoration: none;
+::selection {
+  background-color: var(--pinnacle-gold);
 }
 
-#sponsors a:hover, #sponsors a:focus {
-  color: white;
+a:hover, a:focus {
+  color: var(--pinnacle-bg);
   text-decoration: none;
 }
 
@@ -118,10 +117,17 @@ a:hover, a:focus {
   background-color: var(--pinnacle-bg);
   color: var(--pinnacle-bg-light);
 }
+.dark-bg a:hover, .dark-bg a:focus {
+  color: var(--pinnacle-bg-light);
+  text-decoration: underline;
+}
 
 .gold-bg {
   background-color: var(--pinnacle-gold);
   color: var(--pinnacle-bg);
+}
+.gold-bg ::selection {
+  background-color: var(--pinnacle-bg-light);
 }
 
 /*# sourceMappingURL=global.css.map */
