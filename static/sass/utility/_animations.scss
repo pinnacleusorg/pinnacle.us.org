@@ -8,13 +8,13 @@
 
 @keyframes bounceLeftAnimation {
 	0% {
-    transform: translateX(0px);
+		transform: translateX(0px);
 	}
 	70% {
-    transform: translateX(-15px);
+		transform: translateX(-15px);
 	}
 	100% {
-    transform: translateX(0px);
+		transform: translateX(0px);
 	}
 }
 
@@ -27,12 +27,12 @@
 
 @keyframes bounceRightAnimation {
 	0% {
-    transform: translateX(0px);
+		transform: translateX(0px);
 	}
 	70% {
-    transform: translateX(15px);
+		transform: translateX(15px);
 	}
 	100% {
-    transform: translateX(0px);
+		transform: translateX(0px);
 	}
 }

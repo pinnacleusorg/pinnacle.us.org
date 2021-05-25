@@ -1,43 +1,43 @@
 
 <script lang="ts">
-  import BrandButton from "./BrandButton.svelte";
+	import BrandButton from "./BrandButton.svelte";
 
-  let subscribeDisabled = false;
-  let name: string, email: string; // Bound values
+	let subscribeDisabled = false;
+	let name: string, email: string; // Bound values
 
-  function trySubscribe(e: Event): void {
-    e.preventDefault();
+	function trySubscribe(e: Event): void {
+		e.preventDefault();
 
-    name = name.trim();
-    email = email.trim();
-    if (!name || !email)
-      return;
-    if (subscribeDisabled)
-      return;
-    subscribeDisabled = true;
-    //submit, report errors to #updatedMsg.
-    fetch('https://api.pinnacle.us.org/1.0/contacts', {
-        method: 'post',
-        body: JSON.stringify({ "email": email, "name": name }),
-        headers: new Headers({ "Content-Type": "application/json" })
-      })
-      .then(() => {
-        name = "";
-        email = "";
-        document.querySelector('#updatedMsg').classList.add("successful");
-        document.querySelector('#updatedMsg').textContent = "Welcome to the mailing list!";
-        subscribeDisabled = false;
-      })
-      .catch(function (msg) {
-        console.log(msg);
-        var error = "Error: Please confirm your email address is accurate";
-        if (msg.status == 409)
-          error = "You're already on our list!";
-        document.querySelector('#updatedMsg').classList.add("err");
-        document.querySelector('#updatedMsg').textContent = error;
-        subscribeDisabled = false;
-      });
-  }
+		name = name.trim();
+		email = email.trim();
+		if (!name || !email)
+			return;
+		if (subscribeDisabled)
+			return;
+		subscribeDisabled = true;
+		//submit, report errors to #updatedMsg.
+		fetch('https://api.pinnacle.us.org/1.0/contacts', {
+				method: 'post',
+				body: JSON.stringify({ "email": email, "name": name }),
+				headers: new Headers({ "Content-Type": "application/json" })
+			})
+			.then(() => {
+				name = "";
+				email = "";
+				document.querySelector('#updatedMsg').classList.add("successful");
+				document.querySelector('#updatedMsg').textContent = "Welcome to the mailing list!";
+				subscribeDisabled = false;
+			})
+			.catch(function (msg) {
+				console.log(msg);
+				var error = "Error: Please confirm your email address is accurate";
+				if (msg.status == 409)
+					error = "You're already on our list!";
+				document.querySelector('#updatedMsg').classList.add("err");
+				document.querySelector('#updatedMsg').textContent = error;
+				subscribeDisabled = false;
+			});
+	}
 </script>
 
 <div class="container-wide component-section light-bg">
@@ -82,32 +82,32 @@
 </div>
 
 <style lang="scss">
-  .card {
-    display: flex;
-    flex-direction: column;
-    flex: 1 1;
-    font-family: KeplerStd;
-    text-align: center;
-    margin-bottom: 1rem;
-    padding: 1.25rem;
+	.card {
+		display: flex;
+		flex-direction: column;
+		flex: 1 1;
+		font-family: KeplerStd;
+		text-align: center;
+		margin-bottom: 1rem;
+		padding: 1.25rem;
 
-    .card-title {
-      font-size: 1.75rem;
-      margin-bottom: 1rem;
-    }
-    
-    .card-text {
-      flex: 1 1;
-      font-size: 1.3rem !important;
-      font-family: CasperRegular;
-      margin: 0;
-      padding: 0.5rem 4rem;
-    }
-  }
+		.card-title {
+			font-size: 1.75rem;
+			margin-bottom: 1rem;
+		}
+		
+		.card-text {
+			flex: 1 1;
+			font-size: 1.3rem !important;
+			font-family: CasperRegular;
+			margin: 0;
+			padding: 0.5rem 4rem;
+		}
+	}
 
-  .engagement-deck {
-    margin-bottom: 3rem;
-  }
+	.engagement-deck {
+		margin-bottom: 3rem;
+	}
 
 	.timeline-end {
 		display: block;
@@ -126,45 +126,45 @@
 		padding-bottom: 1rem;
 	}
 
-  .card-divider {
-    flex: 0 0 3px;
-    background-color: var(--pinnacle-gold);
-    margin-top: 5rem;
-    margin-bottom: 5rem;
-    margin-right: 0;
-  }
+	.card-divider {
+		flex: 0 0 3px;
+		background-color: var(--pinnacle-gold);
+		margin-top: 5rem;
+		margin-bottom: 5rem;
+		margin-right: 0;
+	}
 
-  .stacked-input {
-    margin: auto;
-    width: 75%;
-    
-    .input-group input {
-      border-color: #1B1B1B;
-      border-width: 3px;
-      border-radius: 0;
-      box-sizing: border-box;
-      color: black;
-      background-color: var(--pinnacle-bg-light);
-      font-size: 1.3rem;
-      font-family: inherit;
-      padding: 0.5rem 0.6rem;
-      width: 100%;
-    }
-    .input-group input::placeholder {
-      color: var(--pinnacle-bg);
-    }
-    .input-group input:focus, .input-group input:active {
-      outline: none;
-      box-shadow: none;
-      border-color: #1B1B1B;
-      background-color: var(--pinnacle-bg-light);
-      color: black;
-    }
-    .input-group:first-child input {
-      border-bottom-width: 0.5px;
-    }
-    .input-group:last-child input {
-      border-top-width: 0.5px;
-    }
-  }
+	.stacked-input {
+		margin: auto;
+		width: 75%;
+		
+		.input-group input {
+			border-color: #1B1B1B;
+			border-width: 3px;
+			border-radius: 0;
+			box-sizing: border-box;
+			color: black;
+			background-color: var(--pinnacle-bg-light);
+			font-size: 1.3rem;
+			font-family: inherit;
+			padding: 0.5rem 0.6rem;
+			width: 100%;
+		}
+		.input-group input::placeholder {
+			color: var(--pinnacle-bg);
+		}
+		.input-group input:focus, .input-group input:active {
+			outline: none;
+			box-shadow: none;
+			border-color: #1B1B1B;
+			background-color: var(--pinnacle-bg-light);
+			color: black;
+		}
+		.input-group:first-child input {
+			border-bottom-width: 0.5px;
+		}
+		.input-group:last-child input {
+			border-top-width: 0.5px;
+		}
+	}
 </style>

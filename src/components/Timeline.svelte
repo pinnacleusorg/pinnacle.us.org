@@ -17,11 +17,11 @@
 </div>
 
 <style lang="scss">
-  #timeline {
-    font-size: 28px;
-    font-weight: lighter;
+	#timeline {
+		font-size: 28px;
+		font-weight: lighter;
 		max-width: 700px;
-    padding: 0 10%;
+		padding: 0 10%;
 
 		h2 {
 			margin: 0;
@@ -31,23 +31,23 @@
 		> div {
 			margin-top: 8%;
 		}
-  }
+	}
 	
-  .timeline-desc {
-    color: var(--pinnacle-gold);
-    font-size: 1.3rem;
-    margin-left: 10%;
+	.timeline-desc {
+		color: var(--pinnacle-gold);
+		font-size: 1.3rem;
+		margin-left: 10%;
 
 		p {
 			margin-top: 0;
 		}
-  }
+	}
 
-  .timeline-date {
-    min-width: 150px;
-    width: 35%;
-    text-align: left;
-    font-size: 0.8em;
-    font-weight: bold;
-  }
+	.timeline-date {
+		min-width: 150px;
+		width: 35%;
+		text-align: left;
+		font-size: 0.8em;
+		font-weight: bold;
+	}
 </style>
