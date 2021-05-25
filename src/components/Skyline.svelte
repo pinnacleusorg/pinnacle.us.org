@@ -1,17 +1,13 @@
 
 <script lang="ts">
-	import { onMount } from "svelte";
-
-	onMount(() => {
-		document.addEventListener("scroll", () => {
-			let yPos = document.querySelector("#skyline-container").getBoundingClientRect().y;
-			if (yPos - 900 > 0) return; // yPos < 0 means skyline in view
-			document.querySelector("#skyline").classList.remove("hidden");
-			document.removeEventListener("scroll", this);
-		});
-	});
+	function scrollHandler() {
+		let yPos = document.querySelector("#skyline-container").getBoundingClientRect().y;
+		if (yPos - 900 > 0) return; // yPos < 0 means skyline in view
+		document.querySelector("#skyline").classList.remove("hidden");
+	}
 </script>
 
+<svelte:window on:scroll="{scrollHandler}" />
 <div class="container-wide skyline-container light-bg" id="skyline-container">
 	<div class="skyline hidden" id="skyline">
 		<div class="skyline-component off-left" id="skyline-black"></div>
