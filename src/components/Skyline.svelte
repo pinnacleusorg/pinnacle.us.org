@@ -26,6 +26,7 @@
 	}
 
 	.skyline {
+		box-sizing: border-box;
 		display: grid;
 		grid-template-columns: 1fr;
 		grid-template-rows: 1fr;
@@ -36,7 +37,7 @@
 		pointer-events: none;
 
 		@media (min-width: 768px) {
-		margin-top: -250px;
+			margin-top: -250px;
 		}
 	}
 

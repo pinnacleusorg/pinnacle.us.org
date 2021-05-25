@@ -21,7 +21,7 @@
 	</div>
 	<Hero />
 	<div class="page-spacer"></div>
-	<div class="container-wide light-bg" id="pre-description"></div>
+	<div class="container-wide light-bg" id="overflow-triangle"></div>
 	<Video />
 	<BigNumbers />
 	<Description />
@@ -62,7 +62,8 @@
 		z-index: -3;
 	}
 
-	#pre-description {
+	#overflow-triangle {
+		box-sizing: border-box;
 		clip-path: polygon(50% 0px, 0px 100%, 100% 100%);
 		height: 30vh;
 		position: relative;
@@ -70,15 +71,6 @@
 		@media (min-width: 768px) {
 			height: 50vh;
 			min-height: 800px;
-		}
-	}
-
-	@keyframes fade-in {
-		0% {
-			opacity: 0;
-		}
-		100% {
-			opacity: 1;
 		}
 	}
 </style>
