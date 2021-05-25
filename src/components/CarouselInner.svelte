@@ -15,7 +15,7 @@
 			<path d="M10,2l9,10l-9,10h2l9-10L12,2H10z"></path>
 		</svg>
 	</button>
-	<div class="carousel-inner flex-row flex-list" id="carouselContainer">
+	<div class="flex-row flex-list" id="carouselContainer">
 		{#each hackathons as event}
 			<a class="carousel-element" href="{event.website}" target="_blank">
 				<img src="vendor/{event.internal_title}.png" alt="{event.title}">
@@ -61,7 +61,7 @@
 		}
 	}
 
-	.carousel-inner {
+	#carouselContainer {
 		display: flex;
 		flex-wrap: nowrap;
 		max-width: 100%;
@@ -81,7 +81,7 @@
 			display: flex;
 			flex-direction: column;
 			text-align: center;
-			min-width: calc(25% - 15px);
+			min-width: 100%;
 			scroll-snap-align: start;
 			scroll-snap-stop: normal;
 
@@ -107,9 +107,9 @@
 		}
 	}
 
-	@media (max-width: 1050px) {
-		.carousel-inner .carousel-element {
-			min-width: 100%;
+	@media (min-width: 992px) {
+		#carouselContainer .carousel-element {
+			min-width: calc(25% - 15px);
 		}
 	}
 </style>
