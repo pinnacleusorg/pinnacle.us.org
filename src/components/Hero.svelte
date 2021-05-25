@@ -14,22 +14,13 @@
 
 <div id="hero">
 	<div class="container inner">
-		<img
-			src="meta/icon.png"
-			alt="Pinnacle Logo"
-			class="brand-img"
-			id="keyLogo"/>
-		<img
-			src="image/logo-text.png"
-			alt="Pinnacle"
-			class="brand-img"
-			id="keyLabel"/>
-		<p id="keyByline">The Olympics of Hackathons</p>
-		<p id="keyDateline">
+		<img src="meta/icon.png" alt="Pinnacle Logo" class="logo"/>
+		<img src="image/logo-text.png" alt="Pinnacle" class="label"/>
+		<p class="byline">The Olympics of Hackathons</p>
+		<p class="dateline">
 			<span>September 17-19, 2021</span><br>
 			<span>Dallas, Texas</span>
 		</p>
-		<p></p>
 	</div>
 </div>
 
@@ -52,56 +43,68 @@
 		.inner {
 			box-sizing: border-box;
 			margin-top: -3rem;
+			padding: 4rem;
 			width: 100%;
 			transition: margin-top 0.2s ease-out;
 		}
 		
-		.brand-img {
+		img {
 			display: block;
-			font-weight: bolder;
 			margin: auto;
 			width: 30rem;
-		}
-		
-		#keyLogo {
-			margin-bottom: 1rem;
-			width: 10rem;
-		}
-		
-		#keyLabel {
-			margin-top: 4rem;
+
+			&.logo {
+				max-width: 100%;
+				width: 5rem;
+			}
+
+			&.label {
+				margin-top: 3rem;
+				max-width: 12rem;
+			}
 		}
 
-		#keyByline, #keyDateline {
+		p {
 			font-weight: lighter;
 			letter-spacing: 1.2px;
-		}
+			max-width: 100%;
 
-		#keyByline {
-			font-size: 2rem;
-			margin-top: 1.5rem;
-		}
-
-		#keyDateline {
-			font-size: 24px;
-			margin-top: 2.5rem;
-		}
-
-		@media (max-width: 767px) {
-			.inner {
-				padding: 4rem;
-			}
-			
-			.brand-img, #keyLabel, #keyByline, #keyLogo {
-				max-width: 100%;
-			}
-
-			#keyByline {
+			&.byline {
 				font-size: 1.5rem;
+				margin-top: 1.5rem;
 			}
 
-			#keyDateline {
+			&.dateline {
 				font-size: 18px;
+				margin-top: 2.5rem;
+			}
+		}
+
+		@media (min-width: 512px) {
+			.logo {
+				width: 7rem;
+			}
+			.label {
+				max-width: 20rem;
+			}
+		}
+
+		@media (min-width: 768px) {
+			.inner {
+				padding: 0;
+			}
+			.logo {
+				width: 10rem;
+			}
+			.label {
+				margin-top: 4rem;
+				max-width: unset;
+			}
+			.byline {
+				font-size: 2rem;
+			}
+			.dateline {
+				font-size: 24px;
 			}
 		}
 	}
