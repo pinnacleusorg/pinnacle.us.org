@@ -9,9 +9,6 @@ html {
   color: var(--pinnacle-bg-light);
   font-family: CasperRegular;
   line-height: 1.5;
-  margin: 0;
-  padding: 0;
-  width: 100%;
 }
 
 .bounceLeftAnimation {
@@ -50,14 +47,6 @@ html {
     transform: translateX(0px);
   }
 }
-.fw {
-  width: 100vw;
-}
-
-.fh {
-  height: 100vh;
-}
-
 @media (min-width: 1200px) {
   .inner {
     max-width: 900px;
