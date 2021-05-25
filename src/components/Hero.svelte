@@ -81,10 +81,10 @@
 		}
 
 		@media (min-width: 512px) {
-			.logo {
+			img.logo {
 				width: 7rem;
 			}
-			.label {
+			img.label {
 				max-width: 20rem;
 			}
 		}
@@ -93,17 +93,17 @@
 			.inner {
 				padding: 0;
 			}
-			.logo {
+			img.logo {
 				width: 10rem;
 			}
-			.label {
+			img.label {
 				margin-top: 4rem;
 				max-width: unset;
 			}
-			.byline {
+			p.byline {
 				font-size: 2rem;
 			}
-			.dateline {
+			p.dateline {
 				font-size: 24px;
 			}
 		}
