@@ -2,7 +2,7 @@
 <div class="container-wide component-section light-bg" id="video">
 	<div class="container inner">
 		<img src="image/video-bg.svg" alt="Background Lines" aria-hidden="true">
-		<iframe src="https://www.youtube-nocookie.com/embed/x14vZtYe9Sw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		<iframe src="https://www.youtube-nocookie.com/embed/x14vZtYe9Sw" title="What is Pinnacle? on Youtube" frameborder="0" allow="clipboard-write; encrypted-media; picture-in-picture" allowfullscreen></iframe>
 	</div>
 </div>
 
@@ -13,9 +13,9 @@
 	}
 
 	#video > div {
-		position: relative;
-		margin-top: -24px;
+		margin-top: 0;
 		width: 100%;
+		position: relative;
 
 		iframe {
 			background-color: #C4C4C4;
@@ -29,8 +29,8 @@
 			z-index: 2;
 		}
 
-		@media (max-width: 768px) {
-			margin-top: 0;
+		@media (min-width: 768px) {
+			margin-top: -24px;
 		}
 	}
 </style>
