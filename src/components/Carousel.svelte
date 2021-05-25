@@ -31,7 +31,6 @@
 	<div class="container inner flex-column">
 		<h2>Partnered Events</h2>
 		<p class="carousel-subtitle">The winners of our partnered hackathons qualify for our premiere event.</p>
-		<br>
 		<div class="carousel">
 			<button class="carousel-nav reverse" on:click="{() => {scrollCarousel(-1);}}">
 				<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -53,7 +52,6 @@
 				</svg>
 			</button>
 		</div>
-		<br><br><br>
 		<p class="carousel-subtitle">Check out our <a href="/hackathons">full list</a> of partnered events.</p>
 	</div>
 </div>
@@ -77,16 +75,19 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		margin-top: 2rem;
+		margin-bottom: 3rem;
 	}
 
 	.carousel-nav {
-		background: none !important;
-		border: none !important;
-		-webkit-appearance: none !important;
+		background: none;
+		border: none;
 		font-size: 3rem;
-		outline: none !important;
+
 		width: 80px;
+		outline: none;
 		overflow: visible;
+		-webkit-appearance: none;
 		transform: scale(1.0);
 		transition: transform 0.5s ease;
 
@@ -128,8 +129,8 @@
 				margin: auto;
 				margin-top: 3rem;
 				margin-bottom: 2rem;
-				height: 220px;
-				width: 220px;
+				max-width: 220px;
+				width: 100%;
 			}
 
 			span {
@@ -145,12 +146,15 @@
 		margin: 0;
 	}
 
+	@media (min-width: 512px) {
+		.carousel {
+			margin: 5rem 0;
+		}
+	}
+
 	@media (max-width: 1050px) {
 		#carousel h2 {
 			padding-bottom: 0;
-		}
-		.carousel-nav {
-			display: none;
 		}
 		.carousel-inner .carousel-element {
 			min-width: 100%;
