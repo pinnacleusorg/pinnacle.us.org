@@ -44,10 +44,14 @@
 	}
 
 	.timeline-date {
+		margin-bottom: 15px;
 		min-width: 150px;
-		width: 35%;
 		text-align: left;
 		font-size: 0.8em;
 		font-weight: bold;
+
+		@media (min-width: 768px) {
+			width: 35%;
+		}
 	}
 </style>

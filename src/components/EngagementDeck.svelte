@@ -110,11 +110,7 @@
 	}
 
 	.timeline-end {
-		display: block;
 		text-align: center;
-		font-family: KeplerStd;
-		font-size: 3rem;
-		font-weight: bold;
 		margin: 5px;
 		padding: 0 3rem;
 	}
@@ -129,9 +125,11 @@
 	.card-divider {
 		flex: 0 0 3px;
 		background-color: var(--pinnacle-gold);
-		margin-top: 5rem;
-		margin-bottom: 5rem;
-		margin-right: 0;
+		margin: 0 10vw;
+
+		@media (min-width: 768px) {
+			margin: 5rem 0;
+		}
 	}
 
 	.stacked-input {

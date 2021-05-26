@@ -25,7 +25,11 @@
 
 h2 {
 	font-family: KeplerStd, serif;
-	font-size: 3.5rem;
+	font-size: 3rem;
+
+	@media (min-width: 768px) {
+		font-size: 3.5rem;
+	}
 }
 
 a {
