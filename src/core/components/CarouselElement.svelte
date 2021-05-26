@@ -7,13 +7,13 @@
 
 <a class="carousel-element {compact ? 'compact':''}" href="{event.website}" target="_blank">
 	<img src="/vendor/{event.internal_title}.png" alt="{event.title}">
-	<span class="spacer"></span>
-	<span>{event.title}</span>
+	<p>{event.title}</p>
 </a>
 
 <style lang="scss">
 	.carousel-element {
 		display: flex;
+		align-items: center;
 		flex-direction: column;
 		text-align: center;
 		min-width: 100%;
@@ -22,15 +22,15 @@
 
 		img {
 			border-radius: 5px;
-			margin: auto;
 			margin-top: 3rem;
 			margin-bottom: 2rem;
 			max-width: 220px;
 			width: 100%;
 		}
 
-		span {
-			display: block;
+		p {
+			margin-top: 10px;
+			margin-bottom: 0;
 			font-size: 1.6rem;
 		}
 
@@ -41,7 +41,7 @@
 				max-width: 100px;
 			}
 
-			span {
+			p {
 				font-size: 1rem;
 				max-width: 100px;
 			}
@@ -57,7 +57,7 @@
 					max-width: 130px;
 				}
 
-				span {
+				p {
 					font-size: 1.4rem;
 					max-width: 130px;
 				}
