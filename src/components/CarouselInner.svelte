@@ -6,7 +6,7 @@
 
 	function scrollCarousel(direction: number): void {
 		const c = document.querySelector("#carouselContainer");
-		c.scrollBy(direction * c.getBoundingClientRect().width/25, 0);
+		c.scrollBy(direction * c.getBoundingClientRect().width, 0);
 	}
 </script>
 
@@ -33,7 +33,6 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		margin-top: 2rem;
 		margin-bottom: 3rem;
 	}
 
