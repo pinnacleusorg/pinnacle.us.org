@@ -58,8 +58,11 @@
 		font-family: CasperRegular, sans-serif;
 		font-size: 2.5rem;
 		font-weight: normal;
-		margin: 10px;
-		text-align: center;
+		margin: 10px 0;
+	}
+
+	a {
+		text-decoration: none;
 	}
 
 	.container {
