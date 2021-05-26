@@ -1,10 +1,11 @@
 
 <script lang="ts">
 	import type { Hackathon } from "../schema/hackathon.schema";
+	export let compact = false;
 	export let event: Hackathon;
 </script>
 
-<a class="carousel-element" href="{event.website}" target="_blank">
+<a class="carousel-element {compact ? 'compact':''}" href="{event.website}" target="_blank">
 	<img src="/vendor/{event.internal_title}.png" alt="{event.title}">
 	<span class="spacer"></span>
 	<span>{event.title}</span>
@@ -33,8 +34,34 @@
 			font-size: 1.6rem;
 		}
 
+		&.compact {
+			min-width: 20%;
+
+			img {
+				max-width: 100px;
+			}
+
+			span {
+				font-size: 1rem;
+				max-width: 100px;
+			}
+		}
+
 		@media (min-width: 992px) {
 			min-width: calc(25% - 15px);
+
+			&.compact {
+				min-width: 16%;
+
+				img {
+					max-width: 130px;
+				}
+
+				span {
+					font-size: 1.4rem;
+					max-width: 130px;
+				}
+			}
 		}
 	}
 </style>
