@@ -1,5 +1,6 @@
 
 <script lang="ts">
+	import CarouselElement from "../core/components/CarouselElement.svelte";
 	import type { Hackathon } from "../core/schema/hackathon.schema";
 	export let hackathons: Hackathon[];
 
@@ -17,11 +18,7 @@
 	</button>
 	<div class="flex-row flex-list" id="carouselContainer">
 		{#each hackathons as event}
-			<a class="carousel-element" href="{event.website}" target="_blank">
-				<img src="vendor/{event.internal_title}.png" alt="{event.title}">
-				<span class="spacer"></span>
-				<span>{event.title}</span>
-			</a>
+			<CarouselElement event="{event}" />
 		{/each}
 	</div>
 	<button class="carousel-nav" on:click="{() => {scrollCarousel(1);}}">
@@ -76,40 +73,11 @@
 		&::-webkit-scrollbar {
 			display: none;
 		}
-
-		.carousel-element {
-			display: flex;
-			flex-direction: column;
-			text-align: center;
-			min-width: 100%;
-			scroll-snap-align: start;
-			scroll-snap-stop: normal;
-
-			img {
-				border-radius: 5px;
-				margin: auto;
-				margin-top: 3rem;
-				margin-bottom: 2rem;
-				max-width: 220px;
-				width: 100%;
-			}
-
-			span {
-				display: block;
-				font-size: 1.6rem;
-			}
-		}
 	}
 
 	@media (min-width: 512px) {
 		.carousel {
 			margin-bottom: 5rem;
-		}
-	}
-
-	@media (min-width: 992px) {
-		#carouselContainer .carousel-element {
-			min-width: calc(25% - 15px);
 		}
 	}
 </style>
