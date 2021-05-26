@@ -10,7 +10,7 @@
 		width: 5rem;
 
 		@media (min-width: 512px) {
-			width: 10rem;
+			width: 8rem;
 		}
 	}
 </style>

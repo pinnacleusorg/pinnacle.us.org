@@ -3,7 +3,7 @@
 	import { onMount } from "svelte";
 	import type { Hackathon } from "../core/schema/hackathon.schema";
 
-	import Header from "../components/Header.svelte";
+	import Header from "../core/components/Header.svelte";
 	import Footer from "../components/Footer.svelte";
 	import CarouselElement from "../core/components/CarouselElement.svelte";
 
