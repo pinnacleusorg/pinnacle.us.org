@@ -5,4 +5,5 @@ export interface Hackathon {
 	title: string, // Display Name
 	website: string, // URL string
 	startDate: string // DateTime string
+	isHighschool: boolean
 }
