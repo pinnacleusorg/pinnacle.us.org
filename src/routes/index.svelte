@@ -37,16 +37,16 @@
 	#scroll-prompt {
 		animation: fade-in 0.3s 3s forwards;
 		opacity: 0;
-		transform: translate(-50%, -50%);
 		transition: opacity 0.5s ease-in-out;
 
-		height: 5vw;
 		max-width: 25px;
 		width: 5vw;
 
+		margin: 0 auto;
 		position: fixed;
 		bottom: 40px;
-		left: 50%;
+		left: 0;
+		right: 0;
 		z-index: -2;
 
 		img {
