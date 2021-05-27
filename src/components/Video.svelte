@@ -1,5 +1,5 @@
 
-<div class="container-wide component-section light-bg" id="video">
+<div class="container-wide component-section-large light-bg" id="video">
 	<div class="container inner">
 		<img src="image/video-bg.svg" alt="Background Lines" aria-hidden="true">
 		<iframe src="https://www.youtube-nocookie.com/embed/x14vZtYe9Sw" title="What is Pinnacle? on Youtube" frameborder="0" allow="clipboard-write; encrypted-media; picture-in-picture" allowfullscreen></iframe>

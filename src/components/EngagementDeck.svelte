@@ -40,7 +40,7 @@
 	}
 </script>
 
-<div class="container-wide component-section light-bg">
+<div class="container-wide component-section-large light-bg">
 	<div class="container inner">
 		<h2 class="timeline-end">Follow the Journey.</h2>
 		<span class="timeline-socials">

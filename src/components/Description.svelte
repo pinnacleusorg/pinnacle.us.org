@@ -1,5 +1,5 @@
 
-<div class="container-wide component-section light-bg" id="description">
+<div class="container-wide component-section-large light-bg" id="description">
 	<div class="container inner">
 		<h2>What is Pinnacle?</h2>
 		<div class="right-body">
