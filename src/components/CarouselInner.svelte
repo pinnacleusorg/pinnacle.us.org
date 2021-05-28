@@ -12,9 +12,7 @@
 
 <div class="carousel">
 	<button class="carousel-nav reverse" on:click="{() => {scrollCarousel(-1);}}">
-		<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-			<path d="M10,2l9,10l-9,10h2l9-10L12,2H10z"></path>
-		</svg>
+		<svg><use xlink:href="icon/icon.svg#arrow"/></svg>
 	</button>
 	<div class="flex-row flex-list" id="carouselContainer">
 		{#each hackathons as event}
@@ -22,9 +20,7 @@
 		{/each}
 	</div>
 	<button class="carousel-nav" on:click="{() => {scrollCarousel(1);}}">
-		<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-			<path d="M10,2l9,10l-9,10h2l9-10L12,2H10z"></path>
-		</svg>
+		<svg><use xlink:href="icon/icon.svg#arrow"/></svg>
 	</button>
 </div>
 

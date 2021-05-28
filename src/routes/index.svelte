@@ -17,7 +17,7 @@
 
 <div>
 	<div id="scroll-prompt">
-		<img src="icon/mouse.png" alt="Scroll Down">
+		<svg><use xlink:href="icon/icon.svg#mouse"/></svg>
 	</div>
 	<Hero />
 	<div class="page-spacer"></div>
@@ -37,7 +37,6 @@
 	#scroll-prompt {
 		animation: fade-in 0.3s 3s forwards;
 		opacity: 0;
-		transition: opacity 0.5s ease-in-out;
 
 		max-width: 25px;
 		width: 5vw;
@@ -49,7 +48,7 @@
 		right: 0;
 		z-index: -2;
 
-		img {
+		svg {
 			width: 100%;
 		}
 	}

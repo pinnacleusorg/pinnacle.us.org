@@ -10,9 +10,7 @@
 
 		name = name.trim();
 		email = email.trim();
-		if (!name || !email)
-			return;
-		if (subscribeDisabled)
+		if (!name || !email || subscribeDisabled)
 			return;
 		subscribeDisabled = true;
 		//submit, report errors to #updatedMsg.
@@ -73,7 +71,7 @@
 							id="engagement-email"
 							placeholder="Email Address"/>
 					</div>
-					<div class="mt-1" id="updatedMsg">&nbsp;</div>
+					<div id="updatedMsg">&nbsp;</div>
 				</div>
 				<BrandButton on:click="{trySubscribe}">Stay Updated</BrandButton>
 			</form>
