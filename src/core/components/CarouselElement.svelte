@@ -14,6 +14,7 @@
 
 <style lang="scss">
 	.element {
+		text-decoration: none;
 		min-width: 100%;
 		width: 100%;
 
@@ -33,8 +34,8 @@
 			grid-row: 1 / 1;
 
 			border-radius: 5px;
-			max-width: 100%;
-			max-height: 100%;
+			max-width: 90%;
+			max-height: 90%;
 			margin: auto;
 		}
 
@@ -66,7 +67,8 @@
 
 			&.compact {
 				img {
-					max-width: 130px;
+					max-width: 100%;
+					max-height: 100%;
 				}
 
 				p {
