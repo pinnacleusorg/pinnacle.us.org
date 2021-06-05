@@ -69,7 +69,8 @@
 
 		p {
 			color: var(--pinnacle-gold);
-			font-size: 1.5rem
+			font-size: 1.5rem;
+			transform: translateY(10px);
 		}
 	}
 </style>
