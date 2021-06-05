@@ -25,7 +25,7 @@
 		});
 
 		anime({
-			targets: ".big-num p",
+			targets: ".big-num .tag",
 			opacity: [0.1, 1],
 			translateY: [10, 0],
 			delay: anime.stagger(300),
@@ -40,16 +40,16 @@
 	<div class="container inner">
 		<div class="flex-smart">
 			<div class="big-num">
-				<div class="countup" data-to="36">36</div>
-				<p>hours of intense competition</p>
+				<span class="countup" data-to="36">36</span>
+				<span class="tag">hours of intense competition</span>
 			</div>
 			<div class="big-num">
-				<div class="countup" data-to="50">50</div>
-				<p>top collegiate hackathons participating</p>
+				<span class="countup" data-to="50">50</span>
+				<span class="tag">top collegiate hackathons participating</span>
 			</div>
 			<div class="big-num">
-				<div class="countup" data-to="200">200</div>
-				<p>of the world's brightest student hackers</p>
+				<span class="countup" data-to="200">200</span>
+				<span class="tag">of the world's brightest student hackers</span>
 			</div>
 		</div>
 	</div>
@@ -60,6 +60,10 @@
 		flex-basis: 33%;
 		text-align: center;
 		padding: 0 .5%;
+
+		span {
+			display: block;
+		}
 		
 		.countup {
 			font-size: 5rem;
@@ -67,7 +71,7 @@
 			font-weight: bold;
 		}
 
-		p {
+		.tag {
 			color: var(--pinnacle-gold);
 			font-size: 1.5rem;
 			transform: translateY(10px);

@@ -44,7 +44,7 @@
 			grid-row: 2 / 2;
 
 			margin: auto;
-			font-size: 1.6rem;
+			font-size: 1.5rem;
 			text-align: center;
 		}
 
