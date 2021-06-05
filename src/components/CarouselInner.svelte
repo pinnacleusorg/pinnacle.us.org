@@ -29,7 +29,6 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		margin-bottom: 3rem;
 	}
 
 	.carousel-nav {
@@ -67,12 +66,6 @@
 		scrollbar-width: none;
 		&::-webkit-scrollbar {
 			display: none;
-		}
-	}
-
-	@media (min-width: 512px) {
-		.carousel {
-			margin-bottom: 5rem;
 		}
 	}
 </style>

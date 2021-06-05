@@ -14,7 +14,6 @@
 		fetch("https://cors.sdbagel.com/https://api.pinnacle.us.org/1.0/hackathons")
 			.then(res => res.json())
 			.then(res => {
-				console.log(res.results.filter((h: Hackathon) => !h.isHighschool));
 				hackathons = res.results.filter((h: Hackathon) => !h.isHighschool);
 				hsHackathons = res.results.filter((h: Hackathon) => h.isHighschool);
 			})

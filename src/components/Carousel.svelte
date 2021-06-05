@@ -20,36 +20,25 @@
 <div class="container-wide component-section-large light-bg" id="carousel">
 	<div class="container inner flex-column">
 		<h2>Partnered Events</h2>
-		<p class="carousel-subtitle">The winners of our partnered hackathons qualify for our premiere event.</p>
+		<p>The winners of our partnered hackathons qualify for our premiere event.</p>
 		<CarouselInner hackathons="{hackathons}" />
-		<p class="carousel-subtitle">Check out our <a href="/hackathons">full list</a> of partnered events.</p>
+		<p>Check out our <a href="/hackathons">full list</a> of partnered events.</p>
 	</div>
 </div>
 
 <style lang="scss">
 	#carousel {
-		h2 {
-			text-align: center;
-			margin-top: 1rem;
-			margin-bottom: 0.5rem;
-			padding-bottom: 0;
-		}
-		
 		.inner {
 			max-width: 90%;
-			margin: auto;
 		}
-	}
 
-	.carousel-subtitle {
-		text-align: center;
-		font-size: 1.3rem;
-		margin: 0;
-	}
+		h2 {
+			text-align: center;
+		}
 
-	@media (max-width: 992px) {
-		#carousel h2 {
-			padding-bottom: 0.8rem;
+		p {
+			text-align: center;
+			font-size: 1.3rem;
 		}
 	}
 </style>

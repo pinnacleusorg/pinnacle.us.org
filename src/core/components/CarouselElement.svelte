@@ -5,40 +5,54 @@
 	export let event: Hackathon;
 </script>
 
-<a class="carousel-element {compact ? 'compact':''}" href="{event.website}" target="_blank">
-	<img src="/vendor/{event.internal_title}.png" alt="{event.title}">
-	<p>{event.title}</p>
+<a class="element {compact ? 'compact':''}" href="{event.website}" target="_blank">
+	<div class="element-grid">
+		<img src="/vendor/{event.internal_title}.png" alt="{event.title}">
+		<p>{event.title}</p>
+	</div>
 </a>
 
 <style lang="scss">
-	.carousel-element {
-		display: flex;
-		align-items: center;
-		flex-direction: column;
-		text-align: center;
+	.element {
 		min-width: 100%;
+		width: 100%;
+
 		scroll-snap-align: start;
 		scroll-snap-stop: normal;
 
+		.element-grid {
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-template-rows: 220px 60px;
+			max-width: 280px;
+			margin: auto;
+		}
+
 		img {
+			grid-column: 1 / 1;
+			grid-row: 1 / 1;
+
 			border-radius: 5px;
-			margin-top: 3rem;
-			margin-bottom: 2rem;
-			max-width: 220px;
-			width: 100%;
+			max-width: 100%;
+			max-height: 100%;
+			margin: auto;
 		}
 
 		p {
-			margin-top: 10px;
-			margin-bottom: 0;
+			grid-column: 1 / 1;
+			grid-row: 2 / 2;
+
+			margin: auto;
 			font-size: 1.6rem;
+			text-align: center;
 		}
 
 		&.compact {
-			min-width: 20%;
+			min-width: calc(20% - 20px);
+			width: unset;
 
-			img {
-				max-width: 100px;
+			.element-grid {
+				grid-template-rows: 140px 60px;
 			}
 
 			p {
@@ -51,14 +65,12 @@
 			min-width: calc(25% - 15px);
 
 			&.compact {
-				min-width: 16%;
-
 				img {
 					max-width: 130px;
 				}
 
 				p {
-					font-size: 1.4rem;
+					font-size: 1.2rem;
 					max-width: 130px;
 				}
 			}
