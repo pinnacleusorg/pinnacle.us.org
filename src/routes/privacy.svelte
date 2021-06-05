@@ -34,13 +34,6 @@
 </div>
 
 <style lang="scss">
-	h2 {
-		font-family: CasperRegular, sans-serif;
-		font-size: 2.5rem;
-		font-weight: normal;
-		margin: 10px 0;
-	}
-
 	a {
 		text-decoration: none;
 	}

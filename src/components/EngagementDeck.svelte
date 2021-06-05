@@ -109,8 +109,6 @@
 
 	.timeline-end {
 		text-align: center;
-		margin: 5px;
-		padding: 0 3rem;
 	}
 
 	.timeline-socials {

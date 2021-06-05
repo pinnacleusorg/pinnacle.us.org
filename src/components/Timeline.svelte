@@ -24,7 +24,6 @@
 		padding: 0 10%;
 
 		h2 {
-			margin: 0;
 			text-align: center;
 		}
 
