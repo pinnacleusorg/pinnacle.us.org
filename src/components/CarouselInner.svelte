@@ -34,6 +34,7 @@
 	.carousel-nav {
 		background: none;
 		border: none;
+		cursor: pointer;
 		font-size: 3rem;
 
 		width: 80px;
@@ -49,6 +50,15 @@
 		
 		svg {
 			width: 80%;
+		}
+
+		&:active {
+			transform: scale(1.05);
+			transition-duration: 0.1s;
+
+			&.reverse {
+				transform: scale(-1.05);
+			}
 		}
 	}
 
