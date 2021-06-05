@@ -40,16 +40,18 @@
 
 <div class="container-wide component-section-large light-bg">
 	<div class="container inner">
-		<h2 class="timeline-end">Follow the Journey.</h2>
-		<span class="timeline-socials">
-			<a href="https://twitter.com/pinnacleusorg" target="_blank">Twitter</a> &bull; 
-			<a href="https://medium.com/pinnacleusorg" target="_blank">Medium</a> &bull; 
-			<a href="https://facebook.com/pinnacleusorg" target="_blank">Facebook</a> &bull; 
-			<a href="https://instagram.com/pinnacleusorg" target="_blank">Instagram</a>
-		</span>
+		<div class="header-group">
+			<h2>Follow the Journey.</h2>
+			<p class="timeline-socials">
+				<a href="https://twitter.com/pinnacleusorg" target="_blank">Twitter</a> &bull; 
+				<a href="https://medium.com/pinnacleusorg" target="_blank">Medium</a> &bull; 
+				<a href="https://facebook.com/pinnacleusorg" target="_blank">Facebook</a> &bull; 
+				<a href="https://instagram.com/pinnacleusorg" target="_blank">Instagram</a>
+			</p>
+		</div>
 		<div class="flex-smart engagement-deck">
 			<div class="card">
-				<h3 class="card-title">Future staff?</h3>
+				<h3 class="card-title">Be Future Staff</h3>
 				<p class="card-text">Be a part of the team that makes it happen.</p>
 				<BrandButton href="https://hack.ms/P20-Team-Application" isAnchor="{true}">Apply Now</BrandButton>
 			</div>
@@ -87,7 +89,7 @@
 		font-family: KeplerStd;
 		text-align: center;
 		margin-bottom: 1rem;
-		padding: 1.25rem;
+		padding: 0 1.25rem;
 
 		.card-title {
 			font-size: 1.75rem;
@@ -97,7 +99,6 @@
 		.card-text {
 			flex: 1 1;
 			font-size: 1.3rem !important;
-			font-family: CasperRegular;
 			margin: 0;
 			padding: 0.5rem 4rem;
 		}
@@ -107,15 +108,12 @@
 		margin-bottom: 3rem;
 	}
 
-	.timeline-end {
+	.header-group {
 		text-align: center;
 	}
 
 	.timeline-socials {
-		display: block;
 		font-size: 1.3rem;
-		text-align: center;
-		padding-bottom: 1rem;
 	}
 
 	.card-divider {

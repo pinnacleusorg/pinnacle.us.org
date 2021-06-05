@@ -1,4 +1,6 @@
 
+/* Font imports */
+
 @font-face {
 	font-family: "KeplerStd";
 	src: url("../font/KeplerStd-LightScn.otf");
@@ -23,6 +25,8 @@
 	font-weight: normal
 }
 
+/* Header styles */
+
 h2 {
 	font-family: KeplerStd, serif;
 	font-size: 3rem;
@@ -31,6 +35,21 @@ h2 {
 		font-size: 3.5rem;
 	}
 }
+
+.header-group {
+	margin: 3rem 0;
+
+	h2 {
+		margin-top: 0;
+		margin-bottom: 5px;
+	}
+	p {
+		margin-top: 5px;
+		margin-bottom: 0;
+	}
+}
+
+/* Text styles */
 
 a {
 	color: var(--pinnacle-gold);
@@ -45,6 +64,8 @@ a:hover, a:focus {
 	color: var(--pinnacle-bg);
 	text-decoration: none;
 }
+
+/* Background + text styles */
 
 .light-bg {
 	background-color: var(--pinnacle-bg-light);

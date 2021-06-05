@@ -15,7 +15,6 @@
 
 		h2 {
 			text-align: center;
-			margin-bottom: 2rem;
 		}
 		
 		.right-body {

@@ -19,8 +19,10 @@
 
 <div class="container-wide component-section-large light-bg" id="carousel">
 	<div class="container inner flex-column">
-		<h2>Partnered Events</h2>
-		<p>The winners of our partnered hackathons qualify for our premiere event.</p>
+		<div class="header-group">
+			<h2>Partnered Events</h2>
+			<p>The winners of our partnered hackathons qualify for our premiere event.</p>
+		</div>
 		<CarouselInner hackathons="{hackathons}" />
 		<p>Check out our <a href="/hackathons">full list</a> of partnered events.</p>
 	</div>
