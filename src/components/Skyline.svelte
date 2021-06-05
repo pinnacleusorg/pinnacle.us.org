@@ -2,7 +2,7 @@
 <script lang="ts">
 	function scrollHandler() {
 		let yPos = document.querySelector("#skyline-container").getBoundingClientRect().y;
-		if (yPos - 900 > 0) return; // yPos < 0 means skyline in view
+		if (yPos - window.innerHeight > 0) return; // ensure skyline in view
 		document.querySelector("#skyline").classList.remove("hidden");
 	}
 </script>
