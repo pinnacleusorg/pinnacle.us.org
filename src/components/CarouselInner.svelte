@@ -2,6 +2,7 @@
 <script lang="ts">
 	import CarouselElement from "../core/components/CarouselElement.svelte";
 	import type { Hackathon } from "../core/schema/hackathon.schema";
+	export let futureHackathons: Hackathon[];
 	export let hackathons: Hackathon[];
 
 	function scrollCarousel(direction: number): void {
@@ -15,6 +16,9 @@
 		<svg><use xlink:href="icon/icon.svg#arrow"/></svg>
 	</button>
 	<div class="flex-row flex-list" id="carouselContainer">
+		{#each futureHackathons as event}
+			<CarouselElement event="{event}" showDate="{true}" />
+		{/each}
 		{#each hackathons as event}
 			<CarouselElement event="{event}" />
 		{/each}

@@ -3,12 +3,19 @@
 	import type { Hackathon } from "../schema/hackathon.schema";
 	export let compact = false;
 	export let event: Hackathon;
+	export let showDate = false;
 </script>
 
 <a class="element {compact ? 'compact':''}" href="{event.website}" target="_blank">
 	<div class="element-grid">
-		<img src="/vendor/{event.internal_title}.png" alt="{event.title}">
+		<img class="event-img" src="/vendor/{event.internal_title}.png" alt="{event.title}">
 		<p>{event.title}</p>
+		{#if showDate}
+			<div class="date">
+				<img src="/image/button-bg.svg" alt="bg" aria-hidden="true">
+				<span>{new Date(event.startDate).toLocaleDateString()}</span>
+			</div>
+		{/if}
 	</div>
 </a>
 
@@ -17,6 +24,8 @@
 		text-decoration: none;
 		min-width: 100%;
 		width: 100%;
+
+		position: relative;
 
 		scroll-snap-align: start;
 		scroll-snap-stop: normal;
@@ -29,7 +38,7 @@
 			margin: auto;
 		}
 
-		img {
+		.event-img {
 			grid-column: 1 / 1;
 			grid-row: 1 / 1;
 
@@ -46,6 +55,37 @@
 			margin: auto;
 			font-size: 1.5rem;
 			text-align: center;
+		}
+
+		.date {
+			color: var(--pinnacle-bg-light);
+			font-size: 0.9rem;
+			padding: 2px 12px;
+			position: absolute;
+			top: 0;
+			right: 0;
+
+			img {
+				position: absolute;
+				top: 0;
+				right: 0;
+				width: 80px;
+				z-index: 0;
+			}
+
+			span {
+				position: absolute;
+				top: 0;
+				right: 0;
+				padding: 3.5px 10px;
+				width: 60px;
+				text-align: center;
+				z-index: 1;
+			}
+		}
+
+		&:hover .date {
+			color: var(--pinnacle-bg-light);
 		}
 
 		&.compact {
@@ -66,7 +106,7 @@
 			min-width: calc(25% - 15px);
 
 			&.compact {
-				img {
+				.event-img {
 					max-width: 100%;
 					max-height: 100%;
 				}

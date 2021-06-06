@@ -4,6 +4,7 @@
 	import CarouselInner from "./CarouselInner.svelte";
 	import type { Hackathon } from "../core/schema/hackathon.schema";
 	
+	let futureHackathons: Hackathon[] = [];
 	let hackathons: Hackathon[] = [];
 
 	onMount(() => {
@@ -13,6 +14,10 @@
 			.then(res => hackathons = res.results)
 			.then(() => hackathons = hackathons.sort((a, b) => 
 				{ return a.internal_title.localeCompare(b.internal_title); }))
+			.then(() => {
+				futureHackathons = hackathons.filter(h => new Date(h.startDate) > new Date());
+				hackathons = hackathons.filter(h => new Date(h.startDate) < new Date())
+			})
 			.catch(ex => console.log("GET hackathons failed: "+ex));
 	});
 </script>
@@ -23,7 +28,7 @@
 			<h2>Partnered Events</h2>
 			<p>The winners of our partnered hackathons qualify for our premiere event.</p>
 		</div>
-		<CarouselInner hackathons="{hackathons}" />
+		<CarouselInner futureHackathons="{futureHackathons}" hackathons="{hackathons}" />
 		<p>Check out our <a href="/hackathons">full list</a> of partnered events.</p>
 	</div>
 </section>
