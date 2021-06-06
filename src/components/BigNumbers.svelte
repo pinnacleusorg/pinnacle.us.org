@@ -41,15 +41,15 @@
 		<div class="flex-smart">
 			<div class="big-num">
 				<span class="countup" data-to="36">36</span>
-				<span class="tag">hours of intense competition</span>
+				<span class="tag">hours of intense<br> competition</span>
 			</div>
 			<div class="big-num">
 				<span class="countup" data-to="50">50</span>
-				<span class="tag">top collegiate hackathons participating</span>
+				<span class="tag">top collegiate hackathons<br> participating</span>
 			</div>
 			<div class="big-num">
 				<span class="countup" data-to="200">200</span>
-				<span class="tag">of the world's brightest student hackers</span>
+				<span class="tag">of the world's brightest<br> student hackers</span>
 			</div>
 		</div>
 	</div>
