@@ -52,7 +52,7 @@
 		<div class="flex-smart engagement-deck">
 			<div class="card">
 				<h3 class="card-title">Be Future Staff</h3>
-				<p class="card-text">Be a part of the team that makes it happen.</p>
+				<p class="card-text">Be a part of the team that<br> makes it happen.</p>
 				<BrandButton href="https://hack.ms/P20-Team-Application" isAnchor="{true}">Apply Now</BrandButton>
 			</div>
 			<div class="card-divider"></div>
@@ -93,13 +93,18 @@
 
 		.card-title {
 			font-size: 1.75rem;
+			margin-top: 0;
 			margin-bottom: 1rem;
+
+			@media (min-width: 768px) {
+				margin-top: unset;
+			}
 		}
 		
 		.card-text {
 			flex: 1 1;
 			font-size: 1.3rem !important;
-			margin: 0;
+			margin-top: 0;
 			padding: 0.5rem 4rem;
 		}
 	}
@@ -119,10 +124,10 @@
 	.card-divider {
 		flex: 0 0 3px;
 		background-color: var(--pinnacle-gold);
-		margin: 0 10vw;
+		margin: 5vh 10vw;
 
 		@media (min-width: 768px) {
-			margin: 5rem 0;
+			margin: 2em 0;
 		}
 	}
 
