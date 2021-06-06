@@ -36,7 +36,7 @@
 </script>
 
 <svelte:window on:scroll="{scrollHandler}" />
-<div class="container-wide component-section light-bg" id="big-num">
+<section class="container-wide component-section light-bg" id="big-num">
 	<div class="container inner">
 		<div class="flex-smart">
 			<div class="big-num">
@@ -53,7 +53,7 @@
 			</div>
 		</div>
 	</div>
-</div>
+</section>
 
 <style lang="scss">
 	.big-num {

@@ -33,7 +33,7 @@
 
 <div class="light-bg">
 	<Header />
-	<div class="container component-section">
+	<section class="container component-section">
 		<a href="/">&lsaquo; Home</a>
 		<h2>Partnered Events</h2>
 		<div class="flex-row flex-list flex-wrap">
@@ -48,7 +48,7 @@
 				<CarouselElement event="{event}" compact="{true}" />
 			{/each}
 		</div>
-	</div>
+	</section>
 	<Footer showLegal="{false}" />
 </div>
 

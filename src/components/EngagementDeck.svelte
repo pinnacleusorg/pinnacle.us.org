@@ -38,7 +38,7 @@
 	}
 </script>
 
-<div class="container-wide component-section-large light-bg">
+<section class="container-wide component-section-large light-bg">
 	<div class="container inner">
 		<div class="header-group">
 			<h2>Follow the Journey.</h2>
@@ -79,7 +79,7 @@
 			</form>
 		</div>
 	</div>
-</div>
+</section>
 
 <style lang="scss">
 	.card {

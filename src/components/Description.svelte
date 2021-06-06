@@ -1,5 +1,5 @@
 
-<div class="container-wide component-section-large light-bg" id="description">
+<section class="container-wide component-section-large light-bg" id="description">
 	<div class="container inner">
 		<h2>What is Pinnacle?</h2>
 		<div class="body">
@@ -7,7 +7,7 @@
 			<p>Our participants, who represent the brightest developers, designers, and creators in the nation, have received invitations throughout the Pinnacle 2020-2021 hackathon season. The current season ends in August 2021, and there are still qualifying hackathons left. If you'd like to earn a ticket to Pinnacle, win one of the qualifying events listed below.</p>
 		</div>
 	</div>
-</div>
+</section>
 
 <style lang="scss">
 	#description {

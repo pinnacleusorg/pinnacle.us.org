@@ -9,7 +9,7 @@
 </script>
 
 <svelte:window on:scroll="{scrollHandler}" />
-<div id="hero">
+<section id="hero">
 	<div class="container inner">
 		<img src="meta/icon.png" alt="Pinnacle Logo" class="logo"/>
 		<img src="image/logo-text.png" alt="Pinnacle" class="label"/>
@@ -19,7 +19,7 @@
 			<span>Dallas, Texas</span>
 		</p>
 	</div>
-</div>
+</section>
 
 <style lang="scss">
 	#hero {

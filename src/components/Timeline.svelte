@@ -1,5 +1,5 @@
 
-<div class="container-wide component-section light-bg">
+<section class="container-wide component-section light-bg">
 	<div class="container inner" id="timeline">
 		<h2>Timeline</h2>
 		<div class="flex-smart">
@@ -14,7 +14,7 @@
 			<span class="timeline-desc flex">Watch the world's best hackers face off at Pinnacle, live from Dallas.</span>
 		</div>
 	</div>
-</div>
+</section>
 
 <style lang="scss">
 	#timeline {

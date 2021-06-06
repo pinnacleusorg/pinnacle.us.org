@@ -10,7 +10,7 @@
 
 <div class="light-bg">
 	<Header />
-	<div class="container component-section">
+	<section class="container component-section">
 		<a href="/">&lsaquo; Home</a>
 		<h2>Privacy Policy</h2>
 		<p>Your privacy is important to us. It is Pinnacle's policy to respect your privacy regarding any information we may collect from you across our website, https://pinnacle.us.org, and other sites and/or platforms we own and operate.</p>
@@ -29,7 +29,7 @@
 		<p>You are free to refuse our request for your personal information, with the understanding that we may be unable to provide you with some of your desired services.</p>
 		<p>Your continued use of our website will be regarded as acceptance of our practices around privacy and personal information. If you have any questions about how we handle user data and personal information, feel free to contact us at legal@pinnacle.us.org</p>
 		<p>This policy is effective as of 1 February 2020.</p>
-	</div>
+	</section>
 	<Footer showLegal="{false}" />
 </div>
 

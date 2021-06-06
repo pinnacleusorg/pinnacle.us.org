@@ -1,5 +1,5 @@
 
-<div class="container-wide component-section-large dark-bg" id="sponsors">
+<section class="container-wide component-section-large dark-bg" id="sponsors">
 	<div class="container inner">
 		<h2 class="text-center">Sponsors</h2>
 		<div class="sponsor-logos">
@@ -10,7 +10,7 @@
 			</div>
 		</div>
 	</div>
-</div>
+</section>
 
 <style lang="scss">
 	#sponsors {

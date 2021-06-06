@@ -17,7 +17,7 @@
 	});
 </script>
 
-<div class="container-wide component-section-large light-bg" id="carousel">
+<section class="container-wide component-section-large light-bg" id="carousel">
 	<div class="container inner flex-column">
 		<div class="header-group">
 			<h2>Partnered Events</h2>
@@ -26,7 +26,7 @@
 		<CarouselInner hackathons="{hackathons}" />
 		<p>Check out our <a href="/hackathons">full list</a> of partnered events.</p>
 	</div>
-</div>
+</section>
 
 <style lang="scss">
 	#carousel {
