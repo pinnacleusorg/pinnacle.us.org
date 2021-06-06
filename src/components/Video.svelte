@@ -14,23 +14,35 @@
 
 	#video > div {
 		margin-top: 0;
+		padding: 0 10px;
+		max-width: 900px;
 		width: 100%;
 		position: relative;
 
 		iframe {
 			background-color: #C4C4C4;
 			position: absolute;
-			top: 18%;
-			left: 9%;
-			right: 9%;
-			max-height: 72%;
+			top: 15%;
+			left: 7%;
+			right: 7%;
+			max-height: 75%;
 			height: 100%;
-			width: 82%;
+			width: 86%;
 			z-index: 2;
 		}
 
 		@media (min-width: 768px) {
 			margin-top: -24px;
+			padding: 0;
+
+			iframe {
+				top: 18%;
+				left: 9%;
+				right: 9%;
+				max-height: 72%;
+				height: 100%;
+				width: 82%;
+			}
 		}
 	}
 </style>
