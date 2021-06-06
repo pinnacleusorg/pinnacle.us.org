@@ -19,6 +19,9 @@
 			<span>Dallas, Texas</span>
 		</p>
 	</div>
+	<div id="scroll-prompt">
+		<svg><use xlink:href="icon/icon.svg#mouse"/></svg>
+	</div>
 </section>
 
 <style lang="scss">
@@ -103,6 +106,35 @@
 			p.dateline {
 				font-size: 24px;
 			}
+		}
+	}
+
+	#scroll-prompt {
+		animation: fade-in 0.3s 3s forwards;
+		opacity: 0;
+
+		max-width: 25px;
+		width: 5vw;
+
+		margin: 0 auto;
+		position: fixed;
+		bottom: 3vh;
+		left: 0;
+		right: 0;
+		z-index: -2;
+
+		svg {
+			max-height: 60px;
+			width: 100%;
+		}
+	}
+
+	@keyframes fade-in {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
 		}
 	}
 </style>

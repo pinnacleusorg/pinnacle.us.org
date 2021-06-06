@@ -17,9 +17,6 @@
 </svelte:head>
 
 <div>
-	<div id="scroll-prompt">
-		<svg><use xlink:href="icon/icon.svg#mouse"/></svg>
-	</div>
 	<Hero />
 	<OverflowTriangle />
 	<Video />
@@ -34,31 +31,4 @@
 </div>
 
 <style lang="scss">
-	#scroll-prompt {
-		animation: fade-in 0.3s 3s forwards;
-		opacity: 0;
-
-		max-width: 25px;
-		width: 5vw;
-
-		margin: 0 auto;
-		position: fixed;
-		bottom: 40px;
-		left: 0;
-		right: 0;
-		z-index: -2;
-
-		svg {
-			width: 100%;
-		}
-	}
-
-	@keyframes fade-in {
-		0% {
-			opacity: 0;
-		}
-		100% {
-			opacity: 1;
-		}
-	}
 </style>
