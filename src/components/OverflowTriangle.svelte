@@ -21,7 +21,7 @@
 
 		@media (min-width: 768px) {
 			height: 50vh;
-			min-height: 800px;
+			min-height: 700px;
 		}
 	}
 </style>
