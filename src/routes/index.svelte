@@ -19,8 +19,11 @@
 			const h = path.getBoundingClientRect().height;
 			const y = path.getBoundingClientRect().y;
 			const per = (window.innerHeight*3/5 - y) / h;
-			if (per < 0) return;
 			const l = path.getTotalLength();
+			if (per < 0) {
+				path.style.strokeDashoffset = `${l}`;
+				return;
+			}
 			const o = Math.max(l - (per * l), 0);
 			path.style.strokeDashoffset = `${o}`;
 		});
@@ -43,6 +46,10 @@
 <div class="container-wide">
 	<Hero />
 	<OverflowTriangle />
+	<div class="line-container offset">
+		<svg class="line-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 317.95 2343"><g fill="none" stroke="#c59d60" stroke-miterlimit="10" stroke-width="4"><path d="M1 112.75l172 169q-.12 835.88-.25 1671.75L3.25 2123"/><path d="M90 0v2255l-90 88"/></g></svg>
+		<svg class="line-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 317.95 2343"><g fill="none" stroke="#c59d60" stroke-miterlimit="10" stroke-width="4"><path d="M317 112.75l-172 169q.13 835.88.25 1671.75L314.7 2123"/><path d="M228 0v2255l90 88"/></g></svg>
+	</div>
 	<Video />
 	<BigNumbers />
 	<Description />
@@ -65,6 +72,7 @@
 	}
 
 	.line-container {
+		display: none;
 		position: relative;
 		padding: 0;
 
@@ -78,12 +86,21 @@
 			z-index: 10;
 			max-width: 20%;
 		}
-
 		.line-left {
 			left: -10px;
 		}
 		.line-right {
 			right: -10px;
+		}
+
+		&.offset {
+			.line-left, .line-right {
+				top: -900px;
+			}
+		}
+
+		@media (min-width: 992px) {
+			display: block;
 		}
 	}
 </style>

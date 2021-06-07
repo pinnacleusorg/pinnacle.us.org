@@ -15,7 +15,7 @@
 	#video > div {
 		margin-top: 0;
 		padding: 0 10px;
-		max-width: 900px;
+		max-width: 800px;
 		width: 100%;
 		position: relative;
 

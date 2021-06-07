@@ -19,8 +19,7 @@
 		height: 30vh;
 		position: relative;
 
-		@media (min-width: 768px) {
-			height: 50vh;
+		@media (min-width: 992px) {
 			min-height: 700px;
 		}
 	}
