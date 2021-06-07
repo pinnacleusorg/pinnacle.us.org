@@ -26,8 +26,8 @@ html {
 }
 
 .component-section-large {
-  padding-top: 6rem;
-  padding-bottom: 6rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }
 
 @media (min-width: 768px) {
@@ -37,8 +37,8 @@ html {
   }
 
   .component-section-large {
-    padding-top: 12rem;
-    padding-bottom: 12rem;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
   }
 }
 /* Font imports */
