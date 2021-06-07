@@ -96,6 +96,11 @@
 				grid-template-rows: 140px 60px;
 			}
 
+			.event-img {
+				max-width: 140px;
+				max-height: 140px;
+			}
+
 			p {
 				font-size: 1rem;
 				max-width: 100px;
@@ -106,11 +111,6 @@
 			min-width: calc(25% - 15px);
 
 			&.compact {
-				.event-img {
-					max-width: 100%;
-					max-height: 100%;
-				}
-
 				p {
 					font-size: 1.2rem;
 					max-width: 130px;
