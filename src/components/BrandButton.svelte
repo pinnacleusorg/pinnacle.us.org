@@ -77,7 +77,7 @@
 			text-decoration: none;
 
 			.btn-label {
-				color: var(--pinnacle-bg);
+				color: var(--pinnacle-bg-light);
 				transition: color 0.3s ease;
 			}
 

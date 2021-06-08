@@ -18,6 +18,7 @@
 		clip-path: polygon(50% 0px, 0px 100%, 100% 100%);
 		height: 30vh;
 		position: relative;
+		transform: translateY(1px);
 
 		@media (min-width: 992px) {
 			min-height: 700px;
