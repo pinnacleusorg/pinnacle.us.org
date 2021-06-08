@@ -87,6 +87,7 @@
 		path {
 			display: none;
 			transition-duration: 0.1s;
+			transition-timing-function: ease-out;
 		}
 
 		.line-left, .line-right {
