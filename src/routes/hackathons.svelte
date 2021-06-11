@@ -1,3 +1,10 @@
+<script context="module">
+	export async function preload(page, session) {
+		const { API_ROOT } = session;
+
+		return { API_ROOT };
+	}
+</script>
 
 <script lang="ts">
 	import { onMount } from "svelte";
@@ -7,20 +14,21 @@
 	import Footer from "../components/Footer.svelte";
 	import CarouselElement from "../core/components/CarouselElement.svelte";
 
+	export let API_ROOT;
+
 	let hackathons: Hackathon[] = [];
 	let hsHackathons: Hackathon[] = [];
 	onMount(() => {
-		/* ! TODO: REPLACE THIS CORS PROXY IN PRODUCTION [DEVELOPMENT ONLY] */
-		fetch("https://cors.sdbagel.com/https://api.pinnacle.us.org/1.0/hackathons")
+		fetch(API_ROOT+"/hackathons")
 			.then(res => res.json())
 			.then(res => {
 				hackathons = res.results.filter((h: Hackathon) => !h.isHighschool);
 				hsHackathons = res.results.filter((h: Hackathon) => h.isHighschool);
 			})
 			.then(() => {
-				hackathons = hackathons.sort((a, b) => 
+				hackathons = hackathons.sort((a, b) =>
 					{ return a.internal_title.localeCompare(b.internal_title); });
-				hsHackathons = hsHackathons.sort((a, b) => 
+				hsHackathons = hsHackathons.sort((a, b) =>
 					{ return a.internal_title.localeCompare(b.internal_title); });
 			})
 			.catch(ex => console.log("GET hackathons failed: "+ex));

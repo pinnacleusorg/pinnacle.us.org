@@ -6,7 +6,7 @@ import url from '@rollup/plugin-url';
 import svelte from 'rollup-plugin-svelte';
 import babel from '@rollup/plugin-babel';
 import { terser } from 'rollup-plugin-terser';
-import sveltePreprocess from 'svelte-preprocess';
+import autoPreprocess from 'svelte-preprocess';
 import typescript from '@rollup/plugin-typescript';
 import config from 'sapper/config/rollup.js';
 import pkg from './package.json';
@@ -34,7 +34,7 @@ export default {
 				},
 			}),
 			svelte({
-				preprocess: sveltePreprocess({ sourceMap: dev }),
+				preprocess: autoPreprocess({ sourceMap: dev }),
 				compilerOptions: {
 					dev,
 					hydratable: true
@@ -48,8 +48,8 @@ export default {
 				browser: true,
 				dedupe: ['svelte']
 			}),
-			commonjs(),
 			typescript({ sourceMap: dev }),
+			commonjs(),
 
 			legacy && babel({
 				extensions: ['.js', '.mjs', '.html', '.svelte'],
@@ -89,7 +89,7 @@ export default {
 				},
 			}),
 			svelte({
-				preprocess: sveltePreprocess({ sourceMap: dev }),
+				preprocess: autoPreprocess({ sourceMap: dev }),
 				compilerOptions: {
 					dev,
 					generate: 'ssr',
@@ -105,15 +105,15 @@ export default {
 			resolve({
 				dedupe: ['svelte']
 			}),
-			commonjs(),
-			typescript({ sourceMap: dev })
+			typescript({ sourceMap: dev }),
+			commonjs()
 		],
 		external: Object.keys(pkg.dependencies).concat(require('module').builtinModules),
 		preserveEntrySignatures: 'strict',
 		onwarn,
 	},
 
-	serviceworker: {
+	serviceworker: false && {
 		input: config.serviceworker.input().replace(/\.js$/, '.ts'),
 		output: config.serviceworker.output(),
 		plugins: [
@@ -125,8 +125,8 @@ export default {
 					'process.env.NODE_ENV': JSON.stringify(mode)
 				},
 			}),
-			commonjs(),
 			typescript({ sourceMap: dev }),
+			commonjs(),
 			!dev && terser()
 		],
 		preserveEntrySignatures: false,

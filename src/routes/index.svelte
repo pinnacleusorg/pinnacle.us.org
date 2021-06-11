@@ -12,7 +12,7 @@
 	import Footer from "../components/Footer.svelte";
 
 	import { onMount } from "svelte";
-	
+
 	let scrolledHeight = 0;
 	function scrollHandler() {
 		const paths = document.querySelectorAll(".line-container path");

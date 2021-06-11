@@ -47,7 +47,7 @@
 			transform: translateX(-103%);
 		}
 	}
-	
+
 	.skyline-component {
 		grid-column: 1 / 1;
 		grid-row: 1 / 1;

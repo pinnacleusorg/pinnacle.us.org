@@ -1,17 +1,28 @@
 import sirv from 'sirv';
-import polka from 'polka';
+import express from 'express';
 import compression from 'compression';
 import * as sapper from '@sapper/server';
 
-const { PORT, NODE_ENV } = process.env;
-const dev = NODE_ENV === 'development';
+import * as dotenv from 'dotenv';
+if(process.env.API_ROOT === undefined) {
+	dotenv.config();
+}
+const { PORT, NODE_ENV, API_ROOT, LOCAL_ROOT } = process.env;
 
-polka() // You can also use Express
+const dev = NODE_ENV === 'development';
+express() // You can also use Express
 	.use(
 		compression({ threshold: 0 }),
 		sirv('static', { dev }),
-		sapper.middleware()
+		sapper.middleware({
+			session: () => ({
+				"PORT": PORT,
+				"NODE_ENV": NODE_ENV,
+				"API_ROOT": API_ROOT,
+				"LOCAL_ROOT": LOCAL_ROOT
+			})
+		})
 	)
-	.listen(PORT, err => {
-		if (err) console.log('error', err);
+	.listen(PORT, () => {
+		console.log("OK!");
 	});
