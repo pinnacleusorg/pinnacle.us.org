@@ -12,7 +12,7 @@
 </script>
 
 <div class="carousel">
-	<button class="carousel-nav reverse" on:click="{() => {scrollCarousel(-1);}}">
+	<button class="carousel-nav reverse" on:click="{() => {scrollCarousel(-1);}}" title="Scroll Left">
 		<svg><use xlink:href="icon/icon.svg#arrow"/></svg>
 	</button>
 	<div class="flex-row flex-list" id="carouselContainer">
@@ -23,7 +23,7 @@
 			<CarouselElement event="{event}" />
 		{/each}
 	</div>
-	<button class="carousel-nav" on:click="{() => {scrollCarousel(1);}}">
+	<button class="carousel-nav" on:click="{() => {scrollCarousel(1);}}" title="Scroll Right">
 		<svg><use xlink:href="icon/icon.svg#arrow"/></svg>
 	</button>
 </div>

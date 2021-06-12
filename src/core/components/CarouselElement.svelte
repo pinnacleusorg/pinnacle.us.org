@@ -6,7 +6,7 @@
 	export let showDate = false;
 </script>
 
-<a class="element {compact ? 'compact':''}" href="{event.website}" target="_blank">
+<a class="element {compact ? 'compact':''}" href="{event.website}" target="_blank" rel="noopener">
 	<div class="element-grid">
 		<img class="event-img" src="/vendor/{event.internal_title}.png" alt="{event.title}">
 		<p>{event.title}</p>

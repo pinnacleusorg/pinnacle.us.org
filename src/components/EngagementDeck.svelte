@@ -49,10 +49,10 @@
 		<div class="header-group">
 			<h2>Follow the Journey.</h2>
 			<p class="timeline-socials">
-				<a href="https://twitter.com/pinnacleusorg" target="_blank">Twitter</a> &bull;
-				<a href="https://medium.com/pinnacleusorg" target="_blank">Medium</a> &bull;
-				<a href="https://facebook.com/pinnacleusorg" target="_blank">Facebook</a> &bull;
-				<a href="https://instagram.com/pinnacleusorg" target="_blank">Instagram</a>
+				<a href="https://twitter.com/pinnacleusorg" target="_blank" rel="noopener">Twitter</a> &bull;
+				<a href="https://medium.com/pinnacleusorg" target="_blank" rel="noopener">Medium</a> &bull;
+				<a href="https://facebook.com/pinnacleusorg" target="_blank" rel="noopener">Facebook</a> &bull;
+				<a href="https://instagram.com/pinnacleusorg" target="_blank" rel="noopener">Instagram</a>
 			</p>
 		</div>
 		<div class="flex-smart engagement-deck">
