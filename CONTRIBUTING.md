@@ -4,7 +4,7 @@
 This branch currently uses the following (discretionary) commit prefixes:
 - `fix:` Fix an outstanding issue (e.g. Fixed page scroll on Safari)
 - `repo:` Repository-wide or general repository-affecting changes (e.g. Update README)
-- `sp:` Sapper-specific project changes (e.g. Added new component)
+- `sp/feat:` Sapper-specific / general project additions (e.g. Added new component)
 - `style:` Style-only changes. Guaranteed to not affect functionality (e.g. Changed global border colour)
 
 These are intended to make viewing git history easier, giving an overview of potentially breaking or major changes.
@@ -108,7 +108,7 @@ npm install -D @sveltejs/svelte-virtual-list
 
 ## Troubleshooting
 
-Using Windows and WSL2? 
+Using Windows and WSL2?
 
 If your project lives outside the WSL root directory, [this limitation](https://github.com/microsoft/WSL/issues/4169) is known to cause live-reloading to fail. See [this issue](https://github.com/sveltejs/sapper/issues/1150) for details.
 
