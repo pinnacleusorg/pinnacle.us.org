@@ -63,13 +63,13 @@
 		will-change: transform;
 
 		&#skyline-black {
-			background-image: url('/image/skyline-black.svg');
+			background-image: url('https://static.pinnacle.us.org/2021/web/skyline-black.svg');
 		}
 		&#skyline-gold {
-			background-image: url('/image/skyline-gold.svg');
+			background-image: url('https://static.pinnacle.us.org/2021/web/skyline-gold.svg');
 		}
 		&#skyline-bridge {
-			background-image: url('/image/skyline-bridge.svg');
+			background-image: url('https://static.pinnacle.us.org/2021/web/skyline-bridge.svg');
 		}
 	}
 </style>

@@ -8,7 +8,7 @@
 
 <a class="element {compact ? 'compact':''}" href="{event.website}" target="_blank" rel="noopener">
 	<div class="element-grid">
-		<img class="event-img" src="/vendor/{event.internal_title}.png" alt="{event.title}">
+		<img class="event-img" src="https://static.pinnacle.us.org/2021/vendor/{event.internal_title}.png" alt="{event.title}">
 		<p>{event.title}</p>
 		{#if showDate}
 			<div class="date">

@@ -11,8 +11,8 @@
 <svelte:window on:scroll="{scrollHandler}" />
 <section id="hero">
 	<div class="container inner">
-		<img src="meta/icon.png" alt="Pinnacle Logo" class="logo"/>
-		<img src="image/logo-text.png" alt="Pinnacle" class="label"/>
+		<img src="https://static.pinnacle.us.org/2021/meta/icon.png" alt="Pinnacle Logo" class="logo"/>
+		<img src="https://static.pinnacle.us.org/2021/assets/textLogo.png" alt="Pinnacle" class="label"/>
 		<p class="byline">The Olympics of Hackathons</p>
 		<p class="dateline">
 			<span>September 17-19, 2021</span><br>
@@ -32,7 +32,7 @@
 		align-items: center;
 		font-family: KeplerStd;
 		text-align: center;
-		
+
 		height: 100vh;
 		width: 100vw;
 		position: fixed;
@@ -47,7 +47,7 @@
 			width: 100%;
 			transition: margin-top 0.2s ease-out;
 		}
-		
+
 		img {
 			display: block;
 			margin: auto;

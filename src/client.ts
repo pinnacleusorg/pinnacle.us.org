@@ -11,7 +11,6 @@ race condition handler:
 	function startSapper() {
 		if(sapperStarted || !document.body) return;
 		sapperStarted = true;
-		console.log("started sapper!");
 		sapper.start({
 			target: document.body
 		});
