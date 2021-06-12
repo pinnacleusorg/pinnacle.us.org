@@ -1,4 +1,8 @@
+
 <script lang="ts">
+	import Header from "../core/components/Header.svelte";
+	import Footer from "../components/Footer.svelte";
+
 	export let status: number;
 	export let error: Error;
 
@@ -6,37 +10,40 @@
 </script>
 
 <svelte:head>
-	<title>{status}</title>
+	<title>Pinnacle • {status}</title>
 </svelte:head>
 
-<div>
-	<h1>{status}</h1>
-	
-	<p>{error.message}</p>
-	
-	{#if dev && error.stack}
-		<pre>{error.stack}</pre>
-	{/if}
+<div class="light-bg flex-column">
+	<Header />
+	<section class="container component-section flex">
+		<a href="/">&lsaquo; Home</a>
+		<h2>{status}: {error.message}</h2>
+		{#if status === 404}
+			<p>We couldn't find that page! Please recheck the URL or go back to our <a href="/">home page</a>.</p>
+		{/if}
+		<p></p>
+		{#if dev && error.stack}
+			<pre>{error.stack}</pre>
+		{/if}
+	</section>
 </div>
 
-<style>
-	h1, p {
-		margin: 0 auto;
+<style lang="scss">
+	div {
+		min-height: 100vh;
 	}
 
-	h1 {
-		font-size: 2.8em;
-		font-weight: 700;
-		margin: 0 0 0.5em 0;
+	section {
+		width: 100%;
 	}
 
-	p {
-		margin: 1em auto;
+	a {
+		text-decoration: none;
 	}
 
-	@media (min-width: 480px) {
-		h1 {
-			font-size: 4em;
-		}
+	.container {
+		max-width: 900px;
+		padding-left: 30px;
+		padding-right: 30px;
 	}
 </style>
