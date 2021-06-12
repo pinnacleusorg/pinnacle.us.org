@@ -58,6 +58,7 @@ h2 {
 a {
 	color: var(--pinnacle-gold);
 	transition: color 0.2s;
+	text-decoration: none;
 }
 
 ::selection {
@@ -82,7 +83,6 @@ a:hover, a:focus {
 
 	a:hover, a:focus {
 		color: var(--pinnacle-bg-light);
-		text-decoration: underline;
 	}
 }
 

@@ -3,8 +3,8 @@
   "description": "pinnacle.us.org landing site",
   "version": "1.0.0",
   "scripts": {
-    "dev": "sapper dev",
-    "build": "sapper build --legacy",
+    "dev": "node node_modules/sass/sass.js static/sass/global.scss static/css/global.css && sapper dev",
+    "build": "node node_modules/sass/sass.js static/sass/global.scss static/css/global.css && sapper build --legacy",
     "export": "sapper export --legacy",
     "start": "node __sapper__/build",
     "validate": "svelte-check --ignore src/node_modules/@sapper"
