@@ -4,6 +4,7 @@ export interface Hackathon {
 	internal_title: string,
 	title: string, // Display Name
 	website: string, // URL string
-	startDate: string // DateTime string
-	isHighschool: boolean
+	startDate: string, // DateTime string
+	isHighschool: boolean,
+	isVisible: boolean
 }

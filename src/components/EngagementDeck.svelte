@@ -2,8 +2,14 @@
 <script lang="ts">
 	import BrandButton from "./BrandButton.svelte";
 
+	//fetch API root
+	import { stores } from '@sapper/app';
+	const { session } = stores();
+	const { API_ROOT } = $session;
+
 	let subscribeDisabled = false;
 	let name: string, email: string; // Bound values
+
 
 	function trySubscribe(e: Event): void {
 		e.preventDefault();
@@ -14,7 +20,7 @@
 			return;
 		subscribeDisabled = true;
 		//submit, report errors to #updatedMsg.
-		fetch('https://api.pinnacle.us.org/1.0/contacts', {
+		fetch(API_ROOT+'/contacts', {
 				method: 'post',
 				body: JSON.stringify({ "email": email, "name": name }),
 				headers: new Headers({ "Content-Type": "application/json" })
@@ -43,9 +49,9 @@
 		<div class="header-group">
 			<h2>Follow the Journey.</h2>
 			<p class="timeline-socials">
-				<a href="https://twitter.com/pinnacleusorg" target="_blank">Twitter</a> &bull; 
-				<a href="https://medium.com/pinnacleusorg" target="_blank">Medium</a> &bull; 
-				<a href="https://facebook.com/pinnacleusorg" target="_blank">Facebook</a> &bull; 
+				<a href="https://twitter.com/pinnacleusorg" target="_blank">Twitter</a> &bull;
+				<a href="https://medium.com/pinnacleusorg" target="_blank">Medium</a> &bull;
+				<a href="https://facebook.com/pinnacleusorg" target="_blank">Facebook</a> &bull;
 				<a href="https://instagram.com/pinnacleusorg" target="_blank">Instagram</a>
 			</p>
 		</div>
@@ -100,7 +106,7 @@
 				margin-top: unset;
 			}
 		}
-		
+
 		.card-text {
 			flex: 1 1;
 			font-size: 1.3rem !important;
@@ -134,7 +140,7 @@
 	.stacked-input {
 		margin: auto;
 		width: 75%;
-		
+
 		.input-group input {
 			border-color: #1B1B1B;
 			border-width: 3px;

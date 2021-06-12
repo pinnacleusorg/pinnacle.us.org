@@ -14,7 +14,7 @@
 	onMount(() => {
 		fetch(API_ROOT+"/hackathons")
 			.then(res => res.json())
-			.then(res => hackathons = res.results)
+			.then(res => hackathons = res.results.filter((h: Hackathon) => h.isVisible !== false))
 			.then(() => hackathons = hackathons.sort((a, b) =>
 				{ return a.internal_title.localeCompare(b.internal_title); }))
 			.then(() => {

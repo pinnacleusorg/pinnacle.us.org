@@ -15,15 +15,16 @@
 	import CarouselElement from "../core/components/CarouselElement.svelte";
 
 	export let API_ROOT;
-
+	let masterHackathons: Hackathon[] = [];
 	let hackathons: Hackathon[] = [];
 	let hsHackathons: Hackathon[] = [];
 	onMount(() => {
 		fetch(API_ROOT+"/hackathons")
 			.then(res => res.json())
 			.then(res => {
-				hackathons = res.results.filter((h: Hackathon) => !h.isHighschool);
-				hsHackathons = res.results.filter((h: Hackathon) => h.isHighschool);
+				masterHackathons = res.results.filter((h: Hackathon) => h.isVisible !== false);
+				hackathons = masterHackathons.filter((h: Hackathon) => !h.isHighschool);
+				hsHackathons = masterHackathons.filter((h: Hackathon) => h.isHighschool);
 			})
 			.then(() => {
 				hackathons = hackathons.sort((a, b) =>
