@@ -5,6 +5,7 @@
 	import BigNumbers from "../components/BigNumbers.svelte";
 	import Description from "../components/Description.svelte";
 	import Carousel from "../components/Carousel.svelte";
+	import Modal from "../components/Modal.svelte";
 	import Timeline from "../components/Timeline.svelte";
 	import EngagementDeck from "../components/EngagementDeck.svelte";
 	import Sponsors from "../components/Sponsors.svelte";
@@ -61,6 +62,7 @@
 	<Video />
 	<BigNumbers />
 	<Description />
+	<Modal />
 	<Carousel />
 	<div class="line-container">
 		<svg class="line-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 321.53 656.54"><path d="M319.76 1.76l-142 143 1 335-177 175" fill="none" stroke="#c59d60" stroke-miterlimit="10" stroke-width="4"/></svg>
