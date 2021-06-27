@@ -54,7 +54,7 @@
 		width: 100%;
 		height: 100%;
 		background-repeat: no-repeat;
-		background-size: contain;
+		background-size: 101%;
 		background-position: bottom;
 
 		transition: transform 2s ease;
