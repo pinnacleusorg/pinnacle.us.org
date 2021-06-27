@@ -26,6 +26,7 @@
 		width: 100%;
 
 		position: relative;
+		overflow: clip;
 
 		scroll-snap-align: start;
 		scroll-snap-stop: normal;
@@ -36,7 +37,7 @@
 			grid-template-rows: 220px 60px;
 			max-width: 280px;
 			margin: auto;
-			overflow: visible;
+			overflow: clip;
 		}
 
 		.event-img {
