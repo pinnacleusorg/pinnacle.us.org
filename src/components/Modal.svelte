@@ -25,10 +25,10 @@
 							Qualifying Hackers
 						</div>
 						<div id="qualifying-hackers-list">
-							<div> Samuel Escapa </div>
-							<div> Jamsheed Mistri </div>
-							<div> Oscar Bjorkman </div>
-							<div> Michael Yoo </div>
+							<div class="qualifying-hacker-name"> Samuel Escapa </div>
+							<div class="qualifying-hacker-name"> Jamsheed Mistri </div>
+							<div class="qualifying-hacker-name"> Oscar Bjorkman </div>
+							<div class="qualifying-hacker-name"> Michael Yoo </div>
 						</div>
 					</div>
 					<BrandButton href="#" isAnchor="{true}" isOutline="{true}">Project Link</BrandButton>
@@ -62,8 +62,8 @@
 	    margin: 15vh auto;
 	    padding-left: 1rem;
 	    display: flex;
-	    max-width: 650px;
-	    max-height: 550px;
+	    max-width: 610px;
+	    max-height: 525px;
 	    color: var(--pinnacle-bg);
 	    flex-direction: column;
 
@@ -91,7 +91,7 @@
 	}
 
 	#hackathon-name {
-	    margin-bottom: -1rem;
+	    margin-bottom: -2.2rem;
 	    font-size: 5rem;
 	}
 
@@ -116,15 +116,20 @@
 
 	#qualifying-hackers-header {
 	    margin-left: 30px;
+		margin-bottom: -0.5rem;
 	}
 	#qualifying-hackers-list {
 	    margin: 30px;
 	}
 
+	div.qualifying-hacker-name {
+		margin-bottom: -0.5rem;
+	}
+
 	#close-modal-banner {
 	    display: flex;
 	    justify-content: flex-end;
-	    height: 60px;
+	    height: 38px;
 	  }
 
 	#close-modal-button {
@@ -134,39 +139,6 @@
 	    margin: 15px;
 	    border: 0;
 	}
-
-	.pinnacle-btn {
-	    border: 3px solid var(--pinnacle-gold);
-	    font-family: KeplerStd;
-	    font-size: 1.5rem;
-	    color: var(--pinnacle-gold);
-	    background-color: var(--pinnacle-bg-light);
-	    max-width: 10rem;
-	    text-align: center;
-	    padding: 0.5rem 3rem 0 3rem;
-	    margin: 0 1rem 0 1rem;
-	}
-
-	.notched {
-	    --notchSize: 20px;
-
-	    clip-path:
-	    polygon(
-	      0% var(--notchSize),
-	      var(--notchSize) 0%,
-	      100% 0%,
-	      100% 0%,
-	      100% calc(100% - var(--notchSize)),
-	      calc(100% - var(--notchSize)) 100%,
-	      0% 100%,
-	      0% 100%
-	    );
-	}
-
-	#project-link-button {
-	    align-self: center;
-	}
-
 	button {
 	    cursor: pointer;
 	}
@@ -183,23 +155,25 @@
 	#short-middle-accent {
 	    height: 115px;
 	    align-self: center;
+		margin-left: 50px;
 	}
 
 	#accent-box {
 	    padding: 40px;
+		padding-top: 60px;
 	    display: flex;
 	    flex-direction: column;
 	}
 
 	#long-right-accent {
-	    height: 320px;
+	    height: 300px;
 	    flex-direction: row;
 	}
 
 	#bottom-right-accent {
 	    height: 100px;
 	    margin-top: -15px;
-	    margin-left: -31px;
-	    transform: rotate(40deg);
+	    margin-left: -34px;
+	    transform: rotate(45deg);
 	}
 </style>
