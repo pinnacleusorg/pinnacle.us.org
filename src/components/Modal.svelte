@@ -64,6 +64,7 @@
 	    display: flex;
 	    max-width: 610px;
 	    max-height: 525px;
+	    overflow: scroll;
 	    color: var(--pinnacle-bg);
 	    flex-direction: column;
 
