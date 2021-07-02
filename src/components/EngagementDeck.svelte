@@ -25,20 +25,20 @@
 				body: JSON.stringify({ "email": email, "name": name }),
 				headers: new Headers({ "Content-Type": "application/json" })
 			})
-			.then(() => {
+			.then((response) => {
+				let message = 'Welcome to the mailing list!';
+				if(response.status != 200) {
+					console.log(response);
+					message = "Error: Please confirm your email address is accurate";
+					if (response.status == 409)
+						message = "You're already on our list!";
+					document.querySelector('#updatedMsg').classList.add("err");
+				} else {
+					document.querySelector('#updatedMsg').classList.add("successful");
+				}
 				name = "";
 				email = "";
-				document.querySelector('#updatedMsg').classList.add("successful");
-				document.querySelector('#updatedMsg').textContent = "Welcome to the mailing list!";
-				subscribeDisabled = false;
-			})
-			.catch(function (msg) {
-				console.log(msg);
-				var error = "Error: Please confirm your email address is accurate";
-				if (msg.status == 409)
-					error = "You're already on our list!";
-				document.querySelector('#updatedMsg').classList.add("err");
-				document.querySelector('#updatedMsg').textContent = error;
+				document.querySelector('#updatedMsg').textContent = message;
 				subscribeDisabled = false;
 			});
 	}
