@@ -25,7 +25,7 @@
 			tier: 2
 		},
 		{
-			name: "Airbnb",
+			name: "Ebay",
 			logo: "https://static.pinnacle.us.org/2021/sponsor/ebay.png",
 			url: "https://",
 			tier: 2
