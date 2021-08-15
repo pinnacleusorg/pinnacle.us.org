@@ -24,6 +24,18 @@
 			url: "https://",
 			tier: 2
 		},
+		{
+			name: "Airbnb",
+			logo: "https://static.pinnacle.us.org/2021/sponsor/ebay.png",
+			url: "https://",
+			tier: 2
+		},
+		{
+			name: "Airbnb",
+			logo: "https://static.pinnacle.us.org/2021/sponsor/airbnb.png",
+			url: "https://",
+			tier: 2
+		},
 	];
 </script>
 
@@ -54,14 +66,19 @@
 		display: flex;
 		flex-wrap: wrap;
 		align-items: center;
-		column-gap: 10px;
-		width: 100%;
+		column-gap: 40px;
+		width: calc(100% - 40px);
+		padding: 0 20px;
 	}
 
 	.sponsor-logos .sponsor {
 		margin: 3rem auto;
-		width: 95%;
+		width: 90%;
 		max-width: 300px;
+
+		@media (min-width: 768px) {
+			width: 100%;
+		}
 
 		img {
 			width: 100%;
