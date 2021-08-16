@@ -3,37 +3,37 @@
 		{
 			name: "WorldLink",
 			logo: "https://static.pinnacle.us.org/2021/sponsor/worldlink.png",
-			url: "https://",
+			url: "https://worldlink-us.com/",
 			tier: 1
 		},
 		{
 			name: "Stellar Development Foundation",
 			logo: "https://static.pinnacle.us.org/2021/sponsor/sdf.png",
-			url: "https://",
+			url: "https://www.stellar.org/",
 			tier: 2
 		},
 		{
 			name: "Human Capital",
 			logo: "https://static.pinnacle.us.org/2021/sponsor/humancapital.png",
-			url: "https://",
+			url: "https://human.capital/",
 			tier: 2
 		},
 		{
 			name: "Magic Leap",
 			logo: "https://static.pinnacle.us.org/2021/sponsor/magicleap.png",
-			url: "https://",
+			url: "https://www.magicleap.com/",
 			tier: 2
 		},
 		{
 			name: "Ebay",
 			logo: "https://static.pinnacle.us.org/2021/sponsor/ebay.png",
-			url: "https://",
+			url: "https://ebay.com",
 			tier: 2
 		},
 		{
 			name: "Airbnb",
 			logo: "https://static.pinnacle.us.org/2021/sponsor/airbnb.png",
-			url: "https://",
+			url: "https://www.airbnb.com/",
 			tier: 2
 		},
 	];
