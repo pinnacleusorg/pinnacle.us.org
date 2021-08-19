@@ -19,6 +19,12 @@
 			tier: 2
 		},
 		{
+			name: "Level",
+			logo: "https://static.pinnacle.us.org/2021/sponsor/level.png",
+			url: "https://level.co",
+			tier: 2
+		},
+		{
 			name: "Airbnb",
 			logo: "https://static.pinnacle.us.org/2021/sponsor/airbnb.png",
 			url: "https://www.airbnb.com/",
@@ -42,12 +48,6 @@
 			name: "Arduino",
 			logo: "https://static.pinnacle.us.org/2021/sponsor/arduino.png",
 			url: "https://www.arduino.cc",
-			tier: 2
-		},
-		{
-			name: "Level",
-			logo: "https://static.pinnacle.us.org/2021/sponsor/level.png",
-			url: "https://level.co",
 			tier: 2
 		}
 	]
