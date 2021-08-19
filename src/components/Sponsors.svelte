@@ -13,12 +13,6 @@
 			tier: 2
 		},
 		{
-			name: "Magic Leap",
-			logo: "https://static.pinnacle.us.org/2021/sponsor/magicleap.png",
-			url: "https://www.magicleap.com/",
-			tier: 2
-		},
-		{
 			name: "Ebay",
 			logo: "https://static.pinnacle.us.org/2021/sponsor/ebay.png",
 			url: "https://ebay.com",
@@ -31,6 +25,14 @@
 			tier: 2
 		},
 	];
+	const hwSponsors = [
+		{
+			name: "Magic Leap",
+			logo: "https://static.pinnacle.us.org/2021/sponsor/magicleap.png",
+			url: "https://www.magicleap.com/",
+			tier: 2
+		},
+	]
 </script>
 
 <section class="container-wide component-section-large dark-bg" id="sponsors">
@@ -45,6 +47,11 @@
 		</div>
 		<h2 class="text-center">Hardware Sponsors</h2>
 		<div class="sponsor-logos">
+			{#each hwSponsors as sponsor}
+				<a href={sponsor.url} target="_blank" class="sponsor tier-{sponsor.tier}">
+					<img src={sponsor.logo} alt={sponsor.name} />
+				</a>
+			{/each}
 			<div class="sponsor" id="sponsor-ad">
 				Interested in being a sponsor?<br />
 				Please email us at
