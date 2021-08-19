@@ -7,12 +7,6 @@
 			tier: 1
 		},
 		{
-			name: "Stellar Development Foundation",
-			logo: "https://static.pinnacle.us.org/2021/sponsor/sdf.png",
-			url: "https://www.stellar.org/",
-			tier: 2
-		},
-		{
 			name: "Human Capital",
 			logo: "https://static.pinnacle.us.org/2021/sponsor/humancapital.png",
 			url: "https://human.capital/",
