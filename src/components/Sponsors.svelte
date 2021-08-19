@@ -42,6 +42,9 @@
 					<img src={sponsor.logo} alt={sponsor.name} />
 				</a>
 			{/each}
+		</div>
+		<h2 class="text-center">Hardware Sponsors</h2>
+		<div class="sponsor-logos">
 			<div class="sponsor" id="sponsor-ad">
 				Interested in being a sponsor?<br />
 				Please email us at
