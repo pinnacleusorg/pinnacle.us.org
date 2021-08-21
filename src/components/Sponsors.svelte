@@ -13,7 +13,7 @@
 			tier: 2
 		},
 		{
-			name: "Ebay",
+			name: "eBay",
 			logo: "https://static.pinnacle.us.org/2021/sponsor/ebay.png",
 			url: "https://ebay.com",
 			tier: 2
