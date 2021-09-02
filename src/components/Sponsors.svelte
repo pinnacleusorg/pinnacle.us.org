@@ -19,15 +19,15 @@
 			tier: 2
 		},
 		{
-			name: "eBay",
-			logo: "https://static.pinnacle.us.org/2021/sponsor/ebay.png",
-			url: "https://ebay.com",
-			tier: 2
-		},
-		{
 			name: "Level",
 			logo: "https://static.pinnacle.us.org/2021/sponsor/level.png",
 			url: "https://level.co",
+			tier: 2
+		},
+		{
+			name: "eBay",
+			logo: "https://static.pinnacle.us.org/2021/sponsor/ebay.png",
+			url: "https://ebay.com",
 			tier: 2
 		},
 		{
@@ -45,15 +45,15 @@
 			tier: 2
 		},
 		{
-			name: "Magic Leap",
-			logo: "https://static.pinnacle.us.org/2021/sponsor/magicleap.png",
-			url: "https://www.magicleap.com/",
-			tier: 2
-		},
-		{
 			name: "Arduino",
 			logo: "https://static.pinnacle.us.org/2021/sponsor/arduino.png",
 			url: "https://www.arduino.cc",
+			tier: 2
+		},
+		{
+			name: "Magic Leap",
+			logo: "https://static.pinnacle.us.org/2021/sponsor/magicleap.png",
+			url: "https://www.magicleap.com/",
 			tier: 2
 		}
 	]
