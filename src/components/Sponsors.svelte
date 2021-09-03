@@ -19,6 +19,12 @@
 			tier: 2
 		},
 		{
+			name: "Twilio",
+			logo: "https://static.pinnacle.us.org/2021/sponsor/twilio.png",
+			url: "https://www.twilio.com/",
+			tier: 2
+		},
+		{
 			name: "Level",
 			logo: "https://static.pinnacle.us.org/2021/sponsor/level.png",
 			url: "https://level.co",
@@ -36,6 +42,18 @@
 			url: "https://www.airbnb.com/",
 			tier: 2
 		},
+		{
+			name: "Dorm Room Fund",
+			logo: "https://static.pinnacle.us.org/2021/sponsor/drf.png",
+			url: "https://www.dormroomfund.com",
+			tier: 2
+		},
+		{
+			name: "Google Cloud",
+			logo: "https://static.pinnacle.us.org/2021/sponsor/gcp.png",
+			url: "https://cloud.google.com",
+			tier: 2
+		}
 	];
 	const hwSponsors = [
 		{
