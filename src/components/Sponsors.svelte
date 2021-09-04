@@ -7,15 +7,27 @@
 			tier: 1
 		},
 		{
+			name: "Stellar Development Foundation",
+			logo: "https://static.pinnacle.us.org/2021/sponsor/sdf.png",
+			url: "https://www.stellar.org/foundation",
+			tier: 2
+		},
+		{
+			name: "Wayfair",
+			logo: "https://static.pinnacle.us.org/2021/sponsor/wayfair.png",
+			url: "https://www.wayfair.com/",
+			tier: 2
+		},
+		{
 			name: "Human Capital",
 			logo: "https://static.pinnacle.us.org/2021/sponsor/humancapital.png",
 			url: "https://human.capital/",
 			tier: 2
 		},
 		{
-			name: "eBay",
-			logo: "https://static.pinnacle.us.org/2021/sponsor/ebay.png",
-			url: "https://ebay.com",
+			name: "Twilio",
+			logo: "https://static.pinnacle.us.org/2021/sponsor/twilio.png",
+			url: "https://www.twilio.com/",
 			tier: 2
 		},
 		{
@@ -25,11 +37,29 @@
 			tier: 2
 		},
 		{
+			name: "eBay",
+			logo: "https://static.pinnacle.us.org/2021/sponsor/ebay.png",
+			url: "https://ebay.com",
+			tier: 2
+		},
+		{
 			name: "Airbnb",
 			logo: "https://static.pinnacle.us.org/2021/sponsor/airbnb.png",
 			url: "https://www.airbnb.com/",
 			tier: 2
 		},
+		{
+			name: "Dorm Room Fund",
+			logo: "https://static.pinnacle.us.org/2021/sponsor/drf.png",
+			url: "https://www.dormroomfund.com",
+			tier: 2
+		},
+		{
+			name: "Google Cloud",
+			logo: "https://static.pinnacle.us.org/2021/sponsor/gcp.png",
+			url: "https://cloud.google.com",
+			tier: 2
+		}
 	];
 	const hwSponsors = [
 		{
@@ -39,15 +69,15 @@
 			tier: 2
 		},
 		{
-			name: "Magic Leap",
-			logo: "https://static.pinnacle.us.org/2021/sponsor/magicleap.png",
-			url: "https://www.magicleap.com/",
-			tier: 2
-		},
-		{
 			name: "Arduino",
 			logo: "https://static.pinnacle.us.org/2021/sponsor/arduino.png",
 			url: "https://www.arduino.cc",
+			tier: 2
+		},
+		{
+			name: "Magic Leap",
+			logo: "https://static.pinnacle.us.org/2021/sponsor/magicleap.png",
+			url: "https://www.magicleap.com/",
 			tier: 2
 		}
 	]
