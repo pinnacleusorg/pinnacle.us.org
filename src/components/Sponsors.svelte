@@ -7,6 +7,12 @@
 			tier: 1
 		},
 		{
+			name: "Stellar Development Foundation",
+			logo: "https://static.pinnacle.us.org/2021/sponsor/sdf.png",
+			url: "https://www.stellar.org/foundation",
+			tier: 2
+		},
+		{
 			name: "Wayfair",
 			logo: "https://static.pinnacle.us.org/2021/sponsor/wayfair.png",
 			url: "https://www.wayfair.com/",
