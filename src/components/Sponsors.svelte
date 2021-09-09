@@ -9,7 +9,7 @@
 		[{
 			name: "Stellar Development Foundation",
 			logo: "https://static.pinnacle.us.org/2021/sponsor/sdf.png",
-			url: "https://www.stellar.org/foundation",
+			url: "https://www.stellar.org/",
 			tier: 2
 		},
 		{
