@@ -4,7 +4,7 @@
 		<h2>What is Pinnacle?</h2>
 		<div class="body">
 			<p>Pinnacle invites a winning team from each of the world’s largest 50 collegiate hackathons and 5 high school hackathons to compete in an epic hack-off. This year, Pinnacle will be taking place on September 17-19 in Dallas, TX.</p>
-			<p>Our participants, who represent the brightest developers, designers, and creators in the nation, have received invitations throughout the Pinnacle 2020-2021 hackathon season. The current season ends in August 2021, and there are still qualifying hackathons left. If you'd like to earn a ticket to Pinnacle, win one of the qualifying events listed below.</p>
+			<p>Our participants, who represent the brightest developers, designers, and creators in the nation, have received invitations throughout the Pinnacle 2020-2021 hackathon season. The Pinnacle 2020-2021 season has ended, and Pinnacle 2021 will be taking place on September 17-19, 2021. The next Pinnacle season will be announced soon.</p>
 		</div>
 	</div>
 </section>
