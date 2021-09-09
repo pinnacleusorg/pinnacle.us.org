@@ -17,14 +17,14 @@
 			logo: "https://static.pinnacle.us.org/2021/sponsor/cisco.png",
 			url: "https://www.cisco.com/",
 			tier: 2
-		},
-		{
+		}],
+		[{
 			name: "Wayfair",
 			logo: "https://static.pinnacle.us.org/2021/sponsor/wayfair.png",
 			url: "https://www.wayfair.com/",
 			tier: 2
-		}],
-		[{
+		},
+		{
 			name: "Human Capital",
 			logo: "https://static.pinnacle.us.org/2021/sponsor/humancapital.png",
 			url: "https://human.capital/",
