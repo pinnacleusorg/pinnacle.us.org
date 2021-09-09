@@ -128,7 +128,7 @@
 		text-align: center;
 	}
 
-	.sponsor-logos > div {
+	.sponsor-logos > div:not(#sponsor-ad) {
 		display: flex;
 		flex-wrap: wrap;
 		align-items: center;
