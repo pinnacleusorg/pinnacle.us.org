@@ -49,12 +49,18 @@
 			tier: 2
 		},
 		{
+			name: "HRT",
+			logo: "https://static.pinnacle.us.org/2021/sponsor/hrt.png",
+			url: "https://hudsonrivertrading.com",
+			tier: 2
+		}],
+		[{
 			name: "Airbnb",
 			logo: "https://static.pinnacle.us.org/2021/sponsor/airbnb.png",
 			url: "https://www.airbnb.com/",
 			tier: 2
-		}],
-		[{
+		},
+		{
 			name: "Dorm Room Fund",
 			logo: "https://static.pinnacle.us.org/2021/sponsor/drf.png",
 			url: "https://www.dormroomfund.com",
