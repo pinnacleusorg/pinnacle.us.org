@@ -13,7 +13,7 @@
 			<span class="timeline-date">September 17-19, 2021</span>
 			<span class="timeline-desc flex">
 				<p>Pinnacle 2021 event takes place.</p>
-				<p>Click <a href="https://www.twitch.tv/pinnacleusorg/videos?filter=highlights&sort=time" target="_blank">here</a> to watch the recordings from the livestream.</p>
+				<p><a href="https://www.twitch.tv/pinnacleusorg/videos?filter=highlights&sort=time" target="_blank">Click here to watch the recordings from the livestream.</a></p>
 			</span>
 		</div>
 	</div>
@@ -42,6 +42,10 @@
 
 		p {
 			margin-top: 0;
+		}
+
+		a {
+			text-decoration: underline;
 		}
 	}
 
