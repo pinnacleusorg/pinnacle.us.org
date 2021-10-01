@@ -11,7 +11,10 @@
 		</div>
 		<div class="flex-smart">
 			<span class="timeline-date">September 17-19, 2021</span>
-			<span class="timeline-desc flex">Watch the world's best hackers face off at Pinnacle, live from Dallas.</span>
+			<span class="timeline-desc flex">
+				<p>Pinnacle 2021 event takes place.</p>
+				<p><a href="https://www.twitch.tv/pinnacleusorg/videos?filter=highlights&sort=time" target="_blank">Click here to watch the recordings from the livestream.</a></p>
+			</span>
 		</div>
 	</div>
 </section>
@@ -39,6 +42,10 @@
 
 		p {
 			margin-top: 0;
+		}
+
+		a {
+			text-decoration: underline;
 		}
 	}
 

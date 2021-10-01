@@ -15,8 +15,8 @@
 		<img src="https://static.pinnacle.us.org/2021/assets/textLogo.png" alt="Pinnacle" class="label"/>
 		<p class="byline">The Olympics of Hackathons</p>
 		<p class="dateline">
-			<span>September 17-19, 2021</span><br>
-			<span>Dallas, Texas</span>
+			<span></span><br>
+			<span></span>
 		</p>
 	</div>
 	<div id="scroll-prompt">
