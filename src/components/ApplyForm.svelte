@@ -9,7 +9,7 @@
 </script>
 
 <h2>Tell us about yourself.</h2>
-<hr>
+<span class="vertibar"></span>
 <br>
 <form action="">
 	<InputText placeholder="Enter your name here" name="fullname">Name</InputText>
@@ -35,6 +35,22 @@
 </form>
 
 <style lang="scss">
+	h2 {
+		color: var(--pinnacle-gold);
+		font-weight: normal;
+		text-align: center;
+		margin: 0;
+	}
+
+	.vertibar {
+		background-color: var(--pinnacle-gold);
+		display: block;
+		height: 60px;
+		width: 3px;
+		margin: 80px auto;
+		margin-top: 50px;
+	}
+
 	form {
 		display: flex;
 		flex-direction: column;
