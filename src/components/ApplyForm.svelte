@@ -1,0 +1,43 @@
+
+<script lang="ts">
+	import InputText from "../lib/pi-input-text.svelte";
+	import InputFile from "../lib/pi-input-file.svelte";
+	
+	import OptionGroup from "../lib/pi-option.svelte";
+	import OptionText from "../lib/pi-option-text.svelte";
+	import OptionRadio from "../lib/pi-option-radio.svelte";
+</script>
+
+<h2>Tell us about yourself.</h2>
+<hr>
+<br>
+<form action="">
+	<InputText placeholder="Enter your name here" name="fullname">Name</InputText>
+	<InputText placeholder="Enter your email here" name="email">Email</InputText>
+	<InputText placeholder="Enter your school or organization here" name="org">School/Org</InputText>
+	<OptionGroup title="How did you hear about us?">
+		<OptionRadio name="ref" id="ref-schoolemail">School Major Email List</OptionRadio>
+		<OptionRadio name="ref" id="ref-clubemail">School Club Email or Meeting</OptionRadio>
+		<OptionRadio name="ref" id="ref-socialmedia">Social Media</OptionRadio>
+		<OptionText name="ref" id="ref-by" value="Referred by:">Referred by:</OptionText>
+		<OptionText name="ref" id="ref-other" value="Referred by:">Referred by:</OptionText>
+	</OptionGroup>
+	<InputFile>Resume</InputFile>
+	<InputText placeholder="Website, LinkedIn, GitHub, etc.">Links</InputText>
+	<OptionGroup title="Which teams would you like to join?">
+		<OptionRadio name="app" id="team-1">Sponsorships</OptionRadio>
+		<OptionRadio name="app" id="team-2">Operations/Outreach</OptionRadio>
+		<OptionRadio name="app" id="team-3">Marketing</OptionRadio>
+		<OptionRadio name="app" id="team-4">Tech/Engineering</OptionRadio>
+		<OptionRadio name="app" id="team-5">Branding</OptionRadio>
+	</OptionGroup>
+	<button>SUbmit</button>
+</form>
+
+<style lang="scss">
+	form {
+		display: flex;
+		flex-direction: column;
+		row-gap: 60px;
+	}
+</style>
