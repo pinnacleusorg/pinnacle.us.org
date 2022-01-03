@@ -1,6 +1,7 @@
 
 <script lang="ts">
 	import InputText from "../lib/pi-input-text.svelte";
+	import InputTextLines from "../lib/pi-input-textlines.svelte";
 	import InputFile from "../lib/pi-input-file.svelte";
 	
 	import OptionGroup from "../lib/pi-option.svelte";
@@ -23,7 +24,7 @@
 		<OptionText name="ref" id="ref-other" value="Referred by:">Referred by:</OptionText>
 	</OptionGroup>
 	<InputFile>Resume</InputFile>
-	<InputText placeholder="Website, LinkedIn, GitHub, etc.">Links</InputText>
+	<InputTextLines name="links" placeholder="Website, LinkedIn, GitHub, etc.">Links</InputTextLines>
 	<OptionGroup title="Which teams would you like to join?">
 		<OptionRadio name="app" id="team-1">Sponsorships</OptionRadio>
 		<OptionRadio name="app" id="team-2">Operations/Outreach</OptionRadio>
