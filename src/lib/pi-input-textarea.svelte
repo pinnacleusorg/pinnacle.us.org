@@ -6,7 +6,7 @@
 
 <div class="input">
 	<label for="{name}"><span><slot /></span></label>
-	<textarea id="{name}" type="text" name="{name}" placeholder="{placeholder}" />
+	<textarea id="{name}" type="text" name="{name}" placeholder="{placeholder}" rows="10" />
 </div>
 
 <style lang="scss">
@@ -43,6 +43,8 @@
 
 			margin: 0;
 			padding: 20px;
+
+			resize: vertical;
 
 			&::placeholder {
 				color: transparentize($gold, 0.4);
