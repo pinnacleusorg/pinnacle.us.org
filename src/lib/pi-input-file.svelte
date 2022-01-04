@@ -1,11 +1,11 @@
 
 <script lang="ts">
-	export let id: string = "";
+	export let name: string;
 </script>
 
 <div class="input">
-	<label for="{id}"><span><slot /></span></label>
-	<input id="{id}" type="file" name="name">
+	<label for="{name}"><span><slot /></span></label>
+	<input id="{name}" type="file" name="{name}">
 </div>
 
 <style lang="scss">
