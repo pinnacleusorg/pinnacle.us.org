@@ -3,8 +3,7 @@
 	import BrandButton from "./BrandButton.svelte";
 
 	//fetch API root
-	import { stores } from '@sapper/app';
-	const { session } = stores();
+	import { session } from "$app/stores";
 	const { API_ROOT } = $session;
 
 	let subscribeDisabled = false;
