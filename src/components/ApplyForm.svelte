@@ -6,6 +6,7 @@
 	import InputFile from "$lib/pi-input-file.svelte";
 	
 	import OptionGroup from "$lib/pi-option.svelte";
+	import OptionCheck from "$lib/pi-option-checkbox.svelte";
 	import OptionText from "$lib/pi-option-text.svelte";
 	import OptionRadio from "$lib/pi-option-radio.svelte";
 
@@ -29,11 +30,11 @@
 	<InputFile name="resume">Resume</InputFile>
 	<InputTextLines name="links" placeholder="Website, LinkedIn, GitHub, etc.">Links</InputTextLines>
 	<OptionGroup title="Which teams would you like to join?">
-		<OptionRadio name="app" id="team-1">Sponsorships</OptionRadio>
-		<OptionRadio name="app" id="team-2">Operations/Outreach</OptionRadio>
-		<OptionRadio name="app" id="team-3">Marketing</OptionRadio>
-		<OptionRadio name="app" id="team-4">Tech/Engineering</OptionRadio>
-		<OptionRadio name="app" id="team-5">Branding</OptionRadio>
+		<OptionCheck id="spo">Sponsorships</OptionCheck>
+		<OptionCheck id="ops">Operations/Outreach</OptionCheck>
+		<OptionCheck id="mar">Marketing</OptionCheck>
+		<OptionCheck id="tec">Tech/Engineering</OptionCheck>
+		<OptionCheck id="bra">Branding</OptionCheck>
 	</OptionGroup>
 	<InputTextArea name="values" placeholder="Type your response here.">
 		What value would you be able to bring to the Pinnacle team?

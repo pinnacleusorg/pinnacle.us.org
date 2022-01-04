@@ -48,6 +48,9 @@
     }
   }
   .indent {
-    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    margin-left: 50px;
   }
 </style>
