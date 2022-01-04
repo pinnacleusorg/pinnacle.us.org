@@ -1,13 +1,15 @@
 
 <script lang="ts">
-	import InputText from "../lib/pi-input-text.svelte";
-	import InputTextArea from "../lib/pi-input-textarea.svelte";
-	import InputTextLines from "../lib/pi-input-textlines.svelte";
-	import InputFile from "../lib/pi-input-file.svelte";
+	import InputText from "$lib/pi-input-text.svelte";
+	import InputTextArea from "$lib/pi-input-textarea.svelte";
+	import InputTextLines from "$lib/pi-input-textlines.svelte";
+	import InputFile from "$lib/pi-input-file.svelte";
 	
-	import OptionGroup from "../lib/pi-option.svelte";
-	import OptionText from "../lib/pi-option-text.svelte";
-	import OptionRadio from "../lib/pi-option-radio.svelte";
+	import OptionGroup from "$lib/pi-option.svelte";
+	import OptionText from "$lib/pi-option-text.svelte";
+	import OptionRadio from "$lib/pi-option-radio.svelte";
+
+	import Button from "$lib/pi-button.svelte";
 </script>
 
 <h2>Tell us about yourself.</h2>
@@ -36,7 +38,10 @@
 	<InputTextArea name="values" placeholder="Type your response here.">
 		What value would you be able to bring to the Pinnacle team?
 	</InputTextArea>
-	<button>SUbmit</button>
+	<br>
+	<div class="submit">
+		<Button>Submit</Button>
+	</div>
 </form>
 
 <style lang="scss">
@@ -61,5 +66,9 @@
 		flex-direction: column;
 		row-gap: 60px;
 		padding-bottom: 30vh;
+	}
+
+	.submit {
+		margin: auto;
 	}
 </style>

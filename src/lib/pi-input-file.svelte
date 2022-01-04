@@ -1,11 +1,13 @@
 
 <script lang="ts">
+	import Button from "./pi-button.svelte";
 	export let name: string;
 </script>
 
 <div class="input">
 	<label for="{name}"><span><slot /></span></label>
 	<input id="{name}" type="file" name="{name}">
+	<Button>Upload Your Resume</Button>
 </div>
 
 <style lang="scss">
@@ -32,19 +34,7 @@
 		}
 
 		input {
-			background: none;
-			border: none;
-			border-bottom: 3px solid $gold;
-			color: $bg-light;
-
-			flex: 1 1;
-
-			outline: none;
-			padding: 0 5px;
-
-			&::placeholder {
-				color: transparentize($gold, 0.4);
-			}
+			display: none;
 		}
 	}
 </style>
