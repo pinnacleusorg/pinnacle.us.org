@@ -13,7 +13,7 @@
 <h2>Tell us about yourself.</h2>
 <span class="vertibar"></span>
 <br>
-<form action="">
+<form action="" method="post" enctype="multipart/form-data">
 	<InputText placeholder="Enter your name here" name="fullname">Name</InputText>
 	<InputText placeholder="Enter your email here" name="email">Email</InputText>
 	<InputText placeholder="Enter your school or organization here" name="org">School/Org</InputText>
@@ -24,7 +24,7 @@
 		<OptionText name="ref" id="ref-by" value="Referred by:">Referred by:</OptionText>
 		<OptionText name="ref" id="ref-other" value="Referred by:">Referred by:</OptionText>
 	</OptionGroup>
-	<InputFile>Resume</InputFile>
+	<InputFile name="resume">Resume</InputFile>
 	<InputTextLines name="links" placeholder="Website, LinkedIn, GitHub, etc.">Links</InputTextLines>
 	<OptionGroup title="Which teams would you like to join?">
 		<OptionRadio name="app" id="team-1">Sponsorships</OptionRadio>
