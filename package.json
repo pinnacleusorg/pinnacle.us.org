@@ -4,7 +4,6 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev-ish": "svelte-kit dev",
     "dev": "node node_modules/sass/sass.js static/sass/global.scss static/css/global.css && svelte-kit dev",
     "build": "node node_modules/sass/sass.js static/sass/global.scss static/css/global.css && svelte-kit build"
   },
