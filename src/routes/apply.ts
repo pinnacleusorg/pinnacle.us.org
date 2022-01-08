@@ -1,63 +1,64 @@
 
-const webhook = "https://discord.com/api/webhooks/927705707342618645/...";
+import FormData from 'form-data';
 
-export async function post(request) {
-	console.log(request);
+const webhook = "https://discord.com/api/webhooks/927705707342618645/zH85mZdOTJPYleHoc8TskgzTfle0G-aITxCUXoiy_dgMxT-vIGV-SjE7aybvNIJ5uYvk";
 
-	const par = new URL(request.url).searchParams;
-	//const res = Buffer.from(`par.get("resume")`);
-	//console.log(new File([request.rawBody], "fname.text"))
+export async function post(req) {
+	const par = req.body;
+	const res = Buffer.from(par.get("resume"), "base64");
 
 	const body = {
 		embeds: [
 			{
-				title: par.get("fullname")+" - New Application",
+				title: "New Application",
 				footer: {
-					text: `from ${new URL(request.url.host)}`
+					text: `from pinnacle.us.org`
 				},
 				timestamp: new Date(),
 				fields: [
 					{
 						name: "Name",
-						value: par.get("fullname"),
+						value: (par.get("fullname") || "undef"),
 						inline: true
 					},
 					{
 						name: "Email",
-						value: par.get("email"),
+						value: (par.get("email") || "undef"),
 						inline: true
 					},
 					{
 						name: "Organization",
-						value: par.get("org")
+						value: (par.get("org") || "undef")
 					},
 					{
 						name: "Links",
-						value: par.get("links").replace(/,/, "\n")
+						value: (par.get("links") || "undef").replace(/,/, "\n")
 					},
 					{
 						name: "Applying for:",
-						value: par.get("app").replace(/,/, "\n")
+						value: (par.get("app") || "undef")
 					},
 					{
 						name: "What would you add to Pinnacle?",
-						value: par.get("values")
+						value: (par.get("values") || "undef")
 					},
 					{
 						name: "Referred by:",
-						value: par.get("ref").replace(/,/, "\n")
+						value: (par.get("ref") || "undef").replace(/,/, "\n")
 					},
 				]
 			}
 		]
 	}
 
-	await fetch(webhook, {
-		method: "POST",
-		body: JSON.stringify(body)
+	const fd = new FormData();
+	fd.append("payload_json", JSON.stringify(body));
+	fd.append("file1", res, { filename: "resume.pdf" });
+	fd.submit(webhook, (err, res) => {
+		if (err) console.log(err);
 	});
 
 	return {
-		body: new URL(request.url).searchParams.toString()
+		status: 204
 	};
 }

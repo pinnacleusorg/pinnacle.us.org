@@ -16,7 +16,7 @@
 <h2>Tell us about yourself.</h2>
 <span class="vertibar"></span>
 <br>
-<form action="" method="post" enctype="multipart/form-data">
+<form method="post">
 	<InputText placeholder="Enter your name here" name="fullname">Name</InputText>
 	<InputText placeholder="Enter your email here" name="email">Email</InputText>
 	<InputText placeholder="Enter your school or organization here" name="org">School/Org</InputText>

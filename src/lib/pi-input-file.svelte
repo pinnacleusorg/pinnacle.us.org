@@ -1,12 +1,30 @@
 
-<script lang="ts">
+<script>
 	import Button from "./pi-button.svelte";
-	export let name: string;
+	export let name;
+
+	let val = "";
+	function getBase64(file) {
+   var reader = new FileReader();
+   reader.readAsDataURL(file);
+   reader.onload = function () {
+		 val = reader.result;
+   };
+   reader.onerror = function (error) {
+     console.log('Error: ', error);
+   };
+}
+
+	function dostuff() {
+		var file = document.querySelector('#'+name).files[0];
+		getBase64(file);
+	}
 </script>
 
 <div class="input">
 	<label for="{name}"><span><slot /></span></label>
-	<input id="{name}" type="file" name="{name}">
+	<input id="{name}" type="file" on:change="{dostuff}">
+	<input type="hidden" name="{name}" bind:value="{val}" >
 	<Button>Upload Your Resume</Button>
 </div>
 
@@ -34,7 +52,6 @@
 		}
 
 		input {
-			display: none;
 		}
 	}
 </style>
