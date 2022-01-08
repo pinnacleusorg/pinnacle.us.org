@@ -18,12 +18,13 @@
 	}
 
 	function translateFile() {
-		getBase64(document.querySelector('#'+name).files[0]);
+		const inp = document.querySelector('#'+name) as HTMLInputElement;
+		getBase64(inp.files[0]);
 	}
 
 	function openFileDialog(e) {
 		e.stopPropagation();
-		document.querySelector('#'+name).click();
+		(document.querySelector('#'+name) as HTMLElement).click();
 		return false;
 	}
 </script>
