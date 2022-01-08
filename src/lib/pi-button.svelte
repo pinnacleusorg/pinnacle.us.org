@@ -1,5 +1,9 @@
 
-<button class="button" on:click>
+<script>
+	export let type = "submit";
+</script>
+
+<button type="{type}" class="button" on:click>
 	<slot />
 </button>
 

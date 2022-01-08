@@ -1,31 +1,44 @@
 
-<script>
+<script lang="ts">
 	import Button from "./pi-button.svelte";
-	export let name;
+	export let name: string;
 
+	let fname = "";
 	let val = "";
-	function getBase64(file) {
-   var reader = new FileReader();
-   reader.readAsDataURL(file);
-   reader.onload = function () {
-		 val = reader.result;
-   };
-   reader.onerror = function (error) {
-     console.log('Error: ', error);
-   };
-}
+	function getBase64(file: File) {
+		var reader = new FileReader();
+		reader.readAsDataURL(file);
+		reader.onload = function () {
+			fname = file.name;
+			val = reader.result as string;
+		};
+		reader.onerror = function (error) {
+			console.log('Error: ', error);
+		};
+	}
 
-	function dostuff() {
-		var file = document.querySelector('#'+name).files[0];
-		getBase64(file);
+	function translateFile() {
+		getBase64(document.querySelector('#'+name).files[0]);
+	}
+
+	function openFileDialog(e) {
+		e.stopPropagation();
+		document.querySelector('#'+name).click();
+		return false;
 	}
 </script>
 
 <div class="input">
 	<label for="{name}"><span><slot /></span></label>
-	<input id="{name}" type="file" on:change="{dostuff}">
+	<input id="{name}" type="file" accept="application/pdf" on:change="{translateFile}">
 	<input type="hidden" name="{name}" bind:value="{val}" >
-	<Button>Upload Your Resume</Button>
+	<Button type="button" on:click="{openFileDialog}">
+		{#if val.length > 1}
+			{fname}
+		{:else}
+			Upload Your Resume
+		{/if}
+	</Button>
 </div>
 
 <style lang="scss">
@@ -52,6 +65,7 @@
 		}
 
 		input {
+			display: none;
 		}
 	}
 </style>
