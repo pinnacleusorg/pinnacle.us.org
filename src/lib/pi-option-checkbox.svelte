@@ -1,10 +1,11 @@
 
 <script lang="ts">
 	export let id: string;
+	export let name: string;
 </script>
 
 <label for="{id}">
-	<input id="{id}" name="{id}" type="checkbox">
+	<input id="{id}" name="{name}" value="{id}" type="checkbox" checked="{false}" >
 	<span><slot /></span>
 	<img class="checknt" src="/icon/checknt.svg" alt="unchecked">
 	<img class="checked" src="/icon/checked.svg" alt="checked">

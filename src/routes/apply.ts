@@ -36,7 +36,7 @@ export async function post(req) {
 					},
 					{
 						name: "Applying for:",
-						value: (par.get("app") || "undef")
+						value: (par.getAll("app").join(", ") || "undef")
 					},
 					{
 						name: "What would you add to Pinnacle?",

@@ -30,11 +30,11 @@
 	<InputFile name="resume">Resume</InputFile>
 	<InputTextLines name="links" placeholder="Website, LinkedIn, GitHub, etc.">Links</InputTextLines>
 	<OptionGroup title="Which teams would you like to join?">
-		<OptionCheck id="spo">Sponsorships</OptionCheck>
-		<OptionCheck id="ops">Operations/Outreach</OptionCheck>
-		<OptionCheck id="mar">Marketing</OptionCheck>
-		<OptionCheck id="tec">Tech/Engineering</OptionCheck>
-		<OptionCheck id="bra">Branding</OptionCheck>
+		<OptionCheck id="Sponsorships" name="app">Sponsorships</OptionCheck>
+		<OptionCheck id="Operations/Outreach" name="app">Operations/Outreach</OptionCheck>
+		<OptionCheck id="Marketing" name="app">Marketing</OptionCheck>
+		<OptionCheck id="Tech/Engineering" name="app">Tech/Engineering</OptionCheck>
+		<OptionCheck id="Branding" name="app">Branding</OptionCheck>
 	</OptionGroup>
 	<InputTextArea name="values" placeholder="Type your response here.">
 		What value would you be able to bring to the Pinnacle team?
