@@ -35,8 +35,8 @@
 		<OptionRadio name="ref" id="ref-schoolemail">School Major Email List</OptionRadio>
 		<OptionRadio name="ref" id="ref-clubemail">School Club Email or Meeting</OptionRadio>
 		<OptionRadio name="ref" id="ref-socialmedia">Social Media</OptionRadio>
-		<OptionText name="ref" id="ref-by">Referred by:</OptionText>
-		<OptionText name="ref" id="ref-other">Other:</OptionText>
+		<OptionText name="ref" id="ref-by" placeholder="Referred by">Referred by:</OptionText>
+		<OptionText name="ref" id="ref-other" placeholder="Other">Other:</OptionText>
 	</OptionGroup>
 	<InputFile name="resume">Resume</InputFile>
 	<InputTextLines name="links" placeholder="Website, LinkedIn, GitHub, etc.">Links</InputTextLines>
