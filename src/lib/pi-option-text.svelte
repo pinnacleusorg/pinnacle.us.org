@@ -69,7 +69,7 @@
     background-color: transparent;
     border: none;
     border-bottom: 3px solid $gold;
-    color: $bg-light;
+    color: $gold;
     outline: none;
     flex: 1 1;
   }

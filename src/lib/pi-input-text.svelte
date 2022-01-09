@@ -36,7 +36,7 @@
 			background: none;
 			border: none;
 			border-bottom: 3px solid $gold;
-			color: $bg-light;
+			color: $gold;
 
 			flex: 1 1;
 			outline: none;

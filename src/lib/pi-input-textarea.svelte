@@ -35,7 +35,7 @@
 		textarea {
 			background: none;
 			border: 3px solid $gold;
-			color: $bg-light;
+			color: $gold;
 			font-family: inherit;
 
 			flex: 1 1;
