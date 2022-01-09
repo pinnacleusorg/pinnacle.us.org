@@ -20,8 +20,7 @@
 	let el: HTMLElement;
 	$: active = $scroll > (el ? el.getBoundingClientRect().top : 0);
 
-	import { session } from "$app/stores";
-	const { API_ROOT } = $session;
+	const API_ROOT = import.meta.env.VITE_API_ROOT;
 </script>
 
 <svelte:window on:scroll="{scrollHandler}"></svelte:window>

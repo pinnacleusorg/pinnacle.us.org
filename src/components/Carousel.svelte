@@ -4,9 +4,7 @@
 	import CarouselInner from "./CarouselInner.svelte";
 	import type { Hackathon } from "../core/schema/hackathon.schema";
 
-	//fetch API root
-	import { session } from "$app/stores";
-	const { API_ROOT } = $session;
+	const API_ROOT = import.meta.env.VITE_API_ROOT;
 
 	let futureHackathons: Hackathon[] = [];
 	let hackathons: Hackathon[] = [];

@@ -2,9 +2,7 @@
 <script lang="ts">
 	import BrandButton from "./BrandButton.svelte";
 
-	//fetch API root
-	import { session } from "$app/stores";
-	const { API_ROOT } = $session;
+	const API_ROOT = import.meta.env.VITE_API_ROOT;
 
 	let subscribeDisabled = false;
 	let name: string, email: string; // Bound values
