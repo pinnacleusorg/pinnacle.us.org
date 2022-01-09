@@ -1,0 +1,43 @@
+
+@keyframes widthReveal {
+	0% {
+		width: 100%;
+	}
+	100% {
+		width: 0%;
+	}
+}
+
+.input {
+	position: relative;
+
+	.covered-label {
+		background-color: $gold;
+		border-bottom: 3px solid $gold;
+		display: flex;
+		justify-content: flex-end;
+		height: max-content;
+		width: 30%;
+
+		.content {
+			background-color: $bg;
+			color: $gold;
+			padding-left: 10px;
+			padding-right: 5px;
+		}
+	}
+}
+
+.cover {
+	background-color: $gold;
+	display: block;
+	width: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+
+	&.activate {
+		animation: widthReveal 1.5s ease-in-out forwards;
+	}
+}

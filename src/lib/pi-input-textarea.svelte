@@ -5,12 +5,16 @@
 </script>
 
 <div class="input">
-	<label for="{name}"><span><slot /></span></label>
+	<label class="covered-label" for="{name}">
+		<span class="cover"></span>
+		<span class="content"><slot /></span>
+	</label>
 	<textarea id="{name}" type="text" name="{name}" placeholder="{placeholder}" rows="10" />
 </div>
 
 <style lang="scss">
 	@import "./global.scss";
+	@import "./coverable.scss";
 
 	.input {
 		display: flex;
@@ -18,18 +22,9 @@
 		row-gap: 30px;
 		width: 100%;
 
-		label {
-			background-color: $gold;
-			border-bottom: 3px solid $gold;
-			display: flex;
-			justify-content: flex-end;
-
-			span {
-				background-color: $bg;
-				color: $gold;
-				padding-left: 10px;
-				padding-right: 5px;
-			}
+		.covered-label {
+			width: 100%;
+			position: relative;
 		}
 
 		textarea {

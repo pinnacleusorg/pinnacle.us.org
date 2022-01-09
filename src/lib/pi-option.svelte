@@ -7,6 +7,7 @@
   <h3>
     <div>
       <span class="spacer" />
+      <span class="cover"></span>
       <span>{title}</span>
     </div>
   </h3>
@@ -15,6 +16,7 @@
 
 <style lang="scss">
 	@import "./global.scss";
+  @import "./coverable.scss";
 
   .group {
     margin: 3rem 0;
@@ -24,6 +26,8 @@
     display: flex;
     font-weight: normal;
     margin-top: 0;
+    width: 100%;
+    position: relative;
     
     div {
       display: flex;

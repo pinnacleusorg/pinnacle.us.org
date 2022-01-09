@@ -30,7 +30,10 @@
 </script>
 
 <div class="input">
-	<label for="{name}"><span><slot /></span></label>
+	<label class="covered-label" for="{name}">
+		<span class="cover"></span>
+		<span class="content"><slot /></span>
+	</label>
 	<input id="{name}" type="file" accept="application/pdf" on:change="{translateFile}">
 	<input type="hidden" name="{name}" bind:value="{val}" >
 	<Button type="button" on:click="{openFileDialog}">
@@ -44,26 +47,12 @@
 
 <style lang="scss">
 	@import "./global.scss";
+	@import "./coverable.scss";
 
 	.input {
 		display: flex;
 		column-gap: 6%;
 		width: 100%;
-
-		label {
-			background-color: $gold;
-			border-bottom: 3px solid $gold;
-			display: flex;
-			justify-content: flex-end;
-			width: 30%;
-
-			span {
-				background-color: $bg;
-				color: $gold;
-				padding-left: 10px;
-				padding-right: 5px;
-			}
-		}
 
 		input {
 			display: none;
