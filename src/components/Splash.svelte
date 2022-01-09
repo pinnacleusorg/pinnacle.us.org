@@ -1,13 +1,14 @@
 
 <script lang="ts">
 	import { fade } from "svelte/transition";
+	export let byline = "Team Application";
 </script>
 
 <section id="hero" transition:fade>
 	<div class="container inner">
 		<img src="https://static.pinnacle.us.org/2021/meta/icon.png" alt="Pinnacle Logo" class="logo"/>
 		<img src="https://static.pinnacle.us.org/2021/assets/textLogo.png" alt="Pinnacle" class="label"/>
-		<p class="byline">Team Application</p>
+		<p class="byline">{byline}</p>
 	</div>
 </section>
 
