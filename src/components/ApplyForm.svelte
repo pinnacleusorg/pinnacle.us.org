@@ -19,6 +19,9 @@
 	}
 	let el: HTMLElement;
 	$: active = $scroll > (el ? el.getBoundingClientRect().top : 0);
+
+	import { session } from "$app/stores";
+	const { API_ROOT } = $session;
 </script>
 
 <svelte:window on:scroll="{scrollHandler}"></svelte:window>
@@ -27,7 +30,7 @@
 	<span class="vertibar" class:activate="{active}"></span>
 </div>
 <br>
-<form action="http://localhost:9001/1.0/apply" method="post">
+<form action="{API_ROOT}/apply" method="post">
 	<InputText placeholder="Enter your name here" name="fullname">Name</InputText>
 	<InputText placeholder="Enter your email here" name="email">Email</InputText>
 	<InputText placeholder="Enter your school or organization here" name="org">School/Org</InputText>
