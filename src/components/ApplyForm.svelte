@@ -17,12 +17,14 @@
 	function scrollHandler() {
 		$scroll = Math.max($scroll, window.scrollY);
 	}
+	let el: HTMLElement;
+	$: active = $scroll > (el ? el.getBoundingClientRect().top : 0);
 </script>
 
 <svelte:window on:scroll="{scrollHandler}"></svelte:window>
-<h2 id="form-header">Tell us about yourself.</h2>
+<h2 id="form-header" bind:this="{el}">Tell us about yourself.</h2>
 <div class="vertibar-wrapper">
-	<span class="vertibar"></span>
+	<span class="vertibar" class:activate="{active}"></span>
 </div>
 <br>
 <form action="http://localhost:9001/1.0/apply" method="post">
@@ -69,13 +71,16 @@
 	}
 
 	.vertibar {
-		animation: slideDown 1.5s forwards;
 		background-color: var(--pinnacle-gold);
 		display: block;
-		height: 60px;
+		height: 0px;
 		width: 3px;
 		margin: 80px auto;
 		margin-top: 50px;
+
+		&.activate {
+			animation: slideDown 1.5s forwards;
+		}
 	}
 
 	form {
