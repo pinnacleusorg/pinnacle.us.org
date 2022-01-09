@@ -5,7 +5,7 @@
 </script>
 
 <label for="{id}">
-	<input id="{id}" name="{name}" type="radio" value="{id}">
+	<input id="{id}" name="{name}" type="radio" value="{id}" required>
 	<span><slot /></span>
 	<img class="checknt" src="/icon/checknt.svg" alt="unchecked">
 	<img class="checked" src="/icon/checked.svg" alt="checked">

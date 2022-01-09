@@ -38,7 +38,7 @@
 		<span class="cover" class:activate="{active}"></span>
 		<span class="content"><slot /></span>
 	</label>
-	<input id="{name}" type="file" accept="application/pdf" on:change="{translateFile}">
+	<input id="{name}" type="file" accept="application/pdf" on:change="{translateFile}" required>
 	<input type="hidden" name="{name}" bind:value="{val}" >
 	<Button type="button" on:click="{openFileDialog}">
 		{#if val.length > 1}

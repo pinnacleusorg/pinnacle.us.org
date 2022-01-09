@@ -22,7 +22,7 @@
 		<span class="content"><slot /></span>
 	</label>
 	<div>
-		<input type="text" placeholder="{placeholder}" bind:value="{lines[0]}">
+		<input type="text" placeholder="{placeholder}" bind:value="{lines[0]}" required>
 		{#each lines.filter(filterizer) as _, i}
 			<input type="text" placeholder="{placeholder}" bind:value="{lines[i + 1]}" transition:fade>
 		{/each}

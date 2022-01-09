@@ -13,7 +13,7 @@
 		<span class="cover" class:activate="{active}"></span>
 		<span class="content"><slot /></span>
 	</label>
-	<input id="{name}" type="text" name="{name}" placeholder="{placeholder}">
+	<input id="{name}" type="text" name="{name}" placeholder="{placeholder}" required>
 </div>
 
 <style lang="scss">

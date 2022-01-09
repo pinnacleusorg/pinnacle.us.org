@@ -13,7 +13,7 @@
 		<span class="cover" class:activate="{active}"></span>
 		<span class="content"><slot /></span>
 	</label>
-	<textarea id="{name}" type="text" name="{name}" placeholder="{placeholder}" rows="10" />
+	<textarea id="{name}" type="text" name="{name}" placeholder="{placeholder}" rows="10" required />
 </div>
 
 <style lang="scss">
