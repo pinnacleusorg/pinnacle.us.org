@@ -12,7 +12,7 @@
 
 <label for="{id}">
 	<input type="text" bind:value>
-	<input id="{id}" name="{name}" type="radio">
+	<input id="{id}" name="{name}" type="radio" bind:value>
 	<span><slot /></span>
 	<img class="checknt" src="/icon/checknt.svg" alt="unchecked">
 	<img class="checked" src="/icon/checked.svg" alt="checked">
