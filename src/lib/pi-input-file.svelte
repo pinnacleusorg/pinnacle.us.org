@@ -1,7 +1,11 @@
 
 <script lang="ts">
+	import { scroll } from "./scroll";
 	import Button from "./pi-button.svelte";
 	export let name: string;
+
+	let el: HTMLElement = null;
+	$: active = $scroll > (el ? el.getBoundingClientRect().top : 0);
 
 	let fname = "";
 	let val = "";
@@ -29,9 +33,9 @@
 	}
 </script>
 
-<div class="input">
+<div class="input" bind:this="{el}">
 	<label class="covered-label" for="{name}">
-		<span class="cover"></span>
+		<span class="cover" class:activate="{active}"></span>
 		<span class="content"><slot /></span>
 	</label>
 	<input id="{name}" type="file" accept="application/pdf" on:change="{translateFile}">

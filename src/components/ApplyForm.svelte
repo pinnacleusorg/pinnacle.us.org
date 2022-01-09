@@ -11,12 +11,21 @@
 	import OptionRadio from "$lib/pi-option-radio.svelte";
 
 	import Button from "$lib/pi-button.svelte";
+
+	import { scroll } from "$lib/scroll";
+	
+	function scrollHandler() {
+		$scroll = Math.max($scroll, window.scrollY);
+	}
 </script>
 
-<h2>Tell us about yourself.</h2>
-<span class="vertibar"></span>
+<svelte:window on:scroll="{scrollHandler}"></svelte:window>
+<h2 id="form-header">Tell us about yourself.</h2>
+<div class="vertibar-wrapper">
+	<span class="vertibar"></span>
+</div>
 <br>
-<form method="post">
+<form action="http://localhost:9001/1.0/apply" method="post">
 	<InputText placeholder="Enter your name here" name="fullname">Name</InputText>
 	<InputText placeholder="Enter your email here" name="email">Email</InputText>
 	<InputText placeholder="Enter your school or organization here" name="org">School/Org</InputText>
@@ -53,7 +62,14 @@
 		margin: 0;
 	}
 
+	.vertibar-wrapper {
+		display: block;
+		min-height: 60px;
+		margin: 80px auto;
+	}
+
 	.vertibar {
+		animation: slideDown 1.5s forwards;
 		background-color: var(--pinnacle-gold);
 		display: block;
 		height: 60px;
@@ -71,5 +87,14 @@
 
 	.submit {
 		margin: auto;
+	}
+
+	@keyframes slideDown {
+		0% {
+			height: 0px;
+		}
+		100% {
+			height: 60px;
+		}
 	}
 </style>

@@ -1,12 +1,16 @@
 
 <script lang="ts">
+	import { scroll } from "./scroll";
 	export let name = "";
 	export let placeholder = "";
+
+  let el: HTMLElement = null;
+  $: active = $scroll > (el ? el.getBoundingClientRect().top : 0);
 </script>
 
-<div class="input">
+<div class="input" bind:this="{el}">
 	<label class="covered-label" for="{name}">
-		<span class="cover"></span>
+		<span class="cover" class:activate="{active}"></span>
 		<span class="content"><slot /></span>
 	</label>
 	<textarea id="{name}" type="text" name="{name}" placeholder="{placeholder}" rows="10" />

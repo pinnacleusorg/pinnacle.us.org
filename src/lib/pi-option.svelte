@@ -1,13 +1,17 @@
 
 <script lang="ts">
+  import { scroll } from "./scroll";
   export let title: string;
+
+  let el: HTMLElement = null;
+  $: active = $scroll > (el ? el.getBoundingClientRect().top : 0);
 </script>
 
-<div class="group">
+<div class="group" bind:this="{el}">
   <h3>
     <div>
       <span class="spacer" />
-      <span class="cover"></span>
+      <span class="cover" class:activate="{active}"></span>
       <span>{title}</span>
     </div>
   </h3>

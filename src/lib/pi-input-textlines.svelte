@@ -1,6 +1,7 @@
 
 <script lang="ts">
 	import { fade } from "svelte/transition";
+	import { scroll } from "./scroll";
 	export let name = "";
 	export let placeholder = "";
 
@@ -10,11 +11,14 @@
 		if (v) return true;
 		else return false;
 	}
+
+  let el: HTMLElement = null;
+  $: active = $scroll > (el ? el.getBoundingClientRect().top : 0);
 </script>
 
-<div class="input">
+<div class="input" bind:this="{el}">
 	<label class="covered-label" for="{name}">
-		<span class="cover"></span>
+		<span class="cover" class:activate="{active}"></span>
 		<span class="content"><slot /></span>
 	</label>
 	<div>
