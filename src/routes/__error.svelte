@@ -17,12 +17,12 @@
 	<Header />
 	<section class="container component-section flex">
 		<a href="/">&lsaquo; Home</a>
-		<h2>{status}: {error.message}</h2>
+		<h2>{status}: {error?.message}</h2>
 		{#if status === 404}
 			<p>We couldn't find that page! Please recheck the URL or go back to our <a href="/">home page</a>.</p>
 		{/if}
 		<p></p>
-		{#if dev && error.stack}
+		{#if dev && error?.stack}
 			<pre>{error.stack}</pre>
 		{/if}
 	</section>

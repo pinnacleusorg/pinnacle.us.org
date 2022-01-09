@@ -1,11 +1,11 @@
+
 <script lang="ts">
 	import { onMount } from "svelte";
 	import CarouselInner from "./CarouselInner.svelte";
 	import type { Hackathon } from "../core/schema/hackathon.schema";
 
 	//fetch API root
-	import { stores } from '@sapper/app';
-	const { session } = stores();
+	import { session } from "$app/stores";
 	const { API_ROOT } = $session;
 
 	let futureHackathons: Hackathon[] = [];

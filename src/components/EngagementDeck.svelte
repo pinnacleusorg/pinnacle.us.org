@@ -3,8 +3,7 @@
 	import BrandButton from "./BrandButton.svelte";
 
 	//fetch API root
-	import { stores } from '@sapper/app';
-	const { session } = stores();
+	import { session } from "$app/stores";
 	const { API_ROOT } = $session;
 
 	let subscribeDisabled = false;
@@ -59,7 +58,7 @@
 			<div class="card">
 				<h3 class="card-title">Be Future Staff</h3>
 				<p class="card-text">Be a part of the team that<br> makes it happen.</p>
-				<BrandButton href="https://hack.ms/P20-Team-Application" isAnchor="{true}">Apply Now</BrandButton>
+				<BrandButton href="/apply" isAnchor="{true}">Apply Now</BrandButton>
 			</div>
 			<div class="card-divider"></div>
 			<form class="card">
