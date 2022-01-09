@@ -1,5 +1,6 @@
 
 <script lang="ts">
+	import { fade } from "svelte/transition";
 	export let name = "";
 	export let placeholder = "";
 
@@ -7,7 +8,6 @@
 
 	function filterizer(v: string, i: number) {
 		if (v) return true;
-		else if (i != lines.length-1) return true;
 		else return false;
 	}
 </script>
@@ -17,7 +17,7 @@
 	<div>
 		<input type="text" placeholder="{placeholder}" bind:value="{lines[0]}">
 		{#each lines.filter(filterizer) as _, i}
-			<input type="text" placeholder="{placeholder}" bind:value="{lines[i + 1]}">
+			<input type="text" placeholder="{placeholder}" bind:value="{lines[i + 1]}" transition:fade>
 		{/each}
 	</div>
 	<input type="hidden" id="{name}" name="{name}" value="{lines.join(',')}">
