@@ -2,10 +2,13 @@
 <script lang="ts">
 	import Hero from "../components/Splash.svelte";
 	import ApplyForm from "../components/ApplyForm.svelte";
+	import { onMount } from "svelte";
 
-	setTimeout(() => {
-		window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
-	}, 2000);
+	onMount(() => {
+		setTimeout(() => {
+			window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
+		}, 2000);
+	});
 </script>
 
 <div class="apply">
