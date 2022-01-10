@@ -13,7 +13,7 @@
 		<span class="cover" class:activate="{active}"></span>
 		<span class="content"><slot /></span>
 	</label>
-	<textarea id="{name}" type="text" name="{name}" placeholder="{placeholder}" rows="10" required />
+	<textarea id="{name}" type="text" name="{name}" placeholder="{placeholder}" rows="10" required class:activate="{active}" />
 </div>
 
 <style lang="scss">
@@ -43,10 +43,18 @@
 			margin: 0;
 			padding: 20px;
 
+			max-height: 0;
+			opacity: 0;
+			transition: all 2s 1s;
 			resize: vertical;
 
 			&::placeholder {
 				color: transparentize($gold, 0.4);
+			}
+
+			&.activate {
+				max-height: 500px;
+				opacity: 1;
 			}
 		}
 	}

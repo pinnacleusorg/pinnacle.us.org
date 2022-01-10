@@ -15,7 +15,7 @@
       <span>{title}</span>
     </div>
   </h3>
-  <div class="indent"><slot /></div>
+  <div class="indent" class:activate="{active}"><slot /></div>
 </div>
 
 <style lang="scss">
@@ -60,5 +60,12 @@
     flex-direction: column;
     row-gap: 5px;
     margin-left: 50px;
+
+    opacity: 0;
+    transition: opacity 1s 0.5s;
+
+    &.activate {
+      opacity: 1;
+    }
   }
 </style>
