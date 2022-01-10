@@ -9,7 +9,10 @@ const config = {
 
 	kit: {
 		adapter: adapter(),
-		target: 'body'
+		target: 'body',
+		vite: {
+			mode: process.env.NODE_ENV || 'staging'
+		}
 	}
 };
 
