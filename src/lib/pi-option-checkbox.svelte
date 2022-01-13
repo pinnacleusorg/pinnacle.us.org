@@ -25,7 +25,7 @@
 		user-select: none;
 
 		img {
-			width: 20px;
+			width: 1em;
 		}
 	}
 

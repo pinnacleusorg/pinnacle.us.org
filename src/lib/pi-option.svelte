@@ -15,6 +15,9 @@
       <span>{title}</span>
     </div>
   </h3>
+  <div class="desc">
+    <slot name="description" />
+  </div>
   <div class="indent" class:activate="{active}"><slot /></div>
 </div>
 
@@ -29,7 +32,7 @@
   .group h3 {
     display: flex;
     font-weight: normal;
-    margin-top: 0;
+    margin: 0;
     width: 100%;
     position: relative;
     
@@ -55,6 +58,15 @@
       }
     }
   }
+
+  .desc {
+    color: $gold;
+    font-size: 0.75em;
+    margin-top: 10px;
+    min-height: 10px;
+    opacity: 0.8;
+  }
+
   .indent {
     display: flex;
     flex-direction: column;

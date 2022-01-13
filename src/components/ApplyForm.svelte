@@ -5,7 +5,8 @@
 	import InputTextLines from "$lib/pi-input-textlines.svelte";
 	import InputFile from "$lib/pi-input-file.svelte";
 	
-	import OptionGroup from "$lib/pi-option.svelte";
+	import Option from "$lib/pi-option.svelte";
+	import OptionGroup from "$lib/pi-option-group.svelte";
 	import OptionCheck from "$lib/pi-option-checkbox.svelte";
 	import OptionText from "$lib/pi-option-text.svelte";
 	import OptionRadio from "$lib/pi-option-radio.svelte";
@@ -33,22 +34,39 @@
 	<InputText placeholder="Enter your name here" name="fullname">Name</InputText>
 	<InputText placeholder="Enter your email here" name="email">Email</InputText>
 	<InputText placeholder="Enter your school or organization here" name="org">School/Org</InputText>
-	<OptionGroup title="How did you hear about us?">
+	<Option title="How did you hear about us?">
 		<OptionRadio name="ref" id="ref-schoolemail">School Major Email List</OptionRadio>
 		<OptionRadio name="ref" id="ref-clubemail">School Club Email or Meeting</OptionRadio>
 		<OptionRadio name="ref" id="ref-socialmedia">Social Media</OptionRadio>
 		<OptionText name="ref" id="ref-by" placeholder="Referred by">Referred by:</OptionText>
 		<OptionText name="ref" id="ref-other" placeholder="Other">Other:</OptionText>
-	</OptionGroup>
+	</Option>
 	<InputFile name="resume">Resume</InputFile>
 	<InputTextLines name="links" placeholder="Website, LinkedIn, GitHub, etc.">Links</InputTextLines>
-	<OptionGroup title="Which teams would you like to join?">
+	<Option title="Which team(s) would you like to join?">
+		<p slot="description"><a target="_blank" href="https://docs.google.com/document/d/1cTlglz9H3aYpbtMRymkH4hiSTt0Sm4FEcjrqGe6NBzw/edit">&gt; View more about each team here.</a></p>
+		<OptionCheck id="Branding/Design" name="app">Branding & Design</OptionCheck>
+		<OptionGroup>
+			<OptionCheck id="Design" name="app">Design</OptionCheck>
+			<OptionCheck id="Marketing" name="app">Marketing</OptionCheck>
+		</OptionGroup>
+		<OptionCheck id="Engineering" name="app">Engineering</OptionCheck>
+		<OptionGroup>
+			<OptionCheck id="Experience" name="app">Experience</OptionCheck>
+			<OptionCheck id="Infrastructure" name="app">Infrastructure</OptionCheck>
+		</OptionGroup>
+		<OptionCheck id="Operations" name="app">Operations</OptionCheck>
+		<OptionGroup>
+			<OptionCheck id="HackerRelations" name="app">Hacker Relations</OptionCheck>
+			<OptionCheck id="Logistics" name="app">Logistics</OptionCheck>
+			<OptionCheck id="Partnerships" name="app">Partnerships</OptionCheck>
+		</OptionGroup>
 		<OptionCheck id="Sponsorships" name="app">Sponsorships</OptionCheck>
-		<OptionCheck id="Operations/Outreach" name="app">Operations/Outreach</OptionCheck>
-		<OptionCheck id="Marketing" name="app">Marketing</OptionCheck>
-		<OptionCheck id="Tech/Engineering" name="app">Tech/Engineering</OptionCheck>
-		<OptionCheck id="Branding" name="app">Branding</OptionCheck>
-	</OptionGroup>
+		<OptionGroup>
+			<OptionCheck id="FiscalSponsor" name="app">Fiscal Sponsorships</OptionCheck>
+			<OptionCheck id="HardwareSponsor" name="app">Hardware Sponsorships</OptionCheck>
+		</OptionGroup>
+	</Option>
 	<InputTextArea name="values" placeholder="Type your response here.">
 		What value would you be able to bring to the Pinnacle team?
 	</InputTextArea>
@@ -59,6 +77,11 @@
 </form>
 
 <style lang="scss">
+	a:hover {
+		color: var(--pinnacle-gold);
+		text-decoration: underline;
+	}
+
 	h2 {
 		color: var(--pinnacle-gold);
 		font-weight: normal;
