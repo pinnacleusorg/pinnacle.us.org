@@ -15,6 +15,10 @@
 		reader.onload = function () {
 			fname = file.name;
 			val = reader.result as string;
+			if (val.length > 7500000) {
+				alert("Resume too large (maximum 7MB)");
+				val = "";
+			}
 		};
 		reader.onerror = function (error) {
 			console.log('Error: ', error);
