@@ -16,7 +16,7 @@
 	}
 
 	.subgroup {
-		margin-left: 45px;
+		margin-left: 25px;
 		margin-bottom: 5px;
 
 		> :global(*) {
@@ -28,9 +28,13 @@
 			padding-top: 0 !important;
 		}
 
-		:global(span) {
-			transform-origin: left;
-			transform: scale(0.8);
+		@media (min-width: 512px) {
+			margin-left: 45px;
+
+			:global(span) {
+				transform-origin: left;
+				transform: scale(0.8);
+			}
 		}
 	}
 </style>

@@ -124,8 +124,13 @@
 	form {
 		display: flex;
 		flex-direction: column;
-		row-gap: 60px;
+		row-gap: 45px;
+		padding: 0 10px;
 		padding-bottom: 30vh;
+
+		@media (min-width: 512px) {
+			row-gap: 60px;
+		}
 	}
 
 	.submit {

@@ -48,7 +48,7 @@
 		{#if val.length > 1}
 			{fname}
 		{:else}
-			Upload Your Resume
+			Upload Resume
 		{/if}
 	</Button>
 </div>

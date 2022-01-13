@@ -71,13 +71,17 @@
     display: flex;
     flex-direction: column;
     row-gap: 5px;
-    margin-left: 50px;
+    margin-left: 30px;
 
     opacity: 0;
     transition: opacity 1s 0.5s;
 
     &.activate {
       opacity: 1;
+    }
+
+    @media (min-width: 512px) {
+      margin-left: 50px;
     }
   }
 </style>
