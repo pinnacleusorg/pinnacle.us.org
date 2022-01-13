@@ -45,24 +45,20 @@
 	<InputTextLines name="links" placeholder="Website, LinkedIn, GitHub, etc.">Links</InputTextLines>
 	<Option title="Which team(s) would you like to join?">
 		<p slot="description"><a target="_blank" href="https://docs.google.com/document/d/1cTlglz9H3aYpbtMRymkH4hiSTt0Sm4FEcjrqGe6NBzw/edit">&gt; View more about each team here.</a></p>
-		<OptionCheck id="Branding/Design" name="app">Branding & Design</OptionCheck>
-		<OptionGroup>
+		<OptionGroup title="Branding & Design">
 			<OptionCheck id="Design" name="app">Design</OptionCheck>
 			<OptionCheck id="Marketing" name="app">Marketing</OptionCheck>
 		</OptionGroup>
-		<OptionCheck id="Engineering" name="app">Engineering</OptionCheck>
-		<OptionGroup>
+		<OptionGroup title="Engineering">
 			<OptionCheck id="Experience" name="app">Experience</OptionCheck>
 			<OptionCheck id="Infrastructure" name="app">Infrastructure</OptionCheck>
 		</OptionGroup>
-		<OptionCheck id="Operations" name="app">Operations</OptionCheck>
-		<OptionGroup>
+		<OptionGroup title="Operations">
 			<OptionCheck id="HackerRelations" name="app">Hacker Relations</OptionCheck>
 			<OptionCheck id="Logistics" name="app">Logistics</OptionCheck>
 			<OptionCheck id="Partnerships" name="app">Partnerships</OptionCheck>
 		</OptionGroup>
-		<OptionCheck id="Sponsorships" name="app">Sponsorships</OptionCheck>
-		<OptionGroup>
+		<OptionGroup title="Sponsorships">
 			<OptionCheck id="FiscalSponsor" name="app">Fiscal Sponsorships</OptionCheck>
 			<OptionCheck id="HardwareSponsor" name="app">Hardware Sponsorships</OptionCheck>
 		</OptionGroup>
