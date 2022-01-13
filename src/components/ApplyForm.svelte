@@ -22,6 +22,23 @@
 	$: active = $scroll > (el ? el.getBoundingClientRect().top : 0);
 
 	const API_ROOT = import.meta.env.VITE_API_ROOT;
+
+	let form: HTMLFormElement;
+	let submitText = "Submit";
+	function validify(e: Event) {
+		const formData = new FormData(form);
+		if (!formData.get("app")) {
+			e.preventDefault();
+			alert("Please select a team to apply to.");
+			return;
+		}
+		if (!formData.get("resume")) {
+			e.preventDefault();
+			alert("Please upload a resume.");
+			return;
+		}
+		submitText = "Submitting...";
+	}
 </script>
 
 <svelte:window on:scroll="{scrollHandler}"></svelte:window>
@@ -30,7 +47,7 @@
 	<span class="vertibar" class:activate="{active}"></span>
 </div>
 <br>
-<form action="{API_ROOT}/apply" method="post">
+<form action="{API_ROOT}/apply" method="post" bind:this="{form}">
 	<InputText placeholder="Enter your name here" name="fullname">Name</InputText>
 	<InputText placeholder="Enter your email here" name="email">Email</InputText>
 	<InputText placeholder="Enter your school or organization here" name="org">School/Org</InputText>
@@ -68,7 +85,7 @@
 	</InputTextArea>
 	<br>
 	<div class="submit">
-		<Button>Submit</Button>
+		<Button on:click="{validify}">{submitText}</Button>
 	</div>
 </form>
 
