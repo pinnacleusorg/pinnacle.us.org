@@ -4,10 +4,7 @@
 
 	import { onMount } from "svelte";
 
-	//fetch API root
-	import { stores } from "@sapper/app";
-	const { session } = stores();
-	const { API_ROOT } = $session;
+	const API_ROOT = import.meta.env.VITE_API_ROOT;
 
 	onMount(() => {
 		const urlParams = new URLSearchParams(window.location.search);

@@ -5,14 +5,8 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1.0">
 	<meta name="theme-color" content="#1e1d1d">
 
-	%sapper.base%
-
-	<!-- Sapper generated scripts + styles for hydration -->
-	%sapper.scripts%
-	%sapper.styles%
-
 	<!-- <svelte:head> component in route template -->
-	%sapper.head%
+	%svelte.head%
 
 	<!-- OpenGraph Information -->
 	<meta name="description" content="Pinnacle is a 36-hour competitive collegiate hackathon where 200 participants come together to build innovative and creative hacks in Dallas, TX." />
@@ -44,7 +38,6 @@
 	<script src="js/bg.js"></script>
 </head>
 <body>
-	<!-- The application will be rendered inside this element (src/client.ts) -->
-	%sapper.html%
+	%svelte.body%
 </body>
 </html>

@@ -1,10 +1,3 @@
-<script context="module">
-	export async function preload(page, session) {
-		const { API_ROOT } = session;
-
-		return { API_ROOT };
-	}
-</script>
 
 <script lang="ts">
 	import { onMount } from "svelte";
@@ -14,7 +7,7 @@
 	import Footer from "../components/Footer.svelte";
 	import CarouselElement from "../core/components/CarouselElement.svelte";
 
-	export let API_ROOT;
+	const API_ROOT = import.meta.env.VITE_API_ROOT;
 	let masterHackathons: Hackathon[] = [];
 	let hackathons: Hackathon[] = [];
 	let hsHackathons: Hackathon[] = [];
