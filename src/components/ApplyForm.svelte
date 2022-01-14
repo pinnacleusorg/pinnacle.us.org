@@ -37,6 +37,7 @@
 			alert("Please upload a resume.");
 			return;
 		}
+		(e.target as HTMLElement).setAttribute("disabled", "true");
 		submitText = "Submitting...";
 	}
 </script>
