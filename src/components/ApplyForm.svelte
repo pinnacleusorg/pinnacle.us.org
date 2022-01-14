@@ -25,6 +25,7 @@
 
 	let form: HTMLFormElement;
 	let submitText = "Submit";
+	let submitter: HTMLElement;
 	function validify(e: Event) {
 		const formData = new FormData(form);
 		if (!formData.get("app")) {
@@ -37,8 +38,10 @@
 			alert("Please upload a resume.");
 			return;
 		}
-		(e.target as HTMLElement).setAttribute("disabled", "true");
 		submitText = "Submitting...";
+	}
+	function disableButton() {
+		submitter.setAttribute("disabled", "true");
 	}
 </script>
 
@@ -48,7 +51,7 @@
 	<span class="vertibar" class:activate="{active}"></span>
 </div>
 <br>
-<form action="{API_ROOT}/apply" method="post" bind:this="{form}">
+<form action="{API_ROOT}/apply" method="post" bind:this="{form}" on:submit="{disableButton}">
 	<InputText placeholder="Enter your name here" name="fullname">Name</InputText>
 	<InputText placeholder="Enter your email here" name="email">Email</InputText>
 	<InputText placeholder="Enter your school or organization here" name="org">School/Org</InputText>
@@ -86,7 +89,7 @@
 	</InputTextArea>
 	<br>
 	<div class="submit">
-		<Button on:click="{validify}">{submitText}</Button>
+		<Button on:click="{validify}" bind:this="{submitter}">{submitText}</Button>
 	</div>
 </form>
 
