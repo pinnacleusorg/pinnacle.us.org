@@ -1,30 +1,31 @@
 
+<script context="module">
+	/** @type {import('@sveltejs/kit').ErrorLoad} */
+	export function load({ error, status }) {
+		return {
+			props: {
+				title: `${status}: ${error.message}`
+			}
+		};
+	}
+</script>
+
 <script lang="ts">
 	import Header from "../core/components/Header.svelte";
-	import Footer from "../components/Footer.svelte";
 
-	export let status: number;
-	export let error: Error;
-
-	const dev = process.env.NODE_ENV === 'development';
+	export let title: string;
 </script>
 
 <svelte:head>
-	<title>Pinnacle • {status}</title>
+	<title>Pinnacle • {title}</title>
 </svelte:head>
 
 <div class="light-bg flex-column">
 	<Header />
 	<section class="container component-section flex">
 		<a href="/">&lsaquo; Home</a>
-		<h2>{status}: {error?.message}</h2>
-		{#if status === 404}
-			<p>We couldn't find that page! Please recheck the URL or go back to our <a href="/">home page</a>.</p>
-		{/if}
-		<p></p>
-		{#if dev && error?.stack}
-			<pre>{error.stack}</pre>
-		{/if}
+		<h2>{title}</h2>
+		<p>Please recheck the URL or go back to our <a href="/">home page</a>.</p>
 	</section>
 </div>
 
