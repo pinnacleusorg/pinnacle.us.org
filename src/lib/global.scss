@@ -12,3 +12,8 @@ $gold: #c79d5e;
 		font-size: 1.3rem;
 	}
 }
+
+::selection {
+	background: $gold;
+	color: $bg-light;
+}

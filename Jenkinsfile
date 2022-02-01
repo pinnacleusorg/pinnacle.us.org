@@ -2,7 +2,7 @@ def config = [:]
 config.prod = [:]
 config.staging = [:]
 
-config.reponame = 'pinnacle.us.org' // Short repo name
+config.reponame = 'landing' // Short repo name
 config.fullrepo = 'pinnacleusorg/pinnacle.us.org' // Full repo identifier
 
 config.prod.branch = 'master' // Name of code branch
