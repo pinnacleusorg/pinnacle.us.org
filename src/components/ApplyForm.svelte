@@ -80,7 +80,7 @@
 			<OptionCheck id="Partnerships" name="app">Partnerships</OptionCheck>
 		</OptionGroup>
 		<OptionGroup title="Sponsorships">
-			<OptionCheck id="FiscalSponsor" name="app">Fiscal Sponsorships</OptionCheck>
+			<OptionCheck id="Sponsorships" name="app">Sponsorships</OptionCheck>
 			<OptionCheck id="HardwareSponsor" name="app">Hardware Sponsorships</OptionCheck>
 		</OptionGroup>
 	</Option>
