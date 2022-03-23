@@ -11,7 +11,7 @@
 </script>
 
 <script lang="ts">
-	import Header from "../core/components/Header.svelte";
+	import Header from "../components/Header.svelte";
 
 	export let title: string;
 </script>
