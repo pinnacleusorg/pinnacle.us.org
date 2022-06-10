@@ -39,18 +39,21 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		font-family: inherit;
 		text-decoration: none;
-		min-height: 4rem;
+		min-height: 3.8rem;
 		min-width: 180px;
-		height: 4rem;
+		height: 3.8rem;
 		position: relative;
 
 		.btn-label {
+			display: flex;
+			align-items: center;
+
 			color: var(--pinnacle-bg-light);
-			font-size: 1.2rem;
+			font-family: KeplerStd, serif;
+			font-size: 1.3rem;
 			font-weight: bold;
-			letter-spacing: 0.7px;
+
 			position: relative;
 			z-index: 99;
 		}
