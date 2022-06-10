@@ -35,12 +35,11 @@
 		background: none;
 		border: none;
 		cursor: pointer;
-		display: inline-flex;
+		display: flex;
 		justify-content: center;
 		align-items: center;
 		font-family: inherit;
 		text-decoration: none;
-		margin: auto;
 		min-height: 4rem;
 		min-width: 180px;
 		height: 4rem;

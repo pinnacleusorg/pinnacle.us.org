@@ -156,7 +156,7 @@
 
 	.stacked-input {
 		margin: auto;
-		width: 75%;
+		width: 50%;
 
 		.input-group input {
 			border-color: #1b1b1b;

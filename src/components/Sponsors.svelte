@@ -94,7 +94,7 @@
 </script>
 
 <section class="container-wide component-section-large dark-bg" id="sponsors">
-	<div class="container inner">
+	<div class="container">
 		<h2 class="text-center">Sponsors</h2>
 		<div class="sponsor-logos">
 			{#each sponsors as sponsor}
@@ -125,11 +125,5 @@
 			min-width: 100%;
 			max-width: 200px;
 		}
-	}
-
-	#sponsor-ad {
-		max-width: 100%;
-		line-height: 1.5;
-		font-size: 1.5rem;
 	}
 </style>
