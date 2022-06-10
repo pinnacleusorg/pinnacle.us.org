@@ -1,11 +1,11 @@
 
 <script lang="ts">
 	import { onMount } from "svelte";
-	import type { Hackathon } from "../core/schema/hackathon.schema";
+	import type { Hackathon } from "$lib/schema/hackathon";
 
-	import Header from "../core/components/Header.svelte";
+	import Header from "../components/Header.svelte";
 	import Footer from "../components/Footer.svelte";
-	import CarouselElement from "../core/components/CarouselElement.svelte";
+	import CarouselElement from "../components/CarouselElement.svelte";
 
 	const API_ROOT = import.meta.env.VITE_API_ROOT;
 	let masterHackathons: Hackathon[] = [];

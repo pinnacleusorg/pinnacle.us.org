@@ -1,13 +1,14 @@
 {
   "name": "pinnacle.us.org",
   "description": "pinnacle.us.org landing site",
-  "version": "1.0.0",
+  "version": "2.1.1",
   "type": "module",
   "scripts": {
     "dev": "node node_modules/sass/sass.js static/sass/global.scss static/css/global.css && svelte-kit dev",
     "build": "node node_modules/sass/sass.js static/sass/global.scss static/css/global.css && svelte-kit build"
   },
   "dependencies": {
+    "@pinnacleusorg/quisp": "^0.5.1",
     "animejs": "^3.2.1",
     "dotenv": "^10.0.0",
     "form-data": "^4.0.0"

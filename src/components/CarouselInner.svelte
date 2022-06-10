@@ -1,7 +1,7 @@
 
 <script lang="ts">
-	import CarouselElement from "../core/components/CarouselElement.svelte";
-	import type { Hackathon } from "../core/schema/hackathon.schema";
+	import CarouselElement from "../components/CarouselElement.svelte";
+	import type { Hackathon } from "$lib/schema/hackathon";
 	export let futureHackathons: Hackathon[];
 	export let hackathons: Hackathon[];
 
