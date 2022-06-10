@@ -166,7 +166,8 @@
 
 		.card-text {
 			flex: 1 1;
-			font-size: 1.3rem !important;
+			font-family: "Noto Sans", sans-serif;
+			font-size: 1rem !important;
 			margin-top: 0;
 			padding: 0.5rem 4rem;
 		}
@@ -221,8 +222,8 @@
 			box-sizing: border-box;
 			color: var(--pinnacle-bg-light);
 			background-color: var(--pinnacle-bg);
-			font-size: 1.3rem;
-			font-family: inherit;
+			font-size: 1rem;
+			font-family: "Noto Sans", sans-serif;
 
 			margin: 0;
 			padding: 0.35rem 0.6rem;

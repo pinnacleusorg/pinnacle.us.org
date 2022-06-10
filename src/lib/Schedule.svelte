@@ -47,7 +47,7 @@
 	}
 
 	.timeline-desc {
-		color: var(--pinnacle-gold);
+		color: var(--pinnacle-bg-light);
 		font-size: 1.3rem;
 		margin-left: 10%;
 
