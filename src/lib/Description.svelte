@@ -44,6 +44,7 @@
 			display: flex;
 			align-items: center;
 			column-gap: 5vw;
+			padding: 0 15px;
 		}
 
 		.body {
