@@ -1,20 +1,19 @@
-
 <script lang="ts">
-	import InputText from "$lib/pi-input-text.svelte";
-	import InputTextArea from "$lib/pi-input-textarea.svelte";
-	import InputTextLines from "$lib/pi-input-textlines.svelte";
-	import InputFile from "$lib/pi-input-file.svelte";
-	
-	import Option from "$lib/pi-option.svelte";
-	import OptionGroup from "$lib/pi-option-group.svelte";
-	import OptionCheck from "$lib/pi-option-checkbox.svelte";
-	import OptionText from "$lib/pi-option-text.svelte";
-	import OptionRadio from "$lib/pi-option-radio.svelte";
+	import {
+		scroll,
+		Button,
+		InputFile,
+		InputText,
+		InputTextArea,
+		InputTextLines,
+		Option,
+		OptionCheckbox,
+		OptionGroup,
+		OptionText,
+		OptionRadio
+	} from "@pinnacleusorg/quisp";
+	import type { SvelteComponent } from "svelte";
 
-	import Button from "$lib/pi-button.svelte";
-
-	import { scroll } from "$lib/scroll";
-	
 	function scrollHandler() {
 		$scroll = Math.max($scroll, window.scrollY);
 	}
@@ -25,7 +24,7 @@
 
 	let form: HTMLFormElement;
 	let submitText = "Submit";
-	let submitter: HTMLElement;
+	let submitter: SvelteComponent;
 	function validify(e: Event) {
 		const formData = new FormData(form);
 		if (!formData.get("app")) {
@@ -40,56 +39,81 @@
 		}
 		submitText = "Submitting...";
 	}
-	function disableButton() {
+	function submit() {
 		submitter.setAttribute("disabled", "true");
 	}
 </script>
 
-<svelte:window on:scroll="{scrollHandler}"></svelte:window>
-<h2 id="form-header" bind:this="{el}">Tell us about yourself.</h2>
+<svelte:window on:scroll={scrollHandler} />
+<h2 id="form-header" bind:this={el}>Tell us about yourself.</h2>
 <div class="vertibar-wrapper">
-	<span class="vertibar" class:activate="{active}"></span>
+	<span class="vertibar" class:activate={active} />
 </div>
-<br>
-<form action="{API_ROOT}/apply" method="post" bind:this="{form}" on:submit="{disableButton}">
-	<InputText placeholder="Enter your name here" name="fullname">Name</InputText>
-	<InputText placeholder="Enter your email here" name="email">Email</InputText>
-	<InputText placeholder="Enter your school or organization here" name="org">School/Org</InputText>
+<br />
+<form
+	action="{API_ROOT}/apply"
+	method="post"
+	bind:this={form}
+	on:submit={submit}
+>
+	<InputText placeholder="Enter your name here" label="Name" name="fullname" />
+	<InputText placeholder="Enter your email here" label="Email" name="email" />
+	<InputText placeholder="Your school or org" label="School/Org" name="org" />
 	<Option title="How did you hear about us?">
-		<OptionRadio name="ref" id="ref-schoolemail">School Major Email List</OptionRadio>
-		<OptionRadio name="ref" id="ref-clubemail">School Club Email or Meeting</OptionRadio>
-		<OptionRadio name="ref" id="ref-socialmedia">Social Media</OptionRadio>
-		<OptionText name="ref" id="ref-by" placeholder="Referred by">Referred by:</OptionText>
-		<OptionText name="ref" id="ref-other" placeholder="Other">Other:</OptionText>
+		<OptionRadio name="ref" id="r-se" label="School Major Email List" />
+		<OptionRadio name="ref" id="r-ce" label="School Club Email or Meeting" />
+		<OptionRadio name="ref" id="r-sm" label="Social Media" />
+		<OptionText name="ref" id="r-by" label="Referred:" placeholder="Person" />
+		<OptionText name="ref" id="r-o" label="Other:" placeholder="Other" />
 	</Option>
-	<InputFile name="resume">Resume</InputFile>
-	<InputTextLines name="links" placeholder="Website, LinkedIn, GitHub, etc.">Links</InputTextLines>
+	<InputFile placeholder="Resume" label="Resume" name="resume" />
+	<InputTextLines
+		placeholder="Website, LinkedIn, GitHub, etc."
+		label="Links"
+		name="links">Links</InputTextLines
+	>
 	<Option title="Which team(s) would you like to join?">
-		<p slot="description"><a target="_blank" href="https://docs.google.com/document/d/1cTlglz9H3aYpbtMRymkH4hiSTt0Sm4FEcjrqGe6NBzw/edit">&gt; View more about each team here.</a></p>
+		<p slot="description">
+			<a
+				target="_blank"
+				href="https://docs.google.com/document/d/1cTlglz9H3aYpbtMRymkH4hiSTt0Sm4FEcjrqGe6NBzw/edit"
+				>&gt; View more about each team here.</a
+			>
+		</p>
 		<OptionGroup title="Branding & Design">
-			<OptionCheck id="Design" name="app">Design</OptionCheck>
-			<OptionCheck id="Marketing" name="app">Marketing</OptionCheck>
+			<OptionCheckbox id="Design" name="app" label="Design" />
+			<OptionCheckbox id="Marketing" name="app" label="Marketing" />
 		</OptionGroup>
 		<OptionGroup title="Engineering">
-			<OptionCheck id="Experience" name="app">Experience</OptionCheck>
-			<OptionCheck id="Infrastructure" name="app">Infrastructure</OptionCheck>
+			<OptionCheckbox id="Experience" name="app" label="Experience" />
+			<OptionCheckbox id="Infrastructure" name="app" label="Infrastructure" />
 		</OptionGroup>
 		<OptionGroup title="Operations">
-			<OptionCheck id="HackerRelations" name="app">Hacker Relations</OptionCheck>
-			<OptionCheck id="Logistics" name="app">Logistics</OptionCheck>
-			<OptionCheck id="Partnerships" name="app">Partnerships</OptionCheck>
+			<OptionCheckbox
+				id="HackerRelations"
+				name="app"
+				label="Hacker Relations"
+			/>
+			<OptionCheckbox id="Logistics" name="app" label="Logistics" />
+			<OptionCheckbox id="Partnerships" name="app" label="Partnerships" />
 		</OptionGroup>
 		<OptionGroup title="Sponsorships">
-			<OptionCheck id="Sponsorships" name="app">Sponsorships</OptionCheck>
-			<OptionCheck id="HardwareSponsor" name="app">Hardware Sponsorships</OptionCheck>
+			<OptionCheckbox id="Sponsorships" name="app" label="Sponsorships" />
+			<OptionCheckbox
+				id="HardwareSponsor"
+				name="app"
+				label="Hardware Sponsorships"
+			/>
 		</OptionGroup>
 	</Option>
-	<InputTextArea name="values" placeholder="Type your response here.">
-		What value would you be able to bring to the Pinnacle team?
-	</InputTextArea>
-	<br>
+	<InputTextArea
+		placeholder="Type your response here."
+		label="What value would you be able to bring to the Pinnacle team?"
+		name="values"
+	/>
+	<br />
 	<div class="submit">
-		<Button on:click="{validify}" bind:this="{submitter}">{submitText}</Button>
+		<Button on:click={validify} bind:this={submitter}>{submitText}</Button>
 	</div>
 </form>
 
