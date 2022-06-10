@@ -64,6 +64,7 @@
 		}
 
 		svg {
+			color: var(--pinnacle-bg-light);
 			width: 80%;
 		}
 

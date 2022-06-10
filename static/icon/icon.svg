@@ -12,7 +12,7 @@
 
 	<symbol id="arrow" viewBox="0 0 24 24">
 		<title>Navigation Arrow</title>
-		<path d="M10,2l9,10l-9,10h2l9-10L12,2H10z"></path>
+		<path fill="currentColor" d="M10,2l9,10l-9,10h2l9-10L12,2H10z"></path>
 	</symbol>
 
 </svg>

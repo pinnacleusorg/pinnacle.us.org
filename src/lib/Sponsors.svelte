@@ -95,7 +95,7 @@
 
 <section class="container-wide component-section-large dark-bg" id="sponsors">
 	<div class="container">
-		<h2 class="text-center">Sponsors</h2>
+		<h2 class="text-center">Sponsored by</h2>
 		<div class="sponsor-logos">
 			{#each sponsors as sponsor}
 				<a href={sponsor.url} target="_blank" class="sponsor">
@@ -108,7 +108,12 @@
 
 <style lang="scss">
 	#sponsors {
+		padding: 0;
 		text-align: center;
+
+		h2 {
+			margin-bottom: 0;
+		}
 	}
 
 	.sponsor-logos {

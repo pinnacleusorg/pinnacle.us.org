@@ -1,32 +1,33 @@
 <script lang="ts">
-	export let isAnchor = false;
+	$: isAnchor = href != "";
 	export let href = "";
+	export let primary = false;
 </script>
 
 {#if isAnchor}
 	<a {href} class="pinnacle-btn">
 		<div class="btn-label">
 			<span><slot /></span>
-			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-				><path d="M10,2l9,10l-9,10h2l9-10L12,2H10z" /></svg
-			>
+			<svg viewBox="0 0 24 24">
+				<path d="M10,2l9,10l-9,10h2l9-10L12,2H10z" />
+			</svg>
 		</div>
-		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 184 65"
-			><path d="M0,19.56,19.63,0H184V45.65L164.37,65.21H0V19.56Z" /></svg
-		>
+		<svg class:primary viewBox="0 0 184 65">
+			<path d="M0,19.56,19.63,0H184V45.65L164.37,65.21H0V19.56Z" />
+		</svg>
 	</a>
 {/if}
 {#if !isAnchor}
 	<button class="pinnacle-btn" on:click>
 		<div class="btn-label">
 			<span><slot /></span>
-			<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-				><path d="M10,2l9,10l-9,10h2l9-10L12,2H10z" /></svg
-			>
+			<svg viewBox="0 0 24 24">
+				<path d="M10,2l9,10l-9,10h2l9-10L12,2H10z" />
+			</svg>
 		</div>
-		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 184 65"
-			><path d="M0,19.56,19.63,0H184V45.65L164.37,65.21H0V19.56Z" /></svg
-		>
+		<svg class:primary viewBox="0 0 184 65">
+			<path d="M0,19.56,19.63,0H184V45.65L164.37,65.21H0V19.56Z" />
+		</svg>
 	</button>
 {/if}
 
@@ -69,9 +70,14 @@
 		}
 
 		> svg path {
-			fill: var(--pinnacle-gold);
+			fill: transparent;
 			stroke: var(--pinnacle-gold);
+			stroke-width: 5px;
 			transition: fill 0.3s ease, stroke 0.3s ease;
+		}
+
+		> svg.primary path {
+			fill: var(--pinnacle-gold);
 		}
 
 		&:focus,

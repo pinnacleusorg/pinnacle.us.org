@@ -29,7 +29,7 @@
 			</div>
 			<br />
 			<div class="cta">
-				<BrandButton href="/">Contact</BrandButton>
+				<BrandButton href="/" primary>Contact</BrandButton>
 				<BrandButton href="/">Sponsor</BrandButton>
 			</div>
 		</div>

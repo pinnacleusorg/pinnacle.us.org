@@ -72,7 +72,7 @@
 				<p class="card-text">
 					Be a part of the team that<br /> makes it happen.
 				</p>
-				<BrandButton href="/apply" isAnchor={true}>Apply Now</BrandButton>
+				<BrandButton href="/apply" primary>Apply Now</BrandButton>
 			</div>
 			<div class="card-divider" />
 			<form class="card">
