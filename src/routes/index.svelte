@@ -1,11 +1,11 @@
 <script lang="ts">
-	import Hero from "../components/Hero.svelte";
-	import Description from "../components/Description.svelte";
-	import Carousel from "../components/Carousel.svelte";
-	import Timeline from "../components/Schedule.svelte";
-	import EngagementDeck from "../components/EngagementDeck.svelte";
-	import Sponsors from "../components/Sponsors.svelte";
-	import Footer from "../components/Footer.svelte";
+	import Hero from "$lib/Hero.svelte";
+	import Description from "$lib/Description.svelte";
+	import Carousel from "$lib/Carousel.svelte";
+	import Timeline from "$lib/Schedule.svelte";
+	import EngagementDeck from "$lib/EngagementDeck.svelte";
+	import Sponsors from "$lib/Sponsors.svelte";
+	import Footer from "$lib/Footer.svelte";
 
 	import { onMount } from "svelte";
 

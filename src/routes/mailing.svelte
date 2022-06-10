@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Header from "../components/Header.svelte";
-	import Footer from "../components/Footer.svelte";
+	import Header from "$lib/Header.svelte";
+	import Footer from "$lib/Footer.svelte";
 
 	import { onMount } from "svelte";
 
@@ -15,9 +15,9 @@
 				method: "post",
 				body: JSON.stringify({
 					email: userEmail.trim(),
-					name: userName.trim(),
+					name: userName.trim()
 				}),
-				headers: new Headers({ "Content-Type": "application/json" }),
+				headers: new Headers({ "Content-Type": "application/json" })
 			}); // fail silently
 		}
 	});
@@ -33,10 +33,10 @@
 		<a href="/">&lsaquo; Home</a>
 		<h2>Welcome to the Mailing List</h2>
 		<p>
-			You've been enrolled in our mailing list, the best way to stay
-			up-to-date with the latest Pinnacle news. We don't send too many
-			emails, but if you'd wish to unsubscribe, you may follow the
-			unsubscribe link found in the footer of every email we send.
+			You've been enrolled in our mailing list, the best way to stay up-to-date
+			with the latest Pinnacle news. We don't send too many emails, but if you'd
+			wish to unsubscribe, you may follow the unsubscribe link found in the
+			footer of every email we send.
 		</p>
 	</section>
 	<Footer showLegal={false} />

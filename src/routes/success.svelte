@@ -1,6 +1,5 @@
-
 <script lang="ts">
-	import Hero from "../components/Splash.svelte";
+	import Hero from "$lib/Splash.svelte";
 </script>
 
 <Hero byline="Thank you for applying." />

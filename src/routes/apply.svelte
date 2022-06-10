@@ -1,7 +1,6 @@
-
 <script lang="ts">
-	import Hero from "../components/Splash.svelte";
-	import ApplyForm from "../components/ApplyForm.svelte";
+	import Hero from "$lib/Splash.svelte";
+	import ApplyForm from "$lib/ApplyForm.svelte";
 	import { onMount } from "svelte";
 
 	onMount(() => {

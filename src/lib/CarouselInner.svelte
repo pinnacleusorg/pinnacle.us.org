@@ -1,6 +1,5 @@
-
 <script lang="ts">
-	import CarouselElement from "../components/CarouselElement.svelte";
+	import CarouselElement from "$lib/CarouselElement.svelte";
 	import type { Hackathon } from "$lib/schema/hackathon";
 	export let futureHackathons: Hackathon[];
 	export let hackathons: Hackathon[];
@@ -12,19 +11,31 @@
 </script>
 
 <div class="carousel">
-	<button class="carousel-nav reverse" on:click="{() => {scrollCarousel(-1);}}" title="Scroll Left">
-		<svg><use xlink:href="icon/icon.svg#arrow"/></svg>
+	<button
+		class="carousel-nav reverse"
+		on:click={() => {
+			scrollCarousel(-1);
+		}}
+		title="Scroll Left"
+	>
+		<svg><use xlink:href="icon/icon.svg#arrow" /></svg>
 	</button>
 	<div class="flex-row flex-list" id="carouselContainer">
 		{#each futureHackathons as event}
-			<CarouselElement event="{event}" showDate="{true}" />
+			<CarouselElement {event} showDate={true} />
 		{/each}
 		{#each hackathons as event}
-			<CarouselElement event="{event}" />
+			<CarouselElement {event} />
 		{/each}
 	</div>
-	<button class="carousel-nav" on:click="{() => {scrollCarousel(1);}}" title="Scroll Right">
-		<svg><use xlink:href="icon/icon.svg#arrow"/></svg>
+	<button
+		class="carousel-nav"
+		on:click={() => {
+			scrollCarousel(1);
+		}}
+		title="Scroll Right"
+	>
+		<svg><use xlink:href="icon/icon.svg#arrow" /></svg>
 	</button>
 </div>
 
@@ -45,13 +56,13 @@
 		outline: none;
 		overflow: visible;
 		-webkit-appearance: none;
-		transform: scale(1.0);
+		transform: scale(1);
 		transition: transform 0.5s ease;
 
 		&.reverse {
-			transform: scale(-1.0);
+			transform: scale(-1);
 		}
-		
+
 		svg {
 			width: 80%;
 		}

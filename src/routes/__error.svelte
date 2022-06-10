@@ -1,4 +1,3 @@
-
 <script context="module">
 	/** @type {import('@sveltejs/kit').ErrorLoad} */
 	export function load({ error, status }) {
@@ -11,7 +10,7 @@
 </script>
 
 <script lang="ts">
-	import Header from "../components/Header.svelte";
+	import Header from "$lib/Header.svelte";
 
 	export let title: string;
 </script>

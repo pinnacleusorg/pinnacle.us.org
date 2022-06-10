@@ -1,10 +1,3 @@
-
-<script lang="ts">
-</script>
-
 <main>
-	<slot></slot>
+	<slot />
 </main>
-
-<style>
-</style>

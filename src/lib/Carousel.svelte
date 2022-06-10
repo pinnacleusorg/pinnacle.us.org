@@ -1,18 +1,21 @@
 <script lang="ts">
+	import type { Hackathon } from "$lib/schema/hackathon";
 	import { onMount } from "svelte";
 	import CarouselInner from "./CarouselInner.svelte";
 
 	const API_ROOT = import.meta.env.VITE_API_ROOT;
 
-	let futureHackathons: any[] = [];
-	let hackathons: any[] = [];
+	let futureHackathons: Hackathon[] = [];
+	let hackathons: Hackathon[] = [];
 
 	onMount(() => {
 		fetch(API_ROOT + "/hackathons")
 			.then((res) => res.json())
 			.then(
 				(res) =>
-					(hackathons = res.results.filter((h: any) => h.isVisible !== false))
+					(hackathons = res.results.filter(
+						(h: Hackathon) => h.isVisible !== false
+					))
 			)
 			.then(
 				() =>

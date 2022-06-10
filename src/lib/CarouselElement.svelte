@@ -1,18 +1,26 @@
-
 <script lang="ts">
-	import type { Hackathon } from "../schema/hackathon.schema";
+	import type { Hackathon } from "$lib/schema/hackathon";
 	export let compact = false;
 	export let event: Hackathon;
 	export let showDate = false;
 </script>
 
-<a class="element {compact ? 'compact':''}" href="{event.website}" target="_blank" rel="noopener">
+<a
+	class="element {compact ? 'compact' : ''}"
+	href={event.website}
+	target="_blank"
+	rel="noopener"
+>
 	<div class="element-grid">
-		<img class="event-img" src="https://static.pinnacle.us.org/2021/vendor/{event.internal_title}.png" alt="{event.title}">
+		<img
+			class="event-img"
+			src="https://static.pinnacle.us.org/2021/vendor/{event.internal_title}.png"
+			alt={event.title}
+		/>
 		<p>{event.title}</p>
 		{#if showDate}
 			<div class="date">
-				<img src="/image/button-bg.svg" alt="bg" aria-hidden="true">
+				<img src="/image/button-bg.svg" alt="bg" aria-hidden="true" />
 				<span>{new Date(event.startDate).toLocaleDateString()}</span>
 			</div>
 		{/if}
