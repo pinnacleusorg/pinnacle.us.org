@@ -1,5 +1,6 @@
-
 <script lang="ts">
+	import Nav from "./Nav.svelte";
+
 	function scrollHandler() {
 		const scrollAdj = (window.scrollY / window.innerHeight) * 100;
 		if (scrollAdj > 150) return; // Performance (reduce DOM operations)
@@ -8,26 +9,26 @@
 	}
 </script>
 
-<svelte:window on:scroll="{scrollHandler}" />
+<svelte:window on:scroll={scrollHandler} />
+<Nav />
 <section id="hero">
 	<div class="container inner">
-		<img src="https://static.pinnacle.us.org/2021/meta/icon.png" alt="Pinnacle Logo" class="logo"/>
-		<img src="https://static.pinnacle.us.org/2021/assets/textLogo.png" alt="Pinnacle" class="label"/>
+		<img
+			src="https://static.pinnacle.us.org/2021/assets/textLogo.png"
+			alt="Pinnacle"
+			class="label"
+		/>
 		<p class="byline">The Olympics of Hackathons</p>
-		<p class="dateline">
-			<span></span><br>
-			<span></span>
-		</p>
 	</div>
 	<div id="scroll-prompt">
-		<svg><use xlink:href="icon/icon.svg#mouse"/></svg>
+		<p>Explore</p>
+		<svg><use xlink:href="icon/icon.svg#mouse" /></svg>
 	</div>
 </section>
 
 <style lang="scss">
 	#hero {
 		background-color: var(--pinnacle-bg);
-		color: var(--pinnacle-gold);
 		display: flex;
 		align-items: center;
 		font-family: KeplerStd;
@@ -53,11 +54,6 @@
 			margin: auto;
 			width: 30rem;
 
-			&.logo {
-				max-width: 100%;
-				width: 5rem;
-			}
-
 			&.label {
 				margin-top: 3rem;
 				max-width: 12rem;
@@ -73,17 +69,9 @@
 				font-size: 1.5rem;
 				margin-top: 1.5rem;
 			}
-
-			&.dateline {
-				font-size: 18px;
-				margin-top: 2.5rem;
-			}
 		}
 
 		@media (min-width: 512px) {
-			img.logo {
-				width: 7rem;
-			}
 			img.label {
 				max-width: 20rem;
 			}
@@ -93,18 +81,12 @@
 			.inner {
 				padding: 0;
 			}
-			img.logo {
-				width: 10rem;
-			}
 			img.label {
 				margin-top: 4rem;
 				max-width: unset;
 			}
 			p.byline {
 				font-size: 2rem;
-			}
-			p.dateline {
-				font-size: 24px;
 			}
 		}
 	}
@@ -113,15 +95,23 @@
 		animation: fade-in 0.3s 3s forwards;
 		opacity: 0;
 
-		max-width: 25px;
-		width: 5vw;
-
 		margin: 0 auto;
 		position: fixed;
-		bottom: 3vh;
+		bottom: 5vh;
 		left: 0;
 		right: 0;
 		z-index: -2;
+
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+
+		p {
+			font-size: 1.5rem;
+			margin: 0;
+			margin-bottom: -30px;
+		}
 
 		svg {
 			max-height: 60px;
