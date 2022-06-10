@@ -35,11 +35,7 @@
 		text-align: center;
 
 		height: 100vh;
-		position: fixed;
-		top: 0;
-		left: 0;
-		right: 0;
-		z-index: -3;
+		position: relative;
 
 		.inner {
 			box-sizing: border-box;
@@ -92,15 +88,15 @@
 	}
 
 	#scroll-prompt {
-		animation: fade-in 0.3s 3s forwards;
+		animation: fade-in 1s 1.5s forwards;
 		opacity: 0;
 
 		margin: 0 auto;
-		position: fixed;
+		position: absolute;
 		bottom: 5vh;
 		left: 0;
 		right: 0;
-		z-index: -2;
+		z-index: 5;
 
 		display: flex;
 		flex-direction: column;
