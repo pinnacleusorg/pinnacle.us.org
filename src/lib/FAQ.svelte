@@ -41,6 +41,10 @@
 	#description {
 		position: relative;
 
+		.inner {
+			padding: 0 15px;
+		}
+
 		.body {
 			display: flex;
 			flex-direction: column;
