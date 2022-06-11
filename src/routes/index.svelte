@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Hero from "$lib/Hero.svelte";
 	import Description from "$lib/Description.svelte";
+	import FAQ from "$lib/FAQ.svelte";
 	import Carousel from "$lib/Carousel.svelte";
 	import Timeline from "$lib/Schedule.svelte";
 	import EngagementDeck from "$lib/EngagementDeck.svelte";
@@ -51,8 +52,9 @@
 	<Hero />
 	<Sponsors />
 	<Description />
-	<Carousel />
 	<Timeline />
+	<FAQ />
+	<Carousel />
 	<EngagementDeck />
 	<Footer showLegal={true} />
 </div>
