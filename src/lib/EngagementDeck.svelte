@@ -147,6 +147,7 @@
 <style lang="scss">
 	.card {
 		display: flex;
+		align-items: center;
 		flex-direction: column;
 		flex: 1 1;
 		font-family: KeplerStd;

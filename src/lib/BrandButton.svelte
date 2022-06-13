@@ -12,9 +12,7 @@
 				<path d="M10,2l9,10l-9,10h2l9-10L12,2H10z" />
 			</svg>
 		</div>
-		<svg class:primary viewBox="0 0 184 65">
-			<path d="M0,19.56,19.63,0H184V45.65L164.37,65.21H0V19.56Z" />
-		</svg>
+		<div class="background"><div class="inner" class:primary /></div>
 	</a>
 {/if}
 {#if !isAnchor}
@@ -25,9 +23,7 @@
 				<path d="M10,2l9,10l-9,10h2l9-10L12,2H10z" />
 			</svg>
 		</div>
-		<svg class:primary viewBox="0 0 184 65">
-			<path d="M0,19.56,19.63,0H184V45.65L164.37,65.21H0V19.56Z" />
-		</svg>
+		<div class="background"><div class="inner" class:primary /></div>
 	</button>
 {/if}
 
@@ -43,6 +39,7 @@
 		min-height: 3.8rem;
 		min-width: 180px;
 		height: 3.8rem;
+		width: max-content;
 		position: relative;
 
 		.btn-label {
@@ -58,29 +55,49 @@
 			z-index: 99;
 		}
 
+		.background,
+		.inner {
+			--chamfer: 15px;
+			--poly: polygon(
+				var(--chamfer) 0%,
+				100% 0,
+				100% calc(100% - var(--chamfer)),
+				calc(100% - var(--chamfer)) 100%,
+				0 100%,
+				0% var(--chamfer)
+			);
+			-webkit-clip-path: var(--poly);
+			clip-path: var(--poly);
+			background-color: var(--pinnacle-gold);
+			display: block;
+
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			z-index: 2;
+		}
+
+		.inner {
+			--chamfer: 14px;
+			--pad: 3px;
+			background-color: var(--pinnacle-bg);
+			top: var(--pad);
+			left: var(--pad);
+			right: var(--pad);
+			bottom: var(--pad);
+			transition-duration: 0.3s;
+
+			&.primary {
+				background-color: var(--pinnacle-gold);
+			}
+		}
+
 		.btn-label > svg {
 			height: 0.7em;
 			fill: var(--pinnacle-bg-light);
 			stroke: var(--pinnacle-bg-light);
-		}
-
-		> svg {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-		}
-
-		> svg path {
-			fill: transparent;
-			stroke: var(--pinnacle-gold);
-			stroke-width: 5px;
-			transition: fill 0.3s ease, stroke 0.3s ease;
-		}
-
-		> svg.primary path {
-			fill: var(--pinnacle-gold);
 		}
 
 		&:focus,
@@ -98,9 +115,8 @@
 				transition: color 0.3s ease;
 			}
 
-			> svg path {
-				fill: var(--pinnacle-gold);
-				stroke: var(--pinnacle-gold);
+			.inner {
+				background-color: var(--pinnacle-gold);
 			}
 		}
 	}
