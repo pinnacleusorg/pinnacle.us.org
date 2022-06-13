@@ -1,11 +1,7 @@
 <script>
-	import BrandButton from "./BrandButton.svelte";
 </script>
 
-<section
-	class="container-wide component-section-large dark-bg"
-	id="description"
->
+<section class="container-wide component-section-large dark-bg" id="faq">
 	<div class="container inner">
 		<div>
 			<h2>Frequently Asked Questions</h2>
@@ -38,10 +34,11 @@
 </section>
 
 <style lang="scss">
-	#description {
+	#faq {
 		position: relative;
 
 		.inner {
+			max-width: 850px;
 			padding: 0 15px;
 		}
 

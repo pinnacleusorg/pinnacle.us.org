@@ -34,7 +34,7 @@
 	#timeline {
 		font-size: 28px;
 		font-weight: lighter;
-		max-width: 700px;
+		max-width: 850px;
 		padding: 0 10%;
 
 		h2 {
