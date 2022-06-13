@@ -91,13 +91,16 @@
 			tier: 2
 		}
 	];
+
+	// want to fix this? join Pinnacle engineering! https://pinnacle.us.org/apply
+	const thisIsABadWayToDoIt = () => [].concat(...Array(35).fill(sponsors));
 </script>
 
 <section class="container-wide component-section-large dark-bg" id="sponsors">
 	<div class="container">
 		<h2 class="text-center">Sponsored by</h2>
 		<div class="sponsor-logos">
-			{#each sponsors as sponsor}
+			{#each thisIsABadWayToDoIt() as sponsor}
 				<a href={sponsor.url} target="_blank" class="sponsor">
 					<img src={sponsor.logo} alt={sponsor.name} />
 				</a>
@@ -108,27 +111,39 @@
 
 <style lang="scss">
 	#sponsors {
+		width: calc(100% - 40px);
+		overflow: hidden;
 		padding: 0;
 		text-align: center;
 
 		h2 {
+			font-size: 2.5rem;
 			margin-bottom: 0;
 		}
 	}
 
 	.sponsor-logos {
+		animation: slide 1200s linear forwards infinite;
 		display: flex;
 		align-items: center;
 		column-gap: 40px;
-		width: calc(100% - 40px);
 		padding: 0 20px;
-		overflow-x: scroll;
+		width: min-content;
 	}
 
 	.sponsor-logos .sponsor {
 		img {
 			min-width: 100%;
 			max-width: 200px;
+		}
+	}
+
+	@keyframes slide {
+		0% {
+			transform: translateX(0);
+		}
+		100% {
+			transform: translateX(-100%);
 		}
 	}
 </style>
