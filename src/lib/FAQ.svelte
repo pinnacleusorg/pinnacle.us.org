@@ -4,7 +4,7 @@
 <section class="container-wide component-section-large dark-bg" id="faq">
 	<div class="container inner">
 		<div>
-			<h2>Frequently Asked Questions</h2>
+			<a name="faq"><h2>Frequently Asked Questions</h2></a>
 			<div class="body">
 				<details>
 					<summary>How do I join?</summary>

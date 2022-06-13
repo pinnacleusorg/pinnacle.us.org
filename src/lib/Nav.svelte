@@ -6,9 +6,9 @@
 	/>
 	<span class="nav-spacer" />
 	<a href="#about">About</a>
-	<a href="#about">Schedule</a>
-	<a href="#about">FAQ</a>
-	<a href="#about">Contact</a>
+	<a href="#schedule">Schedule</a>
+	<a href="#faq">FAQ</a>
+	<a href="#contact">Contact</a>
 </nav>
 
 <style lang="scss">

@@ -11,7 +11,7 @@
 			<img src="/image/triangle.jpg" alt="" />
 		</div>
 		<div>
-			<h2>What is Pinnacle?</h2>
+			<a name="about"><h2>What is Pinnacle?</h2></a>
 			<div class="body">
 				<p>
 					Pinnacle invites the winning team from each of the world’s largest 50

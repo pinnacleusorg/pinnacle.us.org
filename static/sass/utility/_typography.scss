@@ -43,7 +43,7 @@ h2 {
 
 /* Text styles */
 
-a {
+a:not(a[name]) {
 	color: var(--pinnacle-gold);
 	transition: color 0.2s;
 	text-decoration: none;

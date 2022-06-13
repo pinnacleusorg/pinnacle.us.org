@@ -1,6 +1,6 @@
 <section class="container-wide component-section dark-bg">
 	<div class="container inner" id="timeline">
-		<h2>Schedule</h2>
+		<a name="schedule"><h2>Schedule</h2></a>
 		<div class="flex-smart">
 			<span class="timeline-date">August 2021</span>
 			<span class="timeline-desc flex">

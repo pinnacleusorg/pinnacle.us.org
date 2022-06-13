@@ -39,7 +39,7 @@
 <section class="container-wide component-section-large dark-bg">
 	<div class="container inner">
 		<div class="header-group">
-			<h2>Follow the Journey</h2>
+			<a name="contact"><h2>Follow the Journey</h2></a>
 		</div>
 		<div class="flex-smart engagement-deck">
 			<div class="card">
