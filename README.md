@@ -1,6 +1,6 @@
 # Pinnacle Landing
 
-[![https://maintained.cc/SDBagel/pinnacle.us.org/2](https://maintained.cc/SDBagel/pinnacle.us.org/2)](https://maintained.cc/SDBagel/pinnacle.us.org/2/redirect)
+![https://tai.maintained.cc/ivynya/Pinnacle/1](https://tai.maintained.cc/ivynya/Pinnacle/1)
 
 ## Running in Development
 
