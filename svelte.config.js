@@ -8,11 +8,7 @@ const config = {
 	preprocess: preprocess(),
 
 	kit: {
-		adapter: adapter(),
-		target: 'body',
-		vite: {
-			mode: process.env.NODE_ENV || 'staging'
-		}
+		adapter: adapter()
 	}
 };
 
