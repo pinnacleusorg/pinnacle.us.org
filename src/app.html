@@ -6,7 +6,7 @@
 	<meta name="theme-color" content="#1e1d1d">
 
 	<!-- <svelte:head> component in route template -->
-	%svelte.head%
+	%sveltekit.head%
 
 	<!-- OpenGraph Information -->
 	<meta name="description" content="Pinnacle is a 36-hour competitive collegiate hackathon where 200 participants come together to build innovative and creative hacks in Dallas, TX." />
@@ -38,9 +38,13 @@
 
 	<!-- Local Dependencies -->
 	<link rel="stylesheet" href="css/global.css">
-	<script src="js/bg.js"></script>
+	<script type="application/javascript">
+		document.addEventListener("DOMContentLoaded", () => {
+			console.info("Peeking under the hood? We want you on our team! Apply now: https://pinnacle.us.org/apply");
+		});
+	</script>
 </head>
 <body>
-	%svelte.body%
+	%sveltekit.body%
 </body>
 </html>

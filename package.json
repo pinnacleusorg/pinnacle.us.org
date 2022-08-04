@@ -4,8 +4,8 @@
   "version": "2.1.1",
   "type": "module",
   "scripts": {
-    "dev": "node node_modules/sass/sass.js static/sass/global.scss static/css/global.css && svelte-kit dev",
-    "build": "node node_modules/sass/sass.js static/sass/global.scss static/css/global.css && svelte-kit build"
+    "dev": "npx sass static/sass/global.scss static/css/global.css && vite dev",
+    "build": "npx sass static/sass/global.scss static/css/global.css && vite build"
   },
   "dependencies": {
     "@pinnacleusorg/quisp": "^0.5.1",
