@@ -38,46 +38,38 @@
 
 <section class="container-wide component-section-large dark-bg">
 	<div class="container inner">
-		<div class="header-group">
-			<a name="contact"><h2>Follow the Journey</h2></a>
-		</div>
+		<a name="contact"><h2>Follow the Journey</h2></a>
 		<div class="flex-smart engagement-deck">
 			<div class="card">
-				<h3 class="card-title">Be Future Staff</h3>
-				<p class="card-text">
-					Be a part of the team that<br /> makes it happen.
-				</p>
+				<h3>Be Future Staff</h3>
+				<p>Be a part of the team that<br /> makes it happen.</p>
 				<Button>Apply Now</Button>
 			</div>
 			<div class="card-divider" />
 			<form class="card">
-				<h3 class="card-title">Stay in the Loop</h3>
+				<h3>Stay in the Loop</h3>
 				<div class="stacked-input">
-					<div class="input-group">
-						<input
-							bind:value={name}
-							type="text"
-							class="form-control"
-							id="engagement-fn"
-							placeholder="First Name"
-						/>
-					</div>
-					<div class="input-group">
-						<input
-							bind:value={email}
-							type="email"
-							class="form-control"
-							id="engagement-email"
-							placeholder="Email Address"
-						/>
-					</div>
+					<input
+						bind:value={name}
+						type="text"
+						class="form-control"
+						id="engagement-fn"
+						placeholder="First Name"
+					/>
+					<input
+						bind:value={email}
+						type="email"
+						class="form-control"
+						id="engagement-email"
+						placeholder="Email Address"
+					/>
 					<div id="updatedMsg">&nbsp;</div>
 				</div>
 				<Button on:click={trySubscribe}>Stay Updated</Button>
 			</form>
 		</div>
 		<br />
-		<p class="timeline-socials">
+		<p class="socials">
 			<a href="//twitter.com/pinnacleusorg" target="_blank" rel="noopener">
 				<svg><use href="/image/socials.svg#twitter" /></svg>
 			</a>
@@ -105,7 +97,7 @@
 		margin-bottom: 1rem;
 		padding: 0 1.25rem;
 
-		.card-title {
+		h3 {
 			font-size: 1.75rem;
 			margin-top: 0;
 			margin-bottom: 1rem;
@@ -115,7 +107,7 @@
 			}
 		}
 
-		.card-text {
+		p {
 			flex: 1 1;
 			font-family: "Noto Sans", sans-serif;
 			font-size: 1rem !important;
@@ -128,11 +120,11 @@
 		margin-bottom: 3rem;
 	}
 
-	.header-group {
+	h2 {
 		text-align: center;
 	}
 
-	.timeline-socials {
+	.socials {
 		display: flex;
 		column-gap: 30px;
 		justify-content: center;
@@ -166,9 +158,9 @@
 		margin: auto;
 		width: 50%;
 
-		.input-group input {
+		input {
 			color: $white;
-			border: 2px solid $white;
+			border: 1.5px solid $white;
 			border-radius: 0;
 			box-sizing: border-box;
 			color: $white;
@@ -180,22 +172,22 @@
 			padding: 0.35rem 0.6rem;
 			width: 100%;
 		}
-		.input-group input::placeholder {
+		input::placeholder {
 			color: $white;
 			opacity: 0.5;
 		}
-		.input-group input:focus,
-		.input-group input:active {
+		input:focus,
+		input:active {
 			outline: none;
 			box-shadow: none;
 			border-color: $gold;
 			background-color: $bg;
 			color: $white;
 		}
-		.input-group:first-child input {
+		input:first-of-type {
 			border-bottom-width: 0.5px;
 		}
-		.input-group:last-child input {
+		input:last-of-type {
 			border-top-width: 0.5px;
 		}
 	}
