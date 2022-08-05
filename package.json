@@ -4,8 +4,8 @@
   "version": "2.1.1",
   "type": "module",
   "scripts": {
-    "dev": "npx sass static/sass/global.scss static/css/global.css && vite dev",
-    "build": "npx sass static/sass/global.scss static/css/global.css && vite build"
+    "dev": "npx sass static/scss/global.scss static/css/global.css && vite dev",
+    "build": "npx sass static/scss/global.scss static/css/global.css && vite build"
   },
   "dependencies": {
     "@pinnacleusorg/quisp": "^0.5.1",
