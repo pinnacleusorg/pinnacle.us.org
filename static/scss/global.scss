@@ -1,3 +1,32 @@
 
-@use './utility/layout';
-@use './utility/typography';
+@media (min-width: 1200px) {
+	.inner {
+		max-width: 1100px;
+	}
+}
+
+.component-section, .component-section-large {
+	box-sizing: border-box;
+}
+
+.component-section {
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+}
+
+.component-section-large {
+	padding-top: 4rem;
+	padding-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+	.component-section {
+		padding-top: 4rem;
+		padding-bottom: 4rem;
+	}
+	
+	.component-section-large {
+		padding-top: 8rem;
+		padding-bottom: 8rem;
+	}
+}
