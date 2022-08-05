@@ -28,7 +28,7 @@
 
 <style lang="scss">
 	#hero {
-		background-color: var(--pinnacle-bg);
+		background-color: $bg;
 		display: flex;
 		align-items: center;
 		font-family: KeplerStd;

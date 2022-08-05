@@ -29,7 +29,7 @@
 		}
 
 		a {
-			color: var(--pinnacle-bg-light);
+			color: $white;
 			font-family: KeplerStd;
 			font-size: 1.5rem;
 		}

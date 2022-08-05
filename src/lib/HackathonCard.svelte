@@ -68,7 +68,7 @@
 		}
 
 		.date {
-			color: var(--pinnacle-bg-light);
+			color: $white;
 			font-size: 0.9rem;
 			padding: 2px 12px;
 			position: absolute;
@@ -95,7 +95,7 @@
 		}
 
 		&:hover .date {
-			color: var(--pinnacle-bg-light);
+			color: $white;
 		}
 
 		&.compact {

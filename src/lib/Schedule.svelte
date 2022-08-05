@@ -45,7 +45,7 @@
 	}
 
 	.timeline-desc {
-		color: var(--pinnacle-bg-light);
+		color: $white;
 		font-size: 1.3rem;
 		margin-left: 10%;
 

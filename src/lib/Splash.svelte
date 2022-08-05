@@ -1,4 +1,3 @@
-
 <script lang="ts">
 	import { fade } from "svelte/transition";
 	export let byline = "Team Application";
@@ -6,16 +5,24 @@
 
 <section id="hero" transition:fade>
 	<div class="container inner">
-		<img src="https://static.pinnacle.us.org/2021/meta/icon.png" alt="Pinnacle Logo" class="logo"/>
-		<img src="https://static.pinnacle.us.org/2021/assets/textLogo.png" alt="Pinnacle" class="label"/>
+		<img
+			src="https://static.pinnacle.us.org/2021/meta/icon.png"
+			alt="Pinnacle Logo"
+			class="logo"
+		/>
+		<img
+			src="https://static.pinnacle.us.org/2021/assets/textLogo.png"
+			alt="Pinnacle"
+			class="label"
+		/>
 		<p class="byline">{byline}</p>
 	</div>
 </section>
 
 <style lang="scss">
 	#hero {
-		background-color: var(--pinnacle-bg);
-		color: var(--pinnacle-gold);
+		background-color: $bg;
+		color: $gold;
 		display: flex;
 		align-items: center;
 		font-family: KeplerStd;

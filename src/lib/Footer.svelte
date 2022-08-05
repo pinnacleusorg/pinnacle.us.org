@@ -1,4 +1,3 @@
-
 <script lang="ts">
 	export let showLegal = false;
 </script>
@@ -9,7 +8,8 @@
 		{#if showLegal}
 			<div class="legalees">
 				<span class="small" id="updatedMsg">
-					We will never sell or distribute your contact information without your consent &bull;
+					We will never sell or distribute your contact information without your
+					consent &bull;
 					<a href="/privacy">Our privacy policy</a>
 				</span>
 			</div>
@@ -22,7 +22,7 @@
 		font-size: 1.2rem;
 		font-weight: bolder;
 		letter-spacing: 1.2px;
-		
+
 		position: absolute;
 		left: 0;
 		right: 0;
@@ -43,9 +43,9 @@
 			}
 
 			a {
-				color: var(--pinnacle-bg);
+				color: $bg;
 				text-decoration: underline;
-				
+
 				&:hover {
 					text-decoration: underline;
 				}

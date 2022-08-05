@@ -166,12 +166,12 @@
 	}
 
 	a:hover {
-		color: var(--pinnacle-gold);
+		color: $gold;
 		text-decoration: underline;
 	}
 
 	h2 {
-		color: var(--pinnacle-gold);
+		color: $gold;
 		font-weight: normal;
 		text-align: center;
 		margin: 0;
@@ -184,7 +184,7 @@
 	}
 
 	.vertibar {
-		background-color: var(--pinnacle-gold);
+		background-color: $gold;
 		display: block;
 		height: 0px;
 		width: 3px;

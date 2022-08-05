@@ -54,7 +54,7 @@
 			width: 100%;
 
 			summary {
-				border-bottom: 3px solid var(--pinnacle-gold);
+				border-bottom: 3px solid $gold;
 				cursor: pointer;
 				padding: 10px;
 			}

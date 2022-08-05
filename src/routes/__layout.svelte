@@ -4,8 +4,8 @@
 
 <style lang="scss" global>
 	html {
-		background-color: var(--pinnacle-bg);
-		color: var(--pinnacle-bg-light);
+		background-color: $bg;
+		color: $white;
 		font-family: "Noto Sans", sans-serif;
 		line-height: 1.5;
 		scroll-behavior: smooth;
@@ -61,44 +61,44 @@
 	/* Text styles */
 
 	a:not(a[name]) {
-		color: var(--pinnacle-gold);
+		color: $gold;
 		transition: color 0.2s;
 		text-decoration: none;
 	}
 
 	::selection {
-		background-color: var(--pinnacle-gold);
+		background-color: $gold;
 	}
 
 	a:hover,
 	a:focus {
-		color: var(--pinnacle-bg);
+		color: $bg;
 		text-decoration: none;
 	}
 
 	/* Background + text styles */
 
 	.light-bg {
-		background-color: var(--pinnacle-bg-light);
-		color: var(--pinnacle-bg);
+		background-color: $white;
+		color: $bg;
 	}
 
 	.dark-bg {
-		background-color: var(--pinnacle-bg);
-		color: var(--pinnacle-bg-light);
+		background-color: $bg;
+		color: $white;
 
 		a:hover,
 		a:focus {
-			color: var(--pinnacle-bg-light);
+			color: $white;
 		}
 	}
 
 	.gold-bg {
-		background-color: var(--pinnacle-gold);
-		color: var(--pinnacle-bg);
+		background-color: $gold;
+		color: $bg;
 
 		::selection {
-			background-color: var(--pinnacle-bg-light);
+			background-color: $white;
 		}
 	}
 </style>

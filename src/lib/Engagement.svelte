@@ -139,22 +139,22 @@
 		font-size: 1.3rem;
 
 		svg {
-			background-color: var(--pinnacle-gold);
+			background-color: $gold;
 			border-radius: 6px;
-			color: var(--pinnacle-bg);
+			color: $bg;
 			height: 30px;
 			width: 30px;
 			padding: 10px;
 		}
 
 		a:hover svg {
-			color: var(--pinnacle-bg-light);
+			color: $white;
 		}
 	}
 
 	.card-divider {
 		flex: 0 0 3px;
-		background-color: var(--pinnacle-gold);
+		background-color: $gold;
 		margin: 5vh 10vw;
 
 		@media (min-width: 768px) {
@@ -167,12 +167,12 @@
 		width: 50%;
 
 		.input-group input {
-			color: var(--pinnacle-bg-light);
-			border: 2px solid var(--pinnacle-bg-light);
+			color: $white;
+			border: 2px solid $white;
 			border-radius: 0;
 			box-sizing: border-box;
-			color: var(--pinnacle-bg-light);
-			background-color: var(--pinnacle-bg);
+			color: $white;
+			background-color: $bg;
 			font-size: 1rem;
 			font-family: "Noto Sans", sans-serif;
 
@@ -181,16 +181,16 @@
 			width: 100%;
 		}
 		.input-group input::placeholder {
-			color: var(--pinnacle-bg-light);
+			color: $white;
 			opacity: 0.5;
 		}
 		.input-group input:focus,
 		.input-group input:active {
 			outline: none;
 			box-shadow: none;
-			border-color: var(--pinnacle-gold);
-			background-color: var(--pinnacle-bg);
-			color: var(--pinnacle-bg-light);
+			border-color: $gold;
+			background-color: $bg;
+			color: $white;
 		}
 		.input-group:first-child input {
 			border-bottom-width: 0.5px;
