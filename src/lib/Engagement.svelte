@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { Button } from "@pinnacleusorg/quisp";
-
-	const API_ROOT = import.meta.env.VITE_API_ROOT;
+	import { contactsSubscribe } from "./app/api";
 
 	let subscribeDisabled = false;
 	let name: string, email: string; // Bound values
@@ -13,24 +12,15 @@
 		email = email.trim();
 		if (!name || !email || subscribeDisabled) return;
 		subscribeDisabled = true;
-		//submit, report errors to #updatedMsg.
-		fetch(API_ROOT + "/contacts", {
-			method: "post",
-			body: JSON.stringify({ email: email, name: name }),
-			headers: new Headers({ "Content-Type": "application/json" })
-		}).then((response) => {
-			let message = "Welcome to the mailing list!";
-			if (response.status != 200) {
-				console.log(response);
-				message = "Error: Please confirm your email address is accurate";
-				if (response.status == 409) message = "You're already on our list!";
-				document.querySelector("#updatedMsg").classList.add("err");
-			} else {
+
+		//submit, report to #updatedMsg.
+		contactsSubscribe(email, name).then((res) => {
+			if (res.ok)
 				document.querySelector("#updatedMsg").classList.add("successful");
-			}
+			else document.querySelector("#updatedMsg").classList.add("err");
+			document.querySelector("#updatedMsg").textContent = res.message;
 			name = "";
 			email = "";
-			document.querySelector("#updatedMsg").textContent = message;
 			subscribeDisabled = false;
 		});
 	}
@@ -52,14 +42,12 @@
 					<input
 						bind:value={name}
 						type="text"
-						class="form-control"
 						id="engagement-fn"
 						placeholder="First Name"
 					/>
 					<input
 						bind:value={email}
 						type="email"
-						class="form-control"
 						id="engagement-email"
 						placeholder="Email Address"
 					/>

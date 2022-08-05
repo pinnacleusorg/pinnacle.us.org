@@ -1,25 +1,14 @@
 <script lang="ts">
 	import Header from "$lib/Header.svelte";
 	import Footer from "$lib/Footer.svelte";
-
 	import { onMount } from "svelte";
-
-	const API_ROOT = import.meta.env.VITE_API_ROOT;
+	import { contactsSubscribe } from "$lib/app/api";
 
 	onMount(() => {
 		const urlParams = new URLSearchParams(window.location.search);
-		const userEmail = urlParams.get("email");
-		const userName = urlParams.get("name");
-		if (userEmail && userName) {
-			fetch(API_ROOT + "/contacts", {
-				method: "post",
-				body: JSON.stringify({
-					email: userEmail.trim(),
-					name: userName.trim()
-				}),
-				headers: new Headers({ "Content-Type": "application/json" })
-			}); // fail silently
-		}
+		const userEmail = urlParams.get("email").trim();
+		const userName = urlParams.get("name").trim();
+		if (userEmail && userName) contactsSubscribe(userEmail, userName);
 	});
 </script>
 
