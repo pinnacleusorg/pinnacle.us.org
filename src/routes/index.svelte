@@ -3,7 +3,7 @@
 	import Description from "$lib/Description.svelte";
 	import FAQ from "$lib/FAQ.svelte";
 	import Timeline from "$lib/Schedule.svelte";
-	import EngagementDeck from "$lib/EngagementDeck.svelte";
+	import EngagementDeck from "$lib/Engagement.svelte";
 	import Footer from "$lib/Footer.svelte";
 
 	import { onMount } from "svelte";

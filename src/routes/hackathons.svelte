@@ -4,7 +4,7 @@
 
 	import Header from "$lib/Header.svelte";
 	import Footer from "$lib/Footer.svelte";
-	import CarouselElement from "$lib/CarouselElement.svelte";
+	import HackathonCard from "$lib/Hackathon.svelte";
 
 	const API_ROOT = import.meta.env.VITE_API_ROOT;
 	let masterHackathons: Hackathon[] = [];
@@ -45,14 +45,14 @@
 		<h2>Partnered Events</h2>
 		<div class="flex-row flex-list flex-wrap">
 			{#each hackathons as event}
-				<CarouselElement {event} compact={true} />
+				<HackathonCard {event} compact={true} />
 			{/each}
 		</div>
 		<br /><br />
 		<h2>High School Events</h2>
 		<div class="flex-row flex-list flex-wrap">
 			{#each hsHackathons as event}
-				<CarouselElement {event} compact={true} />
+				<HackathonCard {event} compact={true} />
 			{/each}
 		</div>
 	</section>
