@@ -1,7 +1,7 @@
 <script>
 </script>
 
-<section class="container-wide component-section-large dark-bg" id="faq">
+<section class="container-wide component-section-large light-bg">
 	<div class="container inner">
 		<div>
 			<a name="faq"><h2>Frequently Asked Questions</h2></a>
@@ -34,35 +34,31 @@
 </section>
 
 <style lang="scss">
-	#faq {
-		position: relative;
+	.inner {
+		max-width: 850px;
+		padding: 0 15px;
+	}
 
-		.inner {
-			max-width: 850px;
-			padding: 0 15px;
+	.body {
+		display: flex;
+		flex-direction: column;
+		row-gap: 40px;
+		font-size: 1.3rem;
+		font-weight: lighter;
+	}
+
+	details {
+		width: 100%;
+
+		summary {
+			border-bottom: 3px solid $gold;
+			cursor: pointer;
+			padding: 10px;
 		}
+	}
 
-		.body {
-			display: flex;
-			flex-direction: column;
-			row-gap: 40px;
-			font-size: 1.3rem;
-			font-weight: lighter;
-		}
-
-		details {
-			width: 100%;
-
-			summary {
-				border-bottom: 3px solid $gold;
-				cursor: pointer;
-				padding: 10px;
-			}
-		}
-
-		.tag {
-			font-size: 1.3rem;
-			margin-top: 3rem;
-		}
+	.tag {
+		font-size: 1.3rem;
+		margin-top: 3rem;
 	}
 </style>

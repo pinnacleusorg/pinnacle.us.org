@@ -13,11 +13,7 @@
 <Nav />
 <section id="hero">
 	<div class="container inner">
-		<img
-			src="https://static.pinnacle.us.org/2021/assets/textLogo.png"
-			alt="Pinnacle"
-			class="label"
-		/>
+		<img src="/image/logo-text.svg" alt="Pinnacle" />
 		<p class="byline">The Olympics of Hackathons</p>
 	</div>
 	<div id="scroll-prompt">
@@ -48,11 +44,12 @@
 		img {
 			display: block;
 			margin: auto;
+			margin-top: 3rem;
+			max-width: 12rem;
 			width: 30rem;
 
-			&.label {
-				margin-top: 3rem;
-				max-width: 12rem;
+			@media (min-width: 512px) {
+				max-width: 20rem;
 			}
 		}
 
@@ -67,17 +64,11 @@
 			}
 		}
 
-		@media (min-width: 512px) {
-			img.label {
-				max-width: 20rem;
-			}
-		}
-
 		@media (min-width: 768px) {
 			.inner {
 				padding: 0;
 			}
-			img.label {
+			img {
 				margin-top: 4rem;
 				max-width: unset;
 			}

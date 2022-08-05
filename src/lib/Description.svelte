@@ -3,13 +3,10 @@
 </script>
 
 <section
-	class="container-wide component-section-large dark-bg"
+	class="container-wide component-section-large light-bg"
 	id="description"
 >
 	<div class="container inner">
-		<div class="img">
-			<img src="/image/triangle.jpg" alt="" />
-		</div>
 		<div>
 			<a name="about"><h2>What is Pinnacle?</h2></a>
 			<div class="body">
@@ -44,6 +41,7 @@
 			display: flex;
 			align-items: center;
 			column-gap: 5vw;
+			max-width: 850px;
 			padding: 0 15px;
 		}
 
@@ -60,22 +58,6 @@
 
 		div {
 			flex: 1 1;
-		}
-
-		img {
-			max-width: 100%;
-		}
-
-		@media (max-width: 768px) {
-			.img {
-				display: none;
-			}
-		}
-
-		@media (max-width: 992px) {
-			.img {
-				flex: 0.5 1;
-			}
 		}
 	}
 </style>

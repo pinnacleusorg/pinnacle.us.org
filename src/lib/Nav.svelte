@@ -18,6 +18,7 @@
 		column-gap: 60px;
 
 		margin: 5vh auto;
+		padding: 0 50px;
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -35,6 +36,6 @@
 		}
 	}
 	img {
-		width: 60px;
+		width: 50px;
 	}
 </style>

@@ -5,28 +5,32 @@
 	}
 }
 
+$padding-sm: 3rem;
+$padding-md: 6rem;
+$padding-lg: 12rem;
+
 .component-section, .component-section-large {
 	box-sizing: border-box;
 }
 
 .component-section {
-	padding-top: 2rem;
-	padding-bottom: 2rem;
+	padding-top: $padding-sm;
+	padding-bottom: $padding-sm;
 }
 
 .component-section-large {
-	padding-top: 4rem;
-	padding-bottom: 4rem;
+	padding-top: $padding-md;
+	padding-bottom: $padding-md;
 }
 
 @media (min-width: 768px) {
 	.component-section {
-		padding-top: 4rem;
-		padding-bottom: 4rem;
+		padding-top: $padding-md;
+		padding-bottom: $padding-md;
 	}
 	
 	.component-section-large {
-		padding-top: 8rem;
-		padding-bottom: 8rem;
+		padding-top: $padding-lg;
+		padding-bottom: $padding-lg;
 	}
 }
