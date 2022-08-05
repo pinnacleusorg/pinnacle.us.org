@@ -1,4 +1,12 @@
 
+html {
+	background-color: var(--pinnacle-bg);
+	color: var(--pinnacle-bg-light);
+	font-family: "Noto Sans", sans-serif;
+	line-height: 1.5;
+	scroll-behavior: smooth;
+}
+
 @media (min-width: 1200px) {
 	.inner {
 		max-width: 1100px;
