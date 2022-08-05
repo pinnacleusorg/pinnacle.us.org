@@ -19,11 +19,9 @@
 			<span class="timeline-desc flex">
 				<p>Pinnacle 2021 event takes place.</p>
 				<p>
-					<a
-						href="https://www.twitch.tv/pinnacleusorg/videos?filter=highlights&sort=time"
-						target="_blank"
-						>Click here to watch the recordings from the livestream.</a
-					>
+					<a href="https://www.twitch.tv/pinnacleusorg/videos" target="_blank">
+						Click here to watch the recordings from the livestream.
+					</a>
 				</p>
 			</span>
 		</div>

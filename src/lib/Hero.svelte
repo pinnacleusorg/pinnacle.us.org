@@ -22,7 +22,7 @@
 	</div>
 	<div id="scroll-prompt">
 		<p>Explore</p>
-		<svg><use xlink:href="icon/icon.svg#mouse" /></svg>
+		<svg><use xlink:href="image/icons.svg#mouse" /></svg>
 	</div>
 </section>
 

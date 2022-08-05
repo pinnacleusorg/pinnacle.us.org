@@ -4,7 +4,7 @@
 
 	import Header from "$lib/Header.svelte";
 	import Footer from "$lib/Footer.svelte";
-	import HackathonCard from "$lib/Hackathon.svelte";
+	import HackathonCard from "$lib/HackathonCard.svelte";
 
 	const API_ROOT = import.meta.env.VITE_API_ROOT;
 	let masterHackathons: Hackathon[] = [];
