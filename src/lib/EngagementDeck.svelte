@@ -1,5 +1,5 @@
 <script lang="ts">
-	import BrandButton from "./BrandButton.svelte";
+	import { Button } from "@pinnacleusorg/quisp";
 
 	const API_ROOT = import.meta.env.VITE_API_ROOT;
 
@@ -47,7 +47,7 @@
 				<p class="card-text">
 					Be a part of the team that<br /> makes it happen.
 				</p>
-				<BrandButton href="/apply">Apply Now</BrandButton>
+				<Button>Apply Now</Button>
 			</div>
 			<div class="card-divider" />
 			<form class="card">
@@ -73,7 +73,7 @@
 					</div>
 					<div id="updatedMsg">&nbsp;</div>
 				</div>
-				<BrandButton on:click={trySubscribe}>Stay Updated</BrandButton>
+				<Button on:click={trySubscribe}>Stay Updated</Button>
 			</form>
 		</div>
 		<br />

@@ -1,5 +1,5 @@
 <script>
-	import BrandButton from "./BrandButton.svelte";
+	import { Button } from "@pinnacleusorg/quisp";
 </script>
 
 <section
@@ -14,7 +14,7 @@
 			<a name="about"><h2>What is Pinnacle?</h2></a>
 			<div class="body">
 				<p>
-					Pinnacle invites the winning team from each of the world’s largest 50
+					Pinnacle invites the winning team from each of the world's largest 50
 					collegiate hackathons and 5 high school hackathons to compete in an
 					epic hack-off. Pinnacle 2021 took place on September 17-19, 2021 in
 					Dallas, TX.
@@ -29,8 +29,8 @@
 			</div>
 			<br />
 			<div class="cta">
-				<BrandButton href="/" primary>Contact</BrandButton>
-				<BrandButton href="/">Sponsor</BrandButton>
+				<Button>Contact</Button>
+				<Button>Sponsor</Button>
 			</div>
 		</div>
 	</div>
