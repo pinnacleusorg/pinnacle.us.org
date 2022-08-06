@@ -1,7 +1,7 @@
 <script>
 </script>
 
-<section class="container-wide component-section-large light-bg">
+<section class="container-wide component-section-large" id="faq">
 	<div class="container inner">
 		<div>
 			<a name="faq"><h2>Frequently Asked Questions</h2></a>
@@ -34,6 +34,10 @@
 </section>
 
 <style lang="scss">
+	#faq {
+		@include background-white;
+	}
+
 	.inner {
 		max-width: 850px;
 		padding: 0 15px;

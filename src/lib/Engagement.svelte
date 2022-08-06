@@ -26,7 +26,7 @@
 	}
 </script>
 
-<section class="container-wide component-section-large light-bg">
+<section class="container-wide component-section-large" id="engagement">
 	<div class="container inner">
 		<a name="contact"><h2>Follow the Journey</h2></a>
 		<div class="flex-smart engagement-deck">
@@ -75,6 +75,10 @@
 </section>
 
 <style lang="scss">
+	#engagement {
+		@include background-grey;
+	}
+
 	.card {
 		display: flex;
 		align-items: center;

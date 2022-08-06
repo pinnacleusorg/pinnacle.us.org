@@ -16,7 +16,7 @@
 	<title>Pinnacle • Mailing List</title>
 </svelte:head>
 
-<div class="light-bg">
+<div>
 	<Header />
 	<section class="container component-section">
 		<a href="/">&lsaquo; Home</a>
@@ -32,6 +32,10 @@
 </div>
 
 <style lang="scss">
+	div {
+		@include background-white;
+	}
+
 	a {
 		text-decoration: none;
 	}

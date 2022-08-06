@@ -3,16 +3,6 @@
 </main>
 
 <style lang="scss" global>
-	html {
-		background-color: $bg;
-		color: $white;
-		font-family: "Noto Sans", sans-serif;
-		line-height: 1.5;
-		scroll-behavior: smooth;
-	}
-
-	/* Font imports */
-
 	@font-face {
 		font-family: "KeplerStd";
 		src: url("https://static.pinnacle.us.org/2021/font/KeplerStd-LightScn.otf");
@@ -23,6 +13,14 @@
 		font-family: "KeplerStd";
 		src: url("https://static.pinnacle.us.org/2021/font/KeplerStd-SemiboldScnDisp.otf");
 		font-weight: 500;
+	}
+
+	html {
+		background-color: $bg;
+		color: $white;
+		font-family: "Noto Sans", sans-serif;
+		line-height: 1.5;
+		scroll-behavior: smooth;
 	}
 
 	/* Header styles */
@@ -54,45 +52,19 @@
 
 	/* Text styles */
 
-	a:not(a[name]) {
-		color: $gold;
-		transition: color 0.2s;
-		text-decoration: none;
-	}
-
 	::selection {
 		background-color: $gold;
 	}
 
-	a:hover,
-	a:focus {
-		color: $bg;
+	a:not(a[name]) {
+		color: $gold;
+		transition: color 0.2s;
 		text-decoration: none;
-	}
 
-	/* Background + text styles */
-
-	.light-bg {
-		background-color: $white;
-		color: $bg;
-	}
-
-	.dark-bg {
-		background-color: $bg;
-		color: $white;
-
-		a:hover,
-		a:focus {
-			color: $white;
-		}
-	}
-
-	.gold-bg {
-		background-color: $gold;
-		color: $bg;
-
-		::selection {
-			background-color: $white;
+		&:hover,
+		&:focus {
+			color: $bg;
+			text-decoration: none;
 		}
 	}
 </style>

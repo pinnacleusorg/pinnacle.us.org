@@ -19,7 +19,7 @@
 	<title>Pinnacle • {title}</title>
 </svelte:head>
 
-<div class="light-bg flex-column">
+<div class="flex-column">
 	<Header />
 	<section class="container component-section flex">
 		<a href="/">&lsaquo; Home</a>
@@ -30,6 +30,7 @@
 
 <style lang="scss">
 	div {
+		@include background-white;
 		min-height: 100vh;
 	}
 

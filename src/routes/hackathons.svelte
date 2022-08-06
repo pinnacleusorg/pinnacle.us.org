@@ -23,7 +23,7 @@
 	<title>Pinnacle • Partnered Events</title>
 </svelte:head>
 
-<div class="light-bg">
+<div class="hackathons">
 	<Header />
 	<section class="container component-section">
 		<a href="/">&lsaquo; Home</a>
@@ -45,6 +45,10 @@
 </div>
 
 <style lang="scss">
+	.hackathons {
+		@include background-white;
+	}
+
 	h2 {
 		text-align: center;
 	}

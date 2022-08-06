@@ -2,7 +2,7 @@
 	export let showLegal = false;
 </script>
 
-<footer class="dark-bg">
+<footer>
 	<div class="container-wide inner">
 		&copy; 2022 Pinnacle
 		{#if showLegal}
@@ -19,6 +19,7 @@
 
 <style lang="scss">
 	footer {
+		@include background-dark;
 		font-size: 1.2rem;
 		font-weight: bolder;
 		letter-spacing: 1.2px;

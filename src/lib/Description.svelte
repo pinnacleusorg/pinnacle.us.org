@@ -2,10 +2,7 @@
 	import { Button } from "@pinnacleusorg/quisp";
 </script>
 
-<section
-	class="container-wide component-section-large light-bg"
-	id="description"
->
+<section class="container-wide component-section-large" id="description">
 	<div class="container inner">
 		<div>
 			<a name="about"><h2>What is Pinnacle?</h2></a>
@@ -35,6 +32,7 @@
 
 <style lang="scss">
 	#description {
+		@include background-white;
 		position: relative;
 
 		.inner {

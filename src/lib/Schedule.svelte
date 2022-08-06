@@ -1,4 +1,4 @@
-<section class="container-wide component-section dark-bg">
+<section class="container-wide component-section" id="schedule">
 	<div class="container inner" id="timeline">
 		<a name="schedule"><h2>Schedule</h2></a>
 		<div class="flex-smart">
@@ -30,8 +30,11 @@
 </section>
 
 <style lang="scss">
+	#schedule {
+		@include background-grey;
+	}
+
 	#timeline {
-		color: $white;
 		font-size: 1.3rem;
 		max-width: 850px;
 		padding: 0 10%;
