@@ -30,7 +30,7 @@
 <section class="container-wide component-section-large" id="engagement">
 	<div class="container inner">
 		<a name="contact"><h2>Follow the Journey</h2></a>
-		<div class="flex-smart engagement-deck">
+		<div class="flex-smart deck">
 			<div class="card">
 				<h3>Be Future Staff</h3>
 				<p>Be a part of the team that<br /> makes it happen.</p>
@@ -66,6 +66,10 @@
 	#engagement {
 		@include background-grey;
 		text-align: center;
+
+		.inner {
+			max-width: $max-inner-width;
+		}
 	}
 
 	.card {
@@ -77,7 +81,7 @@
 		padding: 0 1.25rem;
 
 		h3 {
-			font-size: 1.75rem;
+			font-size: 1.3rem;
 			margin-top: 0;
 			margin-bottom: 1rem;
 
@@ -89,7 +93,7 @@
 		p {
 			flex: 1 1;
 			font-family: "Noto Sans", sans-serif;
-			font-size: 1rem !important;
+			font-size: 0.8rem;
 			margin-top: 0;
 			padding: 0.5rem 4rem;
 		}
@@ -111,12 +115,12 @@
 		border-radius: 0;
 		box-sizing: border-box;
 		color: $bg;
-		font-size: 1rem;
+		font-size: 0.8rem;
 		font-family: "Noto Sans", sans-serif;
 
 		margin: 0 auto;
 		padding: 0.35rem 0.6rem;
-		width: 50%;
+		width: 80%;
 	}
 	input::placeholder {
 		color: $bg;

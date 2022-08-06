@@ -12,14 +12,16 @@
 	@font-face {
 		font-family: "KeplerStd";
 		src: url("https://static.pinnacle.us.org/2021/font/KeplerStd-SemiboldScnDisp.otf");
-		font-weight: 500;
+		font-weight: bold;
 	}
 
 	html {
 		background-color: $bg;
 		color: $white;
 		font-family: "Noto Sans", sans-serif;
-		line-height: 1.5;
+		font-size: 20px;
+		line-height: 1.75;
+		letter-spacing: 0.1px;
 		scroll-behavior: smooth;
 	}
 
@@ -32,16 +34,16 @@
 	h5,
 	h6 {
 		font-family: KeplerStd, serif;
-		font-weight: 500;
+		letter-spacing: 0.5px;
 	}
 
 	h2 {
-		font-size: 3rem;
+		font-size: 2rem;
 		margin-top: 0;
 		margin-bottom: 5px;
 
 		@media (min-width: 768px) {
-			font-size: 3.5rem;
+			font-size: 2.5rem;
 		}
 	}
 

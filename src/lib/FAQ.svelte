@@ -5,6 +5,7 @@
 	<div class="container inner">
 		<div>
 			<a name="faq"><h2>Frequently Asked Questions</h2></a>
+			<br />
 			<div class="body">
 				<details>
 					<summary>How do I join?</summary>
@@ -25,9 +26,9 @@
 			</div>
 			<br />
 			<p class="tag">
-				Have more questions? Email <a href="/hackathons"
-					>kendall@pinnacle.us.org</a
-				>!
+				Still need help? Email <a href="/hackathons"
+					>kendall@pinnacle.us.org
+				</a>!
 			</p>
 		</div>
 	</div>
@@ -39,15 +40,14 @@
 	}
 
 	.inner {
-		max-width: 850px;
+		max-width: $max-inner-width;
 		padding: 0 15px;
 	}
 
 	.body {
 		display: flex;
 		flex-direction: column;
-		row-gap: 40px;
-		font-size: 1.3rem;
+		row-gap: 30px;
 		font-weight: lighter;
 	}
 
@@ -62,7 +62,7 @@
 	}
 
 	.tag {
-		font-size: 1.3rem;
-		margin-top: 3rem;
+		margin-top: 2rem;
+		text-align: center;
 	}
 </style>

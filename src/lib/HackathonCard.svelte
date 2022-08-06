@@ -63,13 +63,12 @@
 			grid-row: 2 / 2;
 
 			margin: auto;
-			font-size: 1.5rem;
+			font-size: 1.25rem;
 			text-align: center;
 		}
 
 		.date {
 			color: $white;
-			font-size: 0.9rem;
 			padding: 2px 12px;
 			position: absolute;
 			top: 0;
@@ -112,7 +111,6 @@
 			}
 
 			p {
-				font-size: 1rem;
 				max-width: 100px;
 			}
 		}

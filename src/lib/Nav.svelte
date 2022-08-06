@@ -1,4 +1,4 @@
-<nav class="container inner">
+<nav class="container-wide">
 	<img
 		src="https://static.pinnacle.us.org/2021/meta/icon.png"
 		alt="Pinnacle Logo"
@@ -32,7 +32,6 @@
 		a {
 			color: $white;
 			font-family: KeplerStd;
-			font-size: 1.5rem;
 		}
 	}
 	img {

@@ -46,15 +46,19 @@
 			margin: auto;
 			margin-top: 3rem;
 			max-width: 12rem;
-			width: 30rem;
+			width: 100%;
 
 			@media (min-width: 512px) {
 				max-width: 20rem;
 			}
+
+			@media (min-width: 768px) {
+				margin-top: 4rem;
+				max-width: 25rem;
+			}
 		}
 
 		p {
-			font-weight: lighter;
 			letter-spacing: 1.2px;
 			max-width: 100%;
 
@@ -68,12 +72,8 @@
 			.inner {
 				padding: 0;
 			}
-			img {
-				margin-top: 4rem;
-				max-width: unset;
-			}
 			p.byline {
-				font-size: 2rem;
+				font-size: 1.75rem;
 			}
 		}
 	}
@@ -89,19 +89,16 @@
 		right: 0;
 		z-index: 5;
 
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
+		display: grid;
+		place-items: center;
 
 		p {
-			font-size: 1.5rem;
 			margin: 0;
 			margin-bottom: -30px;
 		}
 
 		svg {
-			max-height: 60px;
+			max-height: 50px;
 			width: 100%;
 		}
 	}

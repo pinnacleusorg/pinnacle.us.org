@@ -7,6 +7,8 @@ $blue: #36567a;
 $adjust-minor: 5;
 $adjust-major: 15;
 
+$max-inner-width: 830px;
+
 @mixin background-white {
   background-color: $white;
   color: $bg;

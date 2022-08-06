@@ -5,8 +5,8 @@
 <section class="container-wide component-section-large" id="description">
 	<div class="container inner">
 		<div>
-			<a name="about"><h2>What is Pinnacle?</h2></a>
 			<div class="body">
+				<a name="about"><h2>What is Pinnacle?</h2></a>
 				<p>
 					Pinnacle invites the winning team from each of the world's largest 50
 					collegiate hackathons and 5 high school hackathons to compete in an
@@ -39,14 +39,12 @@
 			display: flex;
 			align-items: center;
 			column-gap: 5vw;
-			max-width: 850px;
-			padding: 0 15px;
+			max-width: $max-inner-width;
 		}
 
 		.body {
-			display: block;
-			font-size: 1.3rem;
-			font-weight: lighter;
+			max-width: 665px;
+			margin: auto;
 		}
 
 		.cta {

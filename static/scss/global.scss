@@ -1,8 +1,7 @@
 
-@media (min-width: 1200px) {
-	.inner {
-		max-width: 1100px;
-	}
+// FlexCore override
+.container-wide {
+  max-width: 1400px !important;
 }
 
 $padding-sm: 3rem;

@@ -1,4 +1,4 @@
-<section class="container-wide component-section" id="schedule">
+<section class="container-wide component-section-large" id="schedule">
 	<div class="container inner" id="timeline">
 		<a name="schedule"><h2>Schedule</h2></a>
 		<div class="flex-smart">
@@ -35,8 +35,7 @@
 	}
 
 	#timeline {
-		font-size: 1.3rem;
-		max-width: 850px;
+		max-width: $max-inner-width;
 		padding: 0 10%;
 
 		h2 {
