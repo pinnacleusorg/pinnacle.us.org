@@ -2,7 +2,7 @@
 	export let showLegal = false;
 </script>
 
-<footer class="gold-bg">
+<footer class="dark-bg">
 	<div class="container-wide inner">
 		&copy; 2022 Pinnacle
 		{#if showLegal}
@@ -43,7 +43,7 @@
 			}
 
 			a {
-				color: $bg;
+				color: $white;
 				text-decoration: underline;
 
 				&:hover {

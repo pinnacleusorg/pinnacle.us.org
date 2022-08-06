@@ -26,7 +26,7 @@
 	}
 </script>
 
-<section class="container-wide component-section-large dark-bg">
+<section class="container-wide component-section-large light-bg">
 	<div class="container inner">
 		<a name="contact"><h2>Follow the Journey</h2></a>
 		<div class="flex-smart engagement-deck">
@@ -119,15 +119,16 @@
 		font-size: 1.3rem;
 
 		svg {
-			background-color: $gold;
-			border-radius: 6px;
-			color: $bg;
-			height: 30px;
-			width: 30px;
+			border-radius: 5px;
+			color: $gold;
+			height: 40px;
+			width: 40px;
 			padding: 10px;
+			transition-duration: 0.3s;
 		}
 
 		a:hover svg {
+			background-color: $gold;
 			color: $white;
 		}
 	}
@@ -147,12 +148,11 @@
 		width: 50%;
 
 		input {
-			color: $white;
-			border: 1.5px solid $white;
+			background-color: transparent;
+			border: 2px solid $bg;
 			border-radius: 0;
 			box-sizing: border-box;
-			color: $white;
-			background-color: $bg;
+			color: $bg;
 			font-size: 1rem;
 			font-family: "Noto Sans", sans-serif;
 
@@ -161,7 +161,7 @@
 			width: 100%;
 		}
 		input::placeholder {
-			color: $white;
+			color: $bg;
 			opacity: 0.5;
 		}
 		input:focus,
@@ -169,14 +169,13 @@
 			outline: none;
 			box-shadow: none;
 			border-color: $gold;
-			background-color: $bg;
-			color: $white;
+			color: $gold;
 		}
 		input:first-of-type {
-			border-bottom-width: 0.5px;
+			border-bottom-width: 1px;
 		}
 		input:last-of-type {
-			border-top-width: 0.5px;
+			border-top-width: 1px;
 		}
 	}
 </style>
