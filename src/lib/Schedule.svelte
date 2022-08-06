@@ -14,6 +14,7 @@
 				</p>
 			</span>
 		</div>
+		<br />
 		<div class="flex-smart">
 			<span class="timeline-date">September 17-19, 2021</span>
 			<span class="timeline-desc flex">
@@ -30,25 +31,17 @@
 
 <style lang="scss">
 	#timeline {
-		font-size: 28px;
-		font-weight: lighter;
+		color: $white;
+		font-size: 1.3rem;
 		max-width: 850px;
 		padding: 0 10%;
 
 		h2 {
 			text-align: center;
 		}
-
-		> div {
-			margin-top: 8%;
-		}
 	}
 
 	.timeline-desc {
-		color: $white;
-		font-size: 1.3rem;
-		margin-left: 10%;
-
 		p {
 			margin-top: 0;
 		}
@@ -62,7 +55,6 @@
 		margin-bottom: 15px;
 		min-width: 150px;
 		text-align: left;
-		font-size: 0.8em;
 		font-weight: bold;
 
 		@media (min-width: 768px) {

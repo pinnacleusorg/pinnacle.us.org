@@ -53,6 +53,7 @@
 
 		.cta {
 			display: flex;
+			justify-content: flex-end;
 			column-gap: 20px;
 		}
 

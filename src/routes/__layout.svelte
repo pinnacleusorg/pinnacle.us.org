@@ -39,23 +39,17 @@
 	h2 {
 		font-family: KeplerStd, serif;
 		font-size: 3rem;
+		margin-top: 0;
+		margin-bottom: 5px;
 
 		@media (min-width: 768px) {
 			font-size: 3.5rem;
 		}
 	}
 
-	.header-group {
-		margin: 3rem 0;
-
-		h2 {
-			margin-top: 0;
-			margin-bottom: 5px;
-		}
-		p {
-			margin-top: 5px;
-			margin-bottom: 0;
-		}
+	p {
+		margin-top: 5px;
+		margin-bottom: 0;
 	}
 
 	/* Text styles */
