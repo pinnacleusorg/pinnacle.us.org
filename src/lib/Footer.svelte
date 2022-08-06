@@ -20,7 +20,6 @@
 <style lang="scss">
 	footer {
 		@include background-dark;
-		font-weight: bolder;
 		letter-spacing: 1.2px;
 
 		position: absolute;
