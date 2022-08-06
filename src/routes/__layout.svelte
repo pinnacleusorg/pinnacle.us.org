@@ -31,11 +31,11 @@
 	h4,
 	h5,
 	h6 {
+		font-family: KeplerStd, serif;
 		font-weight: 500;
 	}
 
 	h2 {
-		font-family: KeplerStd, serif;
 		font-size: 3rem;
 		margin-top: 0;
 		margin-bottom: 5px;

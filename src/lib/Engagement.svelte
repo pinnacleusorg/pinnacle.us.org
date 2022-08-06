@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Button } from "@pinnacleusorg/quisp";
 	import { contactsSubscribe } from "./app/api";
+	import Socials from "./Socials.svelte";
 
 	let subscribeDisabled = false;
 	let name: string, email: string; // Bound values
@@ -36,47 +37,35 @@
 				<Button>Apply Now</Button>
 			</div>
 			<div class="card-divider" />
-			<form class="card">
+			<form class="card" action="/mailing">
 				<h3>Stay in the Loop</h3>
-				<div class="stacked-input">
-					<input
-						bind:value={name}
-						type="text"
-						id="engagement-fn"
-						placeholder="First Name"
-					/>
-					<input
-						bind:value={email}
-						type="email"
-						id="engagement-email"
-						placeholder="Email Address"
-					/>
-					<div id="updatedMsg">&nbsp;</div>
-				</div>
+				<input
+					bind:value={name}
+					type="text"
+					id="e-fn"
+					name="name"
+					placeholder="First name"
+				/>
+				<input
+					bind:value={email}
+					type="email"
+					id="e-email"
+					name="email"
+					placeholder="Email address"
+				/>
+				<div id="updatedMsg">&nbsp;</div>
 				<Button on:click={trySubscribe}>Stay Updated</Button>
 			</form>
 		</div>
 		<br />
-		<p class="socials">
-			<a href="//twitter.com/pinnacleusorg" target="_blank" rel="noopener">
-				<svg><use href="/image/socials.svg#twitter" /></svg>
-			</a>
-			<a href="//medium.com/pinnacleusorg" target="_blank" rel="noopener">
-				<svg><use href="/image/socials.svg#medium" /></svg>
-			</a>
-			<a href="//facebook.com/pinnacleusorg" target="_blank" rel="noopener">
-				<svg><use href="/image/socials.svg#facebook" /></svg>
-			</a>
-			<a href="//instagram.com/pinnacleusorg" target="_blank" rel="noopener">
-				<svg><use href="/image/socials.svg#instagram" /></svg>
-			</a>
-		</p>
+		<Socials />
 	</div>
 </section>
 
 <style lang="scss">
 	#engagement {
 		@include background-grey;
+		text-align: center;
 	}
 
 	.card {
@@ -84,8 +73,6 @@
 		align-items: center;
 		flex-direction: column;
 		flex: 1 1;
-		font-family: KeplerStd;
-		text-align: center;
 		margin-bottom: 1rem;
 		padding: 0 1.25rem;
 
@@ -108,38 +95,9 @@
 		}
 	}
 
-	.engagement-deck {
-		margin-bottom: 3rem;
-	}
-
-	h2 {
-		text-align: center;
-	}
-
-	.socials {
-		display: flex;
-		column-gap: 30px;
-		justify-content: center;
-		font-size: 1.3rem;
-
-		svg {
-			border-radius: 5px;
-			color: $gold;
-			height: 40px;
-			width: 40px;
-			padding: 10px;
-			transition-duration: 0.3s;
-		}
-
-		a:hover svg {
-			background-color: $gold;
-			color: $white;
-		}
-	}
-
 	.card-divider {
-		flex: 0 0 3px;
 		background-color: $gold;
+		flex: 0 0 3px;
 		margin: 5vh 10vw;
 
 		@media (min-width: 768px) {
@@ -147,39 +105,34 @@
 		}
 	}
 
-	.stacked-input {
-		margin: auto;
+	input {
+		background-color: transparent;
+		border: 2px solid $bg;
+		border-radius: 0;
+		box-sizing: border-box;
+		color: $bg;
+		font-size: 1rem;
+		font-family: "Noto Sans", sans-serif;
+
+		margin: 0 auto;
+		padding: 0.35rem 0.6rem;
 		width: 50%;
-
-		input {
-			background-color: transparent;
-			border: 2px solid $bg;
-			border-radius: 0;
-			box-sizing: border-box;
-			color: $bg;
-			font-size: 1rem;
-			font-family: "Noto Sans", sans-serif;
-
-			margin: 0;
-			padding: 0.35rem 0.6rem;
-			width: 100%;
-		}
-		input::placeholder {
-			color: $bg;
-			opacity: 0.5;
-		}
-		input:focus,
-		input:active {
-			outline: none;
-			box-shadow: none;
-			border-color: $gold;
-			color: $gold;
-		}
-		input:first-of-type {
-			border-bottom-width: 1px;
-		}
-		input:last-of-type {
-			border-top-width: 1px;
-		}
+	}
+	input::placeholder {
+		color: $bg;
+		opacity: 0.5;
+	}
+	input:focus,
+	input:active {
+		border-color: $gold;
+		box-shadow: none;
+		color: $gold;
+		outline: none;
+	}
+	input:first-of-type {
+		border-bottom-width: 1px;
+	}
+	input:last-of-type {
+		border-top-width: 1px;
 	}
 </style>
