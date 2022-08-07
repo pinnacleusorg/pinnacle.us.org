@@ -34,7 +34,7 @@
 			<div class="card">
 				<h3>Be Future Staff</h3>
 				<p>Be a part of the team that<br /> makes it happen.</p>
-				<Button>Apply Now</Button>
+				<Button color="black">Apply Now</Button>
 			</div>
 			<div class="card-divider" />
 			<form class="card" action="/mailing">
@@ -54,7 +54,7 @@
 					placeholder="Email address"
 				/>
 				<div id="updatedMsg">&nbsp;</div>
-				<Button on:click={trySubscribe}>Stay Updated</Button>
+				<Button color="black" on:click={trySubscribe}>Stay Updated</Button>
 			</form>
 		</div>
 		<br />

@@ -23,8 +23,8 @@
 			</div>
 			<br />
 			<div class="cta">
-				<Button>Contact</Button>
-				<Button>Sponsor</Button>
+				<Button color="black">Contact</Button>
+				<Button color="black-outline">Sponsor</Button>
 			</div>
 		</div>
 	</div>
