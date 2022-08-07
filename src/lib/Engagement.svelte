@@ -68,6 +68,7 @@
 		text-align: center;
 
 		.inner {
+			@include background-white;
 			max-width: $max-inner-width;
 		}
 	}

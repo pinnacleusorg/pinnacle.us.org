@@ -1,9 +1,9 @@
 <section class="container-wide component-section-large" id="schedule">
-	<div class="container inner" id="timeline">
+	<div class="container inner">
 		<a name="schedule"><h2>Schedule</h2></a>
 		<div class="flex-smart">
-			<span class="timeline-date">August 2021</span>
-			<span class="timeline-desc flex">
+			<span class="date">August 2021</span>
+			<span class="desc flex">
 				<p>
 					Winners of qualifying hackathons receive an invitation for Pinnacle
 					2021.
@@ -16,8 +16,8 @@
 		</div>
 		<br />
 		<div class="flex-smart">
-			<span class="timeline-date">September 17-19, 2021</span>
-			<span class="timeline-desc flex">
+			<span class="date">September 17-19, 2021</span>
+			<span class="desc flex">
 				<p>Pinnacle 2021 event takes place.</p>
 				<p>
 					<a href="https://www.twitch.tv/pinnacleusorg/videos" target="_blank">
@@ -32,18 +32,18 @@
 <style lang="scss">
 	#schedule {
 		@include background-grey;
-	}
 
-	#timeline {
-		max-width: $max-inner-width;
-		padding: 0 10%;
-
-		h2 {
-			text-align: center;
+		.inner {
+			@include background-white;
+			max-width: $max-inner-width;
 		}
 	}
 
-	.timeline-desc {
+	h2 {
+		text-align: center;
+	}
+
+	.desc {
 		p {
 			margin-top: 0;
 		}
@@ -53,7 +53,7 @@
 		}
 	}
 
-	.timeline-date {
+	.date {
 		margin-bottom: 15px;
 		min-width: 150px;
 		text-align: left;
