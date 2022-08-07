@@ -1,7 +1,7 @@
 {
   "name": "pinnacle.us.org",
   "description": "pinnacle.us.org landing site",
-  "version": "2.1.1",
+  "version": "3.0.0",
   "type": "module",
   "scripts": {
     "dev": "npx sass static/scss/global.scss static/css/global.css && vite dev",
