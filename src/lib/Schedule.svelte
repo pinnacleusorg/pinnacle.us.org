@@ -3,9 +3,9 @@
 </script>
 
 <section class="container-wide component-section-large" id="schedule">
-	<Chamfer color="white" location="top" orientation="right" width={50} />
+	<Chamfer color="white" location="top" orientation="right" width={55} />
+	<a name="schedule"><h2>Schedule</h2></a>
 	<div class="container inner">
-		<a name="schedule"><h2>Schedule</h2></a>
 		<div class="flex-smart">
 			<span class="date">August 2021</span>
 			<span class="desc flex">
@@ -37,16 +37,18 @@
 <style lang="scss">
 	#schedule {
 		@include background-grey;
+		padding-top: 8rem;
+
+		h2 {
+			margin-bottom: 3rem;
+			text-align: center;
+		}
 
 		.inner {
 			@include background-white;
 			max-width: $max-inner-width;
 			padding: 5rem 2.5rem;
 		}
-	}
-
-	h2 {
-		text-align: center;
 	}
 
 	.flex-smart {
@@ -56,6 +58,7 @@
 	.desc {
 		p {
 			margin-top: 0;
+			margin-bottom: 1rem;
 		}
 
 		a {

@@ -12,13 +12,13 @@
 
 <style lang="scss">
 	.chamfer {
-		--path: polygon(0 0, calc(100% - 3rem) 0, 100% 100%, 0 100%);
+		--path: polygon(0 0, calc(100% - 6rem) 0, 100% 100%, 0 100%);
 		-webkit-clip-path: var(--path);
 		clip-path: var(--path);
 		position: absolute;
 		left: 0;
 		display: block;
-		min-height: 2.5rem;
+		min-height: 4rem;
 		z-index: 5;
 
 		// Location
