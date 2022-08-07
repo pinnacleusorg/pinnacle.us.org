@@ -1,4 +1,9 @@
+<script>
+	import Chamfer from "$lib/Chamfer.svelte";
+</script>
+
 <section class="container-wide component-section-large" id="schedule">
+	<Chamfer color="white" location="top" orientation="right" width={50} />
 	<div class="container inner">
 		<a name="schedule"><h2>Schedule</h2></a>
 		<div class="flex-smart">

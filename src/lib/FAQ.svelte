@@ -1,8 +1,10 @@
 <script>
+	import Chamfer from "$lib/Chamfer.svelte";
 </script>
 
 <section class="container-wide component-section-large" id="faq">
-	<div class="c-bl" />
+	<Chamfer color="grey" location="top" orientation="right" width={35} />
+	<Chamfer color="grey" location="bottom" orientation="left" width={35} />
 	<div class="container inner">
 		<div>
 			<a name="faq"><h2>Frequently Asked Questions</h2></a>
@@ -38,20 +40,6 @@
 <style lang="scss">
 	#faq {
 		@include background-white;
-
-		.c-bl {
-			@include background-grey;
-			--path: polygon(0 0, calc(100% - 3rem) 0, 100% 100%, 0 100%);
-			-webkit-clip-path: var(--path);
-			clip-path: var(--path);
-			position: absolute;
-			bottom: -1px;
-			left: 0;
-			display: block;
-			min-height: 3rem;
-			min-width: 35%;
-			z-index: 5;
-		}
 	}
 
 	.inner {

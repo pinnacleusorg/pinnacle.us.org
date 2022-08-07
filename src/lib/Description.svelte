@@ -1,8 +1,10 @@
 <script>
 	import { Button } from "@pinnacleusorg/quisp";
+	import Chamfer from "$lib/Chamfer.svelte";
 </script>
 
 <section class="container-wide component-section-large" id="description">
+	<Chamfer color="bg" location="top" orientation="right" width={65} />
 	<div class="container inner">
 		<div>
 			<div class="body">
