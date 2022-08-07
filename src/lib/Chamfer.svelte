@@ -8,7 +8,9 @@
 <div
 	class="chamfer {color} {location} {orientation}"
 	style="min-width:{width}%"
-/>
+>
+	<span style="min-width:{width}%"><slot /></span>
+</div>
 
 <style lang="scss">
 	.chamfer {
@@ -49,6 +51,15 @@
 		}
 		&.bg {
 			@include background-dark;
+		}
+
+		span {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			z-index: 10;
 		}
 	}
 </style>

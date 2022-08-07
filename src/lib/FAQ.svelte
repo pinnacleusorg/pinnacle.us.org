@@ -3,7 +3,9 @@
 </script>
 
 <section class="container-wide component-section-large" id="faq">
-	<Chamfer color="grey" location="top" orientation="right" width={35} />
+	<Chamfer color="grey" location="top" orientation="right" width={35}>
+		<div id="sl-1" />
+	</Chamfer>
 	<Chamfer color="grey" location="bottom" orientation="left" width={35} />
 	<div class="container inner">
 		<div>
@@ -40,6 +42,17 @@
 <style lang="scss">
 	#faq {
 		@include background-white;
+
+		#sl-1 {
+			@include background-gold;
+			position: absolute;
+			left: 0;
+			top: 0;
+			right: 0;
+			z-index: 10;
+			min-height: 2.5rem;
+			min-width: 100%;
+		}
 
 		.inner {
 			max-width: $max-inner-width;

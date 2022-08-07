@@ -37,7 +37,21 @@
 <style lang="scss">
 	#schedule {
 		@include background-grey;
+		margin-right: 1.5rem;
 		padding-top: 8rem;
+
+		position: relative;
+
+		&::after {
+			@include background-gold;
+			content: "";
+			position: absolute;
+			right: -1.5rem;
+			top: 8rem;
+			bottom: calc(-4rem + 1px);
+			z-index: 6;
+			width: 1.5rem;
+		}
 
 		h2 {
 			margin-bottom: 3rem;
