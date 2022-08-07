@@ -40,11 +40,15 @@
 <style lang="scss">
 	#faq {
 		@include background-white;
-	}
 
-	.inner {
-		max-width: $max-inner-width;
-		padding: 0 15px;
+		.inner {
+			max-width: $max-inner-width;
+			padding: 0 15px;
+
+			@media (max-width: 768px) {
+				margin: 0 7vw;
+			}
+		}
 	}
 
 	.body {

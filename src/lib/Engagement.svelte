@@ -81,6 +81,10 @@
 			padding: 5rem 2.5rem;
 			padding-bottom: 4rem;
 
+			@media (max-width: 768px) {
+				margin: 0 7vw;
+			}
+
 			position: relative;
 
 			.bg {

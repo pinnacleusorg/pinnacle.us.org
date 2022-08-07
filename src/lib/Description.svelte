@@ -45,6 +45,11 @@
 		.body {
 			max-width: 665px;
 			margin: auto;
+
+			@media (max-width: 768px) {
+				margin: auto 7vw;
+				padding: 5rem 2.5rem;
+			}
 		}
 
 		.cta {
