@@ -36,11 +36,16 @@
 		.inner {
 			@include background-white;
 			max-width: $max-inner-width;
+			padding: 5rem 2.5rem;
 		}
 	}
 
 	h2 {
 		text-align: center;
+	}
+
+	.flex-smart {
+		column-gap: 15%;
 	}
 
 	.desc {
