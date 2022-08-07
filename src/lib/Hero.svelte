@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Chamfer from "./Chamfer.svelte";
+	import Explore from "./Explore.svelte";
 	import Nav from "./Nav.svelte";
 
 	function scrollHandler() {
@@ -47,10 +48,7 @@
 		<img src="/image/logo-text.svg" alt="Pinnacle" />
 		<p class="byline">The Olympics of Hackathons</p>
 	</div>
-	<div id="scroll-prompt">
-		<p>Explore</p>
-		<svg><use xlink:href="image/icons.svg#mouse" /></svg>
-	</div>
+	<Explore />
 </section>
 
 <style lang="scss">
@@ -141,40 +139,6 @@
 			p.byline {
 				font-size: 1.75rem;
 			}
-		}
-	}
-
-	#scroll-prompt {
-		animation: fade-in 1s 1.5s forwards;
-		opacity: 0;
-
-		margin: 0 auto;
-		position: absolute;
-		bottom: 5vh;
-		left: 0;
-		right: 0;
-		z-index: 5;
-
-		display: grid;
-		place-items: center;
-
-		p {
-			margin: 0;
-			margin-bottom: -30px;
-		}
-
-		svg {
-			max-height: 50px;
-			width: 100%;
-		}
-	}
-
-	@keyframes fade-in {
-		0% {
-			opacity: 0;
-		}
-		100% {
-			opacity: 1;
 		}
 	}
 </style>
