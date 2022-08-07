@@ -19,10 +19,14 @@
 		background-color: $bg;
 		color: $white;
 		font-family: "Noto Sans", sans-serif;
-		font-size: 20px;
+		font-size: 18px !important;
 		line-height: 1.75;
 		letter-spacing: 0.1px;
 		scroll-behavior: smooth;
+
+		@media (min-width: 768px) {
+			font-size: 20px !important;
+		}
 	}
 
 	/* Header styles */
