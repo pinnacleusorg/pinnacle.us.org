@@ -69,7 +69,12 @@
 <style lang="scss">
 	#engagement {
 		@include background-grey;
+		padding-top: 8rem;
 		text-align: center;
+
+		h2 {
+			margin-bottom: 3rem;
+		}
 
 		.inner {
 			max-width: $max-inner-width;
@@ -138,7 +143,9 @@
 		margin: 5vh 10vw;
 
 		@media (min-width: 768px) {
-			margin: 2em 0;
+			margin: 0;
+			margin-top: -3.5rem;
+			margin-bottom: 2rem;
 		}
 	}
 
@@ -154,22 +161,23 @@
 		margin: 0 auto;
 		padding: 0.35rem 0.6rem;
 		width: 80%;
-	}
-	input::placeholder {
-		color: $bg;
-		opacity: 0.5;
-	}
-	input:focus,
-	input:active {
-		border-color: $gold;
-		box-shadow: none;
-		color: $gold;
-		outline: none;
-	}
-	input:first-of-type {
-		border-bottom-width: 1px;
-	}
-	input:last-of-type {
-		border-top-width: 1px;
+
+		&::placeholder {
+			color: $bg;
+			opacity: 0.5;
+		}
+		&:focus,
+		&:active {
+			border-color: $gold;
+			box-shadow: none;
+			color: $gold;
+			outline: none;
+		}
+		&:first-of-type {
+			border-bottom-width: 1px;
+		}
+		&:last-of-type {
+			border-top-width: 1px;
+		}
 	}
 </style>
