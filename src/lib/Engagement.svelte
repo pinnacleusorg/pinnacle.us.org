@@ -28,37 +28,41 @@
 </script>
 
 <section class="container-wide component-section-large" id="engagement">
+	<a name="contact"><h2>Follow the Journey</h2></a>
 	<div class="container inner">
-		<a name="contact"><h2>Follow the Journey</h2></a>
-		<div class="flex-smart deck">
-			<div class="card">
-				<h3>Be Future Staff</h3>
-				<p>Be a part of the team that<br /> makes it happen.</p>
-				<Button color="black">Apply Now</Button>
+		<div class="bg" />
+		<div class="bg-rect" />
+		<div class="interactable">
+			<div class="flex-smart deck">
+				<div class="card">
+					<h3>Be Future Staff</h3>
+					<p>Be a part of the team that<br /> makes it happen.</p>
+					<Button color="black">Apply Now</Button>
+				</div>
+				<div class="card-divider" />
+				<form class="card" action="/mailing">
+					<h3>Stay in the Loop</h3>
+					<input
+						bind:value={name}
+						type="text"
+						id="e-fn"
+						name="name"
+						placeholder="First name"
+					/>
+					<input
+						bind:value={email}
+						type="email"
+						id="e-email"
+						name="email"
+						placeholder="Email address"
+					/>
+					<div id="updatedMsg">&nbsp;</div>
+					<Button color="black" on:click={trySubscribe}>Stay Updated</Button>
+				</form>
 			</div>
-			<div class="card-divider" />
-			<form class="card" action="/mailing">
-				<h3>Stay in the Loop</h3>
-				<input
-					bind:value={name}
-					type="text"
-					id="e-fn"
-					name="name"
-					placeholder="First name"
-				/>
-				<input
-					bind:value={email}
-					type="email"
-					id="e-email"
-					name="email"
-					placeholder="Email address"
-				/>
-				<div id="updatedMsg">&nbsp;</div>
-				<Button color="black" on:click={trySubscribe}>Stay Updated</Button>
-			</form>
+			<br />
+			<Socials />
 		</div>
-		<br />
-		<Socials />
 	</div>
 </section>
 
@@ -68,9 +72,37 @@
 		text-align: center;
 
 		.inner {
-			@include background-white;
 			max-width: $max-inner-width;
 			padding: 5rem 2.5rem;
+			padding-bottom: 4rem;
+
+			position: relative;
+
+			.bg {
+				@include background-white;
+				--path: polygon(15% 0%, 100% 0, 100% 85%, 85% 100%, 0 100%, 0% 15%);
+				-webkit-clip-path: var(--path);
+				clip-path: var(--path);
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+			}
+
+			.bg-rect {
+				border: 2px solid $gold;
+				position: absolute;
+				top: 30px;
+				left: 30px;
+				right: 30px;
+				bottom: 30px;
+			}
+
+			.interactable {
+				position: relative;
+				z-index: 5;
+			}
 		}
 	}
 
@@ -79,11 +111,10 @@
 		align-items: center;
 		flex-direction: column;
 		flex: 1 1;
-		margin-bottom: 1rem;
 		padding: 0 1.25rem;
 
 		h3 {
-			font-size: 1.3rem;
+			font-size: 1.35rem;
 			margin-top: 0;
 			margin-bottom: 1rem;
 
@@ -103,7 +134,7 @@
 
 	.card-divider {
 		background-color: $gold;
-		flex: 0 0 3px;
+		flex: 0 0 2px;
 		margin: 5vh 10vw;
 
 		@media (min-width: 768px) {
