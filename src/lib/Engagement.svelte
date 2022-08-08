@@ -144,10 +144,10 @@
 	.card-divider {
 		background-color: $gold;
 		flex: 0 0 2px;
-		margin: 5vh 10vw;
+		margin: 5vh 0;
 
 		@media (min-width: 768px) {
-			margin: 0;
+			margin: 10vw;
 			margin-top: -3.5rem;
 			margin-bottom: 2rem;
 		}

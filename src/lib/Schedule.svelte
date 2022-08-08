@@ -52,6 +52,8 @@
 
 	<a name="schedule"><h2>Schedule</h2></a>
 	<div class="container inner">
+		<div class="visual-separator" />
+		<br />
 		<div class="flex-smart">
 			<span class="date">August 2021</span>
 			<span class="desc flex">
@@ -65,6 +67,7 @@
 				</p>
 			</span>
 		</div>
+		<div class="visual-separator" />
 		<br />
 		<div class="flex-smart">
 			<span class="date">September 17-19, 2021</span>
@@ -183,6 +186,46 @@
 		.desc,
 		.date {
 			text-align: center;
+		}
+	}
+
+	.visual-separator {
+		@include background-gold;
+		width: 2px;
+		height: 6rem;
+		margin: 1rem auto;
+		position: relative;
+
+		&::after,
+		&::before {
+			border-radius: 50%;
+			content: "";
+			position: absolute;
+			top: 100%;
+			left: -30px;
+			right: -30px;
+			margin: auto;
+		}
+
+		&::before {
+			@include background-gold;
+			height: 16px;
+			width: 16px;
+		}
+
+		&::after {
+			@include background-white;
+			height: 12px;
+			width: 12px;
+			transform: translateY(2px);
+		}
+
+		&:first-child {
+			margin-top: -6rem;
+		}
+
+		@media (min-width: 768px) {
+			display: none;
 		}
 	}
 </style>
