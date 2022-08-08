@@ -16,7 +16,7 @@
 	}
 
 	html {
-		background-color: $white;
+		background-color: $bg;
 		color: $white;
 		font-family: "Noto Sans", sans-serif;
 		font-size: 18px !important;

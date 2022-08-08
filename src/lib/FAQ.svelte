@@ -45,6 +45,7 @@
 
 		#sl-1 {
 			@include background-gold;
+			display: none;
 			position: absolute;
 			left: 0;
 			top: 0;
@@ -52,6 +53,10 @@
 			z-index: 10;
 			min-height: 2.5rem;
 			min-width: 100%;
+
+			@media (min-width: 992px) {
+				display: unset;
+			}
 		}
 
 		.inner {
