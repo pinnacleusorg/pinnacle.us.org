@@ -69,11 +69,11 @@
 <style lang="scss">
 	#engagement {
 		@include background-grey;
-		padding-top: 8rem;
+		padding-top: 6rem;
 		text-align: center;
 
 		h2 {
-			margin-bottom: 3rem;
+			margin-bottom: 2rem;
 		}
 
 		.inner {
@@ -82,7 +82,7 @@
 			padding-bottom: 4rem;
 
 			@media (max-width: 768px) {
-				margin: 0 7vw;
+				margin: 0 3vw;
 			}
 
 			position: relative;

@@ -23,10 +23,15 @@
 		svg {
 			border-radius: 5px;
 			color: $gold;
-			height: 40px;
-			width: 40px;
+			height: 25px;
+			width: 25px;
 			padding: 10px;
 			transition-duration: 0.3s;
+
+			@media (min-width: 768px) {
+				height: 40px;
+				width: 40px;
+			}
 		}
 
 		a:hover svg {

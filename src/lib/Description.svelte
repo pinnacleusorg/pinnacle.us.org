@@ -137,8 +137,8 @@
 			margin: auto;
 
 			@media (max-width: 768px) {
-				margin: auto 7vw;
-				padding: 5rem 2.5rem;
+				margin: auto 3vw;
+				padding: 0 2.5rem;
 			}
 		}
 
@@ -149,6 +149,12 @@
 			column-gap: 20px;
 			position: relative;
 			z-index: 10;
+
+			@media (max-width: 768px) {
+				flex-direction: column;
+				row-gap: 20px;
+				margin: 0 50px;
+			}
 		}
 
 		div {

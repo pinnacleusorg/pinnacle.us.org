@@ -83,7 +83,7 @@
 <style lang="scss">
 	#schedule {
 		@include background-grey;
-		padding-top: 8rem;
+		padding-top: 6rem;
 		position: relative;
 
 		@media (min-width: 992px) {
@@ -138,7 +138,7 @@
 		}
 
 		h2 {
-			margin-bottom: 3rem;
+			margin-bottom: 2rem;
 			text-align: center;
 		}
 
@@ -148,7 +148,7 @@
 			padding: 5rem 2.5rem;
 
 			@media (max-width: 768px) {
-				margin: 0 7vw;
+				margin: 0 3vw;
 			}
 		}
 	}
@@ -176,6 +176,13 @@
 
 		@media (min-width: 768px) {
 			width: 35%;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.desc,
+		.date {
+			text-align: center;
 		}
 	}
 </style>
