@@ -10,7 +10,7 @@
 
 	let scrolledHeight = 0;
 	function scrollHandler() {
-		const paths = document.querySelectorAll(".line-container path");
+		const paths = document.querySelectorAll("path:not(.noanimate)");
 		(paths as NodeListOf<SVGPathElement>).forEach((path) => {
 			// Prevent backtracking with a scroll limiter
 			if (window.scrollY < scrolledHeight) return;
@@ -18,8 +18,9 @@
 			// Calculate percentage of the path to show
 			const h = path.getBoundingClientRect().height;
 			const y = path.getBoundingClientRect().y;
-			const per = ((window.innerHeight * 3) / 5 - y) / h;
-			// Set dashoffset to appropriate value based on per.
+			// four fifths of window height is bottom of shown
+			const per = ((window.innerHeight * 4) / 5 - y) / h;
+			// Set dashoffset to appropriate value based on %
 			const l = path.getTotalLength();
 			if (per < 0) {
 				path.style.strokeDashoffset = `${l}`;
@@ -32,7 +33,7 @@
 
 	onMount(() => {
 		// Set each path to be "invisible" with dasharray/dashoffset
-		const paths = document.querySelectorAll(".line-container path");
+		const paths = document.querySelectorAll("path:not(.noanimate)");
 		(paths as NodeListOf<SVGPathElement>).forEach((path) => {
 			path.style.display = "block"; // prevents load jitter
 			path.style.strokeDasharray = `${path.getTotalLength()}`;

@@ -1,13 +1,54 @@
 <script lang="ts">
+	import { onMount } from "svelte";
+	import { cubicInOut } from "svelte/easing";
+
 	import Chamfer from "./Chamfer.svelte";
 	import Explore from "./Explore.svelte";
 	import Nav from "./Nav.svelte";
 
+	// parallax
 	function scrollHandler() {
 		const scrollAdj = (window.scrollY / window.innerHeight) * 100;
 		if (scrollAdj > 150) return; // Performance (reduce DOM operations)
 		let hero = document.querySelector("#hero .inner") as HTMLElement;
 		hero.style.marginTop = `calc(-3rem - ${scrollAdj}px)`;
+	}
+
+	let time = 0;
+	let per = 0;
+	onMount(() => {
+		// fake scrolled height
+		setInterval(() => {
+			time += 0.01;
+			per = cubicInOut(time);
+			animate();
+		}, 25);
+
+		// Set each path to be "invisible" with dasharray/dashoffset
+		const paths = document.querySelectorAll("path.noanimate");
+		(paths as NodeListOf<SVGPathElement>).forEach((path) => {
+			path.style.display = "block"; // prevents load jitter
+			path.style.strokeDasharray = `${path.getTotalLength()}`;
+			path.style.strokeDashoffset = `${path.getTotalLength()}`;
+		});
+	});
+
+	function animate() {
+		const paths = document.querySelectorAll("path.noanimate");
+		(paths as NodeListOf<SVGPathElement>).forEach((path) => {
+			// Calculate percentage of the path to show
+			const h = path.getBoundingClientRect().height;
+			const y = path.getBoundingClientRect().y;
+			// four fifths of window height is bottom of shown
+			// Set dashoffset to appropriate value based on %
+			const l = path.getTotalLength();
+			if (per < 0) {
+				path.style.strokeDashoffset = `${l}`;
+				return;
+			}
+			const o = Math.max(l - per * l, 0);
+			path.style.strokeDashoffset = `${o}`;
+		});
 	}
 </script>
 
@@ -22,6 +63,7 @@
 		xmlns="http://www.w3.org/2000/svg"
 	>
 		<path
+			class="noanimate"
 			d="M101 1.00002L1 1L0.999983 101"
 			stroke="#C79D5E"
 			stroke-width="2px"
@@ -33,7 +75,12 @@
 		fill="none"
 		xmlns="http://www.w3.org/2000/svg"
 	>
-		<path d="M0 400L400 400L400 0" stroke="#C79D5E" stroke-width="2" />
+		<path
+			class="noanimate"
+			d="M0 400L400 400L400 0"
+			stroke="#C79D5E"
+			stroke-width="2"
+		/>
 	</svg>
 	<svg
 		id="hl-3"
@@ -41,7 +88,12 @@
 		fill="none"
 		xmlns="http://www.w3.org/2000/svg"
 	>
-		<path d="M101 1.00001L1 1L0.999991 101" stroke="#C79D5E" stroke-width="2" />
+		<path
+			class="noanimate"
+			d="M101 1.00001L1 1L0.999991 101"
+			stroke="#C79D5E"
+			stroke-width="2"
+		/>
 	</svg>
 
 	<div class="container inner">
