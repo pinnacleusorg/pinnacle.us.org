@@ -32,35 +32,33 @@
 	<div class="container inner">
 		<div class="bg" />
 		<div class="bg-rect" />
-		<div class="interactable">
-			<div class="flex-smart deck">
-				<div class="card">
-					<h3>Be Future Staff</h3>
-					<p>Be a part of the team that<br /> makes it happen.</p>
-					<Button color="black">Apply Now</Button>
-				</div>
-				<div class="card-divider" />
-				<form class="card" action="/mailing">
-					<h3>Stay in the Loop</h3>
-					<input
-						bind:value={name}
-						type="text"
-						id="e-fn"
-						name="name"
-						placeholder="First name"
-					/>
-					<input
-						bind:value={email}
-						type="email"
-						id="e-email"
-						name="email"
-						placeholder="Email address"
-					/>
-					<div id="updatedMsg">&nbsp;</div>
-					<Button color="black" on:click={trySubscribe}>Stay Updated</Button>
-				</form>
+		<div class="flex-smart deck">
+			<div class="card">
+				<h3>Be Future Staff</h3>
+				<p>Be a part of the team that<br /> makes it happen.</p>
+				<Button color="black">Apply Now</Button>
 			</div>
-			<br />
+			<div class="card-divider" />
+			<form class="card" action="/mailing">
+				<h3>Stay in the Loop</h3>
+				<input
+					bind:value={name}
+					type="text"
+					name="name"
+					placeholder="First name"
+				/>
+				<input
+					bind:value={email}
+					type="email"
+					name="email"
+					placeholder="Email address"
+				/>
+				<div id="updatedMsg">&nbsp;</div>
+				<Button color="black" on:click={trySubscribe}>Stay Updated</Button>
+			</form>
+		</div>
+		<br />
+		<div class="deck">
 			<Socials />
 		</div>
 	</div>
@@ -108,7 +106,7 @@
 				bottom: 30px;
 			}
 
-			.interactable {
+			.deck {
 				position: relative;
 				z-index: 5;
 			}

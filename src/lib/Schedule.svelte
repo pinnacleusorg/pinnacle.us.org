@@ -190,7 +190,7 @@
 	}
 
 	.visual-separator {
-		@include background-gold;
+		background-color: $gold;
 		width: 2px;
 		height: 6rem;
 		margin: 1rem auto;
@@ -208,13 +208,13 @@
 		}
 
 		&::before {
-			@include background-gold;
+			background-color: $gold;
 			height: 16px;
 			width: 16px;
 		}
 
 		&::after {
-			@include background-white;
+			background-color: $white;
 			height: 12px;
 			width: 12px;
 			transform: translateY(2px);
