@@ -50,6 +50,31 @@
 		/>
 	</svg>
 
+	<svg
+		class="mobile"
+		width="214"
+		height="134"
+		viewBox="0 0 214 134"
+		fill="none"
+		xmlns="http://www.w3.org/2000/svg"
+	>
+		<path
+			d="M35.3141 133.18L132.607 19.1133L189.589 19.1133"
+			stroke="#C69E60"
+			stroke-miterlimit="10"
+		/>
+		<path
+			d="M77.3271 115.029L174.62 0.999998L214 1"
+			stroke="#C69E60"
+			stroke-miterlimit="10"
+		/>
+		<path
+			d="M193.989 62.1191L-112.152 62.1191L-140 94.7688"
+			stroke="#C69E60"
+			stroke-miterlimit="10"
+		/>
+	</svg>
+
 	<a name="schedule"><h2>Schedule</h2></a>
 	<div class="container inner">
 		<div class="visual-separator" />
@@ -118,12 +143,24 @@
 			bottom: calc(-4rem + 1px);
 		}
 
-		svg {
+		svg:not(.mobile) {
 			display: none;
 			position: absolute;
 
 			@media (min-width: 992px) {
 				display: unset;
+			}
+		}
+
+		svg.mobile {
+			position: absolute;
+			top: 11rem;
+			left: -8rem;
+			height: 15rem;
+			width: 20rem;
+
+			@media (min-width: 768px) {
+				display: none;
 			}
 		}
 

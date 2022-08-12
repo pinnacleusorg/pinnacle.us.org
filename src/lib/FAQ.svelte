@@ -3,10 +3,10 @@
 </script>
 
 <section class="container-wide component-section-large" id="faq">
-	<Chamfer color="grey" location="top" orientation="right" width={35}>
+	<Chamfer color="grey" location="top" orientation="right" width={35} line>
 		<div id="sl-1" />
 	</Chamfer>
-	<Chamfer color="grey" location="bottom" orientation="left" width={35} />
+	<Chamfer color="grey" location="bottom" orientation="left" width={35} line />
 	<div class="container inner">
 		<div>
 			<a name="faq"><h2>Frequently Asked Questions</h2></a>
@@ -42,6 +42,13 @@
 <style lang="scss">
 	#faq {
 		@include background-white;
+		padding-top: 11rem;
+		padding-bottom: 11rem;
+
+		@media (max-width: 768px) {
+			padding-top: 7rem;
+			padding-bottom: 9rem;
+		}
 
 		#sl-1 {
 			@include background-gold;
