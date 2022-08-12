@@ -108,5 +108,9 @@
 			height: 25px;
 			width: 25px;
 		}
+
+		@media (min-width: 768px) {
+			display: none;
+		}
 	}
 </style>

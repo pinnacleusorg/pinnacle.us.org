@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { createEventDispatcher } from "svelte";
+	import { fade, fly } from "svelte/transition";
 	const dispatch = createEventDispatcher();
 
 	function closeNav() {
@@ -7,11 +8,27 @@
 	}
 </script>
 
-<nav class="nav-overlay">
-	<a href="#about" on:click={closeNav}>About</a>
-	<a href="#schedule" on:click={closeNav}>Schedule</a>
-	<a href="#faq" on:click={closeNav}>FAQ</a>
-	<a href="#contact" on:click={closeNav}>Contact</a>
+<nav class="nav-overlay" transition:fade={{ duration: 200 }}>
+	<a
+		href="#about"
+		on:click={closeNav}
+		transition:fade={{ duration: 250, delay: 100 }}>About</a
+	>
+	<a
+		href="#schedule"
+		on:click={closeNav}
+		transition:fade={{ duration: 250, delay: 250 }}>Schedule</a
+	>
+	<a
+		href="#faq"
+		on:click={closeNav}
+		transition:fade={{ duration: 250, delay: 400 }}>FAQ</a
+	>
+	<a
+		href="#contact"
+		on:click={closeNav}
+		transition:fade={{ duration: 250, delay: 550 }}>Contact</a
+	>
 </nav>
 
 <style lang="scss">
