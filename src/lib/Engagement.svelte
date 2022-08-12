@@ -137,7 +137,7 @@
 			font-family: "Noto Sans", sans-serif;
 			font-size: 0.8rem;
 			margin-top: 0;
-			padding: 0.5rem 4rem;
+			padding: 0.5rem 3.5rem;
 		}
 	}
 
@@ -147,7 +147,7 @@
 		margin: 5vh 0;
 
 		@media (min-width: 768px) {
-			margin: 10vw;
+			margin: 1rem;
 			margin-top: -3.5rem;
 			margin-bottom: 2rem;
 		}
