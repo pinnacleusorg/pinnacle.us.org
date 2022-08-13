@@ -118,29 +118,31 @@
 			margin-right: 1.5rem;
 		}
 
-		&::before,
-		&::after {
-			display: none;
-			content: "";
-			position: absolute;
-			right: -1.5rem;
-			z-index: 6;
-			width: 1.5rem;
+		@media (min-width: 992px) {
+			&::before,
+			&::after {
+				display: none;
+				content: "";
+				position: absolute;
+				right: -1.5rem;
+				z-index: 6;
+				width: 1.5rem;
 
-			@media (min-width: 992px) {
-				display: unset;
+				@media (min-width: 992px) {
+					display: unset;
+				}
 			}
-		}
 
-		&::before {
-			@include background-white;
-			top: -4rem;
-			height: 12rem;
-		}
-		&::after {
-			@include background-gold;
-			top: 8rem;
-			bottom: calc(-4rem + 1px);
+			&::before {
+				@include background-white;
+				top: -4rem;
+				height: 12rem;
+			}
+			&::after {
+				@include background-gold;
+				top: 8rem;
+				bottom: calc(-4rem + 1px);
+			}
 		}
 
 		svg:not(.mobile) {

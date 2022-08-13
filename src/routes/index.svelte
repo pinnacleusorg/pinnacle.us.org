@@ -19,7 +19,7 @@
 			const h = path.getBoundingClientRect().height;
 			const y = path.getBoundingClientRect().y;
 			// four fifths of window height is bottom of shown
-			const per = ((window.innerHeight * 4) / 5 - y) / h;
+			const per = ((window.innerHeight * 3) / 5 - y) / h;
 			// Set dashoffset to appropriate value based on %
 			const l = path.getTotalLength();
 			if (per < 0) {
@@ -60,5 +60,23 @@
 	.container-wide {
 		padding: 0;
 		overflow: hidden;
+	}
+
+	@media (max-width: 992px) {
+		:global .component-section-large:not(:last-of-type)::after {
+			background-color: $gold;
+			content: "";
+			display: block;
+
+			position: absolute;
+			top: calc(100% - 3rem);
+			left: 0;
+			right: 0;
+			z-index: 10;
+
+			margin: 0 auto;
+			min-height: 8rem;
+			width: 2px;
+		}
 	}
 </style>
