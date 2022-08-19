@@ -1,31 +1,17 @@
-<script context="module">
-	throw new Error("@migration task: Replace error load function (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3293209)");
-
-	// /** @type {import('@sveltejs/kit').ErrorLoad} */
-	// export function load({ error, status }) {
-	// 	return {
-	// 		props: {
-	// 			title: `${status}: ${error.message}`
-	// 		}
-	// 	};
-	// }
-</script>
-
 <script lang="ts">
 	import Header from "$lib/Header.svelte";
-
-	export let title: string;
+	import { page } from "$app/stores";
 </script>
 
 <svelte:head>
-	<title>Pinnacle • {title}</title>
+	<title>Pinnacle • {$page.status}</title>
 </svelte:head>
 
 <div class="flex-column">
 	<Header />
 	<section class="container component-section flex">
 		<a href="/">&lsaquo; Home</a>
-		<h2>{title}</h2>
+		<h2>{$page.status}: {$page.error.message}</h2>
 		<p>Please recheck the URL or go back to our <a href="/">home page</a>.</p>
 	</section>
 </div>
