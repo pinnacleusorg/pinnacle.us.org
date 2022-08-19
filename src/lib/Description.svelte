@@ -84,7 +84,7 @@
 			</div>
 			<br />
 			<div class="cta">
-				<Button color="black">Contact</Button>
+				<Button color="black" href="#contact">Contact</Button>
 				<Button color="black-outline">Sponsor</Button>
 			</div>
 		</div>
@@ -146,6 +146,7 @@
 			@include background-white;
 			display: flex;
 			justify-content: flex-end;
+			line-height: 1;
 			column-gap: 20px;
 			position: relative;
 			z-index: 10;

@@ -36,7 +36,7 @@
 			<div class="card">
 				<h3>Be Future Staff</h3>
 				<p>Be a part of the team that<br /> makes it happen.</p>
-				<Button color="black">Apply Now</Button>
+				<Button color="black" href="/apply">Apply Now</Button>
 			</div>
 			<div class="card-divider" />
 			<form class="card" action="/mailing">
