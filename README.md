@@ -11,4 +11,4 @@ npm run dev
 
 ## Contributing
 
-For a full contributing guide as well as more details on how to work with Sapper, see `CONTRIBUTING.md`.
+Please see [`CONTRIBUTING.md`](./CONTRIBUTING.md).
