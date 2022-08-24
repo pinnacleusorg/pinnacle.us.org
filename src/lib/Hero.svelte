@@ -4,6 +4,7 @@
 
 	import Chamfer from "./Chamfer.svelte";
 	import Explore from "./Explore.svelte";
+	import HeroLines from "./HeroLines.svelte";
 	import Nav from "./Nav.svelte";
 
 	// parallax
@@ -56,45 +57,7 @@
 <Nav />
 <section id="hero">
 	<Chamfer color="white" location="bottom" orientation="left" width={40} />
-	<svg
-		id="hl-1"
-		viewBox="0 0 101 101"
-		fill="none"
-		xmlns="http://www.w3.org/2000/svg"
-	>
-		<path
-			class="noanimate"
-			d="M101 1.00002L1 1L0.999983 101"
-			stroke="#C79D5E"
-			stroke-width="2px"
-		/>
-	</svg>
-	<svg
-		id="hl-2"
-		viewBox="0 0 401 401"
-		fill="none"
-		xmlns="http://www.w3.org/2000/svg"
-	>
-		<path
-			class="noanimate"
-			d="M0 400L400 400L400 0"
-			stroke="#C79D5E"
-			stroke-width="2"
-		/>
-	</svg>
-	<svg
-		id="hl-3"
-		viewBox="0 0 101 101"
-		fill="none"
-		xmlns="http://www.w3.org/2000/svg"
-	>
-		<path
-			class="noanimate"
-			d="M101 1.00001L1 1L0.999991 101"
-			stroke="#C79D5E"
-			stroke-width="2"
-		/>
-	</svg>
+	<HeroLines />
 
 	<div class="container inner">
 		<img src="/image/logo-text.svg" alt="Pinnacle" />
@@ -113,41 +76,6 @@
 
 		height: 100vh;
 		position: relative;
-
-		#hl-1 {
-			position: absolute;
-			top: calc(7vh + 100px);
-			left: 7vw;
-			width: 101px;
-
-			@media (max-width: 768px) {
-				display: none;
-			}
-		}
-
-		#hl-2 {
-			position: absolute;
-			bottom: 3.5rem;
-			right: 7vw;
-			width: 401px;
-
-			@media (max-width: 768px) {
-				width: 200px;
-			}
-		}
-
-		#hl-3 {
-			position: absolute;
-			bottom: calc(3.5rem - 50px);
-			right: calc(7vw - 50px);
-			width: 101px;
-
-			@media (max-width: 768px) {
-				bottom: calc(3.5rem - 25px);
-				right: calc(7vw - 25px);
-				width: 50px;
-			}
-		}
 
 		.inner {
 			box-sizing: border-box;
