@@ -1,9 +1,5 @@
 <div class="header">
-	<img
-		src="//static.pinnacle.us.org/2021/meta/icon.png"
-		alt="Pinnacle"
-		class="logo"
-	/>
+	<img src="//static.pinnacle.us.org/2021/meta/icon.png" alt="Pinnacle" />
 </div>
 
 <style lang="scss">
@@ -13,7 +9,7 @@
 		justify-content: center;
 	}
 
-	.logo {
+	img {
 		margin: 3rem auto;
 		width: 5rem;
 
