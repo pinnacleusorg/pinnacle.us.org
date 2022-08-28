@@ -12,28 +12,23 @@
 		<div class="visual-separator" />
 		<br />
 		<div class="flex-smart">
-			<span class="date">August 2021</span>
+			<span class="date">Starting August 2022</span>
 			<span class="desc flex">
+				<p>The Pinnacle qualifying season begins.</p>
 				<p>
-					Winners of qualifying hackathons receive an invitation for Pinnacle
-					2021.
-				</p>
-				<p>
-					The 2021-2022 Pinnacle Season begins with new qualifying events in
-					August.
+					Winners of qualifying hackathons will begin receiving invitations for
+					Pinnacle 2023.
 				</p>
 			</span>
 		</div>
 		<div class="visual-separator" />
 		<br />
 		<div class="flex-smart">
-			<span class="date">September 17-19, 2021</span>
+			<span class="date">September 2023</span>
 			<span class="desc flex">
-				<p>Pinnacle 2021 event takes place.</p>
 				<p>
-					<a href="https://www.twitch.tv/pinnacleusorg/videos" target="_blank">
-						Click here to watch the recordings from the livestream.
-					</a>
+					Winners from all around the world fly to Pinnacle 2023 to compete at
+					the highest level.
 				</p>
 			</span>
 		</div>
@@ -101,10 +96,6 @@
 		p {
 			margin-top: 0;
 			margin-bottom: 1rem;
-		}
-
-		a {
-			text-decoration: underline;
 		}
 	}
 
