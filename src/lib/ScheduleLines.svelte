@@ -57,10 +57,9 @@
 
 	svg.mobile {
 		position: absolute;
-		top: 11rem;
-		left: -8rem;
+		top: 9.75rem;
+		left: -1rem;
 		height: 15rem;
-		width: 20rem;
 
 		@media (min-width: 768px) {
 			display: none;
