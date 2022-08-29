@@ -1,9 +1,11 @@
 <script>
 	import Chamfer from "$lib/Chamfer.svelte";
+	import FaqLines from "./FAQLines.svelte";
 </script>
 
 <section class="container-wide component-section-large" id="faq">
 	<Chamfer color="white" location="bottom" orientation="right" width={35} />
+	<FaqLines />
 	<a name="faq"><h2>Frequently Asked Questions</h2></a>
 	<div class="container inner">
 		<div class="body">
@@ -46,6 +48,8 @@
 			@include background-white;
 			max-width: $max-inner-width;
 			padding: 5rem 2.5rem;
+			position: relative;
+			z-index: 5;
 
 			@media (max-width: 768px) {
 				margin: 0 3vw;
