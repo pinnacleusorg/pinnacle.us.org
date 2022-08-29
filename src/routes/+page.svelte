@@ -7,6 +7,7 @@
 	import Footer from "$lib/Footer.svelte";
 
 	import { onMount } from "svelte";
+	import Partners from "$lib/Partners.svelte";
 
 	let scrolledHeight = 0;
 	function scrollHandler() {
@@ -51,6 +52,7 @@
 	<Hero />
 	<Description />
 	<Timeline />
+	<Partners />
 	<FAQ />
 	<EngagementDeck />
 	<Footer showLegal={true} />

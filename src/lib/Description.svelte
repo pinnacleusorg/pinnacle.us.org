@@ -56,6 +56,7 @@
 			display: flex;
 			line-height: 1;
 			column-gap: 20px;
+			width: max-content;
 			position: relative;
 			z-index: 10;
 

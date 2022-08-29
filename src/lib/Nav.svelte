@@ -17,7 +17,9 @@
 	<span class="nav-spacer" />
 	<a href="#about">About</a>
 	<a href="#schedule">Schedule</a>
+	<a href="#partners">Partners</a>
 	<a href="#faq">FAQ</a>
+	<a href="#sponsors">Sponsors</a>
 	<a href="#contact">Contact</a>
 	<button class="mobile" on:click={toggleNav}>
 		{#if navOpen}
@@ -68,7 +70,7 @@
 		column-gap: 60px;
 
 		margin: 5vh auto;
-		padding: 0 50px;
+		padding: 0 75px;
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -83,7 +85,7 @@
 			color: $white;
 			font-family: KeplerStd;
 
-			@media (max-width: 768px) {
+			@media (max-width: 992px) {
 				display: none;
 			}
 		}
@@ -109,7 +111,7 @@
 			width: 25px;
 		}
 
-		@media (min-width: 768px) {
+		@media (min-width: 992px) {
 			display: none;
 		}
 	}
