@@ -2,6 +2,7 @@
 	import { Button } from "@pinnacleusorg/quisp";
 	import { contactsSubscribe } from "./app/api";
 	import Chamfer from "./Chamfer.svelte";
+	import EngagementLines from "./EngagementLines.svelte";
 	import Socials from "./Socials.svelte";
 
 	let subscribeDisabled = false;
@@ -32,6 +33,7 @@
 	<Chamfer color="grey" location="bottom" orientation="left" width={35} />
 	<a name="contact"><h2>Follow the journey.</h2></a>
 	<div class="container inner">
+		<EngagementLines />
 		<div class="bg" />
 		<div class="bg-rect" />
 		<div class="flex-smart deck">
@@ -80,6 +82,7 @@
 			max-width: $max-inner-width;
 			padding: 5rem 2.5rem;
 			padding-bottom: 4rem;
+			position: relative;
 
 			@media (max-width: 768px) {
 				margin: 0 3vw;
