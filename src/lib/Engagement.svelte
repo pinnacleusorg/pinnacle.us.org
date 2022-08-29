@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Button } from "@pinnacleusorg/quisp";
 	import { contactsSubscribe } from "./app/api";
+	import Chamfer from "./Chamfer.svelte";
 	import Socials from "./Socials.svelte";
 
 	let subscribeDisabled = false;
@@ -28,7 +29,8 @@
 </script>
 
 <section class="container-wide component-section-large" id="engagement">
-	<a name="contact"><h2>Follow the Journey</h2></a>
+	<Chamfer color="grey" location="bottom" orientation="left" width={35} />
+	<a name="contact"><h2>Follow the journey.</h2></a>
 	<div class="container inner">
 		<div class="bg" />
 		<div class="bg-rect" />
@@ -66,7 +68,7 @@
 
 <style lang="scss">
 	#engagement {
-		@include background-grey;
+		@include background-white;
 		padding-top: 6rem;
 		text-align: center;
 

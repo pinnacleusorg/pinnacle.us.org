@@ -1,10 +1,9 @@
 <script>
 	import Chamfer from "$lib/Chamfer.svelte";
-	import ScheduleLines from "./ScheduleLines.svelte";
 </script>
 
 <section class="container-wide component-section-large" id="faq">
-	<Chamfer color="grey" location="bottom" orientation="left" width={35} line />
+	<Chamfer color="white" location="bottom" orientation="right" width={35} />
 	<a name="faq"><h2>Frequently Asked Questions</h2></a>
 	<div class="container inner">
 		<div class="body">
@@ -27,7 +26,7 @@
 		</div>
 		<br />
 		<p class="tag">
-			Still need help? Email <a href="/hackathons">kendall@pinnacle.us.org </a>!
+			Still need help? Contact <a href="mailto:">@pinnacle.us.org</a>!
 		</p>
 	</div>
 </section>
@@ -66,6 +65,7 @@
 			summary {
 				border-bottom: 3px solid $gold;
 				cursor: pointer;
+				font-weight: bold;
 				padding: 10px;
 			}
 		}

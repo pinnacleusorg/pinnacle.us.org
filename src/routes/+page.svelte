@@ -8,6 +8,7 @@
 
 	import { onMount } from "svelte";
 	import Partners from "$lib/Partners.svelte";
+	import Sponsors from "$lib/Sponsors.svelte";
 
 	let scrolledHeight = 0;
 	function scrollHandler() {
@@ -55,6 +56,7 @@
 	<Partners />
 	<FAQ />
 	<EngagementDeck />
+	<Sponsors />
 	<Footer showLegal={true} />
 </div>
 
