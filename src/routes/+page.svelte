@@ -21,7 +21,7 @@
 			const h = path.getBoundingClientRect().height;
 			const y = path.getBoundingClientRect().y;
 			// four fifths of window height is bottom of shown
-			const per = ((window.innerHeight * 3) / 5 - y) / h;
+			const per = ((window.innerHeight * 4) / 5 - y) / h;
 			// Set dashoffset to appropriate value based on %
 			const l = path.getTotalLength();
 			if (per < 0) {
@@ -56,7 +56,6 @@
 	<Partners />
 	<FAQ />
 	<EngagementDeck />
-	<Sponsors />
 	<Footer showLegal={true} />
 </div>
 

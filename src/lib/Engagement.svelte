@@ -30,7 +30,10 @@
 </script>
 
 <section class="container-wide component-section-large" id="engagement">
+	<!--
+	For when sponsors get added!
 	<Chamfer color="grey" location="bottom" orientation="left" width={35} />
+	-->
 	<a name="contact"><h2>Follow the journey.</h2></a>
 	<div class="container inner">
 		<EngagementLines />
