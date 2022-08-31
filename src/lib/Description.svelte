@@ -63,7 +63,12 @@
 			@media (max-width: 768px) {
 				flex-direction: column;
 				row-gap: 20px;
-				margin: 0 50px;
+				margin: 0;
+				width: 100%;
+
+				> :global * {
+					width: 100%;
+				}
 			}
 		}
 

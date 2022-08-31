@@ -39,4 +39,10 @@
 		top: 50%;
 		left: -0.5rem;
 	}
+
+	@media (max-width: 992px) {
+		svg {
+			display: none;
+		}
+	}
 </style>

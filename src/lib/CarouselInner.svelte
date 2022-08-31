@@ -22,7 +22,7 @@
 	</button>
 	<div class="flex-row flex-list" id="carouselContainer">
 		{#each futureHackathons as event}
-			<CarouselElement {event} showDate={true} />
+			<CarouselElement {event} />
 		{/each}
 		{#each hackathons as event}
 			<CarouselElement {event} />

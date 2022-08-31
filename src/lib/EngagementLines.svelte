@@ -43,4 +43,10 @@
 		right: calc(100% - 4.5rem);
 		transform: scale(-1);
 	}
+
+	@media (max-width: 992px) {
+		svg {
+			display: none;
+		}
+	}
 </style>
