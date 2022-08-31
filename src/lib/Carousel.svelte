@@ -10,7 +10,7 @@
 
 	onMount(() => {
 		console.log(window.location.hostname);
-		if (window.location.hostname === "127.0.0.1") {
+		if (window.location.hostname === "127.0.0.1" || "localhost") {
 			futureHackathons = [
 				{
 					_id: 1,

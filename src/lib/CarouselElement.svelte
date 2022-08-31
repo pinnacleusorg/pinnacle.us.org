@@ -2,12 +2,11 @@
 	import type { Hackathon } from "$lib/schema/hackathon";
 	export let compact = false;
 	export let event: Hackathon;
-	export let showDate = false;
 
 	$: src =
-		window.location.hostname === "127.0.0.1"
+		window.location.hostname === "127.0.0.1" || "localhost"
 			? "/image/internal.png"
-			: `https://static.pinnacle.us.org/2021/vendor/${event.internal_title}.png`;
+			: `https://static.pinnacle.us.org/2023/patner/${event.internal_title}.png`;
 </script>
 
 <a
@@ -19,9 +18,6 @@
 	<div class="element-grid">
 		<img class="event-img" {src} alt={event.title} />
 		<p>{event.title}</p>
-		{#if showDate}
-			<div class="date">{new Date(event.startDate).toLocaleDateString()}</div>
-		{/if}
 	</div>
 </a>
 
@@ -57,43 +53,12 @@
 		}
 
 		p {
+			color: $bg;
 			grid-column: 1 / 1;
 			grid-row: 2 / 2;
 
 			margin: 3px auto;
 			text-align: center;
-		}
-
-		.date {
-			color: var(--pinnacle-bg-light);
-			font-size: 0.9rem;
-			padding: 2px 12px;
-			position: absolute;
-			top: 0;
-			right: 0;
-		}
-
-		&:hover .date {
-			color: var(--pinnacle-bg-light);
-		}
-
-		&.compact {
-			min-width: calc(20% - 20px);
-			width: unset;
-
-			.element-grid {
-				grid-template-rows: 140px 60px;
-			}
-
-			.event-img {
-				max-width: 140px;
-				max-height: 140px;
-			}
-
-			p {
-				font-size: 1rem;
-				max-width: 100px;
-			}
 		}
 
 		@media (min-width: 992px) {
