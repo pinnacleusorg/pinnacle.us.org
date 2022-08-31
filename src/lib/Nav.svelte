@@ -19,7 +19,6 @@
 	<a href="#schedule">Schedule</a>
 	<a href="#partners">Partners</a>
 	<a href="#faq">FAQ</a>
-	<a href="#sponsors">Sponsors</a>
 	<a href="#contact">Contact</a>
 	<button class="mobile" on:click={toggleNav}>
 		{#if navOpen}

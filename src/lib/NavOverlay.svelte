@@ -20,14 +20,19 @@
 		transition:fade={{ duration: 250, delay: 250 }}>Schedule</a
 	>
 	<a
+		href="#partners"
+		on:click={closeNav}
+		transition:fade={{ duration: 250, delay: 350 }}>Partners</a
+	>
+	<a
 		href="#faq"
 		on:click={closeNav}
-		transition:fade={{ duration: 250, delay: 400 }}>FAQ</a
+		transition:fade={{ duration: 250, delay: 500 }}>FAQ</a
 	>
 	<a
 		href="#contact"
 		on:click={closeNav}
-		transition:fade={{ duration: 250, delay: 550 }}>Contact</a
+		transition:fade={{ duration: 250, delay: 650 }}>Contact</a
 	>
 </nav>
 
