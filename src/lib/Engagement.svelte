@@ -41,8 +41,8 @@
 		<div class="bg-rect" />
 		<div class="flex-smart deck">
 			<div class="card">
-				<h3>Be Future Staff</h3>
-				<p>Be a part of the team that<br /> makes it happen.</p>
+				<h3>Join the Organizing Team</h3>
+				<p>Be part of the team that makes it happen</p>
 				<Button color="black" href="/apply">Apply Now</Button>
 			</div>
 			<div class="card-divider" />
