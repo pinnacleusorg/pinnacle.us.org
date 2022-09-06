@@ -18,7 +18,8 @@
 			<br />
 			<div class="body">
 				<Carousel />
-				<Button color="black" href="/hackathons">See full list</Button>
+				<!--
+				<Button color="black" href="/hackathons">See full list</Button>-->
 			</div>
 		</div>
 	</div>

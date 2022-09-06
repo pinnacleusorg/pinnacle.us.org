@@ -10,25 +10,58 @@
 	<div class="container inner">
 		<div class="body">
 			<details>
-				<summary>How do I join?</summary>
-				<p>Just win!</p>
+				<summary>How do I apply? Who can join?</summary>
+				<p>
+					Sign up for an upcoming Pinnacle participating event. Winners will be
+					invited to Pinnacle 2023.
+				</p>
 			</details>
 			<details>
-				<summary>How do I become a sponsor?</summary>
-				<p>Just win as a sponsor!</p>
+				<summary>What happens when I win a participating event?</summary>
+				<p>
+					Our team will reach out to you directly through the email provided by
+					the hackathon organizers and we will be in touch to confirm your spot.
+					If you have not received anything after a few weeks from winning your
+					hackathon, please check your spam and/or reach out to <a
+						href="mailto:team@pinnacle.us.org">team@pinnacle.us.org</a
+					> for help.
+				</p>
 			</details>
 			<details>
-				<summary>How do I become a join (again)?</summary>
-				<p>Just win more!</p>
+				<summary>Do you provide travel reimbursement?</summary>
+				<p>
+					Yes! All Pinnacle attendees will receive travel reimbursement if they
+					are invited.
+				</p>
 			</details>
 			<details>
-				<summary>How do I become a join (after that)?</summary>
-				<p>Just win EVEN more!</p>
+				<summary
+					>How can I stay up to date with the latest Pinnacle qualifiers?</summary
+				>
+				<p>
+					We post the latest updates for Pinnacle qualifying events on our <a
+						href="//instagram.com/pinnacleusorg">Instagram</a
+					>, <a href="//facebook.com/pinnacleusorg">Facebook</a>, and
+					<a href="//twitter.com/pinnacleusorg">Twitter</a>
+					pages. Additionally, you can
+					<a href="#contact">sign up for our mailing list</a> for a monthly digest
+					of the upcoming Pinnacle qualifying events.
+				</p>
+			</details>
+			<details>
+				<summary>When is Pinnacle 2023? Where is it taking place?</summary>
+				<p>
+					While our date and venue are not confirmed, we are aiming for the
+					event to take place in September 2023. More info will be announced
+					soon.
+				</p>
 			</details>
 		</div>
 		<br />
 		<p class="tag">
-			Still need help? Contact <a href="mailto:">@pinnacle.us.org</a>!
+			Still need help? Contact <a href="mailto:team@pinnacle.us.org"
+				>team@pinnacle.us.org</a
+			>!
 		</p>
 	</div>
 </section>
