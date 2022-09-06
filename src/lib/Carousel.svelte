@@ -25,6 +25,7 @@
 			return;
 		}
 
+		console.log(API_ROOT);
 		fetch(API_ROOT + "/hackathons")
 			.then((res) => res.json())
 			.then(

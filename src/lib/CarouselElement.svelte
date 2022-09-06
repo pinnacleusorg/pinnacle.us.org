@@ -6,7 +6,7 @@
 	$: src =
 		window.location.hostname === "127.0.0.1" || "localhost"
 			? "/image/internal.png"
-			: `https://static.pinnacle.us.org/2023/patner/${event.internal_title}.png`;
+			: `https://static.pinnacle.us.org/2023/partner/${event.internal_title}.png`;
 </script>
 
 <a
