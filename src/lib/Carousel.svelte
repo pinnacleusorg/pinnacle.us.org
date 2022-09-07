@@ -8,8 +8,7 @@
 	let hackathons: Hackathon[] = [];
 
 	onMount(() => {
-		console.log(window.location.hostname);
-		if (window.location.hostname === "127.0.0.1" || "localhost") {
+		if (window.location.hostname === "localhost") {
 			futureHackathons = [
 				{
 					_id: 1,

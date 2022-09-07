@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "@sveltejs/adapter-node": "^1.0.0-next.85",
-    "@sveltejs/kit": "^1.0.0-next.422",
+    "@sveltejs/kit": "^1.0.0-next.474",
     "sass": "^1.54.4",
     "svelte": "^3.49.0",
     "svelte-check": "^2.8.0",
