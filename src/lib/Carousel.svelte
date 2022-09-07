@@ -2,8 +2,7 @@
 	import type { Hackathon } from "$lib/schema/hackathon";
 	import { onMount } from "svelte";
 	import CarouselInner from "./CarouselInner.svelte";
-
-	const API_ROOT = import.meta.env.VITE_API_ROOT;
+	import { PUBLIC_API_ROOT } from "$env/static/public";
 
 	let futureHackathons: Hackathon[] = [];
 	let hackathons: Hackathon[] = [];
@@ -25,8 +24,8 @@
 			return;
 		}
 
-		console.log(API_ROOT);
-		fetch(API_ROOT + "/hackathons")
+		console.log(PUBLIC_API_ROOT);
+		fetch(PUBLIC_API_ROOT + "/hackathons")
 			.then((res) => res.json())
 			.then(
 				({ results }: { results: Hackathon[] }) =>

@@ -1,9 +1,8 @@
 import type { Hackathon } from "$lib/schema/hackathon";
-
-const API_ROOT = import.meta.env.VITE_API_ROOT;
+import { PUBLIC_API_ROOT } from "$env/static/public";
 
 export async function contactsSubscribe(email: string, name: string) {
-	return fetch(API_ROOT + "/contacts", {
+	return fetch(PUBLIC_API_ROOT + "/contacts", {
 		method: "POST",
 		body: JSON.stringify({ email, name }),
 		headers: new Headers({ "Content-Type": "application/json" })
@@ -23,7 +22,7 @@ export async function contactsSubscribe(email: string, name: string) {
 }
 
 export async function hackathonsGet() {
-	return fetch(API_ROOT + "/hackathons")
+	return fetch(PUBLIC_API_ROOT + "/hackathons")
 		.then((res) => res.json())
 		.then((res) => {
 			const masterHackathons = res.results.filter(
