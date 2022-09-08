@@ -5,14 +5,14 @@ import preprocess from 'svelte-preprocess';
 const config = {
 	// Consult https://github.com/sveltejs/svelte-preprocess
 	// for more information about preprocessors
-	preprocess: preprocess(),
+	preprocess: preprocess({
+		scss: {
+			prependData: "@import 'static/scss/mixins.scss';"
+		}
+	}),
 
 	kit: {
-		adapter: adapter(),
-		target: 'body',
-		vite: {
-			mode: process.env.NODE_ENV || 'staging'
-		}
+		adapter: adapter()
 	}
 };
 

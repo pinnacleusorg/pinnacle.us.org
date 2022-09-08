@@ -1,26 +1,24 @@
 {
   "name": "pinnacle.us.org",
   "description": "pinnacle.us.org landing site",
-  "version": "2.1.1",
+  "version": "3.0.0",
   "type": "module",
   "scripts": {
-    "dev": "node node_modules/sass/sass.js static/sass/global.scss static/css/global.css && svelte-kit dev",
-    "build": "node node_modules/sass/sass.js static/sass/global.scss static/css/global.css && svelte-kit build"
+    "dev": "npx sass static/scss/global.scss static/css/global.css && vite dev",
+    "build": "npx sass static/scss/global.scss static/css/global.css && vite build"
   },
   "dependencies": {
-    "@pinnacleusorg/quisp": "^0.5.1",
-    "animejs": "^3.2.1",
-    "dotenv": "^10.0.0",
-    "form-data": "^4.0.0"
+    "@pinnacleusorg/quisp": "^0.11.0",
+    "dotenv": "^10.0.0"
   },
   "devDependencies": {
-    "@sveltejs/adapter-node": "^1.0.0-next.60",
-    "@sveltejs/kit": "^1.0.0-next.215",
-    "sass": "^1.32.10",
-    "svelte": "^3.44.0",
-    "svelte-check": "^2.2.6",
-    "svelte-preprocess": "^4.10.1",
-    "tslib": "^2.0.1",
-    "typescript": "^4.3.2"
+    "@sveltejs/adapter-node": "^1.0.0-next.85",
+    "@sveltejs/kit": "^1.0.0-next.474",
+    "sass": "^1.54.4",
+    "svelte": "^3.49.0",
+    "svelte-check": "^2.8.0",
+    "svelte-preprocess": "^4.10.7",
+    "tslib": "^2.4.0",
+    "typescript": "^4.7.4"
   }
 }
