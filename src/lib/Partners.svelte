@@ -12,13 +12,14 @@
 	<div class="container inner">
 		<div>
 			<a name="partners"><h2>Partnered Events</h2></a>
-			<p>
-				The winners of our partnered hackathons qualify for our premier event.
-			</p>
+			<!--
+			<p>The winners of our partnered hackathons qualify for our premier event.</p>
+			-->
 			<br />
 			<div class="body">
-				<Carousel />
+				<p>Our 2023 partner events will be announced soon!</p>
 				<!--
+				<Carousel />
 				<Button color="black" href="/hackathons">See full list</Button>-->
 			</div>
 		</div>
