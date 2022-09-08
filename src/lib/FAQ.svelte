@@ -23,7 +23,8 @@
 					the hackathon organizers and we will be in touch to confirm your spot.
 					If you have not received anything after a few weeks from winning your
 					hackathon, please check your spam and/or reach out to <a
-						href="mailto:team@pinnacle.us.org">team@pinnacle.us.org</a
+						href="mailto:team@pinnacle.us.org"
+						target="_blank">team@pinnacle.us.org</a
 					> for help.
 				</p>
 			</details>
@@ -40,9 +41,12 @@
 				>
 				<p>
 					We post the latest updates for Pinnacle qualifying events on our <a
-						href="//instagram.com/pinnacleusorg">Instagram</a
-					>, <a href="//facebook.com/pinnacleusorg">Facebook</a>, and
-					<a href="//twitter.com/pinnacleusorg">Twitter</a>
+						href="//instagram.com/pinnacleusorg"
+						target="_blank">Instagram</a
+					>,
+					<a href="//facebook.com/pinnacleusorg" target="_blank">Facebook</a>,
+					and
+					<a href="//twitter.com/pinnacleusorg" target="_blank">Twitter</a>
 					pages. Additionally, you can
 					<a href="#contact">sign up for our mailing list</a> for a monthly digest
 					of the upcoming Pinnacle qualifying events.
