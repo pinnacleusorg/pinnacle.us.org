@@ -8,7 +8,7 @@
     "build": "npx sass static/scss/global.scss static/css/global.css && vite build"
   },
   "dependencies": {
-    "@pinnacleusorg/quisp": "^0.11.0",
+    "@pinnacleusorg/quisp": "^0.11.1",
     "dotenv": "^10.0.0"
   },
   "devDependencies": {
