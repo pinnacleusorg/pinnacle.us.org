@@ -16,7 +16,7 @@
 	import type { SvelteComponent } from "svelte";
 	import { onMount } from "svelte";
 
-	const API_ROOT = import.meta.env.VITE_API_ROOT;
+	import { PUBLIC_API_ROOT } from "$env/static/public";
 
 	onMount(() => {
 		setTimeout(() => {
@@ -64,7 +64,7 @@
 		</div>
 		<br />
 		<form
-			action="{API_ROOT}/apply"
+			action="{PUBLIC_API_ROOT}/apply"
 			method="post"
 			bind:this={form}
 			on:submit={submit}
