@@ -21,8 +21,12 @@
 				</p>
 				<br />
 				<div class="cta">
-					<Button color="black" href="#contact">Contact</Button>
-					<Button color="black-outline">Sponsor</Button>
+					<Button color="black" href="mailto:team@pinnacle.us.org"
+						>Contact</Button
+					>
+					<Button color="black-outline" href="mailto:sponsor@pinnacle.us.org"
+						>Sponsor</Button
+					>
 				</div>
 			</div>
 		</div>
