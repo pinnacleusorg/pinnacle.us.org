@@ -67,66 +67,61 @@
 		Scroll: {scroll}<br />
 		Progress: {progress}
 	</p>
-	{#if progress <= 0.12}
-		<section out:fly={{ duration: 1000, y: 20 }}>
-			<div class="f-1">
-				<img src="//static.pinnacle.us.org/2021/assets/icon.png" alt="" />
-				<h1>Welcome to your arena.</h1>
-			</div>
-		</section>
-	{/if}
-	{#if progress >= 0.13 && progress <= 0.24}
-		<section transition:fly={{ duration: 1000, y: 20 }}>
+	<section class:visible={progress <= 0.1} out:fly={{ duration: 1000, y: 21 }}>
+		<div class="f-1">
+			<img src="//static.pinnacle.us.org/2021/assets/icon.png" alt="" />
+			<h1>Welcome to your arena.</h1>
+		</div>
+	</section>
+	<section
+		class:visible={progress >= 0.13 && progress <= 0.24}
+		transition:fly={{ duration: 1000, y: 20 }}
+	>
+		<div>
+			<h1>The most competitive<br />collegiate hackathon.</h1>
+		</div>
+	</section>
+	<section
+		class:visible={progress >= 0.27 && progress <= 0.34}
+		transition:fly={{ duration: 1000, y: 22 }}
+	>
+		<div>
+			<h1>Kendall is watching.</h1>
+		</div>
+	</section>
+	<section
+		class:visible={progress >= 0.37 && progress <= 0.7}
+		transition:fly={{ duration: 1000, y: 19 }}
+	>
+		<div class="right">
+			<h2 class:highlight={progress > 0.36 && progress <= 0.42}>Cash Prizes</h2>
+			<h2 class:highlight={progress > 0.42 && progress <= 0.49}>Glory</h2>
+			<h2 class:highlight={progress > 0.49 && progress <= 0.56}>Internships</h2>
+			<h2 class:highlight={progress > 0.56 && progress <= 0.63}>Full-time</h2>
+			<h2 class:highlight={progress > 0.63 && progress <= 0.69}>Co-op</h2>
+		</div>
+	</section>
+	<section class:visible={progress >= 0.75} transition:fade>
+		<div class="row">
 			<div>
-				<h1>The most competitive<br />collegiate hackathon.</h1>
+				<h2>36</h2>
+				<p>Hours of intense<br />competition</p>
 			</div>
-		</section>
-	{/if}
-	{#if progress >= 0.25 && progress <= 0.34}
-		<section transition:fly={{ duration: 1000, y: 20 }}>
 			<div>
-				<h1>Kendall is watching.</h1>
+				<h2>50</h2>
+				<p>Top collegiate hackathons<br />participating</p>
 			</div>
-		</section>
-	{/if}
-	{#if progress >= 0.35 && progress <= 0.7}
-		<section transition:fly={{ duration: 1000, y: 20 }}>
-			<div class="right">
-				<h2 class:highlight={progress > 0.36 && progress <= 0.42}>
-					Cash Prizes
-				</h2>
-				<h2 class:highlight={progress > 0.42 && progress <= 0.49}>Glory</h2>
-				<h2 class:highlight={progress > 0.49 && progress <= 0.56}>
-					Internships
-				</h2>
-				<h2 class:highlight={progress > 0.56 && progress <= 0.63}>Full-time</h2>
-				<h2 class:highlight={progress > 0.63 && progress <= 0.69}>Co-op</h2>
+			<div>
+				<h2>200</h2>
+				<p>of the world's brightest<br />student hackers</p>
 			</div>
-		</section>
-	{/if}
-	{#if progress >= 0.71}
-		<section transition:fade>
-			<div class="row">
-				<div>
-					<h2>36</h2>
-					<p>Hours of intense<br />competition</p>
-				</div>
-				<div>
-					<h2>50</h2>
-					<p>Top collegiate hackathons<br />participating</p>
-				</div>
-				<div>
-					<h2>200</h2>
-					<p>of the world's brightest<br />student hackers</p>
-				</div>
-			</div>
-		</section>
-	{/if}
+		</div>
+	</section>
 </section>
 
 <style lang="scss">
 	#parallax {
-		min-height: 5000px;
+		min-height: 10000px;
 		position: relative;
 
 		#bg-img {
@@ -149,6 +144,7 @@
 		}
 
 		section {
+			visibility: hidden;
 			position: fixed;
 			top: 0;
 			right: 0;
@@ -158,6 +154,15 @@
 			min-height: 100vh;
 			display: grid;
 			place-items: center;
+			transition-duration: 0.5s;
+			transform: translateY(-10px);
+			opacity: 0;
+
+			&.visible {
+				visibility: visible;
+				transform: translateY(0);
+				opacity: 1;
+			}
 
 			div {
 				display: flex;
