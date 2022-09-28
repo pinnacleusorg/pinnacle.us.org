@@ -9,11 +9,12 @@
 	import { onMount } from "svelte";
 	import Partners from "$lib/Partners.svelte";
 	import Sponsors from "$lib/Sponsors.svelte";
+	import Parallax from "$lib/Parallax.svelte";
 
 	let scrolledHeight = 0;
 	function scrollHandler() {
 		const paths = document.querySelectorAll("path:not(.noanimate)");
-		(paths as NodeListOf<SVGPathElement>).forEach((path) => {
+		(paths as NodeListOf<SVGPathElement>).forEach(path => {
 			// Prevent backtracking with a scroll limiter
 			if (window.scrollY < scrolledHeight) return;
 			else scrolledHeight = window.scrollY;
@@ -36,7 +37,7 @@
 	onMount(() => {
 		// Set each path to be "invisible" with dasharray/dashoffset
 		const paths = document.querySelectorAll("path:not(.noanimate)");
-		(paths as NodeListOf<SVGPathElement>).forEach((path) => {
+		(paths as NodeListOf<SVGPathElement>).forEach(path => {
 			path.style.display = "block"; // prevents load jitter
 			path.style.strokeDasharray = `${path.getTotalLength()}`;
 			path.style.strokeDashoffset = `${path.getTotalLength()}`;
@@ -50,6 +51,7 @@
 
 <svelte:window on:scroll={scrollHandler} />
 <div class="container-wide">
+	<Parallax />
 	<Hero />
 	<Description />
 	<Timeline />

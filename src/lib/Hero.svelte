@@ -27,7 +27,7 @@
 
 		// Set each path to be "invisible" with dasharray/dashoffset
 		const paths = document.querySelectorAll("path.noanimate");
-		(paths as NodeListOf<SVGPathElement>).forEach((path) => {
+		(paths as NodeListOf<SVGPathElement>).forEach(path => {
 			path.style.display = "block"; // prevents load jitter
 			path.style.strokeDasharray = `${path.getTotalLength()}`;
 			path.style.strokeDashoffset = `${path.getTotalLength()}`;
@@ -36,7 +36,7 @@
 
 	function animate() {
 		const paths = document.querySelectorAll("path.noanimate");
-		(paths as NodeListOf<SVGPathElement>).forEach((path) => {
+		(paths as NodeListOf<SVGPathElement>).forEach(path => {
 			// Calculate percentage of the path to show
 			const h = path.getBoundingClientRect().height;
 			const y = path.getBoundingClientRect().y;
@@ -54,8 +54,8 @@
 </script>
 
 <svelte:window on:scroll={scrollHandler} />
-<Nav />
 <section id="hero">
+	<Nav />
 	<Chamfer color="white" location="bottom" orientation="left" width={40} />
 	<HeroLines />
 
