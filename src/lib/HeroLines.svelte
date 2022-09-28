@@ -1,11 +1,11 @@
 <svg id="hl-1" viewBox="0 0 101 101" xmlns="http://www.w3.org/2000/svg">
-	<path class="noanimate" d="M101 1.00002L1 1L0.999983 101" />
+	<path class="" d="M101 1.00002L1 1L0.999983 101" />
 </svg>
 <svg id="hl-2" viewBox="0 0 401 401" xmlns="http://www.w3.org/2000/svg">
-	<path class="noanimate" d="M0 400L400 400L400 0" />
+	<path class="" d="M0 400L400 400L400 0" />
 </svg>
 <svg id="hl-3" viewBox="0 0 101 101" xmlns="http://www.w3.org/2000/svg">
-	<path class="noanimate" d="M101 1.00001L1 1L0.999991 101" />
+	<path class="" d="M101 1.00001L1 1L0.999991 101" />
 </svg>
 
 <style lang="scss">

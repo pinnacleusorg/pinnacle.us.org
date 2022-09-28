@@ -61,7 +61,7 @@
 
 	<div class="container inner">
 		<img src="/image/logo-text.svg" alt="Pinnacle" />
-		<p class="byline">The Olympics of Hackathons</p>
+		<a name="hero"><p class="byline">The Olympics of Hackathons</p></a>
 	</div>
 	<Explore />
 </section>

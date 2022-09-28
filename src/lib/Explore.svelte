@@ -1,4 +1,8 @@
-<div id="scroll-prompt">
+<script>
+	export let position = "absolute";
+</script>
+
+<div id="scroll-prompt" style="position:{position};">
 	<p>Explore</p>
 	<svg><use href="image/icons.svg#mouse" /></svg>
 </div>
@@ -10,7 +14,7 @@
 
 		margin: 0 auto;
 		position: absolute;
-		bottom: 15vh;
+		bottom: 10vh;
 		left: 0;
 		right: 0;
 		z-index: 5;
