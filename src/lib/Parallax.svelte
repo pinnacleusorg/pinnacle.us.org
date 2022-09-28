@@ -46,6 +46,12 @@
 		Scroll: {scroll}<br />
 		Progress: {progress}
 	</p>
+	<section>
+		<div class="f-1">
+			<img src="//static.pinnacle.us.org/2021/assets/icon.png" alt="" />
+			<h1>Welcome to Your Arena.</h1>
+		</div>
+	</section>
 </section>
 
 <style lang="scss">
@@ -61,6 +67,50 @@
 			left: 0;
 			min-width: 100vw;
 			min-height: 100vh;
+		}
+
+		section {
+			position: fixed;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			min-width: 100vw;
+			min-height: 100vh;
+			display: grid;
+			place-items: center;
+
+			div {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+
+			img {
+				height: 7rem;
+				width: 7rem;
+			}
+
+			h1 {
+				font-family: sans-serif;
+				font-size: 2.5rem;
+				margin: 2rem 0;
+				text-transform: uppercase;
+			}
+		}
+
+		.f-1 {
+			animation: fade-in 1s 1s forwards;
+			opacity: 0;
+		}
+
+		@keyframes fade-in {
+			0% {
+				opacity: 0;
+			}
+			100% {
+				opacity: 1;
+			}
 		}
 
 		.debug {
