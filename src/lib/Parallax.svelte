@@ -1,10 +1,16 @@
 <script lang="ts">
-	let h = window.innerHeight;
-	let w = window.innerWidth;
+	import { onMount } from "svelte";
 
 	let scroll = 0;
 	let progress = 0;
 	let imgToLoad = "001";
+
+	let h: number, w: number;
+
+	onMount(() => {
+		h = window.innerHeight;
+		w = window.innerWidth;
+	});
 
 	function scrollHandler() {
 		scroll = window.scrollY;
