@@ -58,11 +58,13 @@
 
 <svelte:window on:scroll={scrollHandler} on:resize={resizeHandler} />
 {#each Array(61) as _, i}
-	<link
-		rel="preload"
-		as="image"
-		href="/para/{('' + (i + 1)).padStart(3, '0')}.jpg"
-	/>
+	{#if w > 768}
+		<link
+			rel="preload"
+			as="image"
+			href="/para/{('' + (i + 1)).padStart(3, '0')}.jpg"
+		/>
+	{/if}
 {/each}
 <section id="parallax">
 	<canvas id="bg-img" width={w} height={h} />
@@ -284,7 +286,10 @@
 				display: flex;
 				flex-direction: column;
 				align-items: center;
-				text-align: center;
+
+				@media (max-width: 768px) {
+					text-align: center;
+				}
 
 				&.right {
 					align-items: flex-start;
@@ -293,9 +298,6 @@
 				}
 
 				&.mobile-overlay {
-					justify-self: center;
-					margin-right: unset;
-
 					h2 {
 						opacity: 0;
 						visibility: hidden;
