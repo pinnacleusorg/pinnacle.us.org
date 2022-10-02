@@ -153,7 +153,7 @@
 		transition:fly={{ duration: 1000, y: 22 }}
 	>
 		<div>
-			<h1>Kendall is watching.</h1>
+			<h1>Companies are watching.</h1>
 		</div>
 	</section>
 	<section
