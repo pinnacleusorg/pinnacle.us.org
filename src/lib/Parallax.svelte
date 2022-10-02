@@ -293,6 +293,7 @@
 				&.row {
 					flex-direction: column;
 					justify-content: space-around;
+					row-gap: 2rem;
 					max-width: 1480px;
 					width: 100%;
 
@@ -300,6 +301,7 @@
 						flex-direction: row;
 
 						h2 {
+							line-height: unset;
 							font-size: 4rem;
 						}
 					}
@@ -309,6 +311,7 @@
 					}
 
 					h2 {
+						line-height: 1;
 						font-size: 2.5rem;
 						margin: 0;
 					}
