@@ -286,15 +286,13 @@
 				display: flex;
 				flex-direction: column;
 				align-items: center;
-
-				@media (max-width: 768px) {
-					text-align: center;
-				}
+				text-align: center;
 
 				&.right {
 					align-items: flex-start;
 					justify-self: flex-end;
 					margin-right: 15vw;
+					text-align: left;
 				}
 
 				&.mobile-overlay {
@@ -318,6 +316,7 @@
 
 					@media (min-width: 768px) {
 						flex-direction: row;
+						text-align: center;
 
 						h2 {
 							line-height: unset;
