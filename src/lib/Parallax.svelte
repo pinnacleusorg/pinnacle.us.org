@@ -24,7 +24,11 @@
 		loadImage(progress);
 	}
 
-	function resizeHandler() {}
+	function resizeHandler() {
+		h = window.innerHeight;
+		w = window.innerWidth;
+		scrollHandler();
+	}
 
 	function loadImage(progress: number) {
 		const img = new Image();
@@ -34,7 +38,7 @@
 	}
 </script>
 
-<svelte:window on:scroll={scrollHandler} />
+<svelte:window on:scroll={scrollHandler} on:resize={resizeHandler} />
 {#each Array(61) as _, i}
 	<link
 		rel="preload"
