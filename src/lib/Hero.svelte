@@ -7,14 +7,6 @@
 	import HeroLines from "./HeroLines.svelte";
 	import Nav from "./Nav.svelte";
 
-	// parallax
-	function scrollHandler() {
-		const scrollAdj = (window.scrollY / window.innerHeight) * 100;
-		if (scrollAdj > 150) return; // Performance (reduce DOM operations)
-		let hero = document.querySelector("#hero .inner") as HTMLElement;
-		hero.style.marginTop = `calc(-3rem - ${scrollAdj}px)`;
-	}
-
 	let time = 0;
 	let per = 0;
 	onMount(() => {
@@ -53,7 +45,6 @@
 	}
 </script>
 
-<svelte:window on:scroll={scrollHandler} />
 <section id="hero">
 	<Nav />
 	<Chamfer color="white" location="bottom" orientation="left" width={40} />
