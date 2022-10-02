@@ -14,7 +14,7 @@
 
 		margin: 0 auto;
 		position: absolute;
-		bottom: 10vh;
+		bottom: 12vh;
 		left: 0;
 		right: 0;
 		z-index: 5;

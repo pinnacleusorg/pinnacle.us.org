@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Button } from "@pinnacleusorg/quisp";
 	import { onMount } from "svelte";
+	import { elasticOut } from "svelte/easing";
 	import { fade, fly } from "svelte/transition";
 	import Explore from "./Explore.svelte";
 
@@ -19,8 +20,24 @@
 		context = canvas.getContext("2d");
 	});
 
+	let bigNumber1 = 0;
+	let bigNumber2 = 0;
+	let bigNumber3 = 0;
+	function easeNumbers(t: number): void {
+		bigNumber1 = Math.min(Math.round(36 * elasticOut(t)), 36);
+		bigNumber2 = Math.min(Math.round(50 * elasticOut(t)), 50);
+		bigNumber3 = Math.min(Math.round(200 * elasticOut(t)), 200);
+	}
+
 	function scrollHandler() {
 		progress = window.scrollY / dy;
+
+		// handle big numbers animation
+		if (progress > 0.75) {
+			const t = Math.max(Math.min((progress - 0.75) * 0.75, 1), 0);
+			easeNumbers(t);
+		}
+
 		if (w < 768) return; // no images on mobile!
 		loadImage(progress);
 	}
@@ -159,15 +176,15 @@
 	<section class:visible={progress >= 0.75} transition:fade>
 		<div class="row">
 			<div>
-				<h2>36</h2>
+				<h2>{bigNumber1}</h2>
 				<p>Hours of intense<br />competition</p>
 			</div>
 			<div>
-				<h2>50</h2>
+				<h2>{bigNumber2}</h2>
 				<p>Top collegiate hackathons<br />participating</p>
 			</div>
 			<div>
-				<h2>200</h2>
+				<h2>{bigNumber3}</h2>
 				<p>of the world's brightest<br />student hackers</p>
 			</div>
 		</div>
