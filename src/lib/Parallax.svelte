@@ -40,6 +40,15 @@
 			easeNumbers(t);
 		}
 
+		if (progress > 1) {
+			(document.querySelector("#fg-img") as HTMLElement).style.position =
+				"fixed";
+			(document.querySelector("#fg-img") as HTMLElement).style.top = "0";
+		} else {
+			(document.querySelector("#fg-img") as HTMLElement).style.position = "";
+			(document.querySelector("#fg-img") as HTMLElement).style.top = "";
+		}
+
 		if (w < 768) return; // no images on mobile!
 		loadImage(progress);
 	}
@@ -68,6 +77,7 @@
 		/>
 	{/if}
 {/each}
+<div id="fg-img" />
 <section id="parallax">
 	<canvas id="bg-img" width={w} height={h} />
 	{#if progress <= 0.8}
@@ -196,9 +206,22 @@
 </section>
 
 <style lang="scss">
+	#fg-img {
+		background-color: $bg;
+		position: absolute;
+		top: 10000px;
+		right: -100vw;
+		bottom: 0;
+		left: -100vw;
+		z-index: 0;
+		min-width: 100vw;
+		min-height: 200vh;
+	}
+
 	#parallax {
 		min-height: 10000px;
 		position: relative;
+		z-index: -1;
 
 		.mobile-overlay {
 			@media (min-width: 768px) {
