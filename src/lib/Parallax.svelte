@@ -18,6 +18,8 @@
 
 		const canvas = document.querySelector<HTMLCanvasElement>("#bg-img");
 		context = canvas.getContext("2d");
+
+		window.scrollTo(0, 0);
 	});
 
 	let bigNumber1 = 0;
