@@ -35,19 +35,15 @@
 		progress = window.scrollY / dy;
 
 		// handle big numbers animation
+		let t = Math.max(Math.min((progress - 0.75) * 0.75, 1), 0);
 		if (progress > 0.75) {
-			const t = Math.max(Math.min((progress - 0.75) * 0.75, 1), 0);
 			easeNumbers(t);
 		}
 
-		if (progress > 1) {
-			(document.querySelector("#fg-img") as HTMLElement).style.position =
-				"fixed";
-			(document.querySelector("#fg-img") as HTMLElement).style.top = "0";
-		} else {
-			(document.querySelector("#fg-img") as HTMLElement).style.position = "";
-			(document.querySelector("#fg-img") as HTMLElement).style.top = "";
-		}
+		t = Math.max(Math.min((progress - 0.92) * 1.5, 1), 0);
+		(
+			document.querySelector("#fg-img") as HTMLElement
+		).style.opacity = `${elasticOut(t)}`;
 
 		if (w < 768) return; // no images on mobile!
 		loadImage(progress);
@@ -208,14 +204,15 @@
 <style lang="scss">
 	#fg-img {
 		background-color: $bg;
-		position: absolute;
-		top: 10000px;
+		position: fixed;
+		top: 0;
 		right: -100vw;
 		bottom: 0;
 		left: -100vw;
 		z-index: 0;
 		min-width: 100vw;
 		min-height: 200vh;
+		opacity: 0;
 	}
 
 	#parallax {
