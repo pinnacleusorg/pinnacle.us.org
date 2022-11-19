@@ -12,6 +12,10 @@
 		animation: fade-in 1s 1.5s forwards;
 		opacity: 0;
 
+		font-family: KeplerStd;
+		font-weight: 400;
+		font-size: 1.5rem;
+
 		margin: 0 auto;
 		position: absolute;
 		bottom: 12vh;

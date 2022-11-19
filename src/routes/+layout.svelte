@@ -5,14 +5,26 @@
 <style lang="scss" global>
 	@font-face {
 		font-family: "KeplerStd";
-		src: url("https://static.pinnacle.us.org/2021/font/KeplerStd-LightScn.otf");
+		src: url("https://static.pinnacle.us.org/2023/fonts/KeplerStd-LightScn.otf");
 		font-weight: normal;
 	}
 
 	@font-face {
 		font-family: "KeplerStd";
-		src: url("https://static.pinnacle.us.org/2021/font/KeplerStd-SemiboldScnDisp.otf");
+		src: url("https://static.pinnacle.us.org/2023/fonts/KeplerStd-SemiboldScnDisp.otf");
 		font-weight: bold;
+	}
+
+	@font-face {
+		font-family: "Rogan";
+		src: url("https://static.pinnacle.us.org/2023/fonts/Rogan-Bold.otf");
+		font-weight: bold;
+	}
+
+	@font-face {
+		font-family: "Rogan";
+		src: url("https://static.pinnacle.us.org/2023/fonts/Rogan-SemiBold.otf");
+		font-weight: 600;
 	}
 
 	html {
