@@ -57,14 +57,14 @@
 
 	function loadImage(progress: number) {
 		const img = new Image();
-		const imageID = Math.min(Math.max(Math.round(progress * 61) + 1, 1), 61);
+		const imageID = Math.min(Math.max(Math.round(progress * 90) + 1, 1), 90);
 		img.src = `/para/${imageID.toString().padStart(3, "0")}.jpg`;
 		context.drawImage(img, 0, 0, w, h);
 	}
 </script>
 
 <svelte:window on:scroll={scrollHandler} on:resize={resizeHandler} />
-{#each Array(61) as _, i}
+{#each Array(90) as _, i}
 	{#if w > 768}
 		<link
 			rel="preload"
