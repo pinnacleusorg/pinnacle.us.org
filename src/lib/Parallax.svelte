@@ -20,6 +20,7 @@
 		context = canvas.getContext("2d");
 
 		window.scrollTo(0, 0);
+		scrollHandler();
 		setTimeout(() => {
 			scrollHandler();
 		}, 500);
