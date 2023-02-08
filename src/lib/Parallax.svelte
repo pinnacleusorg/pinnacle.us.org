@@ -22,7 +22,7 @@
 		window.scrollTo(0, 0);
 		setTimeout(() => {
 			scrollHandler();
-		}, 50);
+		}, 500);
 	});
 
 	let bigNumber1 = 0;
