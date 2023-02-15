@@ -20,10 +20,7 @@
 		context = canvas.getContext("2d");
 
 		window.scrollTo(0, 0);
-		scrollHandler();
-		setTimeout(() => {
-			scrollHandler();
-		}, 500);
+		loadImage(0);
 	});
 
 	let bigNumber1 = 0;
@@ -62,8 +59,8 @@
 	function loadImage(progress: number) {
 		const img = new Image();
 		const imageID = Math.min(Math.max(Math.round(progress * 90) + 1, 1), 90);
+		img.onload = () => context.drawImage(img, 0, 0, w, h);
 		img.src = `https://static.pinnacle.us.org/2023/landing/parallax/${imageID.toString().padStart(3, "0")}.jpg`;
-		context.drawImage(img, 0, 0, w, h);
 	}
 </script>
 
