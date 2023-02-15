@@ -23,6 +23,7 @@
 	<button class="mobile" on:click={toggleNav}>
 		{#if navOpen}
 			<svg
+				class:navOpen
 				width="28"
 				height="28"
 				viewBox="0 0 28 28"
@@ -70,7 +71,7 @@
 
 		margin: 5vh auto;
 		padding: 0 75px;
-		position: fixed;
+		position: absolute;
 		top: 0;
 		left: 0;
 		right: 0;
@@ -87,6 +88,12 @@
 			@media (max-width: 992px) {
 				display: none;
 			}
+		}
+
+		svg.navOpen {
+			position: fixed;
+			top: 38px;
+			right: 80px;
 		}
 	}
 
