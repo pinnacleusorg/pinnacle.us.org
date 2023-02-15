@@ -62,20 +62,25 @@
 		).style.opacity = `${elasticOut(t)}`;
 
 		if (w < 768) return; // no images on mobile!
-		loadImage(progress);
+		loadImage(progress, false);
 	}
 
 	function resizeHandler(): void {
 		h = window.innerHeight;
 		w = window.innerWidth;
-		scrollHandler();
+		loadImage(progress, true);
 	}
 
-	function loadImage(progress: number): void {
+	function loadImage(progress: number, async: boolean): void {
 		const img = new Image();
 		const imgID = Math.min(Math.max(Math.round(progress * 90) + 1, 1), 90).toString().padStart(3,"0");
-		img.src = `https://static.pinnacle.us.org/2023/landing/parallax/${imgID}.jpg`;
-		context.drawImage(img, 0, 0, w, h);
+		if (async) {
+			img.onload = () => context.drawImage(img, 0, 0, w, h);
+			img.src = `https://static.pinnacle.us.org/2023/landing/parallax/${imgID}.jpg`;
+		} else {
+			img.src = `https://static.pinnacle.us.org/2023/landing/parallax/${imgID}.jpg`;
+			context.drawImage(img, 0, 0, w, h);
+		}
 	}
 </script>
 
