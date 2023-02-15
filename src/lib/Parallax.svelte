@@ -5,9 +5,7 @@
 	import { fade, fly } from "svelte/transition";
 	import Explore from "./Explore.svelte";
 
-	let scroll = 0;
 	let progress = 0;
-
 	let context: CanvasRenderingContext2D;
 
 	let h: number, w: number, dy: number;
@@ -19,9 +17,26 @@
 		const canvas = document.querySelector<HTMLCanvasElement>("#bg-img");
 		context = canvas.getContext("2d");
 
+		// loads the first hero image, waiting for it
+		// then permits the preloader to load the rest of the images
 		window.scrollTo(0, 0);
-		loadImage(0);
+		const img = new Image();
+		img.onload = () => {
+			context.drawImage(img, 0, 0, w, h);
+			preloader();
+		};
+		img.src = `https://static.pinnacle.us.org/2023/landing/parallax/001.jpg`;
 	});
+
+	function preloader(): void {
+		if (w < 768) return; // no images on mobile!
+
+		for (let i = 0; i < 90; i++) {
+			const img = new Image();
+			const imgID = (i + 1).toString().padStart(3, "0");
+			img.src = `https://static.pinnacle.us.org/2023/landing/parallax/${imgID}.jpg`;
+		}
+	}
 
 	let bigNumber1 = 0;
 	let bigNumber2 = 0;
@@ -32,7 +47,7 @@
 		bigNumber3 = Math.min(Math.round(200 * elasticOut(t)), 200);
 	}
 
-	function scrollHandler() {
+	function scrollHandler(): void {
 		progress = window.scrollY / dy;
 
 		// handle big numbers animation
@@ -50,30 +65,21 @@
 		loadImage(progress);
 	}
 
-	function resizeHandler() {
+	function resizeHandler(): void {
 		h = window.innerHeight;
 		w = window.innerWidth;
 		scrollHandler();
 	}
 
-	function loadImage(progress: number) {
+	function loadImage(progress: number): void {
 		const img = new Image();
-		const imageID = Math.min(Math.max(Math.round(progress * 90) + 1, 1), 90);
-		img.onload = () => context.drawImage(img, 0, 0, w, h);
-		img.src = `https://static.pinnacle.us.org/2023/landing/parallax/${imageID.toString().padStart(3, "0")}.jpg`;
+		const imgID = Math.min(Math.max(Math.round(progress * 90) + 1, 1), 90).toString().padStart(3,"0");
+		img.src = `https://static.pinnacle.us.org/2023/landing/parallax/${imgID}.jpg`;
+		context.drawImage(img, 0, 0, w, h);
 	}
 </script>
 
 <svelte:window on:scroll={scrollHandler} on:resize={resizeHandler} />
-{#each Array(90) as _, i}
-	{#if w > 768}
-		<link
-			rel="preload"
-			as="image"
-			href="https://static.pinnacle.us.org/2023/landing/parallax/{('' + (i + 1)).padStart(3, '0')}.jpg"
-		/>
-	{/if}
-{/each}
 <div id="fg-img" />
 {#if progress <= 0.8}
 	<div class="desktop-overlay">
