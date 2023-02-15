@@ -70,7 +70,7 @@
 
 		margin: 5vh auto;
 		padding: 0 75px;
-		position: absolute;
+		position: fixed;
 		top: 0;
 		left: 0;
 		right: 0;
