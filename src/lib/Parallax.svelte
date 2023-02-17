@@ -382,8 +382,10 @@
 
 			h1,
 			h2 {
-				font-family: "Rogan" !important;
+				font-family: "atrament-web" !important;
 				font-size: 2rem;
+				font-weight: 400;
+				letter-spacing: 6px;
 				margin: 2rem 0;
 				max-width: 300px;
 				text-transform: uppercase;

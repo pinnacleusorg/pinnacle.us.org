@@ -14,17 +14,11 @@
 		src: url("https://static.pinnacle.us.org/2023/fonts/KeplerStd-SemiboldScnDisp.otf");
 		font-weight: bold;
 	}
-
+	
 	@font-face {
-		font-family: "Rogan";
-		src: url("https://static.pinnacle.us.org/2023/fonts/Rogan-Bold.otf");
-		font-weight: bold;
-	}
-
-	@font-face {
-		font-family: "Rogan";
-		src: url("https://static.pinnacle.us.org/2023/fonts/Rogan-SemiBold.otf");
-		font-weight: 600;
+		font-family:"atrament-web";
+		src:url("https://static.pinnacle.us.org/2023/fonts/Atrament.otf") format("opentype");
+		font-display:auto;font-style:normal;font-weight:400;font-stretch:normal;
 	}
 
 	html {

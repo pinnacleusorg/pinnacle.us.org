@@ -3,7 +3,6 @@
 </script>
 
 <div id="scroll-prompt" style="position:{position};">
-	<p>Explore</p>
 	<svg><use href="image/icons.svg#mouse" /></svg>
 </div>
 
@@ -11,10 +10,6 @@
 	#scroll-prompt {
 		animation: fade-in 1s 1.5s forwards;
 		opacity: 0;
-
-		font-family: KeplerStd;
-		font-weight: 400;
-		font-size: 1.5rem;
 
 		margin: 0 auto;
 		position: absolute;
@@ -26,13 +21,8 @@
 		display: grid;
 		place-items: center;
 
-		p {
-			margin: 0;
-			margin-bottom: -30px;
-		}
-
 		svg {
-			max-height: 50px;
+			max-height: 75px;
 			width: 100%;
 		}
 	}
