@@ -4,7 +4,7 @@
 
 <footer>
 	<div class="container-wide inner">
-		&copy; 2022 Pinnacle
+		&copy; 2023 Pinnacle
 		{#if showLegal}
 			<div class="legalees">
 				<span class="small" id="updatedMsg">
