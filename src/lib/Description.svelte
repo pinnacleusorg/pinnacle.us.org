@@ -12,7 +12,7 @@
 				<p>
 					Pinnacle invites the winning team from each of the world’s largest 50
 					collegiate hackathons and 5 high school hackathons to compete in an
-					epic hack-off. Pinnacle will return end of year 2023.
+					epic hack-off. Pinnacle will return November 17-19, 2023.
 				</p>
 				<p>
 					Our participants, who represent the brightest developers, designers,
