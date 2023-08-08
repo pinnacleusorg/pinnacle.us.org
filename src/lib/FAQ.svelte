@@ -55,8 +55,7 @@
 			<details>
 				<summary>When is Pinnacle 2023? Where is it taking place?</summary>
 				<p>
-					While our date and venue are not confirmed, we are aiming for the
-					event to take place in September 2023. More info will be announced
+					Pinnacle 2023 will take place end of year 2023. More info and venue will be announced
 					soon.
 				</p>
 			</details>
