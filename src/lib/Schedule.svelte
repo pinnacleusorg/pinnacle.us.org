@@ -24,7 +24,7 @@
 		<div class="visual-separator" />
 		<br />
 		<div class="flex-smart">
-			<span class="date">November 2023</span>
+			<span class="date">End of Year 2023</span>
 			<span class="desc flex">
 				<p>
 					Winners from all around the world fly to Pinnacle 2023 to compete at

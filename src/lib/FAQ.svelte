@@ -55,7 +55,7 @@
 			<details>
 				<summary>When is Pinnacle 2023? Where is it taking place?</summary>
 				<p>
-					Pinnacle 2023 will take place November 17-19, 2023, in the Juniper Aspiration Dome in Sunnyvale, CA (San Francisco Bay Area). More info will be announced
+					Pinnacle 2023 will take place end of year 2023, in the Juniper Aspiration Dome in Sunnyvale, CA (San Francisco Bay Area). More info will be announced
 					soon.
 				</p>
 			</details>
