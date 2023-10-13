@@ -12,12 +12,12 @@
 				<p>
 					Pinnacle invites the winning team from each of the world’s largest 50
 					collegiate hackathons and 5 high school hackathons to compete in an
-					epic hack-off. Pinnacle will return end of year 2023.
+					epic hack-off. Pinnacle will return end of year 2024.
 				</p>
 				<p>
 					Our participants, who represent the brightest developers, designers,
 					and creators in the nation, will receive invitations throughout the
-					Pinnacle 2022-2023 hackathon season.
+					Pinnacle 2023-2024 hackathon season.
 				</p>
 				<br />
 				<div class="cta">

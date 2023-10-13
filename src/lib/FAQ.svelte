@@ -13,7 +13,7 @@
 				<summary>How do I apply? Who can join?</summary>
 				<p>
 					Sign up for an upcoming Pinnacle participating event. Winners will be
-					invited to Pinnacle 2023.
+					invited to Pinnacle 2024.
 				</p>
 			</details>
 			<details>
@@ -53,10 +53,9 @@
 				</p>
 			</details>
 			<details>
-				<summary>When is Pinnacle 2023? Where is it taking place?</summary>
+				<summary>When is Pinnacle 2024? Where is it taking place?</summary>
 				<p>
-					Pinnacle 2023 will take place end of year 2023. More info and venue will be announced
-					soon.
+					Pinnacle 2024 will take place end of year 2024. More info and venue will be announced soon.
 				</p>
 			</details>
 		</div>
