@@ -12,22 +12,22 @@
 		<div class="visual-separator" />
 		<br />
 		<div class="flex-smart">
-			<span class="date">Starting August 2022</span>
+			<span class="date">Starting August 2023</span>
 			<span class="desc flex">
 				<p>The Pinnacle qualifying season begins.</p>
 				<p>
 					Winners of qualifying hackathons will begin receiving invitations for
-					Pinnacle 2023.
+					Pinnacle 2024.
 				</p>
 			</span>
 		</div>
 		<div class="visual-separator" />
 		<br />
 		<div class="flex-smart">
-			<span class="date">November 2023</span>
+			<span class="date">2024</span>
 			<span class="desc flex">
 				<p>
-					Winners from all around the world fly to Pinnacle 2023 to compete at
+					Winners from all around the world fly to Pinnacle 2024 to compete at
 					the highest level.
 				</p>
 			</span>

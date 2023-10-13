@@ -17,7 +17,7 @@
 			-->
 			<br />
 			<div class="body">
-				<p>Our 2023 partner events will be announced soon!</p>
+				<p>Our 2024 partner events will be announced soon!</p>
 				<!--
 				<Carousel />
 				<Button color="black" href="/hackathons">See full list</Button>-->
