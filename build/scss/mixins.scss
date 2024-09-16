@@ -1,0 +1,34 @@
+
+$bg: #1e1e1e;
+$white: #fff;
+$gold: #c79d5e;
+$blue: #36567a;
+
+$adjust-minor: 5;
+$adjust-major: 15;
+
+$max-inner-width: 830px;
+
+@mixin background-white {
+  background-color: $white;
+  color: $bg;
+}
+
+@mixin background-grey {
+  background-color: darken($white, $adjust-minor);
+  color: $bg;
+}
+
+@mixin background-dark {
+  background-color: $bg;
+  color: $white;
+}
+
+@mixin background-gold {
+  background-color: $gold;
+  color: $bg;
+
+  ::selection {
+    background-color: $white;
+  }
+}

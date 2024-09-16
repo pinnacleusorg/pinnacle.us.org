@@ -1,0 +1,36 @@
+
+// FlexCore override
+.container-wide {
+	max-width: 1480px !important;
+}
+
+$padding-sm: 2.5rem;
+$padding-md: 5rem;
+$padding-lg: 10rem;
+
+.component-section, .component-section-large {
+	box-sizing: border-box;
+	position: relative;
+}
+
+.component-section {
+	padding-top: $padding-sm;
+	padding-bottom: $padding-sm;
+}
+
+.component-section-large {
+	padding-top: $padding-md;
+	padding-bottom: $padding-md;
+}
+
+@media (min-width: 768px) {
+	.component-section {
+		padding-top: $padding-md;
+		padding-bottom: $padding-md;
+	}
+	
+	.component-section-large {
+		padding-top: $padding-lg;
+		padding-bottom: $padding-lg;
+	}
+}
